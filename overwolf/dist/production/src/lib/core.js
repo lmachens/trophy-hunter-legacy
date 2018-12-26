@@ -1,0 +1,1 @@
+export let source;export const setSource=newSource=>source=newSource;

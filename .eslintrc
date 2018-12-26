@@ -1,0 +1,57 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "define": true
+  },
+  "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "plugins": ["meteor", "react", "import", "prettier", "jest"],
+  "extends": [
+    "prettier",
+    "eslint:recommended",
+    "plugin:meteor/recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jest/recommended"
+  ],
+  "settings": {
+    "import/resolver": {
+      "meteor": {
+        "extensions": [".js", ".jsx"]
+      }
+    },
+    "import/extensions": [".js", ".jsx"],
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "16.7"
+    }
+  },
+  "rules": {
+    "no-console": "off",
+    "key-spacing": [
+      "error",
+      {
+        "afterColon": true
+      }
+    ],
+    "no-trailing-spaces": "error",
+    "object-curly-spacing": ["error", "always"],
+    "prettier/prettier": "error",
+    "react/jsx-sort-props": 2,
+    "no-dupe-keys": 2,
+    "prefer-const": 2
+  }
+}

@@ -1,0 +1,16 @@
+export const ROUTE_HOME = '/';
+export const ROUTE_TREES = '/trees';
+export const ROUTE_TROPHIES = '/trophies';
+export const ROUTE_MATCHES = '/matches';
+export const ROUTE_PLAYSTYLE = '/playstyle';
+export const ROUTE_RANKING = '/ranking';
+export const ROUTE_OVERLAY = '/overlay';
+export const ROUTE_PROFILE_TREES = '/profile/:userId/trees';
+export const ROUTE_PROFILE_TROPHIES = '/profile/:userId/trophies';
+export const ROUTE_PROFILE_MATCHES = '/profile/:userId/matches';
+export const ROUTE_PROFILE_PLAYSTYLE = '/profile/:userId/playstyle';
+export const ROUTE_MATCH = '/match/:platformId/:matchId/:summonerId';
+export const ROUTE_ITEMS = '/items';
+export const ROUTE_CHAT = '/chat/:channelName';
+export const ROUTE_ADMIN = '/admin';
+export const LOGIN = '/login';

@@ -1,0 +1,135 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  user-select: none;
+  cursor: default;
+  background-color: rgb(10, 10, 12);
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a,
+a:visited,
+a:hover,
+a:active,
+a:link {
+  text-decoration: none;
+}
+
+#react-root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align items in Main Axis */
+  align-items: stretch;
+  /* align items in Cross Axis */
+  align-content: stretch;
+  /* Extra space in Cross Axis */
+  overflow: hidden;
+}
+
+.border {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.border > div {
+  box-shadow: none !important;
+}
+
+main {
+  flex: 1;
+  /* same as flex: 1 1 auto; */
+  overflow: auto;
+}
+
+footer {
+  padding: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4b998;
+  border: 1px solid rgba(224, 136, 33, 0.117647);
+  border-radius: 28px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #937341;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #937341;
+}
+
+::-webkit-scrollbar-track {
+  background: #0e0e0e;
+  border: 56px none #ffffff;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #0e0e0e;
+}
+
+::-webkit-scrollbar-track:active {
+  background: #0e0e0e;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.__react_component_tooltip {
+  opacity: 1 !important;
+  background-color: #111318 !important;
+  border: 1px solid #7e6439 !important;
+  color: #c4b998 !important;
+}
+
+.__react_component_tooltip.type-light.place-bottom:after {
+  border-bottom-color: #7e6439 !important;
+}
+
+.__react_component_tooltip.type-light.place-left:after {
+  border-left-color: #7e6439 !important;
+}
+
+.__react_component_tooltip.type-light.place-top:after {
+  border-top-color: #7e6439 !important;
+}
+
+.__react_component_tooltip.type-light.place-right:after {
+  border-right-color: #7e6439 !important;
+}

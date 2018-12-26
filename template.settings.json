@@ -1,0 +1,20 @@
+{
+  "riotApiKeys": ["RGAPI-XXX"],
+  "championGGApiKey": "XXX",
+  "twitchApiKey": "XXX",
+  "public": {
+    "version": "DEV",
+    "trackingId": "XXX",
+    "patreon": {
+      "id": "XXX"
+    }
+  },
+  "slack": {
+    "webhook": "https://hooks.slack.com/services/XXX"
+  },
+  "patreon": {
+    "id": "XXX",
+    "secret": "XXX",
+    "accessToken": "XXX"
+  }
+}
