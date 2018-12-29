@@ -6,7 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 
-class LotteryWin extends Component {
+export class LotteryWin extends Component {
   state = {
     busy: false,
     priceValue: null

@@ -7,7 +7,7 @@ import champions from '../../../api/riot-api/static/champions';
 import get from 'lodash.get';
 import { getRole } from './helpers';
 import isEqual from 'lodash.isequal';
-import { withChampionStats } from '../champions/withChampionStats';
+import { withChampionStats } from '../../hocs/withChampionStats';
 
 const styles = {
   root: {

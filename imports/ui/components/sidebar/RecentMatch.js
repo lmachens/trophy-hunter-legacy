@@ -2,7 +2,7 @@ import { Link, withRouter } from 'react-router-dom';
 import React, { Component } from 'react';
 
 import GameSessions from '../../../api/game-sessions/gameSessions';
-import HorizontalScroll from '../horizontal-scroll/HorizontalScroll';
+import HorizontalScroll from '../generic/HorizontalScroll';
 import HoverableBorder from './HoverableBorder';
 import LoadingComponent from '../loading/LoadingComponent';
 import { Meteor } from 'meteor/meteor';

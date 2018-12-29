@@ -8,7 +8,7 @@ import get from 'lodash.get';
 import { getPerkImage, getUnknown } from '../../../api/riot-api/staticData';
 import perkStyles from '../../../api/riot-api/static/perk-styles';
 import perks from '../../../api/riot-api/static/perks';
-import { withChampionStats } from '../champions/withChampionStats';
+import { withChampionStats } from '../../hocs/withChampionStats';
 import { TooltipTitle } from '../generic/TooltipTitle';
 import shards from '../../../api/riot-api/static/shards';
 

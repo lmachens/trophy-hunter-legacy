@@ -8,7 +8,7 @@ import get from 'lodash.get';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 import { getRole } from './helpers';
 import isEqual from 'lodash.isequal';
-import { withChampionStats } from '../champions/withChampionStats';
+import { withChampionStats } from '../../hocs/withChampionStats';
 
 const styles = {
   player: {

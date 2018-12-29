@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import Countdown from 'react-countdown-now';
 import LotteryTickets from '../../../api/lotteries/lotteryTickets';
-import LotteryWin from '../lotteries/LotteryWin';
+import LotteryWin from '../LotteryWin';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';

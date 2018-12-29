@@ -6,7 +6,7 @@ import { Tooltip } from '../generic/Tooltip';
 import { Switch } from '../generic';
 import get from 'lodash.get';
 import universeTheme from '../../layouts/universeTheme';
-import { withChampionStats } from '../champions/withChampionStats';
+import { withChampionStats } from '../../hocs/withChampionStats';
 import { TooltipTitle } from '../generic/TooltipTitle';
 
 const styles = {
