@@ -92,16 +92,26 @@ import rammus1 from './definitions/rammus1';
 import akali1 from './definitions/akali1';
 import quinn1 from './definitions/quinn1';
 import lulu1 from './definitions/lulu1';
+import gangplank1 from './definitions/gangplank1';
+import masterYi1 from './definitions/masterYi1';
+import ekko1 from './definitions/ekko1';
+import twitch1 from './definitions/twitch1';
+import sona1 from './definitions/sona1';
 
 export const activeTrees = {
+  gangplank1,
+  masterYi1,
+  ekko1,
+  twitch1,
+  sona1
+};
+
+export const expiredTrees = {
   illaoi1,
   rammus1,
   akali1,
   quinn1,
-  lulu1
-};
-
-export const expiredTrees = {
+  lulu1,
   renekton1,
   volibear1,
   lissandra1,
