@@ -1,5 +1,6 @@
 import { Button, Dialog } from '../generic';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Changelog from '../update/Changelog';
 import Help from '../help/Help';
@@ -22,7 +23,7 @@ const styles = {
 
 class SettingsDialog extends Component {
   state = {
-    open: false,
+    open: this.props.forceOpen || false,
     tab: TABS.SETTINGS
   };
 
@@ -114,5 +115,9 @@ class SettingsDialog extends Component {
     );
   }
 }
+
+SettingsDialog.propTypes = {
+  forceOpen: PropTypes.bool
+};
 
 export default SettingsDialog;

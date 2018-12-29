@@ -33,8 +33,8 @@ Store.propTypes = {
   trophyPoints: PropTypes.number
 };
 
-const mapStateToProps = ({ account: { userId, trophyHunter = { trophyPoints: 0 } } }) => {
-  return { userId, trophyPoints: trophyHunter.trophyPoints };
+const mapStateToProps = ({ account: { userId, trophyHunter } }) => {
+  return { userId, trophyPoints: (trophyHunter && trophyHunter.trophyPoints) || 0 };
 };
 
 export default connect(mapStateToProps)(Store);

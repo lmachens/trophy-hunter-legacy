@@ -85,8 +85,8 @@ const FriendsContainer = withTracker(({ friends }) => {
   };
 })(Friends);
 
-const mapStateToProps = ({ account: { trophyHunter = { friends: [] } } }) => {
-  return { friends: trophyHunter.friends };
+const mapStateToProps = ({ account: { trophyHunter } }) => {
+  return { friends: (trophyHunter && trophyHunter.friends) || [] };
 };
 
 export default connect(mapStateToProps)(FriendsContainer);

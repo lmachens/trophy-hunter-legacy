@@ -254,7 +254,7 @@ class NotificationsComponent extends Component {
   };
 
   render() {
-    const { notifications } = this.props;
+    const { notifications = [] } = this.props;
     const { open, openDialog, dialogTitle, dialogContent } = this.state;
 
     const newNotifications = notifications.filter(notification => notification.read === false);

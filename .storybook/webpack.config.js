@@ -19,6 +19,10 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       '/imports': path.resolve(__dirname, '../imports'),
+      'meteor/lmachens:user-presence': path.resolve(
+        __dirname,
+        '../stubs/meteor/lmachens_user-presence'
+      ),
       meteor: path.resolve(__dirname, '../stubs/meteor'),
       'meteor-publish-join': path.resolve(__dirname, '../stubs/meteorPublishJoin')
     }

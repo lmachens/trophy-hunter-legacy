@@ -5,8 +5,8 @@ Collection.prototype.update = () => {};
 Collection.prototype.remove = () => {};
 Collection.prototype.findOne = () => {};
 Collection.prototype.find = () => ({
-  count: () => {},
-  fetch: () => {}
+  count: () => 0,
+  fetch: () => []
 });
 Collection.prototype.helpers = () => {};
 Collection.prototype.after = {

@@ -149,8 +149,8 @@ const TwitchContainer = withTracker(() => {
   };
 })(Twitch);
 
-const mapStateToProps = ({ account: { userId, trophyHunter = { friends: [] } } }) => {
-  return { userId, friends: trophyHunter.friends };
+const mapStateToProps = ({ account: { userId, trophyHunter } }) => {
+  return { userId, friends: (trophyHunter && trophyHunter.friends) || [] };
 };
 
 export default connect(mapStateToProps)(TwitchContainer);

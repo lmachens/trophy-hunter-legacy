@@ -140,7 +140,7 @@ const styles = {
   }
 };
 
-const serverVersion = Meteor.settings.public.version;
+const serverVersion = Meteor.settings && Meteor.settings.public.version;
 
 class AppLayout extends Component {
   state = {
