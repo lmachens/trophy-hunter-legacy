@@ -12,7 +12,7 @@ import { getStats } from '../../../api/trophy-hunters/helpers';
 import playstyles from '../../../api/playstyles/playstyles';
 import universeTheme from '../../layouts/universeTheme';
 
-class RankComponent extends PureComponent {
+class Ranking extends PureComponent {
   state = {
     hovered: false
   };
@@ -199,7 +199,7 @@ class RankComponent extends PureComponent {
   }
 }
 
-RankComponent.propTypes = {
+Ranking.propTypes = {
   trophyHunter: PropTypes.object,
   style: PropTypes.object,
   previewItems: PropTypes.object,
@@ -208,4 +208,4 @@ RankComponent.propTypes = {
   season: PropTypes.string.isRequired
 };
 
-export default RankComponent;
+export default Ranking;

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Trophy from '../Trophy';
 
 import Attribute from '../playstyle/Attribute';
-import Perk from '../perks/Perk';
+import Perk from '../Perk';
 import PropTypes from 'prop-types';
 import TrophyStats from '../TrophyStats';
 import { trophies } from '../../../api/trophies';
