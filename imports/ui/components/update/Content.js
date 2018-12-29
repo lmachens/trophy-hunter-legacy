@@ -5,7 +5,7 @@ import PlaystyleIcon from '../playstyle/PlaystyleIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Tooltip } from '../generic/Tooltip';
-import Trophy from '../trophies/Trophy';
+import Trophy from '../Trophy';
 import { features } from '../../../api/features';
 import playstyles from '../../../api/playstyles/playstyles';
 import { trophies } from '../../../api/trophies';

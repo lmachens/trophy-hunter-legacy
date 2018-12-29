@@ -13,7 +13,7 @@ import Playstyle from '../playstyle/Playstyle';
 import PropTypes from 'prop-types';
 import Rank from '../trophy-hunter/Rank';
 import Trees from '../tree/Trees';
-import Trophies from '../trophies/Trophies';
+import AllTrophies from '../AllTrophies';
 import TrophyHunters from '../../../api/trophy-hunters/trophyHunters';
 import universeTheme from '../../layouts/universeTheme';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -176,7 +176,7 @@ class Level extends Component {
           <div style={styles.contentBox}>
             {tab === 'trees' && <Trees trophyHunter={trophyHunter} />}
 
-            {tab === 'trophies' && <Trophies trophyHunter={trophyHunter} />}
+            {tab === 'trophies' && <AllTrophies trophyHunter={trophyHunter} />}
 
             {tab === 'matches' && <Matches trophyHunter={trophyHunter} userId={userId} />}
             {tab === 'playstyle' && <Playstyle trophyHunter={trophyHunter} userId={userId} />}

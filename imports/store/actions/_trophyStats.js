@@ -21,7 +21,7 @@ const requestTrophyStats = trophyName => {
   };
 };
 
-const receiveTrophyStats = (trophyName, stats) => {
+export const receiveTrophyStats = (trophyName, stats) => {
   return {
     type: RECEIVE_TROPHY_STATS,
     trophyName,

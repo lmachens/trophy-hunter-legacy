@@ -2,7 +2,7 @@ import { MenuItem, SelectField, TextField } from '../generic';
 import React, { PureComponent } from 'react';
 
 import PropTypes from 'prop-types';
-import Trophy from '../trophies/Trophy';
+import Trophy from '../Trophy';
 import TrophyHunterName from '../trophy-hunter/TrophyHunterName';
 import { connect } from 'react-redux';
 import get from 'lodash.get';
