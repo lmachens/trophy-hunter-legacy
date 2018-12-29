@@ -2,7 +2,7 @@ import AvatarWithStatus from '../AvatarWithStatus';
 import HoverableBorder from './HoverableBorder';
 import { JoinClient } from 'meteor-publish-join';
 import { Link } from 'react-router-dom';
-import Notifications from '../notifications/Notifications';
+import Notifications from '../_Notifications';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
