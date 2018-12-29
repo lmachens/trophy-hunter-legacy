@@ -12,6 +12,6 @@ const extendedMatchResult = {
   gameId: 123
 };
 
-storiesOf('TrophiesObtained', module).add('TrophiesObtained', () => (
+storiesOf('Components', module).add('TrophiesObtained', () => (
   <TrophiesObtained extendedMatchResult={extendedMatchResult} />
 ));

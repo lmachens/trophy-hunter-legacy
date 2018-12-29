@@ -5,20 +5,20 @@ import { openEncyclopediaEntry } from '../../../store/actions';
 import { store } from '../../../store/store';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Encyclopedia', module)
-  .add('Trees', () => {
+storiesOf('Components', module)
+  .add('Encyclopedia:Trees', () => {
     store.dispatch(openEncyclopediaEntry({ tab: TABS.TREES }));
     return <Encyclopedia />;
   })
-  .add('Trophies', () => {
+  .add('Encyclopedia:Trophies', () => {
     store.dispatch(openEncyclopediaEntry({ tab: TABS.TROPHIES }));
     return <Encyclopedia />;
   })
-  .add('Playstyles', () => {
+  .add('Encyclopedia:Playstyles', () => {
     store.dispatch(openEncyclopediaEntry({ tab: TABS.PLAYSTYLES }));
     return <Encyclopedia />;
   })
-  .add('Attributes', () => {
+  .add('Encyclopedia:Attributes', () => {
     store.dispatch(openEncyclopediaEntry({ tab: TABS.ATTRIBUTES }));
     return <Encyclopedia />;
   });

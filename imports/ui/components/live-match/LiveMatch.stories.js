@@ -13,7 +13,7 @@ import React from 'react';
 import { store } from '../../../store/store';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('LiveMatch', module).add('basic', () => {
+storiesOf('Components', module).add('LiveMatch', () => {
   const firstTeam = [
     {
       championId: 69,

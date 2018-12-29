@@ -3,13 +3,13 @@ import PreMatch from './PreMatch';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Pre-Match', module)
-  .add('Champ select', () => (
+storiesOf('Components', module)
+  .add('Pre-Match:Champ select', () => (
     <PreMatch localPlayerCellId={6} myTeam={myTeam} theirTeam={theirTeam} />
   ))
-  .add('Unknown Champion', () => <ChampionGuide championId={0} />)
-  .add('Annie', () => <ChampionGuide championId={1} />)
-  .add('Cassiopeia', () => <ChampionGuide championId={69} />);
+  .add('Pre-Match:Unknown Champion', () => <ChampionGuide championId={0} />)
+  .add('Pre-Match:Annie', () => <ChampionGuide championId={1} />)
+  .add('Pre-Match:Cassiopeia', () => <ChampionGuide championId={69} />);
 
 const myTeam = [
   {

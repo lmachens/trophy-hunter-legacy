@@ -24,6 +24,6 @@ const exampleLotteries = [
   }
 ];
 
-storiesOf('LotteryItem', module).add('LotteryItem', () => (
+storiesOf('Components', module).add('LotteryItem', () => (
   <LotteryItem lotteries={exampleLotteries} />
 ));
