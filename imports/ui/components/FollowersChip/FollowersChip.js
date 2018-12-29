@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { array, object } from 'prop-types';
 
 import { PeopleIcon } from '../icons';
-import TrophyHunterName from '../trophy-hunter/TrophyHunterName';
+import TrophyHunterName from '../TrophyHunterName';
 import { withRouter } from 'react-router-dom';
 
 const styles = {

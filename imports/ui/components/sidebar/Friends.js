@@ -4,7 +4,7 @@ import HoverableBorder from './HoverableBorder';
 import { JoinClient } from 'meteor-publish-join';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import TrophyHunter from '../trophy-hunter/TrophyHunter';
+import TrophyHunter from '../TrophyHunter';
 import { connect } from 'react-redux';
 import universeTheme from '../../layouts/universeTheme';
 import { withTracker } from 'meteor/react-meteor-data';

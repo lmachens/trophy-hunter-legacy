@@ -6,7 +6,7 @@ import LoadingComponent from '/imports/ui/components/loading/LoadingComponent';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import RankingTrophyHunters from './RankingTrophyHunters';
-import TrophyHunterPopover from '/imports/ui/components/trophy-hunter/TrophyHunterPopover';
+import TrophyHunterPopover from '/imports/ui/components/TrophyHunterPopover';
 import isEqual from 'lodash.isequal';
 import queryString from 'query-string';
 import throttle from 'lodash.throttle';

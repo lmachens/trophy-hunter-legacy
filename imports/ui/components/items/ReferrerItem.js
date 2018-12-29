@@ -3,11 +3,11 @@ import React, { PureComponent } from 'react';
 
 import PropTypes from 'prop-types';
 import Trophy from '../Trophy';
-import TrophyHunterName from '../trophy-hunter/TrophyHunterName';
+import TrophyHunterName from '../TrophyHunterName';
 import { connect } from 'react-redux';
 import get from 'lodash.get';
 import { trophies } from '../../../api/trophies';
-import TrophyHunterAutoComplete from '../trophy-hunter/TrophyHunterAutoComplete';
+import TrophyHunterAutoComplete from '../TrophyHunterAutoComplete';
 
 class ReferrerItem extends PureComponent {
   state = {
