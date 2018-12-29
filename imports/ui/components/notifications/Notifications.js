@@ -11,7 +11,7 @@ import Notifications, { notificationTypes } from '../../../api/notifications/not
 import React, { Component } from 'react';
 import trees, { expiredTrees } from '../../../api/trees/trees';
 
-import LotteryWin from '../lotteries/LotteryWin';
+import LotteryWin from '../LotteryWin';
 import { Meteor } from 'meteor/meteor';
 import PlaystyleIcon from '../playstyle/PlaystyleIcon';
 import PropTypes from 'prop-types';

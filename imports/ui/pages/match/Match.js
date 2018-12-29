@@ -7,7 +7,7 @@ import { Meteor } from 'meteor/meteor';
 import { OpenInNewIcon } from '../../components/icons';
 import PropTypes from 'prop-types';
 import Timeline from '../../components/timeline/Timeline';
-import TrophiesObtained from '../../components/narrator/TrophiesObtained';
+import TrophiesObtained from '../../components/TrophiesObtained';
 import champions from '../../../api/riot-api/static/champions';
 import extendMatchResult from '../../../api/matches/extendMatchResult';
 import moment from 'moment';

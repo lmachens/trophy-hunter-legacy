@@ -1,6 +1,6 @@
 import { getFirstTimeBonus, getTreeBonus, trophies } from '../../../api/trophies';
 
-import HorizontalScroll from '../horizontal-scroll/HorizontalScroll';
+import HorizontalScroll from '../generic/HorizontalScroll';
 import LoadingComponent from '../loading/LoadingComponent';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';

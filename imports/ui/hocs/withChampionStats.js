@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchChampionStatsIfNeeded } from '../../../store/actions';
+import { fetchChampionStatsIfNeeded } from '../../store/actions';
 import isEqual from 'lodash.isequal';
 
 export const withChampionStats = WrappedComponent => {

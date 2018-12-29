@@ -6,7 +6,7 @@ import { Tooltip } from '@material-ui/core';
 import get from 'lodash.get';
 import { getItem } from '../../../api/riot-api/staticData';
 import riotItems from '../../../api/riot-api/static/items';
-import { withChampionStats } from '../champions/withChampionStats';
+import { withChampionStats } from '../../hocs/withChampionStats';
 import { TooltipTitle } from '../generic/TooltipTitle';
 
 const styles = {

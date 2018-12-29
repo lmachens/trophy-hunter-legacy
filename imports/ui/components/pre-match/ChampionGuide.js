@@ -16,7 +16,7 @@ import { getRole } from './helpers';
 import isEqual from 'lodash.isequal';
 import moment from 'moment';
 import universeTheme from '../../layouts/universeTheme';
-import { withChampionStats } from '../champions/withChampionStats';
+import { withChampionStats } from '../../hocs/withChampionStats';
 
 const styles = {
   container: {

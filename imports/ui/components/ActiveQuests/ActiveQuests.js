@@ -1,6 +1,6 @@
 import React from 'react';
 
-import HorizontalScroll from '../horizontal-scroll/HorizontalScroll';
+import HorizontalScroll from '../generic/HorizontalScroll';
 import PropTypes from 'prop-types';
 import Trophy from '../trophies/Trophy';
 import getActiveQuestTrophies from '../../../api/trophies/getActiveQuestTrophies';

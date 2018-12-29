@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Tooltip } from '../generic/Tooltip';
 import get from 'lodash.get';
 import universeTheme from '../../layouts/universeTheme';
-import { withChampionStats } from '../champions/withChampionStats';
+import { withChampionStats } from '../../hocs/withChampionStats';
 
 const styles = {
   root: {

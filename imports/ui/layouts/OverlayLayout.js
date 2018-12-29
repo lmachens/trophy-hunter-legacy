@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import ConnectionStatus from '../components/ConnectionStatus';
 import Encyclopedia from '../components/encyclopedia/Encyclopedia';
 import { IconButton } from '../components/generic';
-import MaintenanceDialog from '../components/maintenance/MaintenanceDialog';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import RiotVersion from '../components/topbar/RiotVersion';
@@ -202,7 +201,6 @@ class OverlayLayout extends Component {
         </header>
         <div style={styles.content}>
           <ErrorBoundary>{children}</ErrorBoundary>
-          <MaintenanceDialog />
         </div>
       </div>
     );

@@ -1,7 +1,7 @@
 import { Avatar, IconButton } from '../generic';
 import React, { Component } from 'react';
 
-import HorizontalScroll from '../horizontal-scroll/HorizontalScroll';
+import HorizontalScroll from '../generic/HorizontalScroll';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { Tooltip } from '../generic/Tooltip';

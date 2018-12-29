@@ -1,7 +1,7 @@
 import { Button, List } from '/imports/ui/components/generic';
 import React, { Component } from 'react';
 
-import HorizontalScroll from '/imports/ui/components/horizontal-scroll/HorizontalScroll';
+import HorizontalScroll from '/imports/ui/components/generic/HorizontalScroll';
 import LoadingComponent from '/imports/ui/components/loading/LoadingComponent';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
