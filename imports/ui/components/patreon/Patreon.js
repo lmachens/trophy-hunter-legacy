@@ -15,7 +15,7 @@ const styles = {
   }
 };
 
-const { id } = Meteor.settings.public.patreon;
+const id = Meteor.settings && Meteor.settings.public.patreon.id;
 const redirectURL = `${Meteor.absoluteUrl()}patreon/redirect`;
 
 class Patreon extends PureComponent {

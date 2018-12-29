@@ -235,19 +235,11 @@ const RecentMatchContainer = withTracker(({ userId }) => {
   };
 })(RecentMatch);
 
-const mapStateToProps = ({
-  account: {
-    userId,
-    trophyHunter = {
-      trophiesObtained: [],
-      settings: {}
-    }
-  }
-}) => {
+const mapStateToProps = ({ account: { userId, trophyHunter } }) => {
   return {
     userId,
-    trophiesObtained: trophyHunter.trophiesObtained,
-    settings: trophyHunter.settings || {}
+    trophiesObtained: (trophyHunter && trophyHunter.trophiesObtained) || [],
+    settings: (trophyHunter && trophyHunter.settings) || {}
   };
 };
 

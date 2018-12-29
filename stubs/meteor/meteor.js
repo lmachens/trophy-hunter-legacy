@@ -4,6 +4,7 @@ export const Meteor = {
   isServer: true,
   loginWithPassword: () => {},
   loginWithFacebook: () => {},
+  loggingIn: () => false,
   methods: () => {},
   call: () => {},
   publish: () => {},

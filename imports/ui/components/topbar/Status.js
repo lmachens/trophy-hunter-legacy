@@ -33,7 +33,7 @@ class Status extends PureComponent {
 
   componentDidMount() {
     const { hasJobServiceHeartbeat, riotApiStatus, loading } = this.props;
-    const hasRiotApiStatusIssues = riotApiStatus.length > 0;
+    const hasRiotApiStatusIssues = riotApiStatus && riotApiStatus.length > 0;
     const hasIssue = hasRiotApiStatusIssues || !hasJobServiceHeartbeat;
 
     if (hasIssue && !loading) {
@@ -42,11 +42,11 @@ class Status extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const hadRiotApiStatusIssues = prevProps.riotApiStatus.length > 0;
+    const hadRiotApiStatusIssues = prevProps.riotApiStatus && prevProps.riotApiStatus.length > 0;
     const hadIssue = hadRiotApiStatusIssues || !prevProps.hasJobServiceHeartbeat;
 
     const { hasJobServiceHeartbeat, riotApiStatus } = this.props;
-    const hasRiotApiStatusIssues = riotApiStatus.length > 0;
+    const hasRiotApiStatusIssues = riotApiStatus && riotApiStatus.length > 0;
     const hasIssue = hasRiotApiStatusIssues || !hasJobServiceHeartbeat;
 
     if (hasIssue && (!hadIssue || prevProps.loading)) {
@@ -78,7 +78,7 @@ class Status extends PureComponent {
 
     if (loading) return null;
 
-    const hasRiotApiStatusIssues = riotApiStatus.length > 0;
+    const hasRiotApiStatusIssues = riotApiStatus && riotApiStatus.length > 0;
     const hasIssue = hasRiotApiStatusIssues || !hasJobServiceHeartbeat;
 
     const tooltipContent = (

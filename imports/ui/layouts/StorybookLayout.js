@@ -22,7 +22,8 @@ const styles = {
     userSelect: 'none',
     fontSize: universeTheme.fontSize,
     overflow: 'hidden',
-    padding: 8
+    padding: 8,
+    height: '100vh'
   }
 };
 

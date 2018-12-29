@@ -5,7 +5,7 @@ import Changelog from './Changelog';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 
-const serverVersion = Meteor.settings.public.version;
+const serverVersion = Meteor.settings && Meteor.settings.public.version;
 
 class Update extends Component {
   state = {
