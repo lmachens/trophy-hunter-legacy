@@ -1,7 +1,7 @@
 import BuildOrder from '../BuildOrder';
 import PropTypes from 'prop-types';
 import React from 'react';
-import SkillOrder from '../skill-order/SkillOrder';
+import SkillOrder from '../SkillOrder';
 
 const styles = {
   root: {

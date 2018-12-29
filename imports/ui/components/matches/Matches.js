@@ -18,7 +18,7 @@ import universeTheme from '../../layouts/universeTheme';
 import { withRouter } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
-class Matches extends React.Component {
+export class Matches extends React.Component {
   componentWillUnmount() {
     this.handle && this.handle.stop();
   }

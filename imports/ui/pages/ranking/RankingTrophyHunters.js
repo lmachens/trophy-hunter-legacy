@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import RankComponent from '/imports/ui/components/rank/RankComponent';
+import Ranking from '/imports/ui/components/Ranking';
 import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
@@ -12,7 +12,7 @@ const RankingTrophyHunters = ({ userId, trophyHunters, onClick, season }) =>
       style.color = '#9e7b14';
     }
     return (
-      <RankComponent
+      <Ranking
         key={trophyHunter._id}
         onClick={onClick}
         season={season}
