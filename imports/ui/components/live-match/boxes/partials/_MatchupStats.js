@@ -2,11 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 import { Typography, withStyles } from '../../../generic';
 
 import PropTypes from 'prop-types';
-import { Table } from '../../../generic/Table';
-import { TableBody } from '../../../generic/TableBody';
-import { TableCell } from '../../../generic/TableCell';
-import { TableHead } from '../../../generic/TableHead';
-import { TableRow } from '../../../generic/TableRow';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import classNames from 'classnames';
 
 const styles = {

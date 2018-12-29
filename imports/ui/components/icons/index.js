@@ -38,7 +38,6 @@ import React from 'react';
 import SvgIcon from 'material-ui/SvgIcon';
 import SvgIconV2 from '@material-ui/core/SvgIcon';
 
-export { SvgIconV2 };
 export const MinimizeIcon = props => (
   <SvgIcon {...props}>
     <rect height="2" width="14" x="5" y="17" />

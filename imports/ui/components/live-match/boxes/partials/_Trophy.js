@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { SvgIcon } from '../../../generic/SvgIcon';
+import { SvgIcon } from '@material-ui/core';
 import { withStyles } from '../../../generic';
 import PropTypes from 'prop-types';
 import SCORES from '../../../../../api/trophies/scores';

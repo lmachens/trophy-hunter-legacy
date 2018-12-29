@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import PropTypes from 'prop-types';
-import { SvgIconV2 } from '../../../ui/components/icons';
+import { SvgIcon } from '@material-ui/core';
 import classNames from 'classnames';
 import { withStyles } from '../../../ui/components/generic';
 
@@ -16,9 +16,9 @@ class Badge extends PureComponent {
     const { classes, className, children } = this.props;
 
     return (
-      <SvgIconV2 className={classNames(classes.badge, className)} viewBox="0 0 512 512">
+      <SvgIcon className={classNames(classes.badge, className)} viewBox="0 0 512 512">
         {children}
-      </SvgIconV2>
+      </SvgIcon>
     );
   }
 }
