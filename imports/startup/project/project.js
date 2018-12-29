@@ -1,4 +1,4 @@
-import Level from '/imports/ui/components/level/Level';
+import Level from '/imports/ui/components/_Level';
 import Match from '/imports/ui/pages/match/Match';
 import ProjectLayout from '/imports/ui/layouts/ProjectLayout';
 import Ranking from '/imports/ui/pages/ranking/Ranking';

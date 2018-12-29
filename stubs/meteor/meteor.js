@@ -16,5 +16,13 @@ export const Meteor = {
   bindEnvironment: () => {},
   wrapAsync: () => {},
   Error: () => Error,
-  absoluteUrl: url => url
+  absoluteUrl: url => url,
+  settings: {
+    public: {
+      version: '2.0.0',
+      patreon: {
+        id: 123
+      }
+    }
+  }
 };

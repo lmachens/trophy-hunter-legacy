@@ -11,7 +11,7 @@ import SettingsDialog from '../components/settings/SettingsDialog';
 import Status from '../components/Status';
 import universeTheme from './universeTheme';
 import { Tooltip } from '../components/generic/Tooltip';
-import ErrorBoundary from '../components/error-boundary/ErrorBoundary';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const styles = {
   overlay: {
