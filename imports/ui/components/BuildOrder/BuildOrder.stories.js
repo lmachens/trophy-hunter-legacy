@@ -37,7 +37,7 @@ const championStatsByChampionId = {
   }
 };
 
-storiesOf('BuildOrder', module).add('BuildOrder', () => (
+storiesOf('Components', module).add('BuildOrder', () => (
   <BuildOrder
     champion={champion}
     championStatsByChampionId={championStatsByChampionId}

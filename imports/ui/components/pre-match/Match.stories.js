@@ -11249,9 +11249,9 @@ const sampleMatchWithTrophyHunter = {
     }
   }
 };
-storiesOf('Match', module)
-  .add('Header', () => <MatchHeader />)
-  .add('Basic', () => (
+storiesOf('Components', module)
+  .add('Match:Header', () => <MatchHeader />)
+  .add('Match:Basic', () => (
     <Match
       championId={69}
       match={sampleMatchWithTrophyHunter.match}

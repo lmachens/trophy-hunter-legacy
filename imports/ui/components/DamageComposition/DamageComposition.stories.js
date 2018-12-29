@@ -14,7 +14,7 @@ const participants = [
   }
 ];
 
-storiesOf('DamageComposition', module).add('DamageComposition', () => (
+storiesOf('Components', module).add('DamageComposition', () => (
   <DamageComposition
     barStyle={{}}
     hideLegend={true}

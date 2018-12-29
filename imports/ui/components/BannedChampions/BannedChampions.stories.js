@@ -2,7 +2,7 @@ import BannedChampions from './BannedChampions';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('BannedChampions', module).add('Five', () => (
+storiesOf('Components', module).add('BannedChampions', () => (
   <BannedChampions
     bannedChampions={[
       { championId: 69 },

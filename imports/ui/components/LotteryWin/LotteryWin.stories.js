@@ -10,6 +10,6 @@ const lottery = {
   ]
 };
 
-storiesOf('LotteryWin', module)
-  .add('Loss', () => <LotteryWin lottery={lottery} userId={0} />)
-  .add('Win', () => <LotteryWin lottery={lottery} userId={123} />);
+storiesOf('Components', module)
+  .add('LotteryWin:Loss', () => <LotteryWin lottery={lottery} userId={0} />)
+  .add('LotteryWin:Win', () => <LotteryWin lottery={lottery} userId={123} />);

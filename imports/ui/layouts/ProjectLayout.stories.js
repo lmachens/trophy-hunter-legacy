@@ -2,4 +2,4 @@ import ProjectLayout from './ProjectLayout';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('ProjectLayout', module).add('ProjectLayout', () => <ProjectLayout />);
+storiesOf('Layouts', module).add('ProjectLayout', () => <ProjectLayout />);
