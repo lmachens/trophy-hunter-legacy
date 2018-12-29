@@ -5,7 +5,7 @@ import HorizontalScroll from '../generic/HorizontalScroll';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { Tooltip } from '../generic/Tooltip';
-import TrophyHunter from '../trophy-hunter/TrophyHunter';
+import TrophyHunter from '../TrophyHunter';
 import TwitchStreams from '../../../api/twitch-api/twitchStreams';
 import { connect } from 'react-redux';
 import { notificationTypes } from '../../../api/notifications/notifications';

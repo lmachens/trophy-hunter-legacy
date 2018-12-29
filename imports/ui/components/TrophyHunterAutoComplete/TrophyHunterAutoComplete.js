@@ -3,7 +3,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import TrophyHunterName from '../trophy-hunter/TrophyHunterName';
+import TrophyHunterName from '../TrophyHunterName';
 import AsyncSelect from 'react-select/lib/Async';
 import { withStyles } from '../generic';
 import TextField from '@material-ui/core/TextField';

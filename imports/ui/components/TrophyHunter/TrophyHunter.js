@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 
 import AvatarWithStatus from '../AvatarWithStatus';
 import InfiniteScroll from 'react-infinite-scroller';
-import Level from './Level';
+import SummonerLevel from '../SummonerLevel';
 import PropTypes from 'prop-types';
-import Rank from './Rank';
-import TrophyHunterPopover from '../trophy-hunter/TrophyHunterPopover';
+import Rank from '../Rank';
+import TrophyHunterPopover from '../TrophyHunterPopover';
 import universeTheme from '../../layouts/universeTheme';
 
 class TrophyHunter extends Component {
@@ -87,7 +87,7 @@ class TrophyHunter extends Component {
                 }}
               >
                 <Rank rank={trophyHunter[rankField]} /> |{' '}
-                <Level level={trophyHunter.summonerLevel} />
+                <SummonerLevel level={trophyHunter.summonerLevel} />
               </div>
             }
             style={{
