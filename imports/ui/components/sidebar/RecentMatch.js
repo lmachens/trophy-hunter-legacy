@@ -7,7 +7,7 @@ import HoverableBorder from './HoverableBorder';
 import LoadingComponent from '../loading/LoadingComponent';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import Trophy from '../trophies/Trophy';
+import Trophy from '../Trophy';
 import champions from '../../../api/riot-api/static/champions';
 import { connect } from 'react-redux';
 import { gameQueueConfigIdLabels } from '../../../api/riot-api/gameConstants';

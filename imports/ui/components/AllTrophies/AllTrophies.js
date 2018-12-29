@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 
 import HelpBox from '../help/HelpBox';
 import PropTypes from 'prop-types';
-import Trophy from './Trophy';
+import Trophy from '../Trophy';
 import escapeStringRegexp from 'escape-string-regexp';
 import getActiveQuestTrophies from '../../../api/trophies/getActiveQuestTrophies';
 import { trophies } from '../../../api/trophies';
 
-class Trophies extends Component {
+class AllTrophies extends Component {
   state = {
     sortBy: 'difficulty',
     onlyQuests: false,
@@ -142,8 +142,8 @@ class Trophies extends Component {
   }
 }
 
-Trophies.propTypes = {
+AllTrophies.propTypes = {
   trophyHunter: PropTypes.object
 };
 
-export default Trophies;
+export default AllTrophies;

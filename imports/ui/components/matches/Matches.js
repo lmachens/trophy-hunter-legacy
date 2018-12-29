@@ -8,7 +8,7 @@ import LoadingComponent from '../loading/LoadingComponent';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Trophy from '../trophies/Trophy';
+import Trophy from '../Trophy';
 import champions from '../../../api/riot-api/static/champions';
 import { gameQueueConfigIdLabels } from '../../../api/riot-api/gameConstants';
 import { getChampionSquare } from '../../../api/riot-api/staticData';

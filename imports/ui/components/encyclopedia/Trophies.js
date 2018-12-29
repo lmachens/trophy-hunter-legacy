@@ -1,13 +1,14 @@
 import { List, ListItem } from '../generic';
 import React, { Component } from 'react';
-import Trophy, { defs } from '../trophies/Trophy';
+import Trophy from '../Trophy';
 
 import Attribute from '../playstyle/Attribute';
 import Perk from '../perks/Perk';
 import PropTypes from 'prop-types';
-import TrophyStats from '../trophies/TrophyStats';
+import TrophyStats from '../TrophyStats';
 import { trophies } from '../../../api/trophies';
 import universeTheme from '../../layouts/universeTheme';
+import { defs } from '../../../api/trophies/scores';
 
 const defaultValue = Object.values(trophies)[0].name;
 

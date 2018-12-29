@@ -5,7 +5,7 @@ import LoadingComponent from '../loading/LoadingComponent';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Trophy from '../trophies/Trophy';
+import Trophy from '../Trophy';
 import { calculateTrophies } from '../../../api/trophies/calculateTrophies';
 
 class TrophiesObtained extends React.Component {

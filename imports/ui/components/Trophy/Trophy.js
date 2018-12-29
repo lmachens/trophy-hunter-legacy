@@ -4,44 +4,13 @@ import { getFirstTimeBonus, getTreeBonus } from '../../../api/trophies';
 import { IconButton } from '../generic';
 import PropTypes from 'prop-types';
 import { Tooltip } from '../generic/Tooltip';
-import SCORES from '../../../api/trophies/scores';
+import SCORES, { defs } from '../../../api/trophies/scores';
 import { TABS } from '../encyclopedia/Encyclopedia';
-import TrophyStats from '../trophies/TrophyStats';
+import TrophyStats from '../TrophyStats';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { openEncyclopediaEntry } from '../../../store/actions';
 import { TooltipTitle } from '../generic/TooltipTitle';
-
-export const defs = {
-  [SCORES.SPECIAL]: {
-    shadow: '#4282cc',
-    gradient: ['#f5f5f5', '#b2b2c8'],
-    label: 'Special'
-  },
-  [SCORES.EASY]: {
-    gradient: ['#b2ff62', '#4c8b00'],
-    label: 'Easy'
-  },
-  [SCORES.MEDIUM]: {
-    gradient: ['#1ca7ff', '#0e67d6'],
-    label: 'Medium'
-  },
-  [SCORES.HARD]: {
-    shadow: '#cc4242',
-    gradient: ['#f7ee96', '#bfb11c'],
-    label: 'Hard'
-  },
-  [SCORES.VERY_HARD]: {
-    shadow: '#d0021b',
-    gradient: ['#f5a623', '#8b572a'],
-    label: 'Very Hard'
-  },
-  [SCORES.EPIC]: {
-    shadow: '#9f0013',
-    gradient: ['#ff3d3c', '#9e0120'],
-    label: 'Epic'
-  }
-};
 
 const badges = {
   activeQuest:
