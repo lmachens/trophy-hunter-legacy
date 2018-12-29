@@ -1,5 +1,5 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Navigation from '../components/_Navigation';
+import Navigation from '../components/Navigation';
 import PropTypes from 'prop-types';
 import React from 'react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
