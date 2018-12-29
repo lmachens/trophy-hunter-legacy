@@ -1,7 +1,7 @@
 import { Button, Dialog } from '../generic';
 import React, { Component } from 'react';
 
-import Changelog from './Changelog';
+import Changelog from '../Changelog';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 

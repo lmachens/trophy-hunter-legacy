@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Content from './Content';
+import Content from '../Content';
 import { HTTP } from 'meteor/http';
 import PropTypes from 'prop-types';
 

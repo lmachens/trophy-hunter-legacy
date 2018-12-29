@@ -2,7 +2,7 @@ import { Button, Dialog } from '../generic';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Changelog from '../update/Changelog';
+import Changelog from '../Changelog';
 import Help from '../help/Help';
 import Patreon from '../patreon/Patreon';
 import Settings from './Settings';

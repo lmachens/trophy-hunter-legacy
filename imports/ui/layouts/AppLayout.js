@@ -25,12 +25,12 @@ import RiotVersion from '../components/RiotVersion';
 import Sidebar from '../components/sidebar/Sidebar';
 import Status from '../components/Status';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
-import Update from '../components/update/Update';
+import Update from '../components/_Update';
 import { UserPresence } from 'meteor/lmachens:user-presence';
 import { connect } from 'react-redux';
 import universeTheme from './universeTheme';
 import { Tooltip } from '../components/generic/Tooltip';
-import ErrorBoundary from '../components/error-boundary/ErrorBoundary';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const styles = {
   app: {

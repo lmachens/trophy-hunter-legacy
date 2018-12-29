@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import universeTheme from './universeTheme';
-import ErrorBoundary from '../components/error-boundary/ErrorBoundary';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const styles = {
   app: {
