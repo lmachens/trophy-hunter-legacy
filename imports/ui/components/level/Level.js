@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { getBasicStats, getName } from '../../../api/trophy-hunters/helpers';
 
-import AvatarWithStatus from '../trophy-hunter/AvatarWithStatus';
+import AvatarWithStatus from '../AvatarWithStatus';
 import Badges from '../Badges';
 import { Button } from '../generic';
 import FollowersChip from '../FollowersChip';
 import { Link } from 'react-router-dom';
 import LoadingComponent from '../loading/LoadingComponent';
-import Matches from '../matches/Matches';
+import Matches from '../Matches_';
 import { Meteor } from 'meteor/meteor';
 import Playstyle from '../playstyle/Playstyle';
 import PropTypes from 'prop-types';

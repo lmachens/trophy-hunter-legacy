@@ -1,4 +1,4 @@
-import AvatarWithStatus from './AvatarWithStatus';
+import AvatarWithStatus from '../AvatarWithStatus';
 import { JoinClient } from 'meteor-publish-join';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
