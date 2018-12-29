@@ -127,4 +127,4 @@ const enhanced = compose(
   connect(mapStateToProps)
 )(LiveMatch);
 
-export { enhanced as LiveMatch };
+export default enhanced;

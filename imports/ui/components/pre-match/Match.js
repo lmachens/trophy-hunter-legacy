@@ -1,6 +1,6 @@
 import { getChampionSquare, getPerkImage, getUnknown } from '../../../api/riot-api/staticData';
 
-import AvatarWithStatus from '../trophy-hunter/AvatarWithStatus';
+import AvatarWithStatus from '../AvatarWithStatus';
 import Items from '../timeline/Items';
 import PropTypes from 'prop-types';
 import React from 'react';

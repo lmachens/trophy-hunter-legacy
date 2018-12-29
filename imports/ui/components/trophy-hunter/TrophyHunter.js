@@ -1,7 +1,7 @@
 import { List, ListItem } from '../generic';
 import React, { Component } from 'react';
 
-import AvatarWithStatus from '../trophy-hunter/AvatarWithStatus';
+import AvatarWithStatus from '../AvatarWithStatus';
 import InfiniteScroll from 'react-infinite-scroller';
 import Level from './Level';
 import PropTypes from 'prop-types';

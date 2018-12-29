@@ -1,7 +1,7 @@
 import { setLiveMatch } from '../../../store/actions';
 
 import GameSessions from '/imports/api/game-sessions/gameSessions';
-import { LiveMatch } from '../../components/live-match';
+import LiveMatch from '../../components/LiveMatch';
 import { Meteor } from 'meteor/meteor';
 import { connect } from 'react-redux';
 import get from 'lodash.get';
@@ -111,4 +111,4 @@ const mapStateToProps = ({ account: { trophyHunter, userId }, championStatsByCha
 
 const enhanced = connect(mapStateToProps)(LiveMatchContainer);
 
-export { enhanced as LiveMatchContainer };
+export default enhanced;

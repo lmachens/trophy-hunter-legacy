@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import AvatarWithStatus from '../trophy-hunter/AvatarWithStatus';
+import AvatarWithStatus from '../AvatarWithStatus';
 import { Meteor } from 'meteor/meteor';
 import PlaystyleIcon from '../playstyle/PlaystyleIcon';
 import PropTypes from 'prop-types';

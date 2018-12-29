@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import AvatarWithStatus from '../trophy-hunter/AvatarWithStatus';
+import AvatarWithStatus from '../AvatarWithStatus';
 import { IconButton } from '../generic';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';

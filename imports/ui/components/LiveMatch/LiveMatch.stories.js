@@ -8,7 +8,7 @@ import {
   setLiveMatch
 } from '../../../store/actions';
 
-import { LiveMatch } from './_LiveMatch';
+import LiveMatch from './LiveMatch';
 import React from 'react';
 import { store } from '../../../store/store';
 import { storiesOf } from '@storybook/react';
