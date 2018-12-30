@@ -16,7 +16,7 @@ import { Meteor } from 'meteor/meteor';
 import PlaystyleIcon from '../playstyle/PlaystyleIcon';
 import PropTypes from 'prop-types';
 import { Tooltip } from '../generic/Tooltip';
-import TreeComplete from '../tree/TreeComplete';
+import TreeComplete from '../TreeComplete';
 import TrophyHunterAvatar from '../TrophyHunterAvatar';
 import TrophyHunterName from '../TrophyHunterName';
 import { getChampionSquare } from '../../../api/riot-api/staticData';

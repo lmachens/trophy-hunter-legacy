@@ -25,7 +25,7 @@ import RiotVersion from '../components/RiotVersion';
 import Sidebar from '../components/sidebar/Sidebar';
 import Status from '../components/Status';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
-import Update from '../components/_Update';
+import Update from '../components/Update';
 import { UserPresence } from 'meteor/lmachens:user-presence';
 import { connect } from 'react-redux';
 import universeTheme from './universeTheme';

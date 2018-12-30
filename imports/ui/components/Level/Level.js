@@ -12,7 +12,7 @@ import { Meteor } from 'meteor/meteor';
 import Playstyle from '../playstyle/Playstyle';
 import PropTypes from 'prop-types';
 import Rank from '../Rank';
-import Trees from '../tree/Trees';
+import Trees from '../Trees';
 import AllTrophies from '../AllTrophies';
 import TrophyHunters from '../../../api/trophy-hunters/trophyHunters';
 import universeTheme from '../../layouts/universeTheme';

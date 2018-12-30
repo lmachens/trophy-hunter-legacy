@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import TreeItem from './TreeItem';
+import TreeItem from '../TreeItem';
 import { getTrophyNames } from '../../../api/trees/helpers';
 import { trophies } from '../../../api/trophies';
 

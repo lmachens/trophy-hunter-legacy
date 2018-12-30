@@ -4,7 +4,7 @@ import React, { Fragment, PureComponent } from 'react';
 import HelpBox from '../help/HelpBox';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import TreeTrophy from '../tree/TreeTrophy';
+import TreeTrophy from '../TreeTrophy';
 import { expiredTrees } from '../../../api/trees/trees';
 import universeTheme from '../../layouts/universeTheme';
 
@@ -86,4 +86,4 @@ CustomTreeSelector.propTypes = {
   style: PropTypes.object
 };
 
-export { CustomTreeSelector };
+export default CustomTreeSelector;
