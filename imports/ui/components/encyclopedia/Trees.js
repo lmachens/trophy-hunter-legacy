@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import trees, { activeTrees, expiredTrees } from '../../../api/trees/trees';
 
 import PropTypes from 'prop-types';
-import Tree from '../_Tree';
+import Tree from '../Tree';
 import champions from '../../../api/riot-api/static/champions';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 import universeTheme from '../../layouts/universeTheme';

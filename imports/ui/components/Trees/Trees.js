@@ -5,7 +5,7 @@ import ActiveQuests from '../ActiveQuests';
 import CustomTreeSelector from '../CustomTreeSelector';
 import HelpBox from '../help/HelpBox';
 import PropTypes from 'prop-types';
-import Tree from '../_Tree';
+import Tree from '../Tree';
 import TreeTrophies from '../TreeTrophies';
 import TreeTrophy from '../TreeTrophy';
 import { connect } from 'react-redux';

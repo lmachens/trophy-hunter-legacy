@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import { Avatar } from '../generic';
-import Items from '../timeline/Items';
+import Items from '../Items';
 import PropTypes from 'prop-types';
-import Spells from '../timeline/Spells';
+import Spells from '../Spells';
 import { fade } from 'material-ui/utils/colorManipulator';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 import universeTheme from '../../layouts/universeTheme';
