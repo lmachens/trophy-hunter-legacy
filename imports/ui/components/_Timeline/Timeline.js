@@ -11,7 +11,7 @@ import ActionMap from '../maps/ActionMap';
 import BannedChampions from '../BannedChampions';
 import PropTypes from 'prop-types';
 import { Range } from 'rc-slider';
-import TimelineParticipant from './TimelineParticipant';
+import TimelineParticipant from '../TimelineParticipant';
 import champions from '../../../api/riot-api/static/champions';
 import universeTheme from '../../layouts/universeTheme';
 
