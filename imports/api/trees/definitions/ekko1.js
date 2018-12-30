@@ -10,13 +10,13 @@ const ekko1 = {
       parents: []
     },
     {
-      trophyName: 'glutton',
+      trophyName: 'trophyHunter',
       x: 2,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'fullHouse',
+      trophyName: 'stomp',
       x: 4,
       y: 0,
       parents: []
@@ -28,22 +28,22 @@ const ekko1 = {
       parents: []
     },
     {
-      trophyName: 'loneWolf',
+      trophyName: 'energized',
       x: 1,
       y: 1,
-      parents: ['wizard', 'glutton']
+      parents: ['wizard', 'trophyHunter']
     },
     {
       trophyName: 'duelist',
       x: 5,
       y: 1,
-      parents: ['fullHouse', 'snowball']
+      parents: ['stomp', 'snowball']
     },
     {
       trophyName: 'glassCannon',
       x: 3,
       y: 2,
-      parents: ['loneWolf', 'duelist']
+      parents: ['energized', 'duelist']
     }
   ]
 };

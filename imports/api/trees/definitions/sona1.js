@@ -22,28 +22,28 @@ const sona1 = {
       parents: []
     },
     {
-      trophyName: 'controller',
+      trophyName: 'deathFromBelow',
       x: 6,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'healer',
+      trophyName: 'pentaAssist',
       x: 1,
       y: 1,
       parents: ['comradeInArms', 'tripleAssist']
     },
     {
-      trophyName: 'guardianAngel',
+      trophyName: 'flail',
       x: 5,
       y: 1,
-      parents: ['greyEminence', 'controller']
+      parents: ['greyEminence', 'deathFromBelow']
     },
     {
-      trophyName: 'preserver',
+      trophyName: 'highSociety',
       x: 3,
       y: 2,
-      parents: ['healer', 'guardianAngel']
+      parents: ['pentaAssist', 'flail']
     }
   ]
 };

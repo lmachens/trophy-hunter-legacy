@@ -10,13 +10,13 @@ const twitch1 = {
       parents: []
     },
     {
-      trophyName: 'tuorsAxe',
+      trophyName: 'appetizer',
       x: 2,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'towerDive',
+      trophyName: 'theFinalHour',
       x: 4,
       y: 0,
       parents: []
@@ -31,16 +31,16 @@ const twitch1 = {
       trophyName: 'explosive',
       x: 1,
       y: 1,
-      parents: ['glutton', 'tuorsAxe']
+      parents: ['glutton', 'appetizer']
     },
     {
       trophyName: 'comradeInArms',
       x: 5,
       y: 1,
-      parents: ['towerDive', 'david']
+      parents: ['theFinalHour', 'david']
     },
     {
-      trophyName: 'explosiveCharge',
+      trophyName: 'silverBullets',
       x: 3,
       y: 2,
       parents: ['explosive', 'comradeInArms']

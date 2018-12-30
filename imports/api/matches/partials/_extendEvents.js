@@ -2,6 +2,7 @@ import { extendKillStats } from './_extendKillStats';
 import flatten from 'lodash.flatten';
 import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
+import champions from '../../riot-api/static/champions';
 
 function extendGeneralEvents(extendedMatchResult) {
   const events = {};
@@ -71,6 +72,8 @@ function extendKillEvents(events) {
         ).length
       : 0;
     kill.shutDownScore = shutDownScore;
+
+    kill.isKillOnMelee = champions[kill.victimId].range == 'Melee';
   });
 }
 

@@ -4,46 +4,46 @@ const masterYi1 = {
   championId: 11, // Master Yi
   leaves: [
     {
-      trophyName: 'invade',
+      trophyName: 'lastResort',
       x: 0,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'wolfPack',
+      trophyName: 'cursedGrounds',
       x: 2,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'chaliceOfRecovery',
+      trophyName: 'intruder',
       x: 4,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'keyTargets',
+      trophyName: 'tripleKill',
       x: 6,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'assassinsCreed',
+      trophyName: 'theDragonMaster',
       x: 1,
       y: 1,
-      parents: ['invade', 'wolfPack']
+      parents: ['lastResort', 'cursedGrounds']
     },
     {
-      trophyName: 'theElephant',
+      trophyName: 'assassinsCreed',
       x: 5,
       y: 1,
-      parents: ['chaliceOfRecovery', 'keyTargets']
+      parents: ['intruder', 'tripleKill']
     },
     {
       trophyName: 'thePirate',
       x: 3,
       y: 2,
-      parents: ['assassinsCreed', 'theElephant']
+      parents: ['theDragonMaster', 'assassinsCreed']
     }
   ]
 };

@@ -4,46 +4,46 @@ const gangplank1 = {
   championId: 41, // Gangplank
   leaves: [
     {
-      trophyName: 'siegeRam',
+      trophyName: 'comradeInArms',
       x: 0,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'theViking',
+      trophyName: 'theGriffin',
       x: 2,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'bullying',
+      trophyName: 'billGates',
       x: 4,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'doubleKill',
+      trophyName: 'explosive',
       x: 6,
       y: 0,
       parents: []
     },
     {
-      trophyName: 'thorsHammer',
+      trophyName: 'lifeAndDeath',
       x: 1,
       y: 1,
-      parents: ['siegeRam', 'theViking']
+      parents: ['comradeInArms', 'theGriffin']
     },
     {
-      trophyName: 'noxianKnight',
+      trophyName: 'bombardment',
       x: 5,
       y: 1,
-      parents: ['bullying', 'doubleKill']
+      parents: ['billGates', 'explosive']
     },
     {
-      trophyName: 'flameHorizon',
+      trophyName: 'trinityForce',
       x: 3,
       y: 2,
-      parents: ['thorsHammer', 'noxianKnight']
+      parents: ['lifeAndDeath', 'bombardment']
     }
   ]
 };
