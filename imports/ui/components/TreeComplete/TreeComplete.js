@@ -2,7 +2,7 @@ import trees, { treeBonus } from '../../../api/trees/trees';
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import TreeTrophy from './TreeTrophy';
+import TreeTrophy from '../TreeTrophy';
 
 const getPostCount = count => {
   let post;

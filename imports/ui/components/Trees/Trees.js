@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import trees, { activeTrees, treeBonus } from '../../../api/trees/trees';
 
 import ActiveQuests from '../ActiveQuests';
-import { CustomTreeSelector } from './CustomTreeSelector';
+import CustomTreeSelector from '../CustomTreeSelector';
 import HelpBox from '../help/HelpBox';
 import PropTypes from 'prop-types';
-import Tree from '../tree/Tree';
-import TreeTrophies from './TreeTrophies';
-import TreeTrophy from '../tree/TreeTrophy';
+import Tree from '../_Tree';
+import TreeTrophies from '../TreeTrophies';
+import TreeTrophy from '../TreeTrophy';
 import { connect } from 'react-redux';
 
 const styles = {
@@ -108,7 +108,6 @@ class Trees extends Component {
         {treesChampions}
         {isOwnTrophyHunter && (
           <CustomTreeSelector
-            customTree={activeTree.name}
             onChange={this.handleTreeClick}
             style={{ position: 'absolute', bottom: -30, right: 0 }}
             trophyHunter={trophyHunter}

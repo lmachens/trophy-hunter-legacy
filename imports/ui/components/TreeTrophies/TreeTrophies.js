@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
-import TreeTrophy from '../tree/TreeTrophy';
+import TreeTrophy from '../TreeTrophy';
 
 const styles = {
   items: {

@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import PlaystyleIcon from '../playstyle/PlaystyleIcon';
 import PropTypes from 'prop-types';
 import { fieldsBySeason } from '../../../api/ranking/seasons';
-import TreeTrophy from '../tree/TreeTrophy';
+import TreeTrophy from '../TreeTrophy';
 import { activeTrees } from '../../../api/trees/trees';
 import { fade } from 'material-ui/utils/colorManipulator';
 import { getStats } from '../../../api/trophy-hunters/helpers';
