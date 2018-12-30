@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import HoverableBorder from './HoverableBorder';
+import HoverableBorder from '../HoverableBorder';
 import { JoinClient } from 'meteor-publish-join';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
@@ -35,7 +35,7 @@ class Friends extends Component {
           >
             Following
           </span>
-          {trophyHunters && trophyHunters.length === 0 ? (
+          {!trophyHunters || trophyHunters.length === 0 ? (
             <div style={{ textAlign: 'center' }}>Follow other Trophy Hunters!</div>
           ) : (
             <TrophyHunter rankField="rank" trophyHunters={trophyHunters} />
