@@ -1,5 +1,5 @@
 import AvatarWithStatus from '../AvatarWithStatus';
-import HoverableBorder from './HoverableBorder';
+import HoverableBorder from '../HoverableBorder';
 import { JoinClient } from 'meteor-publish-join';
 import { Link } from 'react-router-dom';
 import Notifications from '../Notifications';

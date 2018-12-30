@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Changelog from '../Changelog';
-import Help from '../_Help';
+import Help from '../Help';
 import Patreon from '../patreon/Patreon';
-import Settings from '../_Settings';
+import Settings from '../Settings';
 import TABS from '../../../api/settings/tabs';
 
 const styles = {
