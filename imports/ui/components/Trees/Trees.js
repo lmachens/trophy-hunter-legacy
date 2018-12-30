@@ -3,7 +3,7 @@ import trees, { activeTrees, treeBonus } from '../../../api/trees/trees';
 
 import ActiveQuests from '../ActiveQuests';
 import CustomTreeSelector from '../CustomTreeSelector';
-import HelpBox from '../help/HelpBox';
+import HelpBox from '../HelpBox';
 import PropTypes from 'prop-types';
 import Tree from '../Tree';
 import TreeTrophies from '../TreeTrophies';

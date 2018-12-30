@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Attributes from './Attributes';
-import HelpBox from '../help/HelpBox';
+import HelpBox from '../HelpBox';
 import PlaystyleIcon from './PlaystyleIcon';
 import PropTypes from 'prop-types';
 import playstyles from '../../../api/playstyles/playstyles';

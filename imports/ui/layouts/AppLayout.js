@@ -9,7 +9,7 @@ import {
 } from '../components/icons';
 import { Dialog, IconButton, RaisedButton } from '../components/generic';
 import React, { Component } from 'react';
-import SettingsDialog, { TABS } from '../components/settings/SettingsDialog';
+import SettingsDialog from '../components/SettingsDialog';
 
 import { Accounts } from 'meteor/accounts-base';
 import Ads from '../../api/ads/ads';
@@ -31,6 +31,7 @@ import { connect } from 'react-redux';
 import universeTheme from './universeTheme';
 import { Tooltip } from '../components/generic/Tooltip';
 import ErrorBoundary from '../components/ErrorBoundary';
+import TABS from '../../api/settings/tabs';
 
 const styles = {
   app: {

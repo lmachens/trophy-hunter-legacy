@@ -7,7 +7,7 @@ import { IconButton } from '../components/generic';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import RiotVersion from '../components/RiotVersion';
-import SettingsDialog from '../components/settings/SettingsDialog';
+import SettingsDialog from '../components/SettingsDialog';
 import Status from '../components/Status';
 import universeTheme from './universeTheme';
 import { Tooltip } from '../components/generic/Tooltip';

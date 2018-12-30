@@ -1,7 +1,7 @@
 import { Button, Popover } from '../generic';
 import React, { Fragment, PureComponent } from 'react';
 
-import HelpBox from '../help/HelpBox';
+import HelpBox from '../HelpBox';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import TreeTrophy from '../TreeTrophy';

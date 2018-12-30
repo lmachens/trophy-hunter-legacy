@@ -7,7 +7,7 @@ import {
   transformableItems
 } from '../../../api/riot-api/static/items';
 
-import ActionMap from '../maps/ActionMap';
+import ActionMap from '../ActionMap';
 import BannedChampions from '../BannedChampions';
 import PropTypes from 'prop-types';
 import { Range } from 'rc-slider';

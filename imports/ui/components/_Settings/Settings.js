@@ -8,7 +8,7 @@ import {
 } from '../../../api/riot-api/gameConstants';
 import React, { Component } from 'react';
 
-import HelpBox from '../help/HelpBox';
+import HelpBox from '../HelpBox';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import TrophyHunters from '../../../api/trophy-hunters/trophyHunters';

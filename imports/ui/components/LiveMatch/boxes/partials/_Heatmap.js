@@ -8,7 +8,7 @@ import { AddIcon } from '../../../icons/Add';
 import { CircularProgress } from '../../../generic/CircularProgress';
 import { FastForward } from '../../../icons/FastForward';
 import { FastRewind } from '../../../icons/FastRewind';
-import HeatmapLib from '../../../maps/Heatmap';
+import HeatmapLib from '../../../Heatmap';
 import PropTypes from 'prop-types';
 import { RemoveIcon } from '../../../icons/Remove';
 import { bindActionCreators } from 'redux';
