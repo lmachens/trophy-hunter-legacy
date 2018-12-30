@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import { Button } from '../generic';
-import HelpBox from '../help/HelpBox';
+import HelpBox from '../HelpBox';
 import { Meteor } from 'meteor/meteor';
 import PatreonAccount from './PatreonAccount';
 import PatreonRewards from './PatreonRewards';

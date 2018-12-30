@@ -1,7 +1,7 @@
 import { Avatar, List, ListItem } from '../generic';
 
 import GameSessions from '../../../api/game-sessions/gameSessions';
-import HelpBox from '../help/HelpBox';
+import HelpBox from '../HelpBox';
 import InfiniteScroll from 'react-infinite-scroller';
 import { JoinClient } from 'meteor-publish-join';
 import LoadingComponent from '../loading/LoadingComponent';

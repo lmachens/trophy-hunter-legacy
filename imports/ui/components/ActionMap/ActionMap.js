@@ -2,7 +2,7 @@ import { Checkbox } from '../generic';
 import React, { Component } from 'react';
 import { getChampionSquare, getMinimap } from '../../../api/riot-api/staticData';
 
-import Heatmap from '../maps/Heatmap';
+import Heatmap from '../Heatmap';
 import PropTypes from 'prop-types';
 import { domains } from '../../../api/riot-api/gameConstants';
 import flatten from 'lodash.flatten';

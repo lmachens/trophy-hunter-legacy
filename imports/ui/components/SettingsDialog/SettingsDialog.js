@@ -3,16 +3,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Changelog from '../Changelog';
-import Help from '../help/Help';
+import Help from '../_Help';
 import Patreon from '../patreon/Patreon';
-import Settings from './Settings';
-
-export const TABS = {
-  SETTINGS: 'Settings',
-  HELP: 'Help',
-  PATREON: 'Patreon',
-  CHANGELOG: 'Changelog'
-};
+import Settings from '../_Settings';
+import TABS from '../../../api/settings/tabs';
 
 const styles = {
   content: {

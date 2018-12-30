@@ -1,7 +1,7 @@
 import { Checkbox, DropDownMenu, MenuItem, TextField, Toolbar, ToolbarGroup } from '../generic';
 import React, { Component } from 'react';
 
-import HelpBox from '../help/HelpBox';
+import HelpBox from '../HelpBox';
 import PropTypes from 'prop-types';
 import Trophy from '../Trophy';
 import escapeStringRegexp from 'escape-string-regexp';

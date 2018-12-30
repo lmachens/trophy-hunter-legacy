@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import HelpBox from '../help/HelpBox';
+import HelpBox from '../HelpBox';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { TABS } from '../encyclopedia/Encyclopedia';
