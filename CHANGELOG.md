@@ -1,5 +1,9 @@
 # Change Log
 
+### Added
+- Added new trophy [trophy:wujuStyle].
+- Added trees of Gangplank, Master Yi, Ekko, Twitch and Sona.
+
 ## [2.21.2] - 2018-12-22
 ### Fixed
 - Sometimes the overlay showed matchup matches where both players lost.

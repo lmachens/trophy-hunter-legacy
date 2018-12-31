@@ -3,10 +3,18 @@ import flatten from 'lodash.flatten';
 import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
 
+import champions from '../../riot-api/static/champions';
+import RANGE from '../../champions/range';
+
 const turretRange = 500;
 
 export function extendParticipantTimelineStats(extendedMatchResult, participant) {
   const events = extendedMatchResult.events;
+
+  const championIdsByParticipantId = {};
+  extendedMatchResult.participants.forEach(p => {
+    championIdsByParticipantId[p.participantId] = p.championId;
+  });
 
   // check for early first turret.
   {
@@ -412,6 +420,16 @@ export function extendParticipantTimelineStats(extendedMatchResult, participant)
         kill => kill.timestamp > buyTime && buyTime <= kill.timestamp + 90000
       ).length;
     }
+  }
+
+  // Wuju Style
+  {
+    participant.stats.killsOnMelees = participant.events.kills.filter(
+      event => champions[championIdsByParticipantId[event.victimId]].range === RANGE.MELEE
+    ).length;
+    participant.stats.killedByMelees = participant.events.deaths.filter(
+      event => champions[championIdsByParticipantId[event.killerId]].range === RANGE.MELEE
+    ).length;
   }
 
   // elder into baron
