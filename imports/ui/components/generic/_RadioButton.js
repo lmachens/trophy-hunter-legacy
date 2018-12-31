@@ -1,1 +1,2 @@
-export { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
+export { RadioButton } from '@material-ui/core/Radio';
+export { RadioButtonGroup } from '@material-ui/core/RadioGroup';

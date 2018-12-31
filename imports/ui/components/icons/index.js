@@ -5,30 +5,20 @@ export { default as DoneIcon } from '@material-ui/icons/Done';
 export { default as WarningIcon } from '@material-ui/icons/Warning';
 export { default as FavoriteBorderIcon } from '@material-ui/icons/FavoriteBorder';
 export { default as FavoriteIcon } from '@material-ui/icons/Favorite';
-export {
-  default as HardwareKeyboardArrowLeftIcon
-} from '@material-ui/icons/KeyboardArrowLeft';
-export {
-  default as HardwareKeyboardArrowRightIcon
-} from '@material-ui/icons/KeyboardArrowRight';
+export { default as HardwareKeyboardArrowLeftIcon } from '@material-ui/icons/KeyboardArrowLeft';
+export { default as HardwareKeyboardArrowRightIcon } from '@material-ui/icons/KeyboardArrowRight';
 export { default as HelpIcon } from '@material-ui/icons/Help';
 export { default as HomeIcon } from '@material-ui/icons/Home';
 export { default as NavigationCloseIcon } from '@material-ui/icons/Close';
 export { default as OpenInNewIcon } from '@material-ui/icons/OpenInNew';
 export { default as PeopleIcon } from '@material-ui/icons/People';
 export { default as RedeemIcon } from '@material-ui/icons/Redeem';
-export {
-  default as RemoveCircleOutlineIcon
-} from '@material-ui/icons/RemoveCircleOutline';
+export { default as RemoveCircleOutlineIcon } from '@material-ui/icons/RemoveCircleOutline';
 export { default as SendIcon } from '@material-ui/icons/Send';
 export { default as SettingsIcon } from '@material-ui/icons/Settings';
 export { default as SocialNotificationsIcon } from '@material-ui/icons/Notifications';
-export {
-  default as SocialNotificationsActiveIcon
-} from '@material-ui/icons/NotificationsActive';
-export {
-  default as SocialNotificationsNoneIcon
-} from '@material-ui/icons/NotificationsNone';
+export { default as SocialNotificationsActiveIcon } from '@material-ui/icons/NotificationsActive';
+export { default as SocialNotificationsNoneIcon } from '@material-ui/icons/NotificationsNone';
 export { default as StarsIcon } from '@material-ui/icons/Stars';
 export { default as VisibilityIcon } from '@material-ui/icons/Visibility';
 export { default as VisibilityOffIcon } from '@material-ui/icons/VisibilityOff';
