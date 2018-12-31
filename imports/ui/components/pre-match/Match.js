@@ -1,10 +1,10 @@
 import { getChampionSquare, getPerkImage, getUnknown } from '../../../api/riot-api/staticData';
 
-import AvatarWithStatus from '../trophy-hunter/AvatarWithStatus';
-import Items from '../timeline/Items';
+import AvatarWithStatus from '../AvatarWithStatus';
+import Items from '../Items';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Spells from '../timeline/Spells';
+import Spells from '../Spells';
 import extendMatchResult from '../../../api/matches/extendMatchResult';
 import perks from '../../../api/riot-api/static/perks';
 import universeTheme from '../../layouts/universeTheme';

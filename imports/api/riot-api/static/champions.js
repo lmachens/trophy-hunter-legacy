@@ -52,7 +52,8 @@ const champions = {
       name: 'Pyromania',
       sanitizedDescription:
         "After casting 4 spells, Annie's next offensive spell will stun the target for a short duration."
-    }
+    },
+    range: 'Ranged'
   },
   '2': {
     id: 2,
@@ -106,7 +107,8 @@ const champions = {
       name: 'Berserker Rage',
       sanitizedDescription:
         "Olaf's Attack Speed is increased by 1% for each 1% of his Health he is missing."
-    }
+    },
+    range: 'Melee'
   },
   '3': {
     id: 3,
@@ -160,7 +162,8 @@ const champions = {
       name: 'Colossal Smash',
       sanitizedDescription:
         "Every few seconds, Galio's next basic attack deals bonus magic damage in an area. Colossal Smash's cooldown is reduced when Galio hits champions with his spells."
-    }
+    },
+    range: 'Melee'
   },
   '4': {
     id: 4,
@@ -215,7 +218,8 @@ const champions = {
       name: 'Loaded Dice',
       sanitizedDescription:
         "Upon killing a unit, Twisted Fate rolls his 'lucky' dice receiving anywhere between 1 and 6 bonus gold."
-    }
+    },
+    range: 'Ranged'
   },
   '5': {
     id: 5,
@@ -269,7 +273,8 @@ const champions = {
       },
       name: 'Determination',
       sanitizedDescription: 'Every third attack deals bonus damage and heals Xin Zhao.'
-    }
+    },
+    range: 'Melee'
   },
   '6': {
     id: 6,
@@ -324,7 +329,8 @@ const champions = {
       name: 'Echoing Flames',
       sanitizedDescription:
         "Urgot's basic attacks and Purge periodically trigger blasts of flame from his legs, dealing physical damage."
-    }
+    },
+    range: 'Ranged'
   },
   '7': {
     id: 7,
@@ -378,7 +384,8 @@ const champions = {
       name: 'Mirror Image',
       sanitizedDescription:
         'When LeBlanc drops below 40% health, she becomes invisible for 1 second and creates a Mirror Image that deals no damage and lasts for up to 8 seconds.Mirror Image has a 1 minute cooldown.Mirror Image can be controlled by holding the Alt key and using the right mouse button.'
-    }
+    },
+    range: 'Ranged'
   },
   '8': {
     id: 8,
@@ -433,7 +440,8 @@ const champions = {
       name: 'Crimson Pact',
       sanitizedDescription:
         'Every 40 points of bonus Health gives Vladimir 1 Ability Power and every 1 point of Ability Power gives Vladimir 1.4 bonus Health (does not stack with itself).'
-    }
+    },
+    range: 'Ranged'
   },
   '9': {
     id: 9,
@@ -488,7 +496,8 @@ const champions = {
       name: 'Dread',
       sanitizedDescription:
         'Standing still or channeling abilities for 1.5 seconds empowers Fiddlesticks with Dread. Immobilizing crowd control resets this timer.Dread grants Movement Speed, but only lasts for 1.5s after Fiddlesticks starts moving.'
-    }
+    },
+    range: 'Ranged'
   },
   '10': {
     id: 10,
@@ -543,7 +552,8 @@ const champions = {
       name: 'Holy Fervor',
       sanitizedDescription:
         'When Kayle attacks a champion, the target loses 3% Armor and Magic Resist for 5 seconds. This effect stacks up to 5 times.'
-    }
+    },
+    range: 'ShapeShifter'
   },
   '11': {
     id: 11,
@@ -597,7 +607,8 @@ const champions = {
       },
       name: 'Double Strike',
       sanitizedDescription: 'Every few strikes, Master Yi strikes twice.'
-    }
+    },
+    range: 'Melee'
   },
   '12': {
     id: 12,
@@ -652,7 +663,8 @@ const champions = {
       name: 'Triumphant Roar',
       sanitizedDescription:
         'Alistar charges his roar by stunning or displacing enemy champions or when nearby enemies die. When fully charged he heals himself and all nearby allied champions.'
-    }
+    },
+    range: 'Melee'
   },
   '13': {
     id: 13,
@@ -707,7 +719,8 @@ const champions = {
       name: 'Arcane Mastery',
       sanitizedDescription:
         "Ryze's spells deal extra damage based on his Bonus Mana, and he gains a percentage increase to his maximum Mana based on his Ability Power."
-    }
+    },
+    range: 'Ranged'
   },
   '14': {
     id: 14,
@@ -762,7 +775,8 @@ const champions = {
       name: 'Glory in Death',
       sanitizedDescription:
         "After being killed, Sion will reanimate with rapidly decaying Health. His attacks become very rapid, gain 100% Lifesteal and deal bonus damage equal to 10% of his target's maximum Health (max 75 to monsters).All his abilities are replaced with Death Surge, which grants a burst of Movement Speed."
-    }
+    },
+    range: 'Melee'
   },
   '15': {
     id: 15,
@@ -817,7 +831,8 @@ const champions = {
       name: 'Fleet of Foot',
       sanitizedDescription:
         'Sivir gains a short burst of Movement Speed when she attacks an enemy champion.'
-    }
+    },
+    range: 'Ranged'
   },
   '16': {
     id: 16,
@@ -871,7 +886,8 @@ const champions = {
       },
       name: 'Salvation',
       sanitizedDescription: 'Soraka runs faster towards nearby low health allies.'
-    }
+    },
+    range: 'Ranged'
   },
   '17': {
     id: 17,
@@ -926,7 +942,8 @@ const champions = {
       name: 'Guerrilla Warfare',
       sanitizedDescription:
         "If Teemo stands still and takes no actions for a short duration, he becomes Invisible indefinitely. If he's in brush, Teemo can enter and maintain his Invisibility while moving. After leaving Invisibility, Teemo gains the Element of Surprise, increasing his Attack Speed for 3 seconds."
-    }
+    },
+    range: 'Ranged'
   },
   '18': {
     id: 18,
@@ -980,7 +997,8 @@ const champions = {
       },
       name: 'Draw a Bead',
       sanitizedDescription: "Increases Tristana's Attack Range as she levels."
-    }
+    },
+    range: 'Ranged'
   },
   '19': {
     id: 19,
@@ -1035,7 +1053,8 @@ const champions = {
       name: 'Eternal Hunger',
       sanitizedDescription:
         "Warwick's basic attacks deal bonus magic damage. If Warwick is below 50% health, he heals the same amount. If Warwick is below 25% health, this healing triples."
-    }
+    },
+    range: 'Melee'
   },
   '20': {
     id: 20,
@@ -1090,7 +1109,8 @@ const champions = {
       name: 'Call of the Freljord',
       sanitizedDescription:
         'Nunu increases the attack speed and movement speed of Willump and a nearby ally.'
-    }
+    },
+    range: 'Melee'
   },
   '21': {
     id: 21,
@@ -1145,7 +1165,8 @@ const champions = {
       name: 'Love Tap',
       sanitizedDescription:
         'Miss Fortune deals bonus physical damage whenever she attacks a new target.'
-    }
+    },
+    range: 'Ranged'
   },
   '22': {
     id: 22,
@@ -1200,7 +1221,8 @@ const champions = {
       name: 'Frost Shot',
       sanitizedDescription:
         "Ashe's attacks slow their target, causing her to deal increased damage to these targets.Ashe's critical strikes deal no bonus damage but apply an empowered slow to the target."
-    }
+    },
+    range: 'Ranged'
   },
   '23': {
     id: 23,
@@ -1255,7 +1277,8 @@ const champions = {
       name: 'Battle Fury',
       sanitizedDescription:
         'Tryndamere gains Fury for each attack, critical strike, and killing blow he makes. Fury passively increases his Critical Strike Chance and can be consumed with his Bloodlust spell.'
-    }
+    },
+    range: 'Melee'
   },
   '24': {
     id: 24,
@@ -1310,7 +1333,8 @@ const champions = {
       name: 'Relentless Assault',
       sanitizedDescription:
         "Jax's consecutive basic attacks continuously increase his Attack Speed."
-    }
+    },
+    range: 'Melee'
   },
   '25': {
     id: 25,
@@ -1365,7 +1389,8 @@ const champions = {
       name: 'Soul Siphon',
       sanitizedDescription:
         'Morgana heals for the spell damage she deals to champions, large minions, and large monsters.'
-    }
+    },
+    range: 'Ranged'
   },
   '26': {
     id: 26,
@@ -1420,7 +1445,8 @@ const champions = {
       name: 'Time in a Bottle',
       sanitizedDescription:
         "Zilean stores time as Experience. When he has enough Experience to finish an ally's level, he can right-click them to impart it. Zilean receives as much Experience as he gives. Cannot be used in combat."
-    }
+    },
+    range: 'Ranged'
   },
   '27': {
     id: 27,
@@ -1475,7 +1501,8 @@ const champions = {
       name: 'Noxious Slipstream',
       sanitizedDescription:
         'Singed drafts off nearby champions, gaining a burst of movement speed when passing them.'
-    }
+    },
+    range: 'Melee'
   },
   '28': {
     id: 28,
@@ -1530,7 +1557,8 @@ const champions = {
       name: 'Demon Shade',
       sanitizedDescription:
         'When out of combat, Evelynn enters Demon Shade. Demon Shade heals Evelynn when she is low on health and grants Camouflage after level 6.'
-    }
+    },
+    range: 'Melee'
   },
   '29': {
     id: 29,
@@ -1585,7 +1613,8 @@ const champions = {
       name: 'Deadly Venom',
       sanitizedDescription:
         "Twitch's basic attacks infect the target, dealing true damage each second."
-    }
+    },
+    range: 'Ranged'
   },
   '30': {
     id: 30,
@@ -1640,7 +1669,8 @@ const champions = {
       name: 'Death Defied',
       sanitizedDescription:
         'Upon dying, Karthus enters a spirit form that allows him to continue casting spells for 7 seconds.'
-    }
+    },
+    range: 'Ranged'
   },
   '31': {
     id: 31,
@@ -1695,7 +1725,8 @@ const champions = {
       name: 'Carnivore',
       sanitizedDescription:
         "Whenever Cho'Gath kills a unit, he recovers Health and Mana. The values restored increase with Cho'Gath's level."
-    }
+    },
+    range: 'Melee'
   },
   '32': {
     id: 32,
@@ -1750,7 +1781,8 @@ const champions = {
       name: 'Cursed Touch',
       sanitizedDescription:
         "Amumu's basic attacks Curse enemies for 3 seconds, causing them to take 10% bonus true damage from any magic damage dealt to them."
-    }
+    },
+    range: 'Melee'
   },
   '33': {
     id: 33,
@@ -1804,7 +1836,8 @@ const champions = {
       },
       name: 'Spiked Shell',
       sanitizedDescription: "Rammus' basic attacks deal bonus magic damage, scaling with his Armor."
-    }
+    },
+    range: 'Melee'
   },
   '34': {
     id: 34,
@@ -1859,7 +1892,8 @@ const champions = {
       name: 'Rebirth',
       sanitizedDescription:
         'Upon dying, Anivia will revert into an egg. If the egg can survive for six seconds, she is gloriously reborn.'
-    }
+    },
+    range: 'Ranged'
   },
   '35': {
     id: 35,
@@ -1914,7 +1948,8 @@ const champions = {
       name: 'Backstab',
       sanitizedDescription:
         "Shaco's basic attack critically strikes for extra damage when striking a unit from behind. Units can't be Backstabbed more than once every few seconds, modified by Shaco's cooldown reduction."
-    }
+    },
+    range: 'Melee'
   },
   '36': {
     id: 36,
@@ -1968,7 +2003,8 @@ const champions = {
       },
       name: 'Adrenaline Rush',
       sanitizedDescription: 'Dr. Mundo regenerates 0.3% of his maximum Health each second.'
-    }
+    },
+    range: 'Melee'
   },
   '37': {
     id: 37,
@@ -2023,7 +2059,8 @@ const champions = {
       name: 'Power Chord',
       sanitizedDescription:
         "After casting 3 spells, Sona's next attack deals bonus magic damage in addition to a bonus effect depending on what song Sona last activated."
-    }
+    },
+    range: 'Ranged'
   },
   '38': {
     id: 38,
@@ -2077,7 +2114,8 @@ const champions = {
       },
       name: 'Void Stone',
       sanitizedDescription: 'Kassadin takes 15% reduced magic damage and ignores unit collision.'
-    }
+    },
+    range: 'Melee'
   },
   '39': {
     id: 39,
@@ -2132,7 +2170,8 @@ const champions = {
       name: 'Ionian Fervor',
       sanitizedDescription:
         'When Irelia strikes enemies with spells she gains a stacking bonus damage buff on her basic attacks. At maximum stacks she also gains Attack Speed and deals bonus damage to shields.'
-    }
+    },
+    range: 'Melee'
   },
   '40': {
     id: 40,
@@ -2187,7 +2226,8 @@ const champions = {
       name: 'Tailwind',
       sanitizedDescription:
         "Janna passively gains 8% Movement Speed, and nearby allied champions gain this bonus when moving toward her.Additionally, Janna's basic attacks cause additional magic damage based on her bonus Movement Speed."
-    }
+    },
+    range: 'Ranged'
   },
   '41': {
     id: 41,
@@ -2240,7 +2280,8 @@ const champions = {
       name: 'Trial by Fire',
       sanitizedDescription:
         "Every few seconds, Gangplank's melee strike will set his opponent on fire."
-    }
+    },
+    range: 'Melee'
   },
   '42': {
     id: 42,
@@ -2295,7 +2336,8 @@ const champions = {
       name: 'Hextech Munitions',
       sanitizedDescription:
         "Corki's basic attack deals a percentage of their damage as magic instead of physical. Every once in a while, The Package arrives in Corki's base to be picked up, temporarily granting him out of combat Movement Speed and upgrading Valkyrie into Special Delivery."
-    }
+    },
+    range: 'Ranged'
   },
   '43': {
     id: 43,
@@ -2350,7 +2392,8 @@ const champions = {
       name: 'Gathering Fire',
       sanitizedDescription:
         "Reduces Mantra's cooldown each time Karma damages an enemy champion with one of her abilities (Half-effect for Karma's basic attacks)"
-    }
+    },
+    range: 'Ranged'
   },
   '44': {
     id: 44,
@@ -2405,7 +2448,8 @@ const champions = {
       name: 'Bravado',
       sanitizedDescription:
         "Spellcasts empower Taric's next 2 basic attacks to deal bonus magic damage, reduce his spell cooldowns, and attack in quick succession."
-    }
+    },
+    range: 'Melee'
   },
   '45': {
     id: 45,
@@ -2460,7 +2504,8 @@ const champions = {
       name: 'Phenomenal Evil Power',
       sanitizedDescription:
         "Veigar is the greatest Evil to ever strike at the hearts of Runeterra - and he's only getting bigger! Striking an enemy Champion with a spell or scoring a takedown grants Veigar permanently increased Ability Power."
-    }
+    },
+    range: 'Ranged'
   },
   '48': {
     id: 48,
@@ -2515,7 +2560,8 @@ const champions = {
       name: "King's Tribute",
       sanitizedDescription:
         'When an enemy unit dies near Trundle, he heals for a percent of its maximum Health.'
-    }
+    },
+    range: 'Melee'
   },
   '50': {
     id: 50,
@@ -2570,7 +2616,8 @@ const champions = {
       name: 'Ravenous Flock',
       sanitizedDescription:
         "Swain's ravens collect Soul Fragments that heal him. Swain can right-click an immobilized enemy champions to pull them closer to him, dealing damage and ripping out a Soul Fragment."
-    }
+    },
+    range: 'Ranged'
   },
   '51': {
     id: 51,
@@ -2625,7 +2672,8 @@ const champions = {
       name: 'Headshot',
       sanitizedDescription:
         "Every few basic attacks, or against a target she has trapped or netted, Caitlyn will fire a headshot dealing bonus damage that scales with her critical strike chance. On trapped or netted targets, Caitlyn's Headshot attack range is doubled."
-    }
+    },
+    range: 'Ranged'
   },
   '53': {
     id: 53,
@@ -2680,7 +2728,8 @@ const champions = {
       name: 'Mana Barrier',
       sanitizedDescription:
         "When Blitzcrank's life is brought below 20% health, he activates Mana Barrier. This creates a mana shield equal to 50% of his mana for 10 seconds. Mana Barrier can only occur once every 90 seconds."
-    }
+    },
+    range: 'Melee'
   },
   '54': {
     id: 54,
@@ -2735,7 +2784,8 @@ const champions = {
       name: 'Granite Shield',
       sanitizedDescription:
         'Malphite is shielded by a layer of rock which absorbs damage up to 10% of his maximum Health. If Malphite has not been hit for 10 seconds, this effect recharges.'
-    }
+    },
+    range: 'Melee'
   },
   '55': {
     id: 55,
@@ -2790,7 +2840,8 @@ const champions = {
       name: 'Voracity',
       sanitizedDescription:
         'Whenever an enemy champion dies that Katarina has damaged in the last 3 seconds, her ability cooldowns are reduced by 15 seconds.If Katarina picks up a Dagger, she uses it to slash through all nearby enemies, dealing magic damage.'
-    }
+    },
+    range: 'Melee'
   },
   '56': {
     id: 56,
@@ -2845,7 +2896,8 @@ const champions = {
       name: 'Umbra Blades',
       sanitizedDescription:
         "Every 10 seconds, Nocturne's next attack strikes surrounding enemies for 120% physical damage and heals himself. Nocturne's basic attacks reduce this cooldown by 1 second (2 against champions)."
-    }
+    },
+    range: 'Melee'
   },
   '57': {
     id: 57,
@@ -2900,7 +2952,8 @@ const champions = {
       name: 'Sap Magic',
       sanitizedDescription:
         "Maokai's basic attack also heal him on a moderate cooldown. Each time Maokai casts a spell or is struck by an enemy's spell, this cooldown is reduced."
-    }
+    },
+    range: 'Melee'
   },
   '58': {
     id: 58,
@@ -2955,7 +3008,8 @@ const champions = {
       name: 'Reign of Anger',
       sanitizedDescription:
         'Renekton gains Fury for every autoattack he makes. This Fury can empower his abilities with bonus effects. Additionally, Renekton gains bonus Fury when he is low on life.'
-    }
+    },
+    range: 'Melee'
   },
   '59': {
     id: 59,
@@ -3010,7 +3064,8 @@ const champions = {
       name: 'Martial Cadence',
       sanitizedDescription:
         "Jarvan IV's initial basic attack on a target deals bonus physical damage. This effect cannot occur again on the same target for a short duration."
-    }
+    },
+    range: 'Melee'
   },
   '60': {
     id: 60,
@@ -3065,7 +3120,8 @@ const champions = {
       name: 'Spider Queen',
       sanitizedDescription:
         "Human Form: When Elise's abilities hit an enemy, she gains a dormant Spiderling.Spider Form: Basic attacks deal bonus magic damage and restore health to Elise."
-    }
+    },
+    range: 'ShapeShifter'
   },
   '61': {
     id: 61,
@@ -3120,7 +3176,8 @@ const champions = {
       name: 'Clockwork Windup',
       sanitizedDescription:
         "Orianna's autoattack deals additional magic damage. This damage increases the more Orianna attacks the same target."
-    }
+    },
+    range: 'Ranged'
   },
   '62': {
     id: 62,
@@ -3175,7 +3232,8 @@ const champions = {
       name: 'Stone Skin',
       sanitizedDescription:
         "Increases Wukong's Armor and Magic Resist for each nearby enemy champion."
-    }
+    },
+    range: 'Melee'
   },
   '63': {
     id: 63,
@@ -3230,7 +3288,8 @@ const champions = {
       name: 'Blaze',
       sanitizedDescription:
         "Brand's spells light his targets ablaze, dealing 4% of their maximum Health in magic damage over 4 seconds, stacking up to 3 times. If Brand kills an enemy while it is ablaze he regains mana. When Blaze reaches max stacks on a Champion or large monster, it becomes unstable. It detonates in 2 seconds, applying spell effects and dealing massive damage in an area around the victim."
-    }
+    },
+    range: 'Ranged'
   },
   '64': {
     id: 64,
@@ -3285,7 +3344,8 @@ const champions = {
       name: 'Flurry',
       sanitizedDescription:
         'After Lee Sin uses an ability, his next 2 basic attacks gain Attack Speed and return Energy.'
-    }
+    },
+    range: 'Melee'
   },
   '67': {
     id: 67,
@@ -3340,7 +3400,8 @@ const champions = {
       name: 'Night Hunter',
       sanitizedDescription:
         'Vayne ruthlessly hunts evil-doers, gaining 30 movement speed when moving toward nearby enemy champions.'
-    }
+    },
+    range: 'Ranged'
   },
   '68': {
     id: 68,
@@ -3395,7 +3456,8 @@ const champions = {
       name: 'Junkyard Titan',
       sanitizedDescription:
         'Every spell Rumble casts gives him Heat. When he reaches 50% Heat he reaches Danger Zone, granting all his basic abilities bonus effects. When he reaches 100% Heat, he starts Overheating, granting his basic attacks bonus damage, but making him unable to cast spells for a few seconds. '
-    }
+    },
+    range: 'Melee'
   },
   '69': {
     id: 69,
@@ -3450,7 +3512,8 @@ const champions = {
       name: 'Serpentine Grace',
       sanitizedDescription:
         'Cassiopeia gains Movement Speed per level, but she cannot purchase Boots items.'
-    }
+    },
+    range: 'Ranged'
   },
   '72': {
     id: 72,
@@ -3505,7 +3568,8 @@ const champions = {
       name: 'Crystal Spires',
       sanitizedDescription:
         "Skarner's presence causes crystals to spawn in set locations around the map. While near crystals his team owns, Skarner gains tremendous movement speed, attack speed, and mana regeneration."
-    }
+    },
+    range: 'Melee'
   },
   '74': {
     id: 74,
@@ -3558,7 +3622,8 @@ const champions = {
       name: 'Hextech Affinity',
       sanitizedDescription:
         'Gain Movement Speed while near allied towers and turrets deployed by Heimerdinger.'
-    }
+    },
+    range: 'Ranged'
   },
   '75': {
     id: 75,
@@ -3612,7 +3677,8 @@ const champions = {
       },
       name: 'Soul Eater',
       sanitizedDescription: "Nasus drains his foe's spiritual energy, giving him bonus Life Steal."
-    }
+    },
+    range: 'Melee'
   },
   '76': {
     id: 76,
@@ -3666,7 +3732,8 @@ const champions = {
       name: 'Prowl',
       sanitizedDescription:
         "Moving through brush increases Nidalee's Movement Speed by 10% for 2 seconds, increased to 30% toward visible enemy champions within 1400 range.Hitting champions or monsters with Javelin Toss or Bushwhack triggers a Hunt, granting True Sight of them for 4 seconds. During this time, Nidalee gains 10% Movement Speed (increased to 30% toward the Hunted target) and her Takedown and Pounce are enhanced against them."
-    }
+    },
+    range: 'Ranged'
   },
   '77': {
     id: 77,
@@ -3721,7 +3788,8 @@ const champions = {
       name: "Monkey's Agility",
       sanitizedDescription:
         'Entering a stance grants Udyr bonus Attack Speed and Movement Speed for a short duration. This effect can stack multiple times.'
-    }
+    },
+    range: 'Melee'
   },
   '78': {
     id: 78,
@@ -3775,7 +3843,8 @@ const champions = {
       name: 'Iron Ambassador',
       sanitizedDescription:
         'Poppy throws her buckler, gaining range and bonus magic damage.The buckler lands at a nearby location and Poppy can pick it up to gain a shield. Enemies can step on the buckler to destroy it.'
-    }
+    },
+    range: 'Melee'
   },
   '79': {
     id: 79,
@@ -3830,7 +3899,8 @@ const champions = {
       name: 'Happy Hour',
       sanitizedDescription:
         'On ability use, Gragas takes a drink restoring 6% of his max Health. This effect can only happen every 8 seconds.'
-    }
+    },
+    range: 'Melee'
   },
   '80': {
     id: 80,
@@ -3884,7 +3954,8 @@ const champions = {
       name: 'Aegis Protection',
       sanitizedDescription:
         'After attacking or casting spells 4 times, Pantheon will block the next incoming basic attack or turret attack.'
-    }
+    },
+    range: 'Melee'
   },
   '81': {
     id: 81,
@@ -3939,7 +4010,8 @@ const champions = {
       name: 'Rising Spell Force',
       sanitizedDescription:
         'Ezreal gains increasing Attack Speed each time he successfully hits a spell, stacking up to 5 times.'
-    }
+    },
+    range: 'Ranged'
   },
   '82': {
     id: 82,
@@ -3993,7 +4065,8 @@ const champions = {
       name: 'Iron Man',
       sanitizedDescription:
         'A percent of the damage dealt from abilities is converted into a temporary shield, absorbing incoming damage.'
-    }
+    },
+    range: 'Melee'
   },
   '83': {
     id: 83,
@@ -4048,7 +4121,8 @@ const champions = {
       name: 'Shepherd of Souls',
       sanitizedDescription:
         'Yorick can raise Mist Walkers with his abilities. Enemies that die near Yorick will sometimes leave a grave.'
-    }
+    },
+    range: 'Melee'
   },
   '84': {
     id: 84,
@@ -4103,7 +4177,8 @@ const champions = {
       name: "Assassin's Mark",
       sanitizedDescription:
         "Dealing spell damage to a champion creates a ring of energy around them. Exiting that ring empowers Akali's next autoattack with bonus range and damage."
-    }
+    },
+    range: 'Melee'
   },
   '85': {
     id: 85,
@@ -4158,7 +4233,8 @@ const champions = {
       name: 'Mark of the Storm',
       sanitizedDescription:
         "Kennen's abilities add one stack of Mark of the Storm to their target for 6 seconds. If the target reaches 3 stacks, it is stunned for 1.25 seconds and Kennen gains 25 Energy. The stun will be a diminished duration of 0.5 seconds if it occurs again within 6 seconds."
-    }
+    },
+    range: 'Ranged'
   },
   '86': {
     id: 86,
@@ -4213,7 +4289,8 @@ const champions = {
       name: 'Perseverance',
       sanitizedDescription:
         'If Garen has not recently been struck by damage or enemy abilities, he regenerates a percentage of his total health each second. Minion damage does not stop Perseverance.'
-    }
+    },
+    range: 'Melee'
   },
   '89': {
     id: 89,
@@ -4268,7 +4345,8 @@ const champions = {
       name: 'Sunlight',
       sanitizedDescription:
         'Damaging spells afflict enemies with Sunlight for 1.5 seconds. When allied Champions deal damage to those targets, they consume the Sunlight to deal additional magic damage.'
-    }
+    },
+    range: 'Melee'
   },
   '90': {
     id: 90,
@@ -4322,7 +4400,8 @@ const champions = {
       name: 'Void Shift',
       sanitizedDescription:
         "When he hasn't recently taken damage or been crowd controlled, Malzahar gains massive damage reduction and crowd control immunity, lingering for a short period after taking damage.Damage from lane minions is unaffected."
-    }
+    },
+    range: 'Ranged'
   },
   '91': {
     id: 91,
@@ -4377,7 +4456,8 @@ const champions = {
       name: "Blade's End",
       sanitizedDescription:
         "Talon's spells Wound champions and epic monsters, stacking up to 3 times. When Talon attacks a champion with 3 stacks of Wound, they bleed for heavy damage over time."
-    }
+    },
+    range: 'Melee'
   },
   '92': {
     id: 92,
@@ -4430,7 +4510,8 @@ const champions = {
       name: 'Runic Blade',
       sanitizedDescription:
         "Riven's abilities charge her blade, causing her basic attacks to deal bonus physical damage. Riven's blade may be charged up to three times and expends one charge per attack."
-    }
+    },
+    range: 'Melee'
   },
   '96': {
     id: 96,
@@ -4485,7 +4566,8 @@ const champions = {
       name: 'Icathian Surprise',
       sanitizedDescription:
         "Upon dying, Kog'Maw starts a chain reaction in his body which causes him to move faster and detonate after 4 seconds; dealing 100 + (25 x lvl) true damage to surrounding enemies."
-    }
+    },
+    range: 'Ranged'
   },
   '98': {
     id: 98,
@@ -4539,7 +4621,8 @@ const champions = {
       name: 'Ki Barrier',
       sanitizedDescription:
         'After casting a spell, Shen gets a shield. Affecting other champions reduces the cooldown of this effect.'
-    }
+    },
+    range: 'Melee'
   },
   '99': {
     id: 99,
@@ -4594,7 +4677,8 @@ const champions = {
       name: 'Illumination',
       sanitizedDescription:
         "Lux's damaging spells charge the target with energy for 6 seconds. Lux's next attack ignites the energy, dealing bonus magic damage (depending on Lux's level) to the target."
-    }
+    },
+    range: 'Ranged'
   },
   '101': {
     id: 101,
@@ -4646,7 +4730,8 @@ const champions = {
       },
       name: 'Mana Surge',
       sanitizedDescription: "Xerath's basic attacks periodically restore Mana."
-    }
+    },
+    range: 'Ranged'
   },
   '102': {
     id: 102,
@@ -4701,7 +4786,8 @@ const champions = {
       name: 'Fury of the Dragonborn',
       sanitizedDescription:
         'Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance.'
-    }
+    },
+    range: 'Melee'
   },
   '103': {
     id: 103,
@@ -4756,7 +4842,8 @@ const champions = {
       name: 'Vastayan Grace',
       sanitizedDescription:
         "Whenever Ahri's spells hit a champion 2 times within a short period, she briefly gains movement speed."
-    }
+    },
+    range: 'Ranged'
   },
   '104': {
     id: 104,
@@ -4811,7 +4898,8 @@ const champions = {
       name: 'New Destiny',
       sanitizedDescription:
         "Graves's shotgun holds two shells. After firing them he must reload. Each attack fires several bullets in a cone. Hitting an enemy with multiple bullets does bonus damage. These bullets cannot pass through units."
-    }
+    },
+    range: 'Ranged'
   },
   '105': {
     id: 105,
@@ -4866,7 +4954,8 @@ const champions = {
       name: 'Nimble Fighter',
       sanitizedDescription:
         "Fizz's dexterity allows him to move through units and take less physical damage from basic attacks."
-    }
+    },
+    range: 'Melee'
   },
   '106': {
     id: 106,
@@ -4921,7 +5010,8 @@ const champions = {
       name: 'Chosen of the Storm',
       sanitizedDescription:
         'Volibear heals rapidly for a few seconds when his Health drops to a critical level.'
-    }
+    },
+    range: 'Melee'
   },
   '107': {
     id: 107,
@@ -4976,7 +5066,8 @@ const champions = {
       name: 'Unseen Predator',
       sanitizedDescription:
         "While in brush, Rengar leaps at his target with his basic attack.Rengar's abilities build Ferocity. Upon reaching full Ferocity, his next ability becomes empowered and grants him Movement Speed on cast, but he instantly loses all Ferocity if he leaves combat.Killing enemy champions awards trophies on Rengar's Bonetooth Necklace, permanently increasing his Attack Damage."
-    }
+    },
+    range: 'Melee'
   },
   '110': {
     id: 110,
@@ -5031,7 +5122,8 @@ const champions = {
       name: 'Living Vengeance',
       sanitizedDescription:
         'On kill or assist, Varus temporarily gains Attack Speed. This bonus is larger if the enemy is a champion.'
-    }
+    },
+    range: 'Ranged'
   },
   '111': {
     id: 111,
@@ -5086,7 +5178,8 @@ const champions = {
       name: 'Staggering Blow',
       sanitizedDescription:
         "Nautilus' basic attacks deal bonus physical damage and immobilize his targets. This effect cannot happen more than once every few seconds on the same target."
-    }
+    },
+    range: 'Melee'
   },
   '112': {
     id: 112,
@@ -5141,7 +5234,8 @@ const champions = {
       name: 'Glorious Evolution',
       sanitizedDescription:
         'Viktor starts with the Prototype Hex Core that can be upgraded three times in the store to augment his abilities.'
-    }
+    },
+    range: 'Ranged'
   },
   '113': {
     id: 113,
@@ -5196,7 +5290,8 @@ const champions = {
       name: 'Fury of the North',
       sanitizedDescription:
         'After being out of combat, Sejuani gains Frost Armor which grants Armor and Magic Resist and immunity to slows. Frost Armor persists for a short time after Sejuani takes damage.  Sejuani can damage a stunned enemy to shatter it, dealing massive magic damage.'
-    }
+    },
+    range: 'Melee'
   },
   '114': {
     id: 114,
@@ -5251,7 +5346,8 @@ const champions = {
       name: "Duelist's Dance",
       sanitizedDescription:
         'Fiora challenges nearby enemy Champions to dodge her. She calls out a direction from which she will try to strike. If she can complete her own challenge, she receives a small bonus and calls out a new direction.'
-    }
+    },
+    range: 'Melee'
   },
   '115': {
     id: 115,
@@ -5305,7 +5401,8 @@ const champions = {
       name: 'Short Fuse',
       sanitizedDescription:
         "Every 12 seconds, Ziggs' next basic attack deals bonus magic damage. This cooldown is reduced whenever Ziggs uses an ability."
-    }
+    },
+    range: 'Ranged'
   },
   '117': {
     id: 117,
@@ -5360,7 +5457,8 @@ const champions = {
       name: 'Pix, Faerie Companion',
       sanitizedDescription:
         'Pix is a wild Faerie that accompanies Lulu. Pix will fire a barrage of magical energy at targets that Lulu attacks.'
-    }
+    },
+    range: 'Ranged'
   },
   '119': {
     id: 119,
@@ -5415,7 +5513,8 @@ const champions = {
       name: 'League of Draven',
       sanitizedDescription:
         "Draven gains his fans' Adoration when he catches a Spinning Axe or kills a minion, monster, or tower. Killing enemy champions grants Draven bonus gold based on how much Adoration he has."
-    }
+    },
+    range: 'Ranged'
   },
   '120': {
     id: 120,
@@ -5469,7 +5568,8 @@ const champions = {
       name: 'Warpath',
       sanitizedDescription:
         'Hecarim gains Attack Damage equal to a percentage of his bonus Movement Speed.'
-    }
+    },
+    range: 'Melee'
   },
   '121': {
     id: 121,
@@ -5524,7 +5624,8 @@ const champions = {
       name: 'Unseen Threat',
       sanitizedDescription:
         "When Kha'Zix is not visible to the enemy team, he gains Unseen Threat, causing his next basic attack against an enemy Champion to deal bonus magic damage and slow."
-    }
+    },
+    range: 'Melee'
   },
   '122': {
     id: 122,
@@ -5579,7 +5680,8 @@ const champions = {
       name: 'Hemorrhage',
       sanitizedDescription:
         'Darius aims his attacks strategically, causing his target to bleed. This effect stacks up to five times. Enemies that reach max Hemorrhage cause Darius to gain Noxian Might, greatly increasing his damage.'
-    }
+    },
+    range: 'Melee'
   },
   '126': {
     id: 126,
@@ -5634,7 +5736,8 @@ const champions = {
       name: 'Hextech Capacitor',
       sanitizedDescription:
         'After casting Transform Jayce gains 40 Movement Speed and can move through units for the next 1.25 seconds.'
-    }
+    },
+    range: 'Melee'
   },
   '127': {
     id: 127,
@@ -5689,7 +5792,8 @@ const champions = {
       name: 'Iceborn Subjugation',
       sanitizedDescription:
         'When an enemy champion dies near Lissandra they become a Frozen Thrall. Frozen Thralls slow nearby enemies and then, after 4 seconds, shatter from the intense cold, dealing magic damage to nearby targets.'
-    }
+    },
+    range: 'Ranged'
   },
   '131': {
     id: 131,
@@ -5744,7 +5848,8 @@ const champions = {
       name: 'Moonsilver Blade',
       sanitizedDescription:
         'Every third strike restores mana and cleaves nearby enemies for additional magic damage. Every spell cast grants attack speed for the next 3 attacks.'
-    }
+    },
+    range: 'Melee'
   },
   '133': {
     id: 133,
@@ -5799,7 +5904,8 @@ const champions = {
       name: 'Harrier',
       sanitizedDescription:
         "Valor periodically marks enemies as Vulnerable. Quinn's first basic attack against Vulnerable targets will deal bonus physical damage."
-    }
+    },
+    range: 'Ranged'
   },
   '134': {
     id: 134,
@@ -5853,7 +5959,8 @@ const champions = {
       name: 'Transcendent',
       sanitizedDescription:
         'Spells gain extra effects at max rank.Dark Sphere: Deals 15% more damage against champions.Force of Will: Deals 20% bonus true damage.Scatter the Weak: Spell width increased by 50%.Unleashed Power: Range increased by 75.'
-    }
+    },
+    range: 'Ranged'
   },
   '136': {
     id: 136,
@@ -5906,7 +6013,8 @@ const champions = {
       },
       name: 'Center of the Universe',
       sanitizedDescription: 'Stars orbit Aurelion Sol, dealing magic damage when they hit an enemy.'
-    }
+    },
+    range: 'Ranged'
   },
   '141': {
     id: 141,
@@ -5958,7 +6066,8 @@ const champions = {
       name: 'The Darkin Scythe',
       sanitizedDescription:
         'At one point in the game, Kayn will permanently transform into either a Shadow Assassin or a Darkin.'
-    }
+    },
+    range: 'Melee'
   },
   '142': {
     id: 142,
@@ -6012,7 +6121,8 @@ const champions = {
       name: 'More Sparkles!',
       sanitizedDescription:
         "Zoe's next basic attack after casting a spell deals bonus magic damage."
-    }
+    },
+    range: 'Ranged'
   },
   '143': {
     id: 143,
@@ -6067,7 +6177,8 @@ const champions = {
       name: 'Garden of Thorns',
       sanitizedDescription:
         'Seeds spawn around Zyra periodically, becoming faster with level and lasting 30 seconds. If an enemy Champion steps on a seed, it dies. Zyra can cast spells near seeds to grow plants. Extra plants striking the same target deal reduced damage.'
-    }
+    },
+    range: 'Ranged'
   },
   '145': {
     id: 145,
@@ -6121,7 +6232,8 @@ const champions = {
       name: 'Second Skin',
       sanitizedDescription:
         "Kai'Sa's basic attacks stack Plasma, dealing increasing bonus magic damage. Allies' immobilizing effects help stack Plasma. Additionally, Kai'Sa's item purchases upgrade her basic spells to have more powerful properties."
-    }
+    },
+    range: 'Ranged'
   },
   '150': {
     id: 150,
@@ -6176,7 +6288,8 @@ const champions = {
       name: 'Rage Gene',
       sanitizedDescription:
         'While in combat Gnar generates Rage. At maximum Rage his next ability will transform him into Mega Gnar, granting increased survivability and access to new spells.'
-    }
+    },
+    range: 'ShapeShifter'
   },
   '154': {
     id: 154,
@@ -6230,7 +6343,8 @@ const champions = {
       name: 'Cell Division',
       sanitizedDescription:
         "Each time Zac hits an enemy with an ability, he sheds a chunk of himself that can be reabsorbed to restore Health. Upon taking fatal damage, Zac splits into 4 bloblets that attempt to recombine. If any bloblets remain, he will revive with an amount of Health depending on the Health of the surviving bloblets. Each bloblet has a percentage of Zac's maximum Health, Armor and Magic Resistance. This ability has a 5 minute cooldown."
-    }
+    },
+    range: 'Melee'
   },
   '157': {
     id: 157,
@@ -6285,7 +6399,8 @@ const champions = {
       name: 'Way of the Wanderer',
       sanitizedDescription:
         "Yasuo's Critical Strike Chance is doubled. Additionally, Yasuo builds toward a shield whenever he is moving. The shield triggers when he takes damage from a champion or monster."
-    }
+    },
+    range: 'Melee'
   },
   '161': {
     id: 161,
@@ -6340,7 +6455,8 @@ const champions = {
       name: 'Organic Deconstruction',
       sanitizedDescription:
         "Vel'Koz's abilities apply Organic Deconstruction to enemies on hit. If 3 stacks are accumulated, the enemy will take a burst of true damage."
-    }
+    },
+    range: 'Ranged'
   },
   '163': {
     id: 163,
@@ -6393,7 +6509,8 @@ const champions = {
       },
       name: 'Rock Surfing',
       sanitizedDescription: 'Taliyah gains movement speed near walls.'
-    }
+    },
+    range: 'Ranged'
   },
   '164': {
     id: 164,
@@ -6448,7 +6565,8 @@ const champions = {
       name: 'Adaptive Defenses',
       sanitizedDescription:
         "Basic attacks on champions grant a shield equal to 20% of Camille's maximum health against their damage type (Physical or Magic) for a brief duration."
-    }
+    },
+    range: 'Melee'
   },
   '201': {
     id: 201,
@@ -6503,7 +6621,8 @@ const champions = {
       name: 'Concussive Blows',
       sanitizedDescription:
         "Braum adds stacks of Concussive Blows to enemies with basic attacks or Winter's Bite. He and his allies continue to add stacks with basic attacks, at 4 stacks their target will be stunned."
-    }
+    },
+    range: 'Melee'
   },
   '202': {
     id: 202,
@@ -6558,7 +6677,8 @@ const champions = {
       name: 'Whisper',
       sanitizedDescription:
         "Jhin's hand cannon, Whisper, is a precise instrument designed to deal superior damage. It fires at a fixed rate and carries only four shots. Jhin imbues the final bullet with dark magics to critically strike and deal bonus execute damage. Whenever Whisper crits, it inspires Jhin with a burst of movement speed."
-    }
+    },
+    range: 'Ranged'
   },
   '203': {
     id: 203,
@@ -6612,7 +6732,8 @@ const champions = {
       name: 'Mark of the Kindred',
       sanitizedDescription:
         "Kindred can mark targets to Hunt. Successfully completing a Hunt permanently empowers Kindred's basic abilities. Every 4 hunts completed also increases Kindred's basic attack range."
-    }
+    },
+    range: 'Ranged'
   },
   '222': {
     id: 222,
@@ -6667,7 +6788,8 @@ const champions = {
       name: 'Get Excited!',
       sanitizedDescription:
         'Jinx receives massively increased Movement Speed and stacking Attack Speed whenever she damages an enemy champion, tower, or inhibitor that is then killed or destroyed within 3 seconds.'
-    }
+    },
+    range: 'Ranged'
   },
   '223': {
     id: 223,
@@ -6722,7 +6844,8 @@ const champions = {
       name: 'An Acquired Taste',
       sanitizedDescription:
         'Tahm Kench puts the heft of his immense body behind his attacks and abilities, gaining extra damage based on his total health. Damaging enemy champions builds stacks of An Acquired Taste. At three stacks, he can use Devour on an enemy champion.'
-    }
+    },
+    range: 'Melee'
   },
   '236': {
     id: 236,
@@ -6775,7 +6898,8 @@ const champions = {
       name: 'Lightslinger',
       sanitizedDescription:
         'Whenever Lucian uses an ability, his next attack becomes a double-shot.'
-    }
+    },
+    range: 'Ranged'
   },
   '238': {
     id: 238,
@@ -6829,7 +6953,8 @@ const champions = {
       name: 'Contempt for the Weak',
       sanitizedDescription:
         "Zed's basic attacks against targets below 50% Health deal 6-10% of the target's maximum Health as bonus Magic Damage. This effect can only occur once every 10 seconds on the same target."
-    }
+    },
+    range: 'Melee'
   },
   '240': {
     id: 240,
@@ -6884,7 +7009,8 @@ const champions = {
       name: 'Skaarl, the Cowardly Lizard',
       sanitizedDescription:
         "Kled rides his trusty steed, Skaarl, who takes damage for him. When Skaarl's health depletes, Kled dismounts.While dismounted, Kled's abilities change and he deals less damage to champions. Kled can restore Skaarl's courage by fighting enemies. At maximum courage, Kled remounts with a portion of Skaarl's health."
-    }
+    },
+    range: 'Melee'
   },
   '245': {
     id: 245,
@@ -6939,7 +7065,8 @@ const champions = {
       name: 'Z-Drive Resonance',
       sanitizedDescription:
         "Ekko's Zero-Drive charges his spells and attacks with temporal energy. The third hit deals bonus damage and, if the target is a champion, Ekko gains accelerated movement speed."
-    }
+    },
+    range: 'Melee'
   },
   '254': {
     id: 254,
@@ -6994,7 +7121,8 @@ const champions = {
       name: 'Blast Shield',
       sanitizedDescription:
         'Vi charges a shield over time. The shield can be activated by hitting an enemy with an ability.'
-    }
+    },
+    range: 'Melee'
   },
   '266': {
     id: 266,
@@ -7048,7 +7176,8 @@ const champions = {
       name: 'Deathbringer Stance',
       sanitizedDescription:
         'Aatrox deals bonus damage on his next attack and reduces heals and shields on the target.'
-    }
+    },
+    range: 'Melee'
   },
   '267': {
     id: 267,
@@ -7103,7 +7232,8 @@ const champions = {
       name: 'Surging Tides',
       sanitizedDescription:
         "When Nami's abilities hit allied champions they gain Movement Speed for a short duration."
-    }
+    },
+    range: 'Ranged'
   },
   '268': {
     id: 268,
@@ -7158,7 +7288,8 @@ const champions = {
       name: "Shurima's Legacy",
       sanitizedDescription:
         'Azir can summon the Disc of the Sun from the ruins of allied or enemy turrets.'
-    }
+    },
+    range: 'Ranged'
   },
   '412': {
     id: 412,
@@ -7212,7 +7343,8 @@ const champions = {
       name: 'Damnation',
       sanitizedDescription:
         'Thresh can harvest the souls of enemies that die near him, permanently granting him Armor and Ability Power.'
-    }
+    },
+    range: 'Ranged'
   },
   '420': {
     id: 420,
@@ -7267,7 +7399,8 @@ const champions = {
       name: 'Prophet of an Elder God',
       sanitizedDescription:
         "Illaoi and the Vessels she creates spawn Tentacles on nearby impassible terrain. Tentacles swing at spirits, Vessels, and victims of Illaoi's Harsh lesson. Tentacles deal physical damage to enemies hit, and will heal Illaoi if they damage a champion."
-    }
+    },
+    range: 'Melee'
   },
   '421': {
     id: 421,
@@ -7321,7 +7454,8 @@ const champions = {
       name: "Fury of the Xer'Sai",
       sanitizedDescription:
         "While unburrowed Rek'Sai generates Fury with her basic attacks and spells. When burrowed Rek'Sai consumes Fury to heal herself."
-    }
+    },
+    range: 'Melee'
   },
   '427': {
     id: 427,
@@ -7376,7 +7510,8 @@ const champions = {
       name: 'Friend of the Forest',
       sanitizedDescription:
         'Ivern cannot attack or be attacked by non-epic monsters. Ivern can create magical groves on jungle camps which grow over time. When the grove is fully grown, Ivern may free the monsters to receive gold and experience. After level 5 Ivern can share jungle buffs with allies.'
-    }
+    },
+    range: 'Melee'
   },
   '429': {
     id: 429,
@@ -7430,7 +7565,8 @@ const champions = {
       name: 'Martial Poise',
       sanitizedDescription:
         "Enter a movement command while winding up Kalista's basic attack or Pierce to lunge a short distance when she launches her attack."
-    }
+    },
+    range: 'Ranged'
   },
   '432': {
     id: 432,
@@ -7485,7 +7621,8 @@ const champions = {
       name: "Traveler's Call",
       sanitizedDescription:
         "Bard's presence causes magical chimes to appear, which grant Bard experience, mana, and a burst of speed. Additionally, lesser spirits follow Bard and aid in his attacks - collecting chimes causes these meeps to gain power over the course of the game."
-    }
+    },
+    range: 'Ranged'
   },
   '497': {
     id: 497,
@@ -7538,7 +7675,8 @@ const champions = {
       },
       name: 'Fey Feathers',
       sanitizedDescription: 'Rakan periodically gains a shield.'
-    }
+    },
+    range: 'Ranged'
   },
   '498': {
     id: 498,
@@ -7593,7 +7731,8 @@ const champions = {
       name: 'Clean Cuts',
       sanitizedDescription:
         "After using an ability, Xayah's next few basic attacks will hit all enemies along their path and dropping Feathers she can recall."
-    }
+    },
+    range: 'Ranged'
   },
   '516': {
     id: 516,
@@ -7648,7 +7787,8 @@ const champions = {
       name: 'Living Forge',
       sanitizedDescription:
         'Ornn can spend gold to forge non-consumable items anywhere.Additionally, when Ornn reaches level 13 masterwork upgrades for some items become available for Ornn and his team to purchase.Ornn can smith items directly from his forge menu or the shop.'
-    }
+    },
+    range: 'Melee'
   },
   '518': {
     id: 518,
@@ -7702,7 +7842,8 @@ const champions = {
       },
       name: '',
       sanitizedDescription: ''
-    }
+    },
+    range: 'Ranged'
   },
   '555': {
     id: 555,
@@ -7757,7 +7898,8 @@ const champions = {
       name: 'Gift of the Drowned Ones',
       sanitizedDescription:
         'When Pyke is hidden from enemies, he regenerates damage that he has recently taken from champions. Pyke also cannot gain extra Maximum Health from any source, and instead gains Bonus AD.'
-    }
+    },
+    range: 'Melee'
   },
   version: '8.24.1'
 };

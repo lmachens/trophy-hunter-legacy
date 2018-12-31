@@ -6,12 +6,12 @@ import Encyclopedia from '../components/encyclopedia/Encyclopedia';
 import { IconButton } from '../components/generic';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import RiotVersion from '../components/topbar/RiotVersion';
-import SettingsDialog from '../components/settings/SettingsDialog';
-import Status from '../components/topbar/Status';
+import RiotVersion from '../components/RiotVersion';
+import SettingsDialog from '../components/SettingsDialog';
+import Status from '../components/Status';
 import universeTheme from './universeTheme';
 import { Tooltip } from '../components/generic/Tooltip';
-import ErrorBoundary from '../components/error-boundary/ErrorBoundary';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const styles = {
   overlay: {

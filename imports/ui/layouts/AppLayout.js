@@ -9,7 +9,7 @@ import {
 } from '../components/icons';
 import { Dialog, IconButton, RaisedButton } from '../components/generic';
 import React, { Component } from 'react';
-import SettingsDialog, { TABS } from '../components/settings/SettingsDialog';
+import SettingsDialog from '../components/SettingsDialog';
 
 import { Accounts } from 'meteor/accounts-base';
 import Ads from '../../api/ads/ads';
@@ -17,20 +17,21 @@ import ConnectionStatus from '../components/ConnectionStatus';
 import Encyclopedia from '../components/encyclopedia/Encyclopedia';
 import LoadingComponent from '../components/loading/LoadingComponent';
 import { Meteor } from 'meteor/meteor';
-import OnlineTrophyHunters from '../components/topbar/OnlineTrophyHunters';
+import OnlineTrophyHunters from '../components/OnlineTrophyHunters';
 import Overwolf from '../../api/overwolf/overwolf';
 import PreMatchOverlay from '../components/pre-match/PreMatchOverlay';
 import PropTypes from 'prop-types';
-import RiotVersion from '../components/topbar/RiotVersion';
+import RiotVersion from '../components/RiotVersion';
 import Sidebar from '../components/sidebar/Sidebar';
-import Status from '../components/topbar/Status';
+import Status from '../components/Status';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
-import Update from '../components/update/Update';
+import Update from '../components/Update';
 import { UserPresence } from 'meteor/lmachens:user-presence';
 import { connect } from 'react-redux';
 import universeTheme from './universeTheme';
 import { Tooltip } from '../components/generic/Tooltip';
-import ErrorBoundary from '../components/error-boundary/ErrorBoundary';
+import ErrorBoundary from '../components/ErrorBoundary';
+import TABS from '../../api/settings/tabs';
 
 const styles = {
   app: {

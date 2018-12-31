@@ -1,11 +1,10 @@
-import { HomeIcon } from '../components/icons';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Navigation from '../components/navigation/Navigation';
+import Navigation from '../components/Navigation';
 import PropTypes from 'prop-types';
 import React from 'react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import universeTheme from './universeTheme';
-import ErrorBoundary from '../components/error-boundary/ErrorBoundary';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const styles = {
   app: {
@@ -35,12 +34,10 @@ export default class ProjectLayout extends React.Component {
             <Navigation
               items={[
                 {
-                  icon: HomeIcon,
                   label: 'Home',
                   path: '/'
                 },
                 {
-                  icon: HomeIcon,
                   label: 'Ranking',
                   path: '/ranking'
                 }

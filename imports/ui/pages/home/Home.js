@@ -1,4 +1,4 @@
-import Level from '/imports/ui/components/level/Level';
+import Level from '/imports/ui/components/Level';
 import React from 'react';
 
 const Home = () => <Level tab="trees" />;

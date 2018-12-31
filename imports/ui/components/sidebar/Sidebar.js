@@ -1,11 +1,11 @@
-import Friends from './Friends';
-import Profile from './Profile';
+import Friends from '../Friends';
+import Profile from '../Profile';
 import PropTypes from 'prop-types';
 import Ranking from './Ranking';
 import React from 'react';
 import RecentMatch from './RecentMatch';
 import Store from './Store';
-import Twitch from './Twitch';
+import Twitch from '../Twitch';
 import { withRouter } from 'react-router-dom';
 
 const styles = {

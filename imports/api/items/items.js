@@ -1,11 +1,11 @@
-import AvatarItem from '/imports/ui/components/items/AvatarItem';
-import FeedbackItem from '/imports/ui/components/items/FeedbackItem';
-import LotteryItem from '/imports/ui/components/items/LotteryItem';
-import ReferrerItem from '/imports/ui/components/items/ReferrerItem';
-import StreamOverlayItem from '/imports/ui/components/items/StreamOverlayItem';
-import TShirtArtworkItem from '/imports/ui/components/items/TShirtArtworkItem';
-import TwitchItem from '/imports/ui/components/items/TwitchItem';
-import YouTubeItem from '/imports/ui/components/items/YouTubeItem';
+import AvatarItem from '/imports/ui/components/store/AvatarItem';
+import FeedbackItem from '/imports/ui/components/store/FeedbackItem';
+import LotteryItem from '/imports/ui/components/store/LotteryItem';
+import ReferrerItem from '/imports/ui/components/store/ReferrerItem';
+import StreamOverlayItem from '/imports/ui/components/store/StreamOverlayItem';
+import TShirtArtworkItem from '/imports/ui/components/store/TShirtArtworkItem';
+import TwitchItem from '/imports/ui/components/store/TwitchItem';
+import YouTubeItem from '/imports/ui/components/store/YouTubeItem';
 
 export default [
   {

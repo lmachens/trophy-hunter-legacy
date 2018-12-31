@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 
-import HoverableBorder from './HoverableBorder';
+import HoverableBorder from '../HoverableBorder';
 import { JoinClient } from 'meteor-publish-join';
 import { Link } from 'react-router-dom';
 import LoadingComponent from '../loading/LoadingComponent';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { SEASONS, fieldsBySeason } from '../../../api/ranking/seasons';
-import TrophyHunter from '../trophy-hunter/TrophyHunter';
+import TrophyHunter from '../TrophyHunter';
 import universeTheme from '../../layouts/universeTheme';
 import { withTracker } from 'meteor/react-meteor-data';
 

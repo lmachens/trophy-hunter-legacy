@@ -4,6 +4,7 @@ import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import os from 'os';
 import riotApi from '/imports/api/riot-api/server/riotApi';
 import version from '/imports/api/riot-api/version';
+import getRange from '../../api/champions/server/getRange';
 
 const hostname = os.hostname();
 
@@ -155,7 +156,7 @@ Meteor.methods({
             name: championStaticData.passive.name,
             sanitizedDescription: replaceHTMLTags(championStaticData.passive.description)
           };
-
+          champion.range = getRange(championStaticData);
           newChampions[key] = champion;
         });
       newChampions.version = version;
