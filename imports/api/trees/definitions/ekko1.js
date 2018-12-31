@@ -40,7 +40,7 @@ const ekko1 = {
       parents: ['stomp', 'snowball']
     },
     {
-      trophyName: 'glassCannon',
+      trophyName: 'towerDive',
       x: 3,
       y: 2,
       parents: ['energized', 'duelist']

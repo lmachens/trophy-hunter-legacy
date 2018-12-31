@@ -40,7 +40,7 @@ const masterYi1 = {
       parents: ['intruder', 'tripleKill']
     },
     {
-      trophyName: 'thePirate',
+      trophyName: 'wujuStyle',
       x: 3,
       y: 2,
       parents: ['theDragonMaster', 'assassinsCreed']
