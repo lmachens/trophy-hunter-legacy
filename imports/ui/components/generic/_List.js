@@ -1,1 +1,1 @@
-export { List, ListItem } from 'material-ui/List';
+export { List, ListItem } from '@material-ui/core/List';

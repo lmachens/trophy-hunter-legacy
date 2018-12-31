@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { fieldsBySeason } from '../../../api/ranking/seasons';
 import TreeTrophy from '../tree/TreeTrophy';
 import { activeTrees } from '../../../api/trees/trees';
-import { fade } from 'material-ui/utils/colorManipulator';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import { getStats } from '../../../api/trophy-hunters/helpers';
 import playstyles from '../../../api/playstyles/playstyles';
 import universeTheme from '../../layouts/universeTheme';

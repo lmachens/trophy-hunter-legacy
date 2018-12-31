@@ -1,1 +1,1 @@
-export { default as CircularProgress } from 'material-ui/CircularProgress';
+export { default as CircularProgress } from '@material-ui/core/CircularProgress';

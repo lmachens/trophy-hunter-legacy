@@ -1,8 +1,8 @@
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import Navigation from '../components/Navigation';
 import PropTypes from 'prop-types';
 import React from 'react';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import getMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import universeTheme from './universeTheme';
 import ErrorBoundary from '../components/ErrorBoundary';
 

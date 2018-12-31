@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
-import { fade } from 'material-ui/utils/colorManipulator';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import transitions from 'material-ui/styles/transitions';
 import universeTheme from '../../layouts/universeTheme';
 import { withRouter } from 'react-router-dom';

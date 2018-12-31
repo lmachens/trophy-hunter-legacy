@@ -5,8 +5,8 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SimpleSchema from 'simpl-schema';
-import V0MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import V0MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import getMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
 // Extend the schema options allowed by SimpleSchema
 SimpleSchema.extendOptions([

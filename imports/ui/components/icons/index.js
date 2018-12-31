@@ -1,41 +1,41 @@
-export { default as ActionGradeIcon } from 'material-ui/svg-icons/action/grade';
-export { default as CloseIcon } from 'material-ui/svg-icons/navigation/close';
-export { default as DeleteIcon } from 'material-ui/svg-icons/action/delete';
-export { default as DoneIcon } from 'material-ui/svg-icons/action/done';
-export { default as WarningIcon } from 'material-ui/svg-icons/alert/warning';
-export { default as FavoriteBorderIcon } from 'material-ui/svg-icons/action/favorite-border';
-export { default as FavoriteIcon } from 'material-ui/svg-icons/action/favorite';
+export { default as ActionGradeIcon } from '@material-ui/icons/Grade';
+export { default as CloseIcon } from '@material-ui/icons/Close';
+export { default as DeleteIcon } from '@material-ui/icons/Delete';
+export { default as DoneIcon } from '@material-ui/icons/Done';
+export { default as WarningIcon } from '@material-ui/icons/Warning';
+export { default as FavoriteBorderIcon } from '@material-ui/icons/FavoriteBorder';
+export { default as FavoriteIcon } from '@material-ui/icons/Favorite';
 export {
   default as HardwareKeyboardArrowLeftIcon
-} from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
+} from '@material-ui/icons/KeyboardArrowLeft';
 export {
   default as HardwareKeyboardArrowRightIcon
-} from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
-export { default as HelpIcon } from 'material-ui/svg-icons/action/help';
-export { default as HomeIcon } from 'material-ui/svg-icons/action/home';
-export { default as NavigationCloseIcon } from 'material-ui/svg-icons/navigation/close';
-export { default as OpenInNewIcon } from 'material-ui/svg-icons/action/open-in-new';
-export { default as PeopleIcon } from 'material-ui/svg-icons/social/people';
-export { default as RedeemIcon } from 'material-ui/svg-icons/action/redeem';
+} from '@material-ui/icons/KeyboardArrowRight';
+export { default as HelpIcon } from '@material-ui/icons/Help';
+export { default as HomeIcon } from '@material-ui/icons/Home';
+export { default as NavigationCloseIcon } from '@material-ui/icons/Close';
+export { default as OpenInNewIcon } from '@material-ui/icons/OpenInNew';
+export { default as PeopleIcon } from '@material-ui/icons/People';
+export { default as RedeemIcon } from '@material-ui/icons/Redeem';
 export {
   default as RemoveCircleOutlineIcon
-} from 'material-ui/svg-icons/content/remove-circle-outline';
-export { default as SendIcon } from 'material-ui/svg-icons/content/send';
-export { default as SettingsIcon } from 'material-ui/svg-icons/action/settings';
-export { default as SocialNotificationsIcon } from 'material-ui/svg-icons/social/notifications';
+} from '@material-ui/icons/RemoveCircleOutline';
+export { default as SendIcon } from '@material-ui/icons/Send';
+export { default as SettingsIcon } from '@material-ui/icons/Settings';
+export { default as SocialNotificationsIcon } from '@material-ui/icons/Notifications';
 export {
   default as SocialNotificationsActiveIcon
-} from 'material-ui/svg-icons/social/notifications-active';
+} from '@material-ui/icons/NotificationsActive';
 export {
   default as SocialNotificationsNoneIcon
-} from 'material-ui/svg-icons/social/notifications-none';
-export { default as StarsIcon } from 'material-ui/svg-icons/action/stars';
-export { default as VisibilityIcon } from 'material-ui/svg-icons/action/visibility';
-export { default as VisibilityOffIcon } from 'material-ui/svg-icons/action/visibility-off';
-export { default as RefreshIcon } from 'material-ui/svg-icons/navigation/refresh';
+} from '@material-ui/icons/NotificationsNone';
+export { default as StarsIcon } from '@material-ui/icons/Stars';
+export { default as VisibilityIcon } from '@material-ui/icons/Visibility';
+export { default as VisibilityOffIcon } from '@material-ui/icons/VisibilityOff';
+export { default as RefreshIcon } from '@material-ui/icons/Refresh';
 
 import React from 'react';
-import SvgIcon from 'material-ui/SvgIcon';
+import SvgIcon from '@material-ui/core/SvgIcon';
 import SvgIconV2 from '@material-ui/core/SvgIcon';
 
 export const MinimizeIcon = props => (

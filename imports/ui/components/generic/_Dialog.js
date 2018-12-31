@@ -1,5 +1,5 @@
 import { Button } from './_Button';
-import MUI_Dialog from 'material-ui/Dialog';
+import MUI_Dialog from '@material-ui/core/Dialog';
 import PropTypes from 'prop-types';
 import React from 'react';
 

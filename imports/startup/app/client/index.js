@@ -16,9 +16,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactGA from 'react-ga';
 import { Reload } from 'meteor/reload';
-import V0MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import app from '../app';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import getMuiTheme from '@material-ui/core/styles';
 import overlay from '../overlay';
 
 // Set url to origin to avoid CSP issues when the origin and ROOT_URL are different.
@@ -36,12 +35,12 @@ const App = () => (
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <MuiThemeProvider theme={theme}>
-          <V0MuiThemeProvider muiTheme={getMuiTheme(universeTheme)}>
+          <MuiThemeProvider muiTheme={getMuiTheme(universeTheme)}>
             <Switch>
               {overlay}
               {app}
             </Switch>
-          </V0MuiThemeProvider>
+          </MuiThemeProvider>
         </MuiThemeProvider>
       </BrowserRouter>
     </PersistGate>

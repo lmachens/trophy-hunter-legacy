@@ -4,7 +4,7 @@ import { Avatar } from '../generic';
 import Items from '../timeline/Items';
 import PropTypes from 'prop-types';
 import Spells from '../timeline/Spells';
-import { fade } from 'material-ui/utils/colorManipulator';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 import universeTheme from '../../layouts/universeTheme';
 

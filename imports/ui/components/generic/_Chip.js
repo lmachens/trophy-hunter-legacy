@@ -1,1 +1,1 @@
-export { default as Chip } from 'material-ui/Chip';
+export { default as Chip } from '@material-ui/core/Chip';

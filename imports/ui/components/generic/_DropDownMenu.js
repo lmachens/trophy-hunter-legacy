@@ -1,1 +1,1 @@
-export { default as DropDownMenu } from 'material-ui/DropDownMenu';
+export { default as DropDownMenu } from '@material-ui/core/Select';

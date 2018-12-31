@@ -1,1 +1,1 @@
-export { default as Switch } from 'material-ui/Toggle';
+export { default as Switch } from '@material-ui/core/Switch';

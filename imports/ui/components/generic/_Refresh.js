@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
-import RefreshIndicator from 'material-ui/RefreshIndicator';
+import RefreshIndicator from '@material-ui/core/CircularProgress';
 import moment from 'moment';
 
 const styles = {

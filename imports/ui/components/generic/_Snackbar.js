@@ -1,1 +1,1 @@
-export { default as Snackbar } from 'material-ui/Snackbar';
+export { default as Snackbar } from '@material-ui/core/Snackbar';

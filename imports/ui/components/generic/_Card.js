@@ -1,1 +1,1 @@
-export { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
+export { Card, CardActions, CardHeader, CardText } from '@material-ui/core/Card';
