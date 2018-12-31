@@ -203,6 +203,7 @@ import wormMasher from './definitions/wormMasher';
 import zenithBlade from './definitions/zenithBlade';
 import dominus from './definitions/dominus';
 import deathFromBelow from './definitions/deathFromBelow';
+import wujuStyle from './definitions/wujuStyle';
 
 export const trophies = {
   adventurer,
@@ -408,6 +409,7 @@ export const trophies = {
   wizard,
   wolfPack,
   wormMasher,
+  wujuStyle,
   zenithBlade,
   referrer
 };
