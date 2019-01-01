@@ -44,7 +44,7 @@ More details [here](https://play.overwolf.com/trophy-hunter/).
 
 ## Develop
 
-Clone this project with activated symlink support on Windows with `git clone -c core.symlinks=true git@github.com:lmachens/lol-trophy-hunter.git`.
+Clone this project with activated symlink support on Windows with `git clone -c core.symlinks=true git@github.com:lmachens/trophy-hunter.git`.
 
 ### Storybook
 
