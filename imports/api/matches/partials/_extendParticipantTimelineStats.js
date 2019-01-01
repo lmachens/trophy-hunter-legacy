@@ -424,12 +424,28 @@ export function extendParticipantTimelineStats(extendedMatchResult, participant)
 
   // Wuju Style
   {
-    participant.stats.killsOnMelees = participant.events.kills.filter(
-      event => champions[championIdsByParticipantId[event.victimId]].range === RANGE.MELEE
-    ).length;
-    participant.stats.killedByMelees = participant.events.deaths.filter(
-      event => champions[championIdsByParticipantId[event.killerId]].range === RANGE.MELEE
-    ).length;
+    participant.stats.killsOnMelees = participant.events.kills.filter(event => {
+      const champion = champions[championIdsByParticipantId[event.victimId]];
+      if (!champion) {
+        console.log(
+          'Champion not found',
+          championIdsByParticipantId[event.victimId],
+          event.victimId
+        );
+      }
+      return champion && champion.range === RANGE.MELEE;
+    }).length;
+    participant.stats.killedByMelees = participant.events.deaths.filter(event => {
+      const champion = champions[championIdsByParticipantId[event.killerId]];
+      if (!champion) {
+        console.log(
+          'Champion not found',
+          championIdsByParticipantId[event.killerId],
+          event.killerId
+        );
+      }
+      return champion.range === RANGE.MELEE;
+    }).length;
   }
 
   // elder into baron
