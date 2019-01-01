@@ -426,25 +426,14 @@ export function extendParticipantTimelineStats(extendedMatchResult, participant)
   {
     participant.stats.killsOnMelees = participant.events.kills.filter(event => {
       const champion = champions[championIdsByParticipantId[event.victimId]];
-      if (!champion) {
-        console.log(
-          'Champion not found',
-          championIdsByParticipantId[event.victimId],
-          event.victimId
-        );
-      }
       return champion && champion.range === RANGE.MELEE;
     }).length;
     participant.stats.killedByMelees = participant.events.deaths.filter(event => {
-      const champion = champions[championIdsByParticipantId[event.killerId]];
-      if (!champion) {
-        console.log(
-          'Champion not found',
-          championIdsByParticipantId[event.killerId],
-          event.killerId
-        );
+      if (event.killerId === 0) {
+        return false;
       }
-      return champion.range === RANGE.MELEE;
+      const champion = champions[championIdsByParticipantId[event.killerId]];
+      return champion && champion.range === RANGE.MELEE;
     }).length;
   }
 
