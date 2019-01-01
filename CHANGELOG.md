@@ -1,5 +1,6 @@
 # Change Log
 
+## [2.22.1] - 2019-01-01
 ### Added
 - Added new trophy [trophy:wujuStyle].
 - Added trees of Gangplank, Master Yi, Ekko, Twitch and Sona.
