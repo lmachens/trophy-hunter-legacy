@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import { fullWhite } from 'material-ui/styles/colors';
+import { fullWhite } from '../styles/colors';
 import spacing from '@material-ui/core/styles/spacing';
 
 export default {
