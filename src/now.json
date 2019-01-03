@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "trophyhunter",
+  "env": {
+    "LEAGUE_API_KEY": "@league_api_key"
+  },
+  "builds": [{ "src": "api/trophies/*.ts", "use": "@now/node@canary" }],
+  "routes": [{ "src": "/api/(.*)", "dest": "/api/$1" }]
+}

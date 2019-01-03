@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "trophy-hunter-api",
+  "version": "1.0.0",
+  "scripts": {},
+  "dependencies": {
+    "lodash.defaults": "4.2.0",
+    "lodash.flatten": "4.4.0",
+    "lodash.get": "4.4.2",
+    "lodash.groupby": "4.6.0",
+    "lodash.isequal": "4.5.0",
+    "lodash.pick": "4.4.0",
+    "lodash.throttle": "4.1.1",
+    "lodash.zip": "4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18"
+  }
+}
