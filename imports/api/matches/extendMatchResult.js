@@ -78,7 +78,7 @@ function extendMatchResult(game, matchResult, summonerId, matchExtensionParamete
   extendGeneralGroups(matchResult);
   // extend participant groups for single participants
   matchExtensionParameters.extendStatsParticipantIds.forEach(id => {
-    const participant = extendParticipantGroups(id, matchResult, matchExtensionParameters);
+    const participant = extendParticipantGroups(id, matchResult);
     matchExtensionParameters.extendParticipants.push(participant);
   });
   //TODO: change obtainedCheck
