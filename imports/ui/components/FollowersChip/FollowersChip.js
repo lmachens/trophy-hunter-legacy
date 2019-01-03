@@ -43,7 +43,7 @@ export class FollowersChip extends Component {
     const { followers, style } = this.props;
     let numberOfFollowers;
     if (followers && followers.length) {
-      numberOfFollowers = followers.length > 99 ? '100+' : followers.length;
+      numberOfFollowers = followers.length > 99 ? '99+' : followers.length;
     } else {
       numberOfFollowers = 0;
     }
