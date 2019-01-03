@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 const styles = {
   chip: {
     display: 'inline-flex',
-    marginLeft: 8,
+    verticalAlign: 'top',
+    marginRight: 8,
     color: '#fff'
   },
   admin: {

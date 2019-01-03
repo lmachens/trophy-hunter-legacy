@@ -137,13 +137,11 @@ class Level extends Component {
           <div style={styles.header}>
             <AvatarWithStatus style={{ margin: 5 }} trophyHunter={trophyHunter} />
             <div style={{ margin: '15px 5px', flex: 1 }}>
-              <div style={{ color: universeTheme.palette.secondaryTextColor }}>
-                {title}
-                <Badges items={trophyHunter && trophyHunter.items} />
-              </div>
+              <div style={{ color: universeTheme.palette.secondaryTextColor }}>{title}</div>
               <div>{subtitle}</div>
             </div>
             <div style={{ paddingTop: 10 }}>
+              <Badges items={trophyHunter && trophyHunter.items} />
               {items}
               <FollowersChip
                 followers={trophyHunter && trophyHunter.followers}
