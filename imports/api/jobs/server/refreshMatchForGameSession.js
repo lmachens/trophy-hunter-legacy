@@ -12,7 +12,7 @@ import calculateAttributes from '/imports/api/attributes/calculateAttributes';
 import calculateFeatures from '/imports/api/features/calculateFeatures';
 import calculatePlaystyle from '/imports/api/playstyles/calculatePlaystyle';
 import { calculateTrophies } from '/imports/shared/trophies/calculateTrophies.ts';
-import extendMatchResult from '/imports/api/matches/extendMatchResult';
+import extendMatchResult from '/imports/shared/matches/extendMatchResult.ts';
 import { getMatchForGameSession } from '/imports/api/matches/server/_getMatchForGameSession';
 import updateAttributes from '/imports/api/attributes/updateAttributes';
 import { calculateSeasonPoints } from '../../ranking/server';
@@ -146,13 +146,11 @@ function refreshMatchForGameSession(gameSessionId, job) {
   // calculate features
   job.log('Calculate features', { data: { type: 'app' } });
   let obtainedFeatures = {};
-  //console.time('extendMatchResult');
   const extendedMatchResult = extendMatchResult(
     gameSession.game,
     matchResult,
     trophyHunter.summonerId
   );
-  //console.timeEnd('extendMatchResult');
   //console.time('calculateFeatures');
   obtainedFeatures = calculateFeatures(extendedMatchResult, trophyHunter);
   //console.timeEnd('calculateFeatures');

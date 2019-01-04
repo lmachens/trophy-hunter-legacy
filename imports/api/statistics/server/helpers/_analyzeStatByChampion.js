@@ -1,7 +1,7 @@
 import { MAP_NAMES } from '../../../riot-api/gameConstants';
 import Matches from '/imports/api/statistics/server/matches';
 import champions from '/imports/api/riot-api/static/champions';
-import extendMatchResult from '/imports/api/matches/extendMatchResult';
+import extendMatchResult from '/imports/shared/matches/extendMatchResult.ts';
 
 export const analyzeStatByChampion = () => {
   console.log('analyzeStatByChampion');
