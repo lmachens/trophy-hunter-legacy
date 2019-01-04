@@ -11,8 +11,8 @@ import { OpenInNewIcon } from '../../components/icons';
 import PropTypes from 'prop-types';
 import Timeline from '../../components/Timeline';
 import TrophiesObtained from '../../components/TrophiesObtained';
-import champions from '/imports/shared/riot-api/static/champions.ts';
-import extendMatchResult from '/imports/shared/matches/extendMatchResult.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
+import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
 import moment from 'moment';
 import universeTheme from '../../layouts/universeTheme';
 

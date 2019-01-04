@@ -1,4 +1,4 @@
-import { extendKillStats } from './_extendKillStats';
+import extendKillStats from './extendKillStats';
 import flatten from 'lodash.flatten';
 import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
@@ -74,7 +74,7 @@ function extendKillEvents(events) {
   });
 }
 
-export function extendEvents(extendedMatchResult, matchExtensionParameters) {
+export default function extendEvents(extendedMatchResult, matchExtensionParameters) {
   extendGeneralEvents(extendedMatchResult);
 
   extendTeamEvents(extendedMatchResult, extendedMatchResult.teams[0]);

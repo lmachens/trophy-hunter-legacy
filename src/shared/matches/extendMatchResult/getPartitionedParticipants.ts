@@ -1,4 +1,4 @@
-export function getPartitionedParticipants(participantId, { participants, teams }) {
+export default function getPartitionedParticipants(participantId, { participants, teams }) {
   const result: any = {};
 
   // Process participants

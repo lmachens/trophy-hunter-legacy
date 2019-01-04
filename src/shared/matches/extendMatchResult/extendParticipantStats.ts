@@ -1,4 +1,4 @@
-export function extendParticipantStats({ gameDuration }, participant) {
+export default function extendParticipantStats({ gameDuration }, participant) {
   const result: any = {};
   result.validMatch = 1;
 

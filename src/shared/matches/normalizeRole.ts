@@ -1,10 +1,10 @@
-export const DUO_SUPPORT = 'DUO_SUPPORT';
-export const DUO_CARRY = 'DUO_CARRY';
-export const MIDDLE = 'MIDDLE';
-export const JUNGLE = 'JUNGLE';
-export const TOP = 'TOP';
+const DUO_SUPPORT = 'DUO_SUPPORT';
+const DUO_CARRY = 'DUO_CARRY';
+const MIDDLE = 'MIDDLE';
+const JUNGLE = 'JUNGLE';
+const TOP = 'TOP';
 
-export const normalizeRole = ({ role, lane }) => {
+const normalizeRole = ({ role, lane }) => {
   switch (role) {
     case 'NONE':
       if (lane === 'JUNGLE') return JUNGLE;
@@ -24,3 +24,5 @@ export const normalizeRole = ({ role, lane }) => {
   }
   return null;
 };
+
+export default normalizeRole;

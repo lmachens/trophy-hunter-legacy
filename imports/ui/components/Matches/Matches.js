@@ -9,7 +9,7 @@ import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Trophy from '../Trophy';
-import champions from '/imports/shared/riot-api/static/champions.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 import { gameQueueConfigIdLabels } from '/imports/shared/riot-api/gameConstants.ts';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 import moment from 'moment';

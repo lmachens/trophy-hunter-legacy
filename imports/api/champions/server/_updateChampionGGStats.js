@@ -1,7 +1,7 @@
 import ChampionGGApi from '/imports/api/champion-gg-api/championGGApi';
 import { ChampionMatchups } from '../champion-matchups';
 import { ChampionStats } from '../champion-stats';
-import champions from '/imports/shared/riot-api/static/champions.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 
 const roles = ['TOP', 'JUNGLE', 'MIDDLE', 'DUO_CARRY', 'DUO_SUPPORT'];
 const matchupApiLimit = 10;

@@ -1,6 +1,6 @@
 import groupBy from 'lodash.groupby';
 
-export function extendTeamStats(team) {
+export default function extendTeamStats(team) {
   const teammates = team.participants;
   const result: any = {};
   result.physicalDamageTotal = teammates

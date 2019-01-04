@@ -1,4 +1,4 @@
-export function extendOthersStats(others) {
+export default function extendOthersStats(others) {
   const result: any = {};
   result.maxTotalDamageDealtToChampions = Math.max(
     ...others.map(p => p.stats.totalDamageDealtToChampions)

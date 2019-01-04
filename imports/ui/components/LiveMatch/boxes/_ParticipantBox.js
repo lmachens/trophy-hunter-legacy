@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 
 import { Participant } from './partials/_Participant';
 import PropTypes from 'prop-types';
-import champions from '/imports/shared/riot-api/static/champions.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 
 const styles = {
   noParticipant: {

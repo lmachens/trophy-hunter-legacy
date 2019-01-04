@@ -1,7 +1,7 @@
 import { ChampionStats } from '../champion-stats';
 import get from 'lodash/get';
 import { mapIdNames } from '/imports/shared/riot-api/gameConstants.ts';
-import { normalizeRole } from '/imports/shared/matches/partials/_normalizeRole.ts';
+import normalizeRole from '/imports/shared/matches/normalizeRole.ts';
 
 export const updateFirstBloodStats = ({ mapId, participants }) => {
   Object.values(participants).forEach(participant => {

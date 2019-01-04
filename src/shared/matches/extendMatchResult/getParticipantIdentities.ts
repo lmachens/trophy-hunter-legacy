@@ -1,4 +1,4 @@
-export function getParticipantIdentities(game, matchResult) {
+export default function getParticipantIdentities(game, matchResult) {
   // get the identities from the gameSession
   return matchResult.participantIdentities.map((identity, index) => {
     const participant = game.participants[index];

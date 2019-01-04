@@ -12,7 +12,7 @@ import BannedChampions from '../BannedChampions';
 import PropTypes from 'prop-types';
 import { Range } from 'rc-slider';
 import TimelineParticipant from '../TimelineParticipant';
-import champions from '/imports/shared/riot-api/static/champions.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 import universeTheme from '../../layouts/universeTheme';
 
 const styles = {

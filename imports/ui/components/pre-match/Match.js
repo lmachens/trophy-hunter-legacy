@@ -5,7 +5,7 @@ import Items from '../Items';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Spells from '../Spells';
-import extendMatchResult from '/imports/shared/matches/extendMatchResult.ts';
+import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
 import perks from '../../../api/riot-api/static/perks';
 import universeTheme from '../../layouts/universeTheme';
 

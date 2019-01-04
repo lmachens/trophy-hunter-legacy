@@ -1,4 +1,4 @@
-export function getParticipantIdentityByChampionId(extendedMatchResult, championId) {
+export default function getParticipantIdentityByChampionId(extendedMatchResult, championId) {
   const participant = extendedMatchResult.participants.find(p => p.championId === championId);
   if (!participant) {
     console.error(

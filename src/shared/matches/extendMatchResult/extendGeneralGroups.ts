@@ -1,4 +1,4 @@
-export function extendGeneralGroups(extendedMatchResult) {
+export default function extendGeneralGroups(extendedMatchResult) {
   extendedMatchResult.teams[0].participants = extendedMatchResult.participants.filter(
     participant => {
       return participant.teamId === 100;

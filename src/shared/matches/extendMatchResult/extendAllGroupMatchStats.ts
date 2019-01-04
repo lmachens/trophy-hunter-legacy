@@ -1,5 +1,5 @@
 // these are stats based on the group of all participants.
-export function extendAllGroupMatchStats(extendedMatchResult) {
+export default function extendAllGroupMatchStats(extendedMatchResult) {
   const { participants } = extendedMatchResult;
   // simple max and min stats
   extendedMatchResult.maxKills = Math.max(...participants.map(p => p.stats.kills));

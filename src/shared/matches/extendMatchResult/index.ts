@@ -1,20 +1,18 @@
-import {
-  extendAllGroupMatchStats,
-  extendEvents,
-  extendGeneralGroups,
-  extendMatchStats,
-  extendOthersStats,
-  extendParticipantGroups,
-  extendParticipantStats,
-  extendParticipantTimelineStats,
-  extendTeamStats,
-  extendTeamTimelineStats,
-  getParticipantIdentities,
-  getParticipantIdentity,
-  getPartitionedParticipants
-} from './partials';
+import extendEvents from './extendEvents';
+import extendGeneralGroups from './extendGeneralGroups';
+import extendMatchStats from './extendMatchStats';
+import extendOthersStats from './extendOthersStats';
+import extendParticipantGroups from './extendParticipantGroups';
+import extendParticipantStats from './extendParticipantStats';
+import extendParticipantTimelineStats from './extendParticipantTimelineStats';
+import extendTeamStats from './extendTeamStats';
+import extendTeamTimelineStats from './extendTeamTimelineStats';
+import getParticipantIdentities from './getParticipantIdentities';
+import getParticipantIdentity from './getParticipantIdentity';
+import getPartitionedParticipants from './getPartitionedParticipants';
+import extendAllGroupMatchStats from './extendAllGroupMatchStats';
 
-import { MAP_NAMES } from '../riot-api/gameConstants';
+import { MAP_NAMES } from '../../riot-api/gameConstants';
 
 function extendParticipantGroupsMatchStats(extendedMatchResult, participant) {
   // Extend others match stats

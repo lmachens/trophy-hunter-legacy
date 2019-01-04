@@ -3,12 +3,12 @@ import flatten from 'lodash.flatten';
 import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
 
-import champions from '../../riot-api/static/champions';
+import champions from '../../riot-api/champions';
 import RANGE from '../../champions/range';
 
 const turretRange = 500;
 
-export function extendParticipantTimelineStats(extendedMatchResult, participant) {
+export default function extendParticipantTimelineStats(extendedMatchResult, participant) {
   const events = extendedMatchResult.events;
 
   const championIdsByParticipantId = {};

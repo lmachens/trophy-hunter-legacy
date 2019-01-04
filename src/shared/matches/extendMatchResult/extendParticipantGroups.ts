@@ -1,4 +1,4 @@
-export function extendParticipantGroups(participantId, extendedMatchResult) {
+export default function extendParticipantGroups(participantId, extendedMatchResult) {
   const participant = extendedMatchResult.participants.find(participant => {
     return participant.participantId === participantId;
   });

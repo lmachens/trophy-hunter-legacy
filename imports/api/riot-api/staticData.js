@@ -1,4 +1,4 @@
-import champions from '/imports/shared/riot-api/static/champions.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 import summonerSpells from './static/summonerSpells';
 import version from './version';
 

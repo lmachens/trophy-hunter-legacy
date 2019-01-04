@@ -3,7 +3,7 @@ const _15Minutes = 15 * 60 * 1000;
 const _30Minutes = 30 * 60 * 1000;
 const _45Minutes = 45 * 60 * 1000;
 
-export function extendKillStats(extendedMatchResult) {
+export default function extendKillStats(extendedMatchResult) {
   const events = extendedMatchResult.events;
   // add levels to kills
   events.allKills.forEach(kill => {

@@ -21,7 +21,7 @@ import { Tooltip } from '../../../generic/Tooltip';
 import { VersusIcon } from '../../../icons';
 import { WinRate } from './_WinRate';
 import { bindActionCreators } from 'redux';
-import champions from '/imports/shared/riot-api/static/champions.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 import classNames from 'classnames';
 import compose from 'recompose/compose';
 import { connect } from 'react-redux';

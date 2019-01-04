@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Tooltip } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import champions from '/imports/shared/riot-api/static/champions.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 
 const styles = {

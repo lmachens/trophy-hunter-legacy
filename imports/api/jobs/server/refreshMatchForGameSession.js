@@ -12,7 +12,7 @@ import calculateAttributes from '/imports/api/attributes/calculateAttributes';
 import calculateFeatures from '/imports/api/features/calculateFeatures';
 import calculatePlaystyle from '/imports/api/playstyles/calculatePlaystyle';
 import { calculateTrophies } from '/imports/shared/trophies/calculateTrophies.ts';
-import extendMatchResult from '/imports/shared/matches/extendMatchResult.ts';
+import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
 import { getMatchForGameSession } from '/imports/api/matches/server/_getMatchForGameSession';
 import updateAttributes from '/imports/api/attributes/updateAttributes';
 import { calculateSeasonPoints } from '../../ranking/server';

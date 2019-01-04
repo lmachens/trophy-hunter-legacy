@@ -139,7 +139,7 @@ function getOpponentsMatchStats(opponents) {
 
   return result;
 }
-export function extendMatchStats(extendedMatchResult) {
+export default function extendMatchStats(extendedMatchResult) {
   const { participant, participants, teammates, team, others, opponents } = extendedMatchResult;
 
   // Extend team

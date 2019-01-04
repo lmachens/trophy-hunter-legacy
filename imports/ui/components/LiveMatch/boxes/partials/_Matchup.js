@@ -6,7 +6,7 @@ import { MatchupStats } from './_MatchupStats';
 import PropTypes from 'prop-types';
 import { Tooltip } from '../../../generic/Tooltip';
 import { bindActionCreators } from 'redux';
-import champions from '/imports/shared/riot-api/static/champions.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 import compose from 'recompose/compose';
 import { connect } from 'react-redux';
 import { createMatchupStatsIdentifier } from '../../../../../api/matchup/helpers';

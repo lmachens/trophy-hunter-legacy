@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Select } from '../../../generic/Select';
 import { Skill } from './_Skill';
 import { bindActionCreators } from 'redux';
-import champions from '/imports/shared/riot-api/static/champions.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 import compose from 'recompose/compose';
 import { connect } from 'react-redux';
 import { fetchChampionStatsIfNeeded, setUIState } from '../../../../../store/actions';
