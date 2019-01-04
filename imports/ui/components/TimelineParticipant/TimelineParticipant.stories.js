@@ -1,7 +1,7 @@
 import TimelineParticipant from './TimelineParticipant';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import champions from '../../../api/riot-api/static/champions';
+import champions from '/imports/shared/riot-api/static/champions.ts';
 
 const participant = {
   spell1Id: 1,

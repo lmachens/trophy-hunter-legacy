@@ -1,7 +1,7 @@
 import { ChampionStats } from '../champion-stats';
 import extendMatchResult from '/imports/shared/matches/extendMatchResult.ts';
 import get from 'lodash/get';
-import { mapIdNames } from '../../riot-api/gameConstants';
+import { mapIdNames } from '/imports/shared/riot-api/gameConstants.ts';
 import { normalizeRole } from '/imports/shared/matches/partials/_normalizeRole.ts';
 
 export const updateSnowballStats = match => {

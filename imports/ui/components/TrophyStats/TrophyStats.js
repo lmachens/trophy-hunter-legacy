@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Refresh } from '../generic';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { mapIdLabels } from '../../../api/riot-api/gameConstants';
+import { mapIdLabels } from '/imports/shared/riot-api/gameConstants.ts';
 
 const styles = {
   stats: {

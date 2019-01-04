@@ -5,7 +5,7 @@ import {
   MATCHMAKING,
   activeMatchModes,
   gameQueueConfigIdLabels
-} from '../../../api/riot-api/gameConstants';
+} from '/imports/shared/riot-api/gameConstants.ts';
 import React, { Component } from 'react';
 
 import HelpBox from '../HelpBox';

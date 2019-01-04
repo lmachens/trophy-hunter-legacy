@@ -4,7 +4,7 @@ import { getChampionSquare, getMinimap } from '../../../api/riot-api/staticData'
 
 import Heatmap from '../Heatmap';
 import PropTypes from 'prop-types';
-import { domains } from '../../../api/riot-api/gameConstants';
+import { domains } from '/imports/shared/riot-api/gameConstants.ts';
 import flatten from 'lodash.flatten';
 import { MenuItem } from '../generic/MenuItem';
 import { Select } from '../generic/Select';

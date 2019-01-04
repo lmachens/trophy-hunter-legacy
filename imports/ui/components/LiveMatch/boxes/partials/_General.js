@@ -1,6 +1,6 @@
 import compose from 'recompose/compose';
 import React, { PureComponent } from 'react';
-import { gameQueueConfigIdLabels, mapIdLabels } from '../../../../../api/riot-api/gameConstants';
+import { gameQueueConfigIdLabels, mapIdLabels } from '/imports/shared/riot-api/gameConstants.ts';
 import { connect } from 'react-redux';
 import { BannedChampions } from './_BannedChampions';
 import PropTypes from 'prop-types';

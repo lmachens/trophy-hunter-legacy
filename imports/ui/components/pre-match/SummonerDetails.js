@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Avatar } from '../generic';
 import DamageComposition from '../DamageComposition';
 import PropTypes from 'prop-types';
-import champions from '../../../api/riot-api/static/champions';
+import champions from '/imports/shared/riot-api/static/champions.ts';
 import get from 'lodash.get';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 import { getRole } from './helpers';

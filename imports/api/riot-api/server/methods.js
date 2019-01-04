@@ -1,11 +1,11 @@
-import { MAP_NAMES, queuesByMatchId } from '/imports/api/riot-api/gameConstants';
+import { MAP_NAMES, queuesByMatchId } from '/imports/shared/riot-api/gameConstants.ts';
 import { Match, check } from 'meteor/check';
 import {
   extendMatchStats,
   getParticipantIdentity,
   getParticipantIdentityByChampionId,
   getPartitionedParticipants
-} from '/imports/api/matches/partials';
+} from '/imports/shared/matches/partials/index.ts';
 
 import Future from 'fibers/future';
 import { Meteor } from 'meteor/meteor';

@@ -1,4 +1,5 @@
-import { MATCHMAKING, activeMatchModes } from '/imports/api/riot-api/gameConstants';
+import { MATCHMAKING, activeMatchModes } from '/imports/shared/riot-api/gameConstants.ts';
+
 import Notifications, { notificationTypes } from '/imports/api/notifications/notifications';
 
 import GameSessions from '../gameSessions';
