@@ -6,7 +6,7 @@ import Trophy from '../Trophy';
 import TrophyHunterName from '../TrophyHunterName';
 import { connect } from 'react-redux';
 import get from 'lodash.get';
-import { trophies } from '../../../api/trophies';
+import trophies from '/imports/shared/trophies/index.ts';
 import TrophyHunterAutoComplete from '../TrophyHunterAutoComplete';
 
 class ReferrerItem extends PureComponent {

@@ -14,7 +14,7 @@ import { RemoveIcon } from '../../../icons/Remove';
 import { bindActionCreators } from 'redux';
 import compose from 'recompose/compose';
 import { connect } from 'react-redux';
-import { domains } from '../../../../../api/riot-api/gameConstants';
+import { domains } from '/imports/shared/riot-api/gameConstants.ts';
 import { fetchParticipantHeatmapIfNeeded, setUIState } from '../../../../../store/actions';
 
 const xScale = (x, map, width) => {

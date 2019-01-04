@@ -1,7 +1,5 @@
 import Matches from '/imports/api/statistics/server/matches';
 
-//import extendMatchResult from '/imports/api/matches/extendMatchResult';
-
 export const analyzeStatByPosition = () => {
   console.log('analyzeStatByPosition');
   let counter = {};
@@ -23,17 +21,6 @@ export const analyzeStatByPosition = () => {
       if (!part.stats.firstBloodKill) {
         return;
       }
-      /*   try {
-        extendMatchResult(null, match, null, {
-          withTimeline: true,
-          extendStatsParticipantIds: [part.participantId],
-          extendParticipants: []
-        });
-      } catch (err) {
-        console.log('error: ' + err);
-        console.log(match.gameId);
-        console.log(part.participantId);
-      }*/
       const lane = part.timeline.lane + '-' + part.timeline.role;
       const statCount = part.stats.win ? 100 : 0;
       if (counter[lane] === undefined) {

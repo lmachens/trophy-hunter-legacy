@@ -1,6 +1,6 @@
 import GameSessions from '/imports/api/game-sessions/gameSessions';
 import endpoints from '/imports/api/riot-api/endpoints';
-import { getParticipantIdentities } from '/imports/api/matches/partials';
+import getParticipantIdentities from '/imports/shared/matches/extendMatchResult/getParticipantIdentities.ts';
 import riotApi from '/imports/api/riot-api/server/riotApi';
 
 export const getMatchWithTimeline = (gameId, platformId, notResolveIdentity) => {

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { gameQueueConfigIdLabels, matchedMatchModes } from '../../../api/riot-api/gameConstants';
+import {
+  gameQueueConfigIdLabels,
+  matchedMatchModes
+} from '/imports/shared/riot-api/gameConstants.ts';
 
 import { Button } from '../../components/generic';
 import LoadingComponent from '../../components/loading/LoadingComponent';
@@ -8,8 +11,8 @@ import { OpenInNewIcon } from '../../components/icons';
 import PropTypes from 'prop-types';
 import Timeline from '../../components/Timeline';
 import TrophiesObtained from '../../components/TrophiesObtained';
-import champions from '../../../api/riot-api/static/champions';
-import extendMatchResult from '../../../api/matches/extendMatchResult';
+import champions from '/imports/shared/riot-api/champions.ts';
+import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
 import moment from 'moment';
 import universeTheme from '../../layouts/universeTheme';
 

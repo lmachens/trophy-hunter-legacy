@@ -3,7 +3,7 @@ import { Avatar, Badge, FloatingActionButton, IconButton } from '../generic';
 import { CloseIcon } from '../icons';
 import PropTypes from 'prop-types';
 import React from 'react';
-import champions from '../../../api/riot-api/static/champions';
+import champions from '/imports/shared/riot-api/champions.ts';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 
 const styles = {

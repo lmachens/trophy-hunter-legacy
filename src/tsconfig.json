@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./build",
+    "module": "commonjs",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "strict": false
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}

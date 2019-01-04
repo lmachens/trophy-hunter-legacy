@@ -1,3 +1,5 @@
+production.settings.json
+settings.json
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -12,5 +14,4 @@ deploy/
 dump
 simple-io-plugin64.dll
 .cache
-production.settings.json
-settings.json
+build

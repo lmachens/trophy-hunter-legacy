@@ -1,6 +1,6 @@
 import { AvatarV2, withStyles } from '../../../generic';
 import React, { PureComponent } from 'react';
-import champions, { unknownChamp } from '../../../../../api/riot-api/static/champions';
+import champions, { unknownChamp } from '/imports/shared/riot-api/champions.ts';
 
 import PropTypes from 'prop-types';
 import { Tooltip } from '../../../generic/Tooltip';

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import DamageComposition from '../DamageComposition';
 import PropTypes from 'prop-types';
 import SummonerDetails from './SummonerDetails';
-import champions from '../../../api/riot-api/static/champions';
+import champions from '/imports/shared/riot-api/champions.ts';
 import get from 'lodash.get';
 import { getRole } from './helpers';
 import isEqual from 'lodash.isequal';

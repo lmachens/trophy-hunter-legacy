@@ -4,7 +4,7 @@ import trees, { activeTrees, expiredTrees } from '../../../api/trees/trees';
 
 import PropTypes from 'prop-types';
 import Tree from '../Tree';
-import champions from '../../../api/riot-api/static/champions';
+import champions from '/imports/shared/riot-api/champions.ts';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 import universeTheme from '../../layouts/universeTheme';
 

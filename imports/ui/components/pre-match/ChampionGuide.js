@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import RoleSelector from './RoleSelector';
 import RunesOrder from './RunesOrder';
 import { bindActionCreators } from 'redux';
-import champions from '../../../api/riot-api/static/champions';
+import champions from '/imports/shared/riot-api/champions.ts';
 import { connect } from 'react-redux';
 import { fetchChampionStats } from '../../../store/actions';
 import get from 'lodash.get';

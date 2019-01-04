@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Trophy from '../Trophy';
 import escapeStringRegexp from 'escape-string-regexp';
 import getActiveQuestTrophies from '../../../api/trophies/getActiveQuestTrophies';
-import { trophies } from '../../../api/trophies';
+import trophies from '/imports/shared/trophies/index.ts';
 
 class AllTrophies extends Component {
   state = {

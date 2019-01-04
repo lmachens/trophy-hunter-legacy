@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { SvgIcon } from '@material-ui/core';
 import { withStyles } from '../../../generic';
 import PropTypes from 'prop-types';
-import SCORES from '../../../../../api/trophies/scores';
+import SCORES from '/imports/shared/trophies/scores.ts';
 import { Tooltip } from '../../../generic/Tooltip';
 import { TooltipTitle } from '../../../generic/TooltipTitle';
 

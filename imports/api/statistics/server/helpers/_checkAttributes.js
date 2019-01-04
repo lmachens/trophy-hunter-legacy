@@ -1,8 +1,8 @@
 import GameSessions from '/imports/api/game-sessions/gameSessions';
 import Matches from '/imports/api/statistics/server/matches';
-import extendMatchResult from '/imports/api/matches/extendMatchResult';
-import { getTrophiesCategory } from '/imports/api/trophies/helpers/index';
-import { trophies } from '/imports/api/trophies';
+import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
+import getTrophiesCategory from '/imports/shared/trophies/getTrophiesCategory.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 
 export const checkAttributes = () => {
   console.log('checkAttributes');
