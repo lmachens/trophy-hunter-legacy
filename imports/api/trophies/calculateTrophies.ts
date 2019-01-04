@@ -26,7 +26,7 @@ export const calculateTrophies = ({
       );
 
       const newInTrees = Object.entries(obtainableTrophiesByTree).reduce(
-        (trees, [treeName, obtainableTrophies]) => {
+        (trees, [treeName, obtainableTrophies]: [string, string[]]) => {
           if (obtainableTrophies.includes(trophy.name)) return [...trees, treeName];
           return trees;
         },

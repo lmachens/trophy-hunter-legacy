@@ -205,7 +205,21 @@ import dominus from './definitions/dominus';
 import deathFromBelow from './definitions/deathFromBelow';
 import wujuStyle from './definitions/wujuStyle';
 
-export const trophies = {
+interface Trophy {
+  name: string;
+  title: string;
+  description: string;
+  svgPath: string;
+  score: number;
+  obtainedCheck(prop: any): boolean;
+  context: string;
+}
+
+interface Trophies {
+  [trophyName: string]: Trophy;
+}
+
+export const trophies: Trophies = {
   adventurer,
   ancient,
   annihilation,

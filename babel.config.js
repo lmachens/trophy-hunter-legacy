@@ -6,7 +6,8 @@ module.exports = {
         modules: false
       }
     ],
-    '@babel/react'
+    '@babel/react',
+    '@babel/preset-typescript'
   ],
   plugins: ['@babel/proposal-class-properties', '@babel/plugin-transform-runtime'],
   env: {
