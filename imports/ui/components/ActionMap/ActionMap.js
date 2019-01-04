@@ -5,7 +5,6 @@ import { getChampionSquare, getMinimap } from '../../../api/riot-api/staticData'
 import Heatmap from '../Heatmap';
 import PropTypes from 'prop-types';
 import { domains } from '/imports/shared/riot-api/gameConstants.ts';
-import flatten from 'lodash.flatten';
 import { MenuItem } from '../generic/MenuItem';
 import { Select } from '../generic/Select';
 
@@ -184,8 +183,9 @@ class ActionMap extends Component {
         return;
       }
       const maxFrames = Math.min(timeline.frames.length, endFrame);
-      const events = flatten(
-        timeline.frames.slice(startFrame, maxFrames).map(frame => {
+      const events = timeline.frames
+        .slice(startFrame, maxFrames)
+        .map(frame => {
           return frame.events.filter(event => {
             if (event.type !== 'CHAMPION_KILL') {
               return false;
@@ -200,7 +200,7 @@ class ActionMap extends Component {
             ); // or victim
           });
         })
-      );
+        .reduce((a, b) => a.concat(b), []);
       if (events.length) {
         participantKillParticipationEvents.push(...events);
       }

@@ -1,5 +1,4 @@
 import { domains } from '../../riot-api/gameConstants';
-import flatten from 'lodash.flatten';
 import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
 
@@ -459,8 +458,8 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     return timestampDiff <= 10000;
   }).length;
 
-  participant.stats.vengeanceScore = flatten(
-    participant.events.kills.map(
+  participant.stats.vengeanceScore = participant.events.kills
+    .map(
       kill =>
         events.killEventsByParticipant[kill.victimId] &&
         events.killEventsByParticipant[kill.victimId].filter(vicKill => {
@@ -469,7 +468,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
           return isVicKillBeforeKill && isVicKillAtMost10SBefore;
         })
     )
-  ).length;
+    .reduce((a, b) => a.concat(b), []).length;
 
   // Only allow summoner's rift.
   if (extendedMatchResult.isSummonersRift) {
