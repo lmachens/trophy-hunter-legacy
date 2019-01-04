@@ -1,7 +1,7 @@
 import { domains } from '../../riot-api/gameConstants';
-import * as flatten from 'lodash.flatten';
-import * as groupBy from 'lodash.groupby';
-import * as zip from 'lodash.zip';
+import flatten from 'lodash.flatten';
+import groupBy from 'lodash.groupby';
+import zip from 'lodash.zip';
 
 import champions from '../../riot-api/champions';
 import RANGE from '../../champions/range';

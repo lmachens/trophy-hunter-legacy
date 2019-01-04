@@ -1,7 +1,7 @@
 import extendKillStats from './extendKillStats';
-import * as flatten from 'lodash.flatten';
-import * as groupBy from 'lodash.groupby';
-import * as zip from 'lodash.zip';
+import flatten from 'lodash.flatten';
+import groupBy from 'lodash.groupby';
+import zip from 'lodash.zip';
 
 function extendGeneralEvents(extendedMatchResult) {
   const events: any = {};
