@@ -9,7 +9,8 @@
     "jobs/imports": true,
     "app/imports": true,
     "project/imports": true,
-    "*/packages": true
+    "*/packages": true,
+    "imports/shared": true
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,

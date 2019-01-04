@@ -1,23 +1,18 @@
 import axios from 'axios';
 import extendMatchResult from '../../shared/matches/extendMatchResult';
-import { calculateTrophies } from '../../shared/trophies/calculateTrophies';
+import calculateTrophies from '../../shared/trophies/calculateTrophies';
 import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
 
+const matchApiEndpoint = process.env.MATCH_API_ENDPOINT || 'https://api.th.gl/match';
+const timelineApiEndpoint = process.env.TIMELINE_API_ENDPOINT || 'https://api.th.gl/timeline';
+
 const getMatch = ({ region, matchId }) => {
-  return axios.get(
-    `https://${region}.api.riotgames.com/lol/match/v3/matches/${matchId}?api_key=${
-      process.env.LEAGUE_API_KEY
-    }`
-  );
+  return axios.get(`${matchApiEndpoint}?region=${region}&matchId=${matchId}`);
 };
 
 const getTimeline = ({ region, matchId }) => {
-  return axios.get(
-    `https://${region}.api.riotgames.com/lol/match/v3/timelines/by-match/${matchId}?api_key=${
-      process.env.LEAGUE_API_KEY
-    }`
-  );
+  return axios.get(`${timelineApiEndpoint}?region=${region}&matchId=${matchId}`);
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
@@ -37,10 +32,10 @@ export default (req: IncomingMessage, res: ServerResponse) => {
       axios.spread((matchResponse, timelineResponse) => {
         const match = matchResponse.data;
         match.timeline = timelineResponse.data;
-        const extendedMatchResult = extendMatchResult(null, match, parseInt(summonerId), null);
+        const extendedMatchResult = extendMatchResult(match, parseInt(summonerId), null);
         const trophiesObtained = calculateTrophies({ extendedMatchResult });
         const result = {
-          data: trophiesObtained.map(trophyObtained => trophyObtained.trophy),
+          data: trophiesObtained,
           count: trophiesObtained.length
         };
         // Cache result https://zeit.co/docs/v2/routing/caching/#caching-lambda-responses

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "name": "trophyhunter",
+  "name": "th-api",
+  "alias": "api.th.gl",
   "env": {
     "LEAGUE_API_KEY": "@league_api_key"
   },
-  "builds": [{ "src": "api/trophies/*.ts", "use": "@now/node@canary" }],
-  "routes": [{ "src": "/api/(.*)", "dest": "/api/$1" }]
+  "builds": [{ "src": "api/**/*.ts", "use": "@now/node@canary" }],
+  "routes": [{ "src": "/(.*)", "dest": "/api/$1" }]
 }

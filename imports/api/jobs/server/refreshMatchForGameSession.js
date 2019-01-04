@@ -11,7 +11,7 @@ import TrophyStats from '/imports/api/trophies/trophyStats';
 import calculateAttributes from '/imports/api/attributes/calculateAttributes';
 import calculateFeatures from '/imports/api/features/calculateFeatures';
 import calculatePlaystyle from '/imports/api/playstyles/calculatePlaystyle';
-import { calculateTrophies } from '/imports/shared/trophies/calculateTrophies.ts';
+import calculateTrophies from '/imports/shared/trophies/calculateTrophies.ts';
 import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
 import { getMatchForGameSession } from '/imports/api/matches/server/_getMatchForGameSession';
 import updateAttributes from '/imports/api/attributes/updateAttributes';
@@ -146,11 +146,7 @@ function refreshMatchForGameSession(gameSessionId, job) {
   // calculate features
   job.log('Calculate features', { data: { type: 'app' } });
   let obtainedFeatures = {};
-  const extendedMatchResult = extendMatchResult(
-    gameSession.game,
-    matchResult,
-    trophyHunter.summonerId
-  );
+  const extendedMatchResult = extendMatchResult(matchResult, trophyHunter.summonerId);
   //console.time('calculateFeatures');
   obtainedFeatures = calculateFeatures(extendedMatchResult, trophyHunter);
   //console.timeEnd('calculateFeatures');
@@ -196,11 +192,21 @@ function refreshMatchForGameSession(gameSessionId, job) {
     //console.log(`obtainabledTreeTrophies in tree ${name}`, obtainabledTreeTrophies);
   });
 
-  //console.time('calculateTrophies');
   const trophiesObtained = calculateTrophies({
     extendedMatchResult,
-    trophyHunter,
-    obtainableTrophiesByTree
+    trophyHunter
+  }).map(trophy => {
+    const newInTrees = Object.entries(obtainableTrophiesByTree).reduce(
+      (trees, [treeName, obtainableTrophies]) => {
+        if (obtainableTrophies.includes(trophy.name)) return [...trees, treeName];
+        return trees;
+      },
+      []
+    );
+    const isNew = !trophyHunter.trophiesObtained.find(
+      trophyObtained => trophyObtained.name === trophy.name
+    );
+    return { trophy, isNew, newInTrees };
   });
 
   // compute and update attributes

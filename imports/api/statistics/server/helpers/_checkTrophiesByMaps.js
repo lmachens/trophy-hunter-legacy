@@ -31,7 +31,7 @@ export const checkTrophiesByMaps = () => {
       //if (part.stats.perk0 === 8229)
       {
         {
-          match = extendMatchResult(null, match, null, {
+          match = extendMatchResult(match, null, {
             withTimeline: true,
             extendStatsParticipantIds: [part.participantId],
             extendParticipants: []
