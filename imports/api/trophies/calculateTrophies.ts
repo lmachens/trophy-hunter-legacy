@@ -1,5 +1,5 @@
-import { getTrophiesCategory } from '/imports/api/trophies/helpers/index';
-import { trophies } from '/imports/api/trophies';
+import { getTrophiesCategory } from './helpers/index';
+import { trophies } from './trophies';
 
 export const calculateTrophies = ({
   extendedMatchResult,
@@ -26,7 +26,7 @@ export const calculateTrophies = ({
       );
 
       const newInTrees = Object.entries(obtainableTrophiesByTree).reduce(
-        (trees, [treeName, obtainableTrophies]) => {
+        (trees, [treeName, obtainableTrophies]: [string, string[]]) => {
           if (obtainableTrophies.includes(trophy.name)) return [...trees, treeName];
           return trees;
         },
