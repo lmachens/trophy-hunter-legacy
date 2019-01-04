@@ -1,5 +1,5 @@
 import SCORES from '../scores';
-import { ARAM, TWISTED_TREELINE } from '../types/index';
+import { ARAM, TWISTED_TREELINE } from '../types';
 
 const stomp = {
   name: 'stomp',

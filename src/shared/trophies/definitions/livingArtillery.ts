@@ -1,5 +1,5 @@
 import SCORES from '../scores';
-import { TWISTED_TREELINE } from '../types/index';
+import { TWISTED_TREELINE } from '../types';
 
 const livingArtillery = {
   name: 'livingArtillery',
