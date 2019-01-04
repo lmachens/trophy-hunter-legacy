@@ -7,7 +7,7 @@ import '../../server/process';
 import '../../server/admin';
 
 import TrophyStats from '/imports/api/trophies/trophyStats';
-import { trophies } from '/imports/api/trophies';
+import { trophies } from '/imports/shared/trophies/trophies.ts';
 
 Object.values(trophies).forEach(trophy => {
   if (!TrophyStats.findOne({ trophyName: trophy.name })) {
