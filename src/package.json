@@ -11,6 +11,7 @@
     "lodash.flatten": "4.4.0",
     "lodash.groupby": "4.6.0",
     "lodash.zip": "4.2.0",
+    "node-cache": "^4.2.0",
     "request": "^2.88.0"
   },
   "devDependencies": {

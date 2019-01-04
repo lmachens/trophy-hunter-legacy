@@ -2,34 +2,36 @@ import axios from 'axios';
 import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
 
-const getTimeline = ({ region, matchId }) => {
-  return axios.get(
-    `https://${region}.api.riotgames.com/lol/match/v3/timelines/by-match/${matchId}?api_key=${
-      process.env.LEAGUE_API_KEY
-    }`
-  );
+const getTimeline = ({ platformId, matchId }) => {
+  return axios
+    .get(
+      `https://${platformId}.api.riotgames.com/lol/match/v3/timelines/by-match/${matchId}?api_key=${
+        process.env.LEAGUE_API_KEY
+      }`
+    )
+    .then(response => response.data);
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
-  console.log(`Request ${req.url}`);
-  const { region, matchId }: any = parse(req.url, true).query;
-  if (!region || !matchId) {
+  console.log(`Timeline ${req.url}`);
+  const { platformId, matchId }: any = parse(req.url, true).query;
+  if (!platformId || !matchId) {
     res.writeHead(400);
     return res.end('Invalid query');
   }
 
-  const timelinePromise = getTimeline({ region, matchId });
-
-  timelinePromise
-    .then(timelineResponse => {
-      const timeline = timelineResponse.data;
-
+  getTimeline({ platformId, matchId })
+    .then(result => {
+      if (!result) {
+        res.writeHead(404);
+        return res.end('Timeline not found');
+      }
       // Cache result https://zeit.co/docs/v2/routing/caching/#caching-lambda-responses
       res.setHeader('Cache-Control', 's-maxage=31536000, maxage=0');
-      res.end(JSON.stringify(timeline));
+      res.end(JSON.stringify(result));
     })
     .catch(error => {
-      console.log(error.message);
+      res.writeHead(400);
       res.end(error.message);
     });
 };
