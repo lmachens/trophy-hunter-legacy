@@ -37,7 +37,7 @@ export const checkAttributes = () => {
       //console.log('found unusuable match (timeline).');
       return;
     }
-    const extendedMatchResult = extendMatchResult(gameSession.game, match, gameSession.summonerId, {
+    const extendedMatchResult = extendMatchResult(match, gameSession.summonerId, {
       withTimeline: true,
       extendStatsParticipantIds: [],
       extendParticipants: []

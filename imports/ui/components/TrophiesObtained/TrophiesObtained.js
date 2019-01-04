@@ -7,7 +7,7 @@ import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Trophy from '../Trophy';
-import { calculateTrophies } from '/imports/shared/trophies/calculateTrophies.ts';
+import calculateTrophies from '/imports/shared/trophies/calculateTrophies.ts';
 
 class TrophiesObtained extends React.Component {
   static propTypes = {
@@ -39,7 +39,7 @@ class TrophiesObtained extends React.Component {
           trophiesObtained = result;
         } else {
           const calculatedTrophies = calculateTrophies({ extendedMatchResult });
-          trophiesObtained = calculatedTrophies.map(({ trophy }) => {
+          trophiesObtained = calculatedTrophies.map(trophy => {
             return {
               name: trophy.name,
               isNew: false,

@@ -69,7 +69,7 @@ class Match extends Component {
     summonerId = parseInt(summonerId);
     Meteor.call('getMatchWithTimeline', matchId, platformId, (error, result) => {
       if (result) {
-        const extendedMatchResult = extendMatchResult(null, result, summonerId);
+        const extendedMatchResult = extendMatchResult(result, summonerId);
 
         this.setState({
           matchWithTimeline: result,
@@ -122,7 +122,6 @@ class Match extends Component {
       return identity.participantId === participantId;
     });
     const newExtendedMatchResult = extendMatchResult(
-      null,
       matchWithTimeline,
       participantIdenty.player.summonerId
     );

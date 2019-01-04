@@ -18,7 +18,7 @@ export const analyzeStatByChampion = () => {
         return;
       }
       try {
-        extendMatchResult(null, match, null, {
+        extendMatchResult(match, null, {
           withTimeline: true,
           extendStatsParticipantIds: [part.participantId],
           extendParticipants: []

@@ -7,7 +7,6 @@ import extendParticipantStats from './extendParticipantStats';
 import extendParticipantTimelineStats from './extendParticipantTimelineStats';
 import extendTeamStats from './extendTeamStats';
 import extendTeamTimelineStats from './extendTeamTimelineStats';
-import getParticipantIdentities from './getParticipantIdentities';
 import getParticipantIdentity from './getParticipantIdentity';
 import getPartitionedParticipants from './getPartitionedParticipants';
 import extendAllGroupMatchStats from './extendAllGroupMatchStats';
@@ -36,7 +35,7 @@ function extendTeamsMatchStats(extendedMatchResult) {
 // matchExtensionParameters needs two parameters:
 // (1) extendStatsParticipantIds: This contains the id's of the participants that need calculated stats.
 // (2) withTimeline: if yes: compute timeline stats
-function extendMatchResult(game, matchResult, summonerId, matchExtensionParameters) {
+function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
   matchExtensionParameters = Object.assign(
     {},
     {
@@ -47,12 +46,6 @@ function extendMatchResult(game, matchResult, summonerId, matchExtensionParamete
     matchExtensionParameters
   );
   const extendedMatchResult = Object.assign({}, matchResult);
-
-  // for unranked matches the participantIdentities are not complete
-  if (!matchResult.participantIdentities[0].player && game) {
-    // get the identities from the gameSession
-    extendedMatchResult.participantIdentities = getParticipantIdentities(game, matchResult);
-  }
 
   // Extend identity
   if (!extendedMatchResult.participantIdentity) {
