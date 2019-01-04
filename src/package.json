@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "tsc",
-    "dev": "node server/api"
+    "dev": "node dev/api"
   },
   "dependencies": {
     "axios": "^0.18.0",

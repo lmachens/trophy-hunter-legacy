@@ -43,6 +43,8 @@ export default (req: IncomingMessage, res: ServerResponse) => {
           data: trophiesObtained.map(trophyObtained => trophyObtained.trophy),
           count: trophiesObtained.length
         };
+        // Cache result https://zeit.co/docs/v2/routing/caching/#caching-lambda-responses
+        res.setHeader('Cache-Control', 's-maxage=31536000, maxage=0');
         res.end(JSON.stringify(result));
       })
     )
