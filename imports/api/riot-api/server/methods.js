@@ -12,6 +12,7 @@ import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import endpoints from '../endpoints';
 import { getMatchWithTimeline } from '/imports/api/matches/server/_getMatchWithTimeline';
 import riotApi from './riotApi';
+import { getMatch } from '/imports/shared/th-api/index.ts';
 
 const numberOfMatches = {
   stats: 30,
@@ -183,39 +184,43 @@ Meteor.methods({
       const futures = matchesToAnalyse.map(match => {
         const future = new Future();
 
-        Meteor.defer(() => {
-          const matchDetails = riotApi.getMatchDetails(region, match.gameId);
-          if (!matchDetails) {
-            console.error('getParticipantPerformance', 'matchDetails error', region, match.gameId);
-            future.return(null);
-            return;
-          }
+        getMatch({ platformId, matchId: match.gameId })
+          .then(matchDetails => {
+            matchDetails.participantIdentity = getParticipantIdentity(matchDetails, summonerId);
 
-          matchDetails.participantIdentity = getParticipantIdentity(matchDetails, summonerId);
+            if (!matchDetails.participantIdentity) {
+              console.error(
+                'getParticipantPerformance',
+                'participantIdentity error',
+                region,
+                match.gameId,
+                summonerId
+              );
+              future.return(null);
+              return;
+            }
 
-          if (!matchDetails.participantIdentity) {
+            // Extend partitioned participants (participant, others, opponents, ...)
+            const partitionedParticipants = getPartitionedParticipants(
+              matchDetails.participantIdentity.participantId,
+              matchDetails
+            );
+            Object.assign(matchDetails, partitionedParticipants);
+
+            // Extend match stats
+            extendMatchStats(matchDetails);
+            future.return(matchDetails.participant.stats);
+          })
+          .catch(error => {
             console.error(
               'getParticipantPerformance',
-              'participantIdentity error',
+              'matchDetails error',
               region,
               match.gameId,
-              summonerId
+              error.message
             );
             future.return(null);
-            return;
-          }
-
-          // Extend partitioned participants (participant, others, opponents, ...)
-          const partitionedParticipants = getPartitionedParticipants(
-            matchDetails.participantIdentity.participantId,
-            matchDetails
-          );
-          Object.assign(matchDetails, partitionedParticipants);
-
-          // Extend match stats
-          extendMatchStats(matchDetails);
-          future.return(matchDetails.participant.stats);
-        });
+          });
 
         return future;
       });
@@ -304,24 +309,25 @@ Meteor.methods({
 
     const futures = matchList.matches.splice(0, numberOfMatches.recent).map(match => {
       const future = new Future();
-      Meteor.defer(() => {
-        const matchDetails = riotApi.getMatchDetails(region, match.gameId);
-        if (!matchDetails) return future.return(null);
-
-        matchDetails.participantIdentity = getParticipantIdentityByChampionId(
-          matchDetails,
-          match.champion
-        );
-        if (!matchDetails.participantIdentity) return future.return(null);
-        if (!matchDetails.participantIdentity.player) {
-          matchDetails.participantIdentity.player = {
-            accountId,
-            summonerId,
-            summonerName
-          };
-        }
-        future.return(matchDetails);
-      });
+      getMatch({ platformId, matchId: match.gameId })
+        .then(matchDetails => {
+          matchDetails.participantIdentity = getParticipantIdentityByChampionId(
+            matchDetails,
+            match.champion
+          );
+          if (!matchDetails.participantIdentity) return future.return(null);
+          if (!matchDetails.participantIdentity.player) {
+            matchDetails.participantIdentity.player = {
+              accountId,
+              summonerId,
+              summonerName
+            };
+          }
+          future.return(matchDetails);
+        })
+        .catch(() => {
+          future.return(null);
+        });
 
       return future;
     });

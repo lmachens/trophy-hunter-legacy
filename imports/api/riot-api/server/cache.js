@@ -1,11 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import NodeCache from 'node-cache';
 
-export const matchesCache = new NodeCache({
-  checkperiod: 120, // seconds
-  stdTTL: 100 // seconds
-});
-
 export const timelineCache = new NodeCache({
   checkperiod: 120, // seconds
   stdTTL: 100 // seconds
@@ -39,7 +34,6 @@ export const matchListCache = new NodeCache({
 Meteor.methods({
   cacheStats() {
     return {
-      matches: matchesCache.getStats(),
       timeline: timelineCache.getStats(),
       leaguePositions: leaguePositionsCache.getStats(),
       championMastery: championMasteryCache.getStats(),

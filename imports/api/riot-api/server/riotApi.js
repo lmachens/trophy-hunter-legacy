@@ -2,7 +2,6 @@ import {
   championMasteryCache,
   leaguePositionsCache,
   matchListCache,
-  matchesCache,
   recentMatchListCache,
   summonerCache,
   timelineCache
@@ -13,6 +12,7 @@ import { HTTP } from 'meteor/http';
 import { Meteor } from 'meteor/meteor';
 import endpoints from '../endpoints';
 import version from '../version';
+import { getPlatformIdByRegion, getMatch } from '/imports/shared/th-api/index.ts';
 
 class RiotApi {
   constructor() {
@@ -98,20 +98,6 @@ class RiotApi {
     return result;
   }
 
-  getMatchDetails(region, matchId) {
-    const host = this._getHost(region);
-
-    const key = `${region}-${matchId}`;
-    let match = matchesCache.get(key);
-    if (!match) {
-      const url = `${host}/lol/match/v3/matches/${matchId}?`;
-      match = this._get(url, 1, 'getMatchDetails', region);
-      if (match) matchesCache.set(key, match);
-    }
-
-    return match;
-  }
-
   getTimeline(region, matchId) {
     const host = this._getHost(region);
 
@@ -129,10 +115,14 @@ class RiotApi {
   getMatchWithTimeline(region, matchId) {
     const matchFuture = new Future();
     const timelineFuture = new Future();
-    Meteor.defer(() => {
-      const match = this.getMatchDetails(region, matchId);
-      matchFuture.return(match);
-    });
+    const platformId = getPlatformIdByRegion(region);
+    getMatch({ platformId, matchId })
+      .then(match => {
+        matchFuture.return(match);
+      })
+      .catch(() => {
+        matchFuture.return(null);
+      });
     Meteor.defer(() => {
       const timeline = this.getTimeline(region, matchId);
       timelineFuture.return(timeline);

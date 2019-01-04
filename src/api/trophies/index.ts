@@ -3,35 +3,24 @@ import extendMatchResult from '../../shared/matches/extendMatchResult';
 import calculateTrophies from '../../shared/trophies/calculateTrophies';
 import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
-
-const matchApiEndpoint = process.env.MATCH_API_ENDPOINT || 'https://api.th.gl/match';
-const timelineApiEndpoint = process.env.TIMELINE_API_ENDPOINT || 'https://api.th.gl/timeline';
-
-const getMatch = ({ region, matchId }) => {
-  return axios.get(`${matchApiEndpoint}?region=${region}&matchId=${matchId}`);
-};
-
-const getTimeline = ({ region, matchId }) => {
-  return axios.get(`${timelineApiEndpoint}?region=${region}&matchId=${matchId}`);
-};
+import { getMatch, getTimeline } from '../../shared/th-api';
 
 export default (req: IncomingMessage, res: ServerResponse) => {
-  console.log(`Request ${req.url}`);
-  const { region, matchId, summonerId }: any = parse(req.url, true).query;
-  if (!region || !matchId || !summonerId || !parseInt(summonerId)) {
+  console.log(`Trophies ${req.url}`);
+  const { platformId, matchId, summonerId }: any = parse(req.url, true).query;
+  if (!platformId || !matchId || !summonerId || !parseInt(summonerId)) {
     res.writeHead(400);
     return res.end('Invalid query');
   }
 
-  const matchPromise = getMatch({ region, matchId });
-  const timelinePromise = getTimeline({ region, matchId });
+  const matchPromise = getMatch({ platformId, matchId });
+  const timelinePromise = getTimeline({ platformId, matchId });
 
   axios
     .all([matchPromise, timelinePromise])
     .then(
-      axios.spread((matchResponse, timelineResponse) => {
-        const match = matchResponse.data;
-        match.timeline = timelineResponse.data;
+      axios.spread((match, timeline) => {
+        match.timeline = timeline;
         const extendedMatchResult = extendMatchResult(match, parseInt(summonerId), null);
         const trophiesObtained = calculateTrophies({ extendedMatchResult });
         const result = {
@@ -45,6 +34,7 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     )
     .catch(error => {
       console.log(error.message);
+      res.writeHead(400);
       res.end(error.message);
     });
 };
