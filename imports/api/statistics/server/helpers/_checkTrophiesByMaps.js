@@ -1,4 +1,4 @@
-import { ARAM, SUMMONERS_RIFT, TWISTED_TREELINE } from '/imports/shared/trophies/types/index.ts';
+import { ARAM, SUMMONERS_RIFT, TWISTED_TREELINE } from '/imports/shared/trophies/types.ts';
 
 import Matches from '/imports/api/statistics/server/matches';
 import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
