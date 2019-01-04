@@ -506,14 +506,15 @@ export function extendParticipantTimelineStats(extendedMatchResult, participant)
     )
   );
 
-  participant.stats.duoTriplekill = participantDuoKillParticipationsByTeammate.some((duoKills: any) =>
-    zip(duoKills, duoKills.slice(1), duoKills.slice(2)).some(triple => {
-      const isDefined = triple[2] != undefined;
-      if (!isDefined) return false;
-      const isMultiKill_1_2 = triple[0].timestamp + 10000 > triple[1].timestamp;
-      const isMultiKill_2_3 = triple[1].timestamp + 10000 > triple[2].timestamp;
-      return isMultiKill_1_2 && isMultiKill_2_3;
-    })
+  participant.stats.duoTriplekill = participantDuoKillParticipationsByTeammate.some(
+    (duoKills: any) =>
+      zip(duoKills, duoKills.slice(1), duoKills.slice(2)).some(triple => {
+        const isDefined = triple[2] != undefined;
+        if (!isDefined) return false;
+        const isMultiKill_1_2 = triple[0].timestamp + 10000 > triple[1].timestamp;
+        const isMultiKill_2_3 = triple[1].timestamp + 10000 > triple[2].timestamp;
+        return isMultiKill_1_2 && isMultiKill_2_3;
+      })
   );
 
   participant.stats.maxDuoKills = Math.max(
