@@ -1,5 +1,5 @@
 import { getFirstTimeBonus, getTreeBonus } from '../../../api/trophies';
-import { trophies } from '/imports/shared/trophies/trophies.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 
 import HorizontalScroll from '../generic/HorizontalScroll';
 import LoadingComponent from '../loading/LoadingComponent';

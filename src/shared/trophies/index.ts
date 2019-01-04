@@ -219,7 +219,7 @@ interface Trophies {
   [trophyName: string]: Trophy;
 }
 
-export const trophies: Trophies = {
+const trophies: Trophies = {
   adventurer,
   ancient,
   annihilation,
@@ -427,3 +427,5 @@ export const trophies: Trophies = {
   zenithBlade,
   referrer
 };
+
+export default trophies;

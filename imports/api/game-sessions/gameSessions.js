@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
 import TimestampedCollection from '../timestampedCollection';
 import { matchedMatchModes } from '/imports/shared/riot-api/gameConstants.ts';
-import { trophies } from '/imports/shared/trophies/trophies.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 
 const GameSessions = new TimestampedCollection('GameSessions');
 

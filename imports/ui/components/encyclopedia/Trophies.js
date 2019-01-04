@@ -6,7 +6,7 @@ import Attribute from '../playstyle/Attribute';
 import Perk from '../Perk';
 import PropTypes from 'prop-types';
 import TrophyStats from '../TrophyStats';
-import { trophies } from '/imports/shared/trophies/trophies.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 import universeTheme from '../../layouts/universeTheme';
 import { defs } from '/imports/shared/trophies/scores.ts';
 

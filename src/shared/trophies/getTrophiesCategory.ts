@@ -1,6 +1,6 @@
-import { ARAM, SUMMONERS_RIFT, TWISTED_TREELINE } from '../types';
+import { ARAM, SUMMONERS_RIFT, TWISTED_TREELINE } from './types';
 
-import { MATCHMAKING } from '../../riot-api/gameConstants';
+import { MATCHMAKING } from '../riot-api/gameConstants';
 
 const summonersRift = [
   MATCHMAKING.NORMAL_5x5_DRAFT,
@@ -13,8 +13,10 @@ const summonersRift = [
 const aram = [MATCHMAKING.ARAM_5v5, MATCHMAKING.BILGEWATER_ARAM_5x5];
 const twistedTreeline = [MATCHMAKING.BLIND_PICK_3v3, MATCHMAKING.RANKED_3v3];
 
-export const getTrophiesCategory = queueId => {
+const getTrophiesCategory = queueId => {
   if (summonersRift.includes(queueId)) return SUMMONERS_RIFT;
   if (aram.includes(queueId)) return ARAM;
   if (twistedTreeline.includes(queueId)) return TWISTED_TREELINE;
 };
+
+export default getTrophiesCategory;

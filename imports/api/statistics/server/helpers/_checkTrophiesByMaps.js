@@ -2,8 +2,8 @@ import { ARAM, SUMMONERS_RIFT, TWISTED_TREELINE } from '/imports/shared/trophies
 
 import Matches from '/imports/api/statistics/server/matches';
 import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
-import { getTrophiesCategory } from '/imports/shared/trophies/helpers/index.ts';
-import { trophies } from '/imports/shared/trophies/trophies.ts';
+import getTrophiesCategory from '/imports/shared/trophies/getTrophiesCategory.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 
 export const checkTrophiesByMaps = () => {
   console.log('checkTrophiesByMaps');

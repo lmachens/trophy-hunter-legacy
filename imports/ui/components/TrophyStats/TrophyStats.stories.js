@@ -1,7 +1,7 @@
 import TrophyStats from './TrophyStats';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { trophies } from '/imports/shared/trophies/trophies.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 import { store } from '../../../store/store';
 import { receiveTrophyStats } from '../../../store/actions';
 

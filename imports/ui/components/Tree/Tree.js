@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import TreeItem from '../TreeItem';
 import { getTrophyNames } from '../../../api/trees/helpers';
-import { trophies } from '/imports/shared/trophies/trophies.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 
 class Tree extends React.Component {
   render() {

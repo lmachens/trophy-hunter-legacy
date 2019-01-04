@@ -5,7 +5,7 @@ import Attribute from '../playstyle/Attribute';
 import PropTypes from 'prop-types';
 import Trophy from '../Trophy';
 import attributes from '../../../api/attributes/attributes';
-import { trophies } from '/imports/shared/trophies/trophies.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 import universeTheme from '../../layouts/universeTheme';
 
 const defaultValue = Object.keys(attributes)[0];

@@ -1,7 +1,7 @@
 import Trophy from './Trophy';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { trophies } from '/imports/shared/trophies/trophies.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 
 const trophy = trophies.appetizer;
 

@@ -1,6 +1,6 @@
 import trees, { activeTrees } from '/imports/api/trees/trees';
 
-import { trophies } from '/imports/shared/trophies/trophies.ts';
+import trophies from '/imports/shared/trophies/index.ts';
 
 const uniq = arrArg => arrArg.filter((elem, pos, arr) => arr.indexOf(elem) === pos);
 

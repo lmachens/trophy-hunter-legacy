@@ -1,5 +1,5 @@
-import { getTrophiesCategory } from './helpers/index';
-import { trophies } from './trophies';
+import getTrophiesCategory from './getTrophiesCategory';
+import trophies from './';
 
 export const calculateTrophies = ({
   extendedMatchResult,
