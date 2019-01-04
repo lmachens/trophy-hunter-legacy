@@ -1,5 +1,4 @@
 import extendKillStats from './extendKillStats';
-import flatten from 'lodash.flatten';
 import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
 
@@ -14,7 +13,9 @@ function extendGeneralEvents(extendedMatchResult) {
   });
 
   // all events in a single array:
-  const all = flatten(extendedMatchResult.timeline.frames.map(num => num.events));
+  const all = extendedMatchResult.timeline.frames
+    .map(num => num.events)
+    .reduce((a, b) => a.concat(b), []);
   events.all = all;
 
   // level ups
