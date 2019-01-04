@@ -8,7 +8,7 @@ import { Tooltip } from '../generic/Tooltip';
 import Trophy from '../Trophy';
 import { features } from '../../../api/features';
 import playstyles from '../../../api/playstyles/playstyles';
-import { trophies } from '../../../api/trophies';
+import { trophies } from '/imports/shared/trophies/trophies.ts';
 import { TooltipTitle } from '../generic/TooltipTitle';
 
 const codeRegex = /(\[\w+:\w+\])/;

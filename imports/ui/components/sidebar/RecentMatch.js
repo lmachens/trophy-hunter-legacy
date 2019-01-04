@@ -12,7 +12,7 @@ import champions from '../../../api/riot-api/static/champions';
 import { connect } from 'react-redux';
 import { gameQueueConfigIdLabels } from '../../../api/riot-api/gameConstants';
 import { getSetting } from '../../../api/trophy-hunters/helpers';
-import { trophies } from '../../../api/trophies';
+import { trophies } from '/imports/shared/trophies/trophies.ts';
 import universeTheme from '../../layouts/universeTheme';
 import { withTracker } from 'meteor/react-meteor-data';
 

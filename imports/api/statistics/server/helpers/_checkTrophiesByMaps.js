@@ -1,9 +1,9 @@
-import { ARAM, SUMMONERS_RIFT, TWISTED_TREELINE } from '/imports/api/trophies/types/index';
+import { ARAM, SUMMONERS_RIFT, TWISTED_TREELINE } from '/imports/shared/trophies/types/index.ts';
 
 import Matches from '/imports/api/statistics/server/matches';
 import extendMatchResult from '/imports/api/matches/extendMatchResult';
-import { getTrophiesCategory } from '/imports/api/trophies/helpers/index';
-import { trophies } from '/imports/api/trophies';
+import { getTrophiesCategory } from '/imports/shared/trophies/helpers/index.ts';
+import { trophies } from '/imports/shared/trophies/trophies.ts';
 
 export const checkTrophiesByMaps = () => {
   console.log('checkTrophiesByMaps');

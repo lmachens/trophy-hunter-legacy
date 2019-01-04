@@ -1,4 +1,5 @@
-import { getFirstTimeBonus, getTreeBonus, trophies } from '../../../api/trophies';
+import { getFirstTimeBonus, getTreeBonus } from '../../../api/trophies';
+import { trophies } from '/imports/shared/trophies/trophies.ts';
 
 import HorizontalScroll from '../generic/HorizontalScroll';
 import LoadingComponent from '../loading/LoadingComponent';
@@ -6,7 +7,7 @@ import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Trophy from '../Trophy';
-import { calculateTrophies } from '../../../api/trophies/calculateTrophies';
+import { calculateTrophies } from '/imports/shared/trophies/calculateTrophies.ts';
 
 class TrophiesObtained extends React.Component {
   static propTypes = {

@@ -4,9 +4,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(tsx?)|(jsx?)$/,
         loader: require.resolve('babel-loader'),
-        include: [path.resolve(__dirname, '../imports')]
+        include: [path.resolve(__dirname, '../imports'), path.resolve(__dirname, '../src')]
       },
       {
         test: /\.css$/,

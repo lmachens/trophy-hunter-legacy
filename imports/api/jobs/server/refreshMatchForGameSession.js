@@ -11,7 +11,7 @@ import TrophyStats from '/imports/api/trophies/trophyStats';
 import calculateAttributes from '/imports/api/attributes/calculateAttributes';
 import calculateFeatures from '/imports/api/features/calculateFeatures';
 import calculatePlaystyle from '/imports/api/playstyles/calculatePlaystyle';
-import { calculateTrophies } from '/imports/api/trophies/calculateTrophies';
+import { calculateTrophies } from '/imports/shared/trophies/calculateTrophies.ts';
 import extendMatchResult from '/imports/api/matches/extendMatchResult';
 import { getMatchForGameSession } from '/imports/api/matches/server/_getMatchForGameSession';
 import updateAttributes from '/imports/api/attributes/updateAttributes';

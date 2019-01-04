@@ -13,7 +13,7 @@ import champions from '../../../api/riot-api/static/champions';
 import { gameQueueConfigIdLabels } from '../../../api/riot-api/gameConstants';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 import moment from 'moment';
-import { trophies } from '../../../api/trophies';
+import { trophies } from '/imports/shared/trophies/trophies.ts';
 import universeTheme from '../../layouts/universeTheme';
 import { withRouter } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';

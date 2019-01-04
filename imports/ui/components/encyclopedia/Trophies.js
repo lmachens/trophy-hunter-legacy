@@ -6,9 +6,9 @@ import Attribute from '../playstyle/Attribute';
 import Perk from '../Perk';
 import PropTypes from 'prop-types';
 import TrophyStats from '../TrophyStats';
-import { trophies } from '../../../api/trophies';
+import { trophies } from '/imports/shared/trophies/trophies.ts';
 import universeTheme from '../../layouts/universeTheme';
-import { defs } from '../../../api/trophies/scores';
+import { defs } from '/imports/shared/trophies/scores.ts';
 
 const defaultValue = Object.values(trophies)[0].name;
 

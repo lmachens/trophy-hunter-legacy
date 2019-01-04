@@ -4,7 +4,8 @@
     "target": "esnext",
     "moduleResolution": "node",
     "allowJs": true,
-    "strict": false
+    "strict": false,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules"]

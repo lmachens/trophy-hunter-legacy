@@ -4,7 +4,7 @@ import { getFirstTimeBonus, getTreeBonus } from '../../../api/trophies';
 import { IconButton } from '../generic';
 import PropTypes from 'prop-types';
 import { Tooltip } from '../generic/Tooltip';
-import SCORES, { defs } from '../../../api/trophies/scores';
+import SCORES, { defs } from '/imports/shared/trophies/scores.ts';
 import { TABS } from '../encyclopedia/Encyclopedia';
 import TrophyStats from '../TrophyStats';
 import { bindActionCreators } from 'redux';

@@ -12,7 +12,7 @@ export const calculateTrophies = ({
   const trophiesCategory = getTrophiesCategory(extendedMatchResult.queueId);
   // we check for every trophy (obtained trophies included)
   const trophiesObtained = [];
-  Object.values(trophies).forEach((trophy: any) => {
+  Object.values(trophies).forEach(trophy => {
     const obtained = trophy.obtainedCheck({
       match: extendedMatchResult,
       trophyHunter,
@@ -26,7 +26,7 @@ export const calculateTrophies = ({
       );
 
       const newInTrees = Object.entries(obtainableTrophiesByTree).reduce(
-        (trees, [treeName, obtainableTrophies]: [any, any]) => {
+        (trees, [treeName, obtainableTrophies]: [string, string[]]) => {
           if (obtainableTrophies.includes(trophy.name)) return [...trees, treeName];
           return trees;
         },
