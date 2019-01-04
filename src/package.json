@@ -2,13 +2,19 @@
   "private": true,
   "name": "trophy-hunter-api",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc",
+    "dev": "node server/api"
+  },
   "dependencies": {
+    "axios": "^0.18.0",
     "lodash.flatten": "4.4.0",
     "lodash.groupby": "4.6.0",
-    "lodash.zip": "4.2.0"
+    "lodash.zip": "4.2.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {
-    "@types/node": "^10.12.18"
+    "@types/node": "^10.12.18",
+    "typescript": "^3.2.2"
   }
 }

@@ -4,3 +4,4 @@ database/
 **/packages/*
 **/dist/*
 overwolf/src/shared/*
+build

@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "rootDir": "./",
+    "outDir": "./build",
+    "module": "commonjs",
     "target": "esnext",
     "moduleResolution": "node",
     "allowJs": true,
-    "strict": false,
-    "allowSyntheticDefaultImports": true
+    "strict": false
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules"]

@@ -1,4 +1,4 @@
-import groupBy from 'lodash.groupby';
+import * as groupBy from 'lodash.groupby';
 
 export default function extendTeamTimelineStats(team) {
   team.locustsKills = team.events.kills.filter(
