@@ -1,4 +1,4 @@
-import * as groupBy from 'lodash.groupby';
+import groupBy from 'lodash.groupby';
 
 export default function extendTeamStats(team) {
   const teammates = team.participants;

@@ -1,5 +1,5 @@
 import { MAP_NAMES, queuesByMatchId } from '/imports/shared/riot-api/gameConstants.ts';
-import { Match, check } from 'meteor/check';
+import { check } from 'meteor/check';
 import extendMatchStats from '/imports/shared/matches/extendMatchResult/extendMatchStats.ts';
 import getParticipantIdentity from '/imports/shared/matches/extendMatchResult/getParticipantIdentity.ts';
 import getParticipantIdentityByChampionId from '/imports/shared/matches/extendMatchResult/getParticipantIdentityByChampionId.ts';
@@ -355,14 +355,13 @@ Meteor.methods({
 
     return matches.sort((a, b) => b.gameCreation - a.gameCreation);
   },
-  getMatchWithTimeline(gameId, platformId, notResolveIdentity) {
+  getMatchWithTimeline(gameId, platformId) {
     this.unblock();
 
     check(gameId, Number);
     check(platformId, String);
-    check(notResolveIdentity, Match.Maybe(Boolean));
 
-    return getMatchWithTimeline(gameId, platformId, notResolveIdentity);
+    return getMatchWithTimeline(gameId, platformId);
   },
   getParticipantHeatmap(props) {
     this.unblock();

@@ -29,7 +29,8 @@
   "settings": {
     "import/resolver": {
       "meteor": {
-        "extensions": [".js", ".jsx"]
+        "extensions": [".js", ".jsx"],
+        "moduleDirectory": ["app/node_modules"]
       }
     },
     "import/extensions": [".js", ".jsx"],
