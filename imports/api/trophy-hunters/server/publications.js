@@ -43,7 +43,6 @@ Meteor.publish('trophyHunters.online', function() {
       const cachedConnections = ServerStats.find()
         .fetch()
         .reduce((connections, serverStats) => connections + serverStats.connections, 0);
-      console.log(cachedConnections);
       return cachedConnections;
     },
     isShared: true

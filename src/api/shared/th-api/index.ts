@@ -1,4 +1,5 @@
 export { default as getActiveGame } from './getActiveGame';
+export { default as getChampionMastery } from './getChampionMastery';
 export { default as getLeaguePositions } from './getLeaguePositions';
 export { default as getPlatformIdByRegion } from './getPlatformIdByRegion';
 export { default as getMatch } from './getMatch';
