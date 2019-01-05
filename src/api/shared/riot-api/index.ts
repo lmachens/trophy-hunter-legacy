@@ -32,3 +32,11 @@ export const getActiveGame = ({ platformId, summonerId }) => {
     )
     .then(response => response.data);
 };
+
+export const getLeaguePositions = ({ platformId, summonerId }) => {
+  return axios
+    .get(
+      `https://${platformId}.api.riotgames.com/lol/league/v3/positions/by-summoner/${summonerId}?api_key=${leagueApiKey}`
+    )
+    .then(response => response.data);
+};

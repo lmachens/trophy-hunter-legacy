@@ -12,7 +12,7 @@ import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import endpoints from '../endpoints';
 import { getMatchWithTimeline } from '/imports/api/matches/server/_getMatchWithTimeline';
 import riotApi from './riotApi';
-import { getMatch, getSummoner } from '/imports/shared/th-api/index.ts';
+import { getMatch, getSummoner, getLeaguePositions } from '/imports/shared/th-api/index.ts';
 
 const numberOfMatches = {
   stats: 30,
@@ -152,7 +152,7 @@ Meteor.methods({
     }
 
     const championMastery = riotApi.getChampionMastery(region, summonerId, championId);
-    const leaguePositions = riotApi.getLeaguePositions(region, summonerId);
+    const leaguePositions = await getLeaguePositions({ platformId, summonerId });
     if (!leaguePositions) {
       console.error('getParticipantPerformance', 'leaguePositions error', region, summonerId);
     }

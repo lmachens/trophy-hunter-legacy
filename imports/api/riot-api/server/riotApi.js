@@ -1,10 +1,4 @@
-import {
-  championMasteryCache,
-  leaguePositionsCache,
-  matchListCache,
-  recentMatchListCache,
-  timelineCache
-} from './cache';
+import { championMasteryCache, matchListCache, recentMatchListCache, timelineCache } from './cache';
 
 import Future from 'fibers/future';
 import { HTTP } from 'meteor/http';
@@ -210,20 +204,6 @@ class RiotApi {
       if (championMastery) championMasteryCache.set(key, championMastery);
     }
     return championMastery;
-  }
-
-  getLeaguePositions(region, summonerId) {
-    const host = this._getHost(region);
-
-    const key = `${region}-${summonerId}`;
-    let leaguePositions = leaguePositionsCache.get(key);
-    if (!leaguePositions) {
-      const url = `${host}/lol/league/v3/positions/by-summoner/${summonerId}?`;
-      leaguePositions = this._get(url, 1, 'getLeaguePositions', region);
-      if (leaguePositions) leaguePositionsCache.set(key, leaguePositions);
-    }
-
-    return leaguePositions;
   }
 }
 

@@ -1,8 +1,11 @@
 import { Accounts } from 'meteor/accounts-base';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import playstyles from '/imports/api/playstyles/playstyles';
-import riotApi from '/imports/api/riot-api/server/riotApi';
-import { getPlatformIdByRegion, getSummoner } from '/imports/shared/th-api/index.ts';
+import {
+  getLeaguePositions,
+  getPlatformIdByRegion,
+  getSummoner
+} from '/imports/shared/th-api/index.ts';
 
 const oldRegions = {
   br1: 'br',
@@ -19,8 +22,9 @@ const oldRegions = {
 const createTrophyHunter = async function(options, user) {
   const region = oldRegions[options.region] || options.region;
   const platformId = getPlatformIdByRegion(region);
-  const summoner = await getSummoner({ platformId, summonerId: options.summonerId });
-  const leaguePositions = riotApi.getLeaguePositions(region, options.summonerId);
+  const summonerId = options.summonerId;
+  const summoner = await getSummoner({ platformId, summonerId });
+  const leaguePositions = await getLeaguePositions({ platformId, summonerId });
 
   if (TrophyHunters.findOne({ userId: user._id })) {
     console.log('TrophyHunter already exists', summoner.name);

@@ -4,8 +4,12 @@ import GameSessions from '../../../game-sessions/gameSessions';
 import { Meteor } from 'meteor/meteor';
 import TrophyHunters from '../../trophyHunters';
 import isEqual from 'lodash.isequal';
-import riotApi from '../../../riot-api/server/riotApi';
-import { getPlatformIdByRegion, getSummoner, getActiveGame } from '/imports/shared/th-api/index.ts';
+import {
+  getLeaguePositions,
+  getPlatformIdByRegion,
+  getSummoner,
+  getActiveGame
+} from '/imports/shared/th-api/index.ts';
 
 const handleLogin = async function(serverVersion) {
   check(serverVersion, Match.Maybe(String));
@@ -18,8 +22,9 @@ const handleLogin = async function(serverVersion) {
   }
   const trophyHunter = TrophyHunters.findOne({ userId });
   const platformId = getPlatformIdByRegion(trophyHunter.region);
-  const summoner = await getSummoner({ platformId, summonerId: trophyHunter.summonerId });
-  const leaguePositions = riotApi.getLeaguePositions(trophyHunter.region, trophyHunter.summonerId);
+  const summonerId = trophyHunter.summonerId;
+  const summoner = await getSummoner({ platformId, summonerId });
+  const leaguePositions = await getLeaguePositions({ platformId, summonerId });
   const $set = {
     lastLogin: new Date(),
     lastVersion: serverVersion
