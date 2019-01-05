@@ -2,6 +2,7 @@ import { Accounts } from 'meteor/accounts-base';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import playstyles from '/imports/api/playstyles/playstyles';
 import riotApi from '/imports/api/riot-api/server/riotApi';
+import { getPlatformIdByRegion, getSummoner } from '/imports/shared/th-api/index.ts';
 
 const oldRegions = {
   br1: 'br',
@@ -15,9 +16,10 @@ const oldRegions = {
   tr1: 'tr'
 };
 
-const createTrophyHunter = function(options, user) {
+const createTrophyHunter = async function(options, user) {
   const region = oldRegions[options.region] || options.region;
-  const summoner = riotApi.getSummoner(region, options.summonerId);
+  const platformId = getPlatformIdByRegion(region);
+  const summoner = await getSummoner({ platformId, summonerId: options.summonerId });
   const leaguePositions = riotApi.getLeaguePositions(region, options.summonerId);
 
   if (TrophyHunters.findOne({ userId: user._id })) {

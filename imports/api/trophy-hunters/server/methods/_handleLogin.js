@@ -5,8 +5,9 @@ import { Meteor } from 'meteor/meteor';
 import TrophyHunters from '../../trophyHunters';
 import isEqual from 'lodash.isequal';
 import riotApi from '../../../riot-api/server/riotApi';
+import { getPlatformIdByRegion, getSummoner } from '/imports/shared/th-api/index.ts';
 
-const handleLogin = function(serverVersion) {
+const handleLogin = async function(serverVersion) {
   check(serverVersion, Match.Maybe(String));
   this.unblock();
 
@@ -16,7 +17,8 @@ const handleLogin = function(serverVersion) {
     return false;
   }
   const trophyHunter = TrophyHunters.findOne({ userId });
-  const summoner = riotApi.getSummoner(trophyHunter.region, trophyHunter.summonerId);
+  const platformId = getPlatformIdByRegion(trophyHunter.region);
+  const summoner = await getSummoner({ platformId, summonerId: trophyHunter.summonerId });
   const leaguePositions = riotApi.getLeaguePositions(trophyHunter.region, trophyHunter.summonerId);
   const $set = {
     lastLogin: new Date(),

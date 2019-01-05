@@ -12,7 +12,7 @@ import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import endpoints from '../endpoints';
 import { getMatchWithTimeline } from '/imports/api/matches/server/_getMatchWithTimeline';
 import riotApi from './riotApi';
-import { getMatch } from '/imports/shared/th-api/index.ts';
+import { getMatch, getSummoner } from '/imports/shared/th-api/index.ts';
 
 const numberOfMatches = {
   stats: 30,
@@ -52,12 +52,12 @@ Meteor.methods({
     const region = endpoints.find(e => e.platformId === platformId).region;
     const futures = summonerIds.map(summonerId => {
       const future = new Future();
-      Meteor.defer(() => {
+      Meteor.defer(async () => {
         let accountId;
         const trophyHunter = TrophyHunters.findOne({ summonerId }, { fields: { accountId: 1 } });
 
         if (!trophyHunter) {
-          const summoner = riotApi.getSummoner(region, summonerId);
+          const summoner = await getSummoner({ platformId, summonerId });
           if (!summoner) {
             return future.return(null);
           }
@@ -111,7 +111,7 @@ Meteor.methods({
 
     return playedTogeterBySummonerId;
   },
-  getParticipantPerformance(props) {
+  async getParticipantPerformance(props) {
     this.unblock();
     check(props, {
       platformId: String,
@@ -142,7 +142,7 @@ Meteor.methods({
       accountId = trophyHunter.accountId;
       summonerLevel = trophyHunter.summonerLevel;
     } else {
-      const summoner = riotApi.getSummoner(region, summonerId);
+      const summoner = await getSummoner({ platformId, summonerId });
       if (!summoner) {
         console.error('getParticipantPerformance', 'summoner not found', region, summonerId);
         return {};
@@ -276,7 +276,7 @@ Meteor.methods({
       leaguePositions
     };
   },
-  getParticipantMatches(params) {
+  async getParticipantMatches(params) {
     this.unblock();
 
     check(params, {
@@ -292,7 +292,7 @@ Meteor.methods({
       accountId = trophyHunter.accountId;
       summonerName = trophyHunter.summonerName;
     } else {
-      const summoner = riotApi.getSummoner(region, summonerId);
+      const summoner = await getSummoner({ platformId, summonerId });
       if (!summoner) {
         throw new Meteor.Error('getParticipantMatches', 'summoner not found');
       }
@@ -369,7 +369,7 @@ Meteor.methods({
 
     return getMatchWithTimeline(gameId, platformId);
   },
-  getParticipantHeatmap(props) {
+  async getParticipantHeatmap(props) {
     this.unblock();
 
     check(props, {
@@ -388,7 +388,7 @@ Meteor.methods({
       if (trophyHunter) {
         accountId = trophyHunter.accountId;
       } else {
-        const summoner = riotApi.getSummoner(region, summonerId);
+        const summoner = await getSummoner({ platformId, summonerId });
         if (!summoner) {
           throw new Meteor.Error('getParticipantHeatmap', 'summoner not found');
         }
@@ -444,7 +444,7 @@ Meteor.methods({
       throw error;
     }
   },
-  getSummonerChampionTimelines(platformId, summonerId, championId, mapId) {
+  async getSummonerChampionTimelines(platformId, summonerId, championId, mapId) {
     this.unblock();
 
     check(platformId, String);
@@ -459,7 +459,7 @@ Meteor.methods({
       accountId = trophyHunter.accountId;
       summonerName = trophyHunter.summonerName;
     } else {
-      const summoner = riotApi.getSummoner(region, summonerId);
+      const summoner = await getSummoner({ platformId, summonerId });
       if (!summoner) {
         throw new Meteor.Error('getSummonerChampionTimelines', 'summoner not found');
       }
