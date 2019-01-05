@@ -22,7 +22,6 @@ import '/imports/api/twitch-api/server/publications';
 import '/imports/api/lotteries/server/methods';
 import '/imports/api/lotteries/server/publications';
 import '/imports/api/patreon/server/patreon';
-import '/imports/api/statistics/server/methods';
 import '/imports/api/champions/server/methods';
 import '/imports/api/champions/champion-matchups/server';
 import '/imports/api/champions/champion-stats/server';
