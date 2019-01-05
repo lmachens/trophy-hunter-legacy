@@ -33,8 +33,7 @@ export default (req: IncomingMessage, res: ServerResponse) => {
       })
     )
     .catch(error => {
-      console.log(error.message);
-      res.writeHead(400);
-      res.end(error.message);
+      res.writeHead(error.response.status);
+      res.end(error.response.statusText);
     });
 };

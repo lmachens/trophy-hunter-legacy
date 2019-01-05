@@ -54,3 +54,29 @@ export const getChampionMastery = ({ platformId, summonerId, championId }) => {
     )
     .then(response => response.data);
 };
+
+export const getMatchList = ({
+  platformId,
+  accountId,
+  championId,
+  beginTime,
+  endIndex,
+  queueIds
+}) => {
+  let url = `https://${platformId}.api.riotgames.com/lol/match/v3/matchlists/by-account/${accountId}?api_key=${leagueApiKey}`;
+  if (championId) {
+    url += `&champion=${championId}`;
+  }
+  if (beginTime) {
+    url += `&beginTime=${beginTime}`;
+  }
+  if (endIndex) {
+    url += `&endIndex=${endIndex}`;
+  }
+  if (queueIds) {
+    queueIds.forEach(queueId => {
+      url += `&queue=${queueId}`;
+    });
+  }
+  return axios.get(url).then(response => response.data);
+};
