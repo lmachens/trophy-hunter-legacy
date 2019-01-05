@@ -3,7 +3,6 @@ import {
   leaguePositionsCache,
   matchListCache,
   recentMatchListCache,
-  summonerCache,
   timelineCache
 } from './cache';
 
@@ -164,19 +163,6 @@ class RiotApi {
       if (recentMatchList) recentMatchListCache.set(key, recentMatchList);
     }
     return recentMatchList;
-  }
-
-  getSummoner(region, summonerId) {
-    const host = this._getHost(region);
-
-    const key = `${region}-${summonerId}`;
-    let summoner = summonerCache.get(key);
-    if (!summoner) {
-      const url = `${host}/lol/summoner/v3/summoners/${summonerId}?`;
-      summoner = this._get(url, 1, 'getSummoner', region);
-      if (summoner) summonerCache.set(key, summoner);
-    }
-    return summoner;
   }
 
   getSummonerByName(region, name) {

@@ -1,16 +1,6 @@
-import axios from 'axios';
 import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
-
-const getTimeline = ({ platformId, matchId }) => {
-  return axios
-    .get(
-      `https://${platformId}.api.riotgames.com/lol/match/v3/timelines/by-match/${matchId}?api_key=${
-        process.env.LEAGUE_API_KEY
-      }`
-    )
-    .then(response => response.data);
-};
+import { getTimeline } from '../../shared/riot-api';
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   console.log(`Timeline ${req.url}`);
@@ -24,8 +14,9 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     .then(result => {
       if (!result) {
         res.writeHead(404);
-        return res.end('Timeline not found');
+        return res.end('Not found');
       }
+
       // Cache result https://zeit.co/docs/v2/routing/caching/#caching-lambda-responses
       res.setHeader('Cache-Control', 's-maxage=31536000, maxage=0');
       res.end(JSON.stringify(result));

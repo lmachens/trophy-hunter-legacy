@@ -1,9 +1,10 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
 
-const matchApiEndpoint = process.env.MATCH_API_ENDPOINT || 'https://api.th.gl/match';
-const timelineApiEndpoint = process.env.TIMELINE_API_ENDPOINT || 'https://api.th.gl/timeline';
-const trophiesApiEndpoint = process.env.TROPHIES_API_ENDPOINT || 'https://api.th.gl/trophies';
+const matchApiEndpoint = process.env.MATCH_API_ENDPOINT || 'https://www.th.gl/api/match';
+const timelineApiEndpoint = process.env.TIMELINE_API_ENDPOINT || 'https://www.th.gl/api/timeline';
+const trophiesApiEndpoint = process.env.TROPHIES_API_ENDPOINT || 'https://www.th.gl/api/trophies';
+const summonerApiEndpoint = process.env.SUMMONER_API_ENDPOINT || 'https://www.th.gl/api/summoner';
 
 const matchesCache = new NodeCache({
   checkperiod: 120, // seconds
@@ -20,11 +21,16 @@ const trophiesCache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
+const summonerCache = new NodeCache({
+  checkperiod: 120, // seconds
+  stdTTL: 100 // seconds
+});
+
 export const getMatch = ({ platformId, matchId }) => {
   const key = `${platformId}-${matchId}`;
-  const match = matchesCache.get(key);
-  if (match) {
-    return new Promise(resolve => resolve(match));
+  const data = matchesCache.get(key);
+  if (data) {
+    return new Promise(resolve => resolve(data));
   }
   return axios
     .get(`${matchApiEndpoint}?platformId=${platformId}&matchId=${matchId}`)
@@ -38,9 +44,9 @@ export const getMatch = ({ platformId, matchId }) => {
 
 export const getTimeline = ({ platformId, matchId }) => {
   const key = `${platformId}-${matchId}`;
-  const match = timelineCache.get(key);
-  if (match) {
-    return new Promise(resolve => resolve(match));
+  const data = timelineCache.get(key);
+  if (data) {
+    return new Promise(resolve => resolve(data));
   }
   return axios
     .get(`${timelineApiEndpoint}?platformId=${platformId}&matchId=${matchId}`)
@@ -52,11 +58,27 @@ export const getTimeline = ({ platformId, matchId }) => {
     });
 };
 
+export const getSummoner = ({ platformId, summonerId }) => {
+  const key = `${platformId}-${summonerId}`;
+  const data = summonerCache.get(key);
+  if (data) {
+    return new Promise(resolve => resolve(data));
+  }
+  return axios
+    .get(`${summonerApiEndpoint}?platformId=${platformId}&summonerId=${summonerId}`)
+    .then(response => {
+      if (response.data) {
+        summonerCache.set(key, response.data);
+      }
+      return response.data;
+    });
+};
+
 export const getTrophies = ({ platformId, matchId, summonerId }) => {
   const key = `${platformId}-${matchId}`;
-  const match = trophiesCache.get(key);
-  if (match) {
-    return new Promise(resolve => resolve(match));
+  const data = trophiesCache.get(key);
+  if (data) {
+    return new Promise(resolve => resolve(data));
   }
   return axios
     .get(

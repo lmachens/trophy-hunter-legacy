@@ -2,6 +2,7 @@ import http from 'http';
 import matchApi from './endpoints/match';
 import timelineApi from './endpoints/timeline';
 import trophiesApi from './endpoints/trophies';
+import summonerApi from './endpoints/summoner';
 
 if (!process.env.LEAGUE_API_KEY) {
   throw `No process.env.LEAGUE_API_KEY set. Set env LEAGUE_API_KEY="RGAPI-xxx" first`;
@@ -14,6 +15,9 @@ if (!process.env.MATCH_API_ENDPOINT) {
 }
 if (!process.env.TIMELINE_API_ENDPOINT) {
   process.env.TIMELINE_API_ENDPOINT = `http://${hostname}:${5001}`;
+}
+if (!process.env.SUMMONER_API_ENDPOINT) {
+  process.env.SUMMONER_API_ENDPOINT = `http://${hostname}:${5003}`;
 }
 
 const matchApiServer = http.createServer(matchApi);
@@ -29,4 +33,9 @@ timelineServer.listen(5001, hostname, () => {
 const trophiesApiServer = http.createServer(trophiesApi);
 trophiesApiServer.listen(5002, hostname, () => {
   console.log(`Trophies API running at http://${hostname}:${5002}/`);
+});
+
+const summonerApiServer = http.createServer(summonerApi);
+summonerApiServer.listen(5003, hostname, () => {
+  console.log(`Trophies API running at http://${hostname}:${5003}/`);
 });

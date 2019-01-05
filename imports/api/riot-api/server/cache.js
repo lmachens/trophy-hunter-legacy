@@ -16,11 +16,6 @@ export const championMasteryCache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
-export const summonerCache = new NodeCache({
-  checkperiod: 120, // seconds
-  stdTTL: 100 // seconds
-});
-
 export const recentMatchListCache = new NodeCache({
   checkperiod: 120, // seconds
   stdTTL: 100 // seconds
@@ -37,7 +32,6 @@ Meteor.methods({
       timeline: timelineCache.getStats(),
       leaguePositions: leaguePositionsCache.getStats(),
       championMastery: championMasteryCache.getStats(),
-      summoner: summonerCache.getStats(),
       recentMatchList: recentMatchListCache.getStats(),
       matchList: matchListCache.getStats()
     };
