@@ -13,18 +13,18 @@ import calculateFeatures from '/imports/api/features/calculateFeatures';
 import calculatePlaystyle from '/imports/api/playstyles/calculatePlaystyle';
 import calculateTrophies from '/imports/shared/trophies/calculateTrophies.ts';
 import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
-import { getMatchForGameSession } from '/imports/api/matches/server/_getMatchForGameSession';
 import updateAttributes from '/imports/api/attributes/updateAttributes';
 import { calculateSeasonPoints } from '../../ranking/server';
+import { getMatchWithTimeline } from '/imports/shared/th-api/index.ts';
 
-export default function refreshMatchForGameSessionWorker(job, cb) {
+export default async function refreshMatchForGameSessionWorker(job, cb) {
   // This will only be called if a
   // 'refreshMatchForGameSession' job is obtained
   const data = job.data;
 
   job.log('Server connected', { data: { type: 'app' } });
   try {
-    refreshMatchForGameSession(data.gameSessionId, job);
+    await refreshMatchForGameSession(data.gameSessionId, job);
     job.done();
     job.remove();
   } catch (error) {
@@ -46,7 +46,7 @@ export default function refreshMatchForGameSessionWorker(job, cb) {
   cb();
 }
 
-function refreshMatchForGameSession(gameSessionId, job) {
+async function refreshMatchForGameSession(gameSessionId, job) {
   //console.log('refreshMatchForGameSession', gameSessionId);
 
   const gameSession = GameSessions.findOne(gameSessionId);
@@ -78,10 +78,10 @@ function refreshMatchForGameSession(gameSessionId, job) {
     throw new Meteor.Error('refreshMatchForGameSession', 'trophyHunter not found');
   }
 
-  //console.time('getMatchForGameSession');
-  const matchResult = getMatchForGameSession(gameSession);
-  //console.timeEnd('getMatchForGameSession');
-
+  const matchResult = await getMatchWithTimeline({
+    platformId: gameSession.game.platformId,
+    matchId: gameSession.game.gameId
+  });
   // Only count normal and ranked matches which are at least 10 minutes long
   const isMatched = gameSession.isMatched();
 
