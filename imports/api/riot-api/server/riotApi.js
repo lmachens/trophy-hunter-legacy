@@ -1,4 +1,4 @@
-import { championMasteryCache, matchListCache, recentMatchListCache, timelineCache } from './cache';
+import { matchListCache, recentMatchListCache, timelineCache } from './cache';
 
 import Future from 'fibers/future';
 import { HTTP } from 'meteor/http';
@@ -191,19 +191,6 @@ class RiotApi {
   getSummonerSpellsStaticData(lang) {
     const url = `https://ddragon.leagueoflegends.com/cdn/${version}/data/${lang}/summoner.json`;
     return this._getStatic(url);
-  }
-
-  getChampionMastery(region, summonerId, championId) {
-    const host = this._getHost(region);
-
-    const key = `${region}-${summonerId}-${championId}`;
-    let championMastery = championMasteryCache.get(key);
-    if (!championMastery) {
-      const url = `${host}/lol/champion-mastery/v3/champion-masteries/by-summoner/${summonerId}/by-champion/${championId}?`;
-      championMastery = this._get(url, 1, 'getChampionMastery', region);
-      if (championMastery) championMasteryCache.set(key, championMastery);
-    }
-    return championMastery;
   }
 }
 
