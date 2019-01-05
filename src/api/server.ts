@@ -5,6 +5,7 @@ import trophiesApi from './endpoints/trophies';
 import summonerApi from './endpoints/summoner';
 import activeGameApi from './endpoints/active-game';
 import leaguePositionsApi from './endpoints/league-positions';
+import championMasteryApi from './endpoints/champion-mastery';
 
 if (!process.env.LEAGUE_API_KEY) {
   throw `No process.env.LEAGUE_API_KEY set. Set env LEAGUE_API_KEY="RGAPI-xxx" first`;
@@ -53,5 +54,13 @@ if (!process.env.LEAGUE_POSITIONS_API_ENDPOINT) {
 }
 
 http.createServer(leaguePositionsApi).listen(5005, hostname, () => {
+  console.log(`Active Game API running at http://${hostname}:${5005}/`);
+});
+
+if (!process.env.CHAMPION_MASTERY_API_ENDPOINT) {
+  process.env.CHAMPION_MASTERY_API_ENDPOINT = `http://${hostname}:${5005}`;
+}
+
+http.createServer(championMasteryApi).listen(5005, hostname, () => {
   console.log(`Active Game API running at http://${hostname}:${5005}/`);
 });

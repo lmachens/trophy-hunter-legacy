@@ -40,3 +40,11 @@ export const getLeaguePositions = ({ platformId, summonerId }) => {
     )
     .then(response => response.data);
 };
+
+export const getChampionMastery = ({ platformId, summonerId, championId }) => {
+  return axios
+    .get(
+      `https://${platformId}.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/${summonerId}/by-champion/${championId}?api_key=${leagueApiKey}`
+    )
+    .then(response => response.data);
+};

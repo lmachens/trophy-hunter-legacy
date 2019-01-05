@@ -8,7 +8,7 @@ import { getMatch, getTimeline } from '../../shared/th-api';
 export default (req: IncomingMessage, res: ServerResponse) => {
   console.log(`Trophies ${req.url}`);
   const { platformId, matchId, summonerId }: any = parse(req.url, true).query;
-  if (!platformId || !matchId || !summonerId || !parseInt(summonerId)) {
+  if (!platformId || !matchId || !summonerId) {
     res.writeHead(400);
     return res.end('Invalid query');
   }
