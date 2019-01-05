@@ -1,2 +1,4 @@
 node_modules
-build
+README.md
+.next
+server.ts

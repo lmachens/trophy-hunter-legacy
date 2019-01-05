@@ -15,3 +15,5 @@ dump
 simple-io-plugin64.dll
 .cache
 build
+.next
+yarn-error.log
