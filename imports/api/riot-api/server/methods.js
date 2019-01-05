@@ -16,6 +16,7 @@ import {
   getPlatformIdByRegion,
   getChampionMastery,
   getMatch,
+  getMatchList,
   getSummoner,
   getLeaguePositions
 } from '/imports/shared/th-api/index.ts';
@@ -56,7 +57,6 @@ Meteor.methods({
 
     const { summonerIds, platformId } = props;
 
-    const region = endpoints.find(e => e.platformId === platformId).region;
     const futures = summonerIds.map(summonerId => {
       const future = new Future();
       Meteor.defer(async () => {
@@ -73,7 +73,7 @@ Meteor.methods({
           accountId = trophyHunter.accountId;
         }
 
-        const matchList = riotApi.getMatchList(region, accountId);
+        const matchList = await getMatchList({ platformId, accountId });
         if (!matchList || !matchList.matches.length) {
           return future.return(null);
         }
@@ -171,18 +171,18 @@ Meteor.methods({
       beginTime: past
     };
 
-    let fromTime = stats.beginTime.getTime();
+    let beginTime = stats.beginTime.getTime();
     const summonerStats = SummonerStats.findOne({ accountId });
     if (summonerStats) {
       const championStats = summonerStats.champions[`${championId}`];
       if (championStats) {
         // Only check for new matches
         stats = championStats;
-        fromTime = championStats.endTime.getTime();
+        beginTime = championStats.endTime.getTime();
       }
     }
 
-    const matchList = riotApi.getMatchList(region, accountId, championId, fromTime);
+    const matchList = await getMatchList({ platformId, accountId, championId, beginTime });
     if (matchList && matchList.matches) {
       stats.championGames += matchList.matches.length;
 
@@ -292,7 +292,6 @@ Meteor.methods({
     });
     const { platformId, summonerId } = params;
 
-    const region = endpoints.find(e => e.platformId === platformId).region;
     const trophyHunter = TrophyHunters.findOne({ summonerId });
     let accountId, summonerName;
     if (trophyHunter) {
@@ -306,7 +305,7 @@ Meteor.methods({
       accountId = summoner.accountId;
       summonerName = summoner.summonerName;
     }
-    const matchList = riotApi.getRecentMatchList(region, accountId);
+    const matchList = await getMatchList({ platformId, accountId, endIndex: 8 });
     if (!matchList) {
       throw new Meteor.Error('getParticipantMatches', 'matchList error');
     }
@@ -406,7 +405,7 @@ Meteor.methods({
         if (mapId !== MAP_NAMES.HOWLING_ABYSS) console.log('unsupported map id', mapId);
         return [];
       }
-      const matchList = riotApi.getMatchList(region, accountId, championId, '', queueIds);
+      const matchList = await getMatchList({ platformId, accountId, championId, queueIds });
       if (!matchList || !matchList.matches) {
         return [];
       }
@@ -478,7 +477,7 @@ Meteor.methods({
       if (mapId !== MAP_NAMES.HOWLING_ABYSS) console.log('unsupported map id', mapId);
       return [];
     }
-    const matchList = riotApi.getMatchList(region, accountId, championId, '', queueIds);
+    const matchList = await getMatchList({ platformId, accountId, championId, queueIds });
     if (!matchList || !matchList.matches) {
       return [];
     }

@@ -1,4 +1,4 @@
-import { matchListCache, recentMatchListCache, timelineCache } from './cache';
+import { timelineCache } from './cache';
 
 import Future from 'fibers/future';
 import { HTTP } from 'meteor/http';
@@ -118,36 +118,6 @@ class RiotApi {
       return { ...match, timeline };
     }
     return null;
-  }
-
-  getMatchList(region, accountId, championId = '', beginTime = '', queueIds = []) {
-    const host = this._getHost(region);
-
-    const key = `${region}-${accountId}-${championId}-${beginTime}-${queueIds.toString()}`;
-    let matchList = matchListCache.get(key);
-    if (!matchList) {
-      let url = `${host}/lol/match/v3/matchlists/by-account/${accountId}?champion=${championId}&beginTime=${beginTime}`;
-      queueIds.forEach(queueId => {
-        url += `&queue=${queueId}`;
-      });
-      url += '&';
-      matchList = this._get(url, 1, 'getMatchList', region);
-      if (matchList) matchListCache.set(key, matchList);
-    }
-    return matchList;
-  }
-
-  getRecentMatchList(region, accountId) {
-    const host = this._getHost(region);
-
-    const key = `${region}-${accountId}`;
-    let recentMatchList = recentMatchListCache.get(key);
-    if (!recentMatchList) {
-      const url = `${host}/lol/match/v3/matchlists/by-account/${accountId}?endIndex=8&`;
-      recentMatchList = this._get(url, 1, 'getMatchList', region);
-      if (recentMatchList) recentMatchListCache.set(key, recentMatchList);
-    }
-    return recentMatchList;
   }
 
   getChampionsStaticData(lang) {
