@@ -2,9 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import TrophyHunters from '../../trophyHunters';
 import { check } from 'meteor/check';
 import { getSpectatorDomainAndPort } from '../../../riot-api/staticData';
-import riotApi from '../../../riot-api/server/riotApi';
+import { getPlatformIdByRegion, getActiveGame } from '/imports/shared/th-api/index.ts';
 
-const spectateCurrentMatch = function(userId) {
+const spectateCurrentMatch = async function(userId) {
   this.unblock();
   check(userId, String);
 
@@ -12,11 +12,11 @@ const spectateCurrentMatch = function(userId) {
   if (!trophyHunter) {
     throw new Meteor.Error('Trophy hunter not found');
   }
-
-  const currentGame = riotApi.getCurrentGameForSummonerId(
-    trophyHunter.region,
-    trophyHunter.summonerId
-  );
+  const platformId = getPlatformIdByRegion(trophyHunter.region);
+  const currentGame = await getActiveGame({
+    platformId,
+    summonerId: trophyHunter.summonerId
+  });
   if (!currentGame) {
     throw new Meteor.Error('Current game not found');
   }

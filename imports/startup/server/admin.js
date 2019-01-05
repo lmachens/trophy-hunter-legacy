@@ -1,6 +1,5 @@
 import GameSessions from '/imports/api/game-sessions/gameSessions';
 import { Meteor } from 'meteor/meteor';
-import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import os from 'os';
 import riotApi from '/imports/api/riot-api/server/riotApi';
 import version from '/imports/api/riot-api/version';
@@ -42,22 +41,6 @@ Meteor.methods({
     GameSessions.find({ checkedStatus: 'failed' }, { limit: 100 }).forEach(gameSession => {
       console.log(gameSession._id);
       gameSession.restartJob();
-    });
-  },
-  checkMatchesInProgress() {
-    this.unblock();
-    checkUser();
-    GameSessions.find({ checkedStatus: 'matchInProgress' }, { limit: 100 }).forEach(gameSession => {
-      const trophyHunter = TrophyHunters.findOne({ userId: gameSession.userId });
-      const currentGame = riotApi.getCurrentGameForSummonerId(
-        trophyHunter.region,
-        trophyHunter.summonerId
-      );
-      // Check if there is a current game and it is the same as in activeGameSession
-      if (!currentGame || !gameSession.game || gameSession.game.gameId != currentGame.gameId) {
-        console.log(trophyHunter.summonerName.magenta, 'checkMatchesInProgress - setMatchEnd');
-        gameSession.setMatchEnd(false, Meteor.userId());
-      }
     });
   },
   getStaticData() {

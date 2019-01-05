@@ -5,10 +5,10 @@ import Notifications from '/imports/api/notifications/notifications';
 import SummonerStats from '/imports/api/summoner-stats/summonerStats';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import { UsersSessions } from 'meteor/lmachens:user-presence';
-import riotApi from '/imports/api/riot-api/server/riotApi';
 import { removeDead } from '../../server-stats/server';
+import { getPlatformIdByRegion, getActiveGame } from '/imports/shared/th-api/index.ts';
 
-function cleanup(job, cb) {
+async function cleanup(job, cb) {
   console.log('cleanup'.blue, 'start');
 
   // Remove old cleanup jobs
@@ -85,27 +85,34 @@ function cleanup(job, cb) {
       gameSession.restartJob(trophyHunter.userId);
     });
 
-  // checkMatchesInProgress
   let oldMatchesInProgress = 0;
 
-  GameSessions.find({ checkedStatus: 'matchInProgress', createdAt: { $lt: past } }, { limit: 30 })
+  const promises = GameSessions.find(
+    { checkedStatus: 'matchInProgress', createdAt: { $lt: past } },
+    { limit: 30 }
+  )
     .fetch()
-    .forEach(gameSession => {
-      const trophyHunter = TrophyHunters.findOne({ userId: gameSession.userId });
-      if (!trophyHunter) {
-        return console.log(gameSession._id);
-      }
-      const currentGame = riotApi.getCurrentGameForSummonerId(
-        trophyHunter.region,
-        trophyHunter.summonerId
-      );
-      // Check if there is a current game and it is the same as in activeGameSession
-      if (!currentGame || !gameSession.game || gameSession.game.gameId != currentGame.gameId) {
-        console.log('cleanup'.blue, trophyHunter.summonerName.magenta, 'setMatchEnd');
-        oldMatchesInProgress++;
-        gameSession.setMatchEnd(false, trophyHunter.userId);
-      }
+    .map(gameSession => {
+      return new Promise(async resolve => {
+        const trophyHunter = TrophyHunters.findOne({ userId: gameSession.userId });
+        if (!trophyHunter) {
+          return console.log(gameSession._id);
+        }
+        const platformId = getPlatformIdByRegion(trophyHunter.region);
+        const currentGame = await getActiveGame({
+          platformId,
+          summonerId: trophyHunter.summonerId
+        });
+        // Check if there is a current game and it is the same as in activeGameSession
+        if (!currentGame || !gameSession.game || gameSession.game.gameId != currentGame.gameId) {
+          console.log('cleanup'.blue, trophyHunter.summonerName.magenta, 'setMatchEnd');
+          oldMatchesInProgress++;
+          gameSession.setMatchEnd(false, trophyHunter.userId);
+        }
+        resolve();
+      });
     });
+  await Promise.all(promises);
 
   const removedSummonerStats = SummonerStats.remove({
     updatedAt: {
