@@ -4,6 +4,7 @@ export { default as getLeaguePositions } from './getLeaguePositions';
 export { default as getPlatformIdByRegion } from './getPlatformIdByRegion';
 export { default as getMatch } from './getMatch';
 export { default as getMatchList } from './getMatchList';
+export { default as getMatchup } from './getMatchup';
 export { default as getMatchWithTimeline } from './getMatchWithTimeline';
 export { default as getTimeline } from './getTimeline';
 export { default as getSummoner } from './getSummoner';

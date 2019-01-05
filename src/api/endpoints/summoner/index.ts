@@ -1,6 +1,28 @@
 import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
-import { getSummoner } from '../../shared/riot-api';
+import axios from 'axios';
+
+if (!process.env.LEAGUE_API_KEY) {
+  throw new Error('Missing env LEAGUE_API_KEY');
+}
+
+const getSummoner = ({ platformId, summonerId, accountId, summonerName }) => {
+  let url;
+  if (summonerId) {
+    url = `https://${platformId}.api.riotgames.com/lol/summoner/v3/summoners/${summonerId}?api_key=${
+      process.env.LEAGUE_API_KEY
+    }`;
+  } else if (accountId) {
+    url = `https://${platformId}.api.riotgames.com/lol/summoner/v3/summoners/by-account/${accountId}?api_key=${
+      process.env.LEAGUE_API_KEY
+    }`;
+  } else {
+    url = `https://${platformId}.api.riotgames.com/lol/summoner/v3/summoners/by-name/${encodeURI(
+      summonerName
+    )}?api_key=${process.env.LEAGUE_API_KEY}`;
+  }
+  return axios.get(url).then(response => response.data);
+};
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   const { platformId, summonerId, accountId, summonerName }: any = parse(req.url, true).query;
