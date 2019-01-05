@@ -1,20 +1,15 @@
 {
   "private": true,
-  "name": "trophy-hunter-api",
-  "version": "1.0.0",
+  "name": "trophy-hunter",
   "scripts": {
-    "build": "tsc",
-    "dev": "node dev/api"
+    "api": "yarn --cwd \"api\" dev",
+    "www": "yarn --cwd \"www\" dev"
   },
-  "dependencies": {
-    "axios": "^0.18.0",
-    "lodash.groupby": "4.6.0",
-    "lodash.zip": "4.2.0",
-    "node-cache": "^4.2.0",
-    "request": "^2.88.0"
-  },
+  "workspaces": [
+    "api",
+    "www"
+  ],
   "devDependencies": {
-    "@types/node": "^10.12.18",
     "typescript": "^3.2.2"
   }
 }

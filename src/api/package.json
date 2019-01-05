@@ -1,0 +1,20 @@
+{
+  "name": "trophy-hunter-api",
+  "description": "Trophy Hunter Api",
+  "version": "0.0.1",
+  "license": "GPL-3.0",
+  "scripts": {
+    "dev": "ts-node-dev server"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lodash.groupby": "4.6.0",
+    "lodash.zip": "4.2.0",
+    "node-cache": "^4.2.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "ts-node-dev": "^1.0.0-pre.32"
+  }
+}

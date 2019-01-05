@@ -1,8 +1,10 @@
-const http = require('http');
+import http from 'http';
+import matchApi from './endpoints/match';
+import timelineApi from './endpoints/timeline';
+import trophiesApi from './endpoints/trophies';
 
 if (!process.env.LEAGUE_API_KEY) {
-  console.error(`No process.env.LEAGUE_API_KEY set. Set env LEAGUE_API_KEY="RGAPI-xxx" first`);
-  return;
+  throw `No process.env.LEAGUE_API_KEY set. Set env LEAGUE_API_KEY="RGAPI-xxx" first`;
 }
 
 const hostname = '127.0.0.1';
@@ -13,10 +15,6 @@ if (!process.env.MATCH_API_ENDPOINT) {
 if (!process.env.TIMELINE_API_ENDPOINT) {
   process.env.TIMELINE_API_ENDPOINT = `http://${hostname}:${5001}`;
 }
-
-const matchApi = require('../build/api/match').default;
-const timelineApi = require('../build/api/timeline').default;
-const trophiesApi = require('../build/api/trophies').default;
 
 const matchApiServer = http.createServer(matchApi);
 matchApiServer.listen(5000, hostname, () => {

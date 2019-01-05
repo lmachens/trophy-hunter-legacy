@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
     "rootDir": "./",
-    "outDir": "./build",
     "module": "commonjs",
     "target": "esnext",
     "moduleResolution": "node",
-    "allowJs": true,
     "strict": false,
-    "allowSyntheticDefaultImports": true
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react"
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }
