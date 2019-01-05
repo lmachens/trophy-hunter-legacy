@@ -24,3 +24,11 @@ export const getSummoner = ({ platformId, summonerId }) => {
     )
     .then(response => response.data);
 };
+
+export const getActiveGame = ({ platformId, summonerId }) => {
+  return axios
+    .get(
+      `https://${platformId}.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/${summonerId}?api_key=${leagueApiKey}`
+    )
+    .then(response => response.data);
+};

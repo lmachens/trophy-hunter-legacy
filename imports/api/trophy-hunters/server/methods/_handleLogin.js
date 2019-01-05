@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import TrophyHunters from '../../trophyHunters';
 import isEqual from 'lodash.isequal';
 import riotApi from '../../../riot-api/server/riotApi';
-import { getPlatformIdByRegion, getSummoner } from '/imports/shared/th-api/index.ts';
+import { getPlatformIdByRegion, getSummoner, getActiveGame } from '/imports/shared/th-api/index.ts';
 
 const handleLogin = async function(serverVersion) {
   check(serverVersion, Match.Maybe(String));
@@ -49,10 +49,10 @@ const handleLogin = async function(serverVersion) {
   if (!activeGameSession) {
     isIngame = false;
   } else {
-    const currentGame = riotApi.getCurrentGameForSummonerId(
-      trophyHunter.region,
-      trophyHunter.summonerId
-    );
+    const currentGame = await getActiveGame({
+      platformId,
+      summonerId: trophyHunter.summonerId
+    });
     // Check if there is a current game and it is the same as in activeGameSession
     if (
       !currentGame ||

@@ -9,7 +9,7 @@ import { Meteor } from 'meteor/meteor';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import { check } from 'meteor/check';
 import { getSetting } from '/imports/api/trophy-hunters/helpers';
-import riotApi from '/imports/api/riot-api/server/riotApi';
+import { getPlatformIdByRegion, getActiveGame } from '/imports/shared/th-api/index.ts';
 
 GameSessions.helpers({
   setMatchEnd(withDelay) {
@@ -107,7 +107,7 @@ GameSessions.helpers({
 });
 
 Meteor.methods({
-  startMatch() {
+  async startMatch() {
     this.unblock();
 
     const userId = Meteor.userId();
@@ -120,7 +120,8 @@ Meteor.methods({
       throw new Meteor.Error('getCurrentGame', 'trophyHunter not found');
     }
 
-    const game = riotApi.getCurrentGameForSummonerId(trophyHunter.region, trophyHunter.summonerId);
+    const platformId = getPlatformIdByRegion(trophyHunter.region);
+    const game = await getActiveGame({ platformId, summonerId: trophyHunter.summonerId });
     const activeMatch = GameSessions.findOne({
       userId,
       checkedStatus: 'matchInProgress'
@@ -211,7 +212,7 @@ Meteor.methods({
 
     return true;
   },
-  checkMatchEnd() {
+  async checkMatchEnd() {
     this.unblock();
 
     const userId = Meteor.userId();
@@ -234,7 +235,8 @@ Meteor.methods({
       throw new Meteor.Error('getCurrentGame', 'trophyHunter not found');
     }
 
-    const game = riotApi.getCurrentGameForSummonerId(trophyHunter.region, trophyHunter.summonerId);
+    const platformId = getPlatformIdByRegion(trophyHunter.region);
+    const game = await getActiveGame({ platformId, summonerId: trophyHunter.summonerId });
     // Check if there is a current game and it is the same as in activeGameSession
     if (!game) {
       activeMatch.setMatchEnd(false, userId);

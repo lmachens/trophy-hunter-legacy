@@ -88,15 +88,6 @@ class RiotApi {
     return `https://${endpoint.host}`;
   }
 
-  getCurrentGameForSummonerId(region, summonerId) {
-    const host = this._getHost(region);
-
-    const url = `${host}/lol/spectator/v3/active-games/by-summoner/${summonerId}?`;
-    const result = this._get(url, 1, 'getCurrentGameForSummonerId', region);
-
-    return result;
-  }
-
   getTimeline(region, matchId) {
     const host = this._getHost(region);
 
