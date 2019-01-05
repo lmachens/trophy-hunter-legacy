@@ -28,7 +28,6 @@ export const checkAttributes = () => {
     }
   ).forEach(match => {
     const gameSession = GameSessions.findOne({ 'game.gameId': match.gameId });
-    //let match = Meteor.call('getMatchWithTimeline', gameSession.game.gameId, gameSession.game.platformId);
     if (!gameSession) {
       // console.log('found unusuable match.');
       return;
