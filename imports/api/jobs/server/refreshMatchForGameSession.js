@@ -3,7 +3,6 @@ import trees, { activeTrees, treeBonus } from '/imports/api/trees/trees';
 import { updateFirstBloodStats, updateSnowballStats } from '../../champions/server';
 
 import GameSessions from '/imports/api/game-sessions/gameSessions';
-import Matches from '/imports/api/statistics/server/matches';
 import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
@@ -135,12 +134,6 @@ async function refreshMatchForGameSession(gameSessionId, job) {
     // Remove game session
     GameSessions.remove(gameSession._id);
     return;
-  }
-
-  // Save match for statistics
-  if (!Matches.findOne({ gameId: matchResult.gameId })) {
-    job.log('Insert Match');
-    Matches.insert(matchResult);
   }
 
   // calculate features

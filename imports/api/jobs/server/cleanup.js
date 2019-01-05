@@ -1,6 +1,5 @@
 import GameSessions from '/imports/api/game-sessions/gameSessions';
 import Jobs from '/imports/api/jobs/jobs';
-import Matches from '/imports/api/statistics/server/matches';
 import Notifications from '/imports/api/notifications/notifications';
 import SummonerStats from '/imports/api/summoner-stats/summonerStats';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
@@ -15,13 +14,11 @@ async function cleanup(job, cb) {
   Jobs.remove({ type: 'cleanup', status: 'completed' });
 
   const veryLongPast = new Date(Date.now() - 3 * 30 * 24 * 60 * 60 * 1000); // 3 months ago
-  const longPast = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000); // 14 days ago
   const past = new Date(Date.now() - 90 * 60 * 1000); // 90 minutes ago
   const shortPast = new Date(Date.now() - 10 * 60 * 1000); // 10 minutes ago
 
   // remove old gameSessions and matches
   const oldGameSessions = GameSessions.remove({ createdAt: { $lt: veryLongPast } });
-  const removedMatches = Matches.remove({ createdAt: { $lt: longPast } });
 
   // remove old jobs
   let jobsRemoved = 0;
@@ -125,8 +122,6 @@ async function cleanup(job, cb) {
   const removedNotifications = Notifications.remove({ createdAt: { $lt: oneWeekAgo } });
   console.log(
     'cleanup'.blue,
-    'removed matches'.yellow,
-    removedMatches,
     'removed gameSessions'.yellow,
     oldGameSessions,
     'removed jobs'.yellow,
@@ -149,7 +144,6 @@ async function cleanup(job, cb) {
 
   job.log('Cleaned up');
   job.done({
-    removedMatches,
     oldGameSessions,
     jobsRemoved,
     setOffline,
