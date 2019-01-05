@@ -150,24 +150,6 @@ class RiotApi {
     return recentMatchList;
   }
 
-  getSummonerByName(region, name) {
-    const host = this._getHost(region);
-
-    const url = `${host}/lol/summoner/v3/summoners/by-name/${name}?`;
-    const result = this._get(url, 1, 'getSummonerByName', region);
-
-    return result;
-  }
-
-  getSummonerByAccountId(region, accountId) {
-    const host = this._getHost(region);
-
-    const url = `${host}/lol/summoner/v3/summoners/by-account/${accountId}?`;
-    const result = this._get(url, 1, 'getSummonerByAccountId', region);
-
-    return result;
-  }
-
   getChampionsStaticData(lang) {
     const url = `https://ddragon.leagueoflegends.com/cdn/${version}/data/${lang}/champion.json`;
     return this._getStatic(url);

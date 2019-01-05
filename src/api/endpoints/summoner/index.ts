@@ -3,13 +3,13 @@ import { IncomingMessage, ServerResponse } from 'http';
 import { getSummoner } from '../../shared/riot-api';
 
 export default (req: IncomingMessage, res: ServerResponse) => {
-  const { platformId, summonerId }: any = parse(req.url, true).query;
-  if (!platformId || !summonerId) {
+  const { platformId, summonerId, accountId, summonerName }: any = parse(req.url, true).query;
+  if (!platformId || (!summonerId && !accountId && !summonerName)) {
     res.writeHead(400);
     return res.end('Invalid query');
   }
 
-  getSummoner({ platformId, summonerId })
+  getSummoner({ platformId, summonerId, accountId, summonerName })
     .then(result => {
       if (!result) {
         res.writeHead(404);

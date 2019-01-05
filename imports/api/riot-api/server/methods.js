@@ -13,6 +13,7 @@ import endpoints from '../endpoints';
 import { getMatchWithTimeline } from '/imports/api/matches/server/_getMatchWithTimeline';
 import riotApi from './riotApi';
 import {
+  getPlatformIdByRegion,
   getChampionMastery,
   getMatch,
   getSummoner,
@@ -27,7 +28,7 @@ const numberOfMatches = {
 const past = new Date(Date.now() - 1000 * 60 * 60 * 24 * 30 * 6); // Last 5 months
 
 Meteor.methods({
-  getSummonerId({ accountId, region }) {
+  async getSummonerId({ accountId, region }) {
     this.unblock();
     check(accountId, Number);
     check(region, String);
@@ -39,7 +40,8 @@ Meteor.methods({
     if (trophyHunter) {
       return trophyHunter.summonerId;
     }
-    const summoner = riotApi.getSummonerByAccountId(region, accountId);
+    const platformId = getPlatformIdByRegion(region);
+    const summoner = await getSummoner({ platformId, accountId });
     if (!summoner) {
       return false;
     }
@@ -517,7 +519,7 @@ Meteor.methods({
 
     return matches;
   },
-  getSummoner({ region, summonerName }) {
+  async getSummoner({ region, summonerName }) {
     check(region, String);
     check(summonerName, String);
 
@@ -525,7 +527,8 @@ Meteor.methods({
     if (trophyHunter) {
       return trophyHunter;
     } else {
-      const summoner = riotApi.getSummonerByName(region, summonerName);
+      const platformId = getPlatformIdByRegion(region);
+      const summoner = await getSummoner({ platformId, summonerName });
       if (!summoner) {
         throw new Meteor.Error('getSummoner', 'summoner not found');
       }
