@@ -96,6 +96,10 @@ if (Meteor.isServer) {
     { background: true }
   );
   rawCollection.createIndex({ checkedStatus: 1 }, { background: true });
+  rawCollection.createIndex(
+    { 'game.mapId': 1, 'game.participants.championId': 1, 'game.participants.teamId': 1 },
+    { background: true }
+  );
 }
 
 export default GameSessions;

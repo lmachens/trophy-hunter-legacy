@@ -1,6 +1,20 @@
 import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
-import { getChampionMastery } from '../../shared/riot-api';
+import axios from 'axios';
+
+if (!process.env.LEAGUE_API_KEY) {
+  throw new Error('Missing env LEAGUE_API_KEY');
+}
+
+const getChampionMastery = ({ platformId, summonerId, championId }) => {
+  return axios
+    .get(
+      `https://${platformId}.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/${summonerId}/by-champion/${championId}?api_key=${
+        process.env.LEAGUE_API_KEY
+      }`
+    )
+    .then(response => response.data);
+};
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   const { platformId, summonerId, championId }: any = parse(req.url, true).query;

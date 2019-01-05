@@ -1,6 +1,20 @@
 import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
-import { getLeaguePositions } from '../../shared/riot-api';
+import axios from 'axios';
+
+if (!process.env.LEAGUE_API_KEY) {
+  throw new Error('Missing env LEAGUE_API_KEY');
+}
+
+const getLeaguePositions = ({ platformId, summonerId }) => {
+  return axios
+    .get(
+      `https://${platformId}.api.riotgames.com/lol/league/v3/positions/by-summoner/${summonerId}?api_key=${
+        process.env.LEAGUE_API_KEY
+      }`
+    )
+    .then(response => response.data);
+};
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   const { platformId, summonerId }: any = parse(req.url, true).query;

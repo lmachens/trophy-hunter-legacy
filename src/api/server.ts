@@ -7,6 +7,7 @@ import activeGameApi from './endpoints/active-game';
 import leaguePositionsApi from './endpoints/league-positions';
 import championMasteryApi from './endpoints/champion-mastery';
 import matchlistApi from './endpoints/matchlist';
+import matchupApi from './endpoints/matchup';
 
 if (!process.env.LEAGUE_API_KEY) {
   throw `No process.env.LEAGUE_API_KEY set. Set env LEAGUE_API_KEY="RGAPI-xxx" first`;
@@ -15,7 +16,7 @@ if (!process.env.LEAGUE_API_KEY) {
 const hostname = '127.0.0.1';
 
 http.createServer(trophiesApi).listen(5002, hostname, () => {
-  console.log(`Trophies API running at http://${hostname}:${5002}/`);
+  console.log(`trophiesApi running at http://${hostname}:${5002}/`);
 });
 
 if (!process.env.MATCH_API_ENDPOINT) {
@@ -23,7 +24,7 @@ if (!process.env.MATCH_API_ENDPOINT) {
 }
 
 http.createServer(matchApi).listen(5000, hostname, () => {
-  console.log(`Match API running at http://${hostname}:${5000}/`);
+  console.log(`matchApi running at http://${hostname}:${5000}/`);
 });
 
 if (!process.env.TIMELINE_API_ENDPOINT) {
@@ -31,7 +32,7 @@ if (!process.env.TIMELINE_API_ENDPOINT) {
 }
 
 http.createServer(timelineApi).listen(5001, hostname, () => {
-  console.log(`Match API running at http://${hostname}:${5001}/`);
+  console.log(`timelineApi running at http://${hostname}:${5001}/`);
 });
 
 if (!process.env.SUMMONER_API_ENDPOINT) {
@@ -39,7 +40,7 @@ if (!process.env.SUMMONER_API_ENDPOINT) {
 }
 
 http.createServer(summonerApi).listen(5003, hostname, () => {
-  console.log(`Summoner API running at http://${hostname}:${5003}/`);
+  console.log(`summonerApi running at http://${hostname}:${5003}/`);
 });
 
 if (!process.env.ACTIVE_GAME_API_ENDPOINT) {
@@ -47,7 +48,7 @@ if (!process.env.ACTIVE_GAME_API_ENDPOINT) {
 }
 
 http.createServer(activeGameApi).listen(5004, hostname, () => {
-  console.log(`Active Game API running at http://${hostname}:${5004}/`);
+  console.log(`activeGameApi running at http://${hostname}:${5004}/`);
 });
 
 if (!process.env.LEAGUE_POSITIONS_API_ENDPOINT) {
@@ -55,7 +56,7 @@ if (!process.env.LEAGUE_POSITIONS_API_ENDPOINT) {
 }
 
 http.createServer(leaguePositionsApi).listen(5005, hostname, () => {
-  console.log(`Active Game API running at http://${hostname}:${5005}/`);
+  console.log(`leaguePositionsApi running at http://${hostname}:${5005}/`);
 });
 
 if (!process.env.CHAMPION_MASTERY_API_ENDPOINT) {
@@ -63,7 +64,7 @@ if (!process.env.CHAMPION_MASTERY_API_ENDPOINT) {
 }
 
 http.createServer(championMasteryApi).listen(5006, hostname, () => {
-  console.log(`Active Game API running at http://${hostname}:${5006}/`);
+  console.log(`championMasteryApi running at http://${hostname}:${5006}/`);
 });
 
 if (!process.env.MATCHLIST_API_ENDPOINT) {
@@ -71,5 +72,13 @@ if (!process.env.MATCHLIST_API_ENDPOINT) {
 }
 
 http.createServer(matchlistApi).listen(5007, hostname, () => {
-  console.log(`Active Game API running at http://${hostname}:${5007}/`);
+  console.log(`matchlistApi running at http://${hostname}:${5007}/`);
+});
+
+if (!process.env.MATCHUP_API_ENDPOINT) {
+  process.env.MATCHUP_API_ENDPOINT = `http://${hostname}:${5008}`;
+}
+
+http.createServer(matchupApi).listen(5008, hostname, () => {
+  console.log(`matchupApi running at http://${hostname}:${5008}/`);
 });
