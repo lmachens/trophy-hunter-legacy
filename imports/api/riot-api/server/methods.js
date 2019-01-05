@@ -9,15 +9,13 @@ import Future from 'fibers/future';
 import { Meteor } from 'meteor/meteor';
 import SummonerStats from '/imports/api/summoner-stats/summonerStats';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
-import endpoints from '../endpoints';
-import { getMatchWithTimeline } from '/imports/api/matches/server/_getMatchWithTimeline';
-import riotApi from './riotApi';
 import {
   getPlatformIdByRegion,
   getChampionMastery,
   getMatch,
   getMatchList,
   getSummoner,
+  getMatchWithTimeline,
   getLeaguePositions
 } from '/imports/shared/th-api/index.ts';
 
@@ -127,7 +125,6 @@ Meteor.methods({
     });
     const { platformId, summonerId, championId } = props;
 
-    const region = endpoints.find(e => e.platformId === platformId).region;
     const trophyHunter = TrophyHunters.findOne(
       { summonerId },
       {
@@ -151,7 +148,7 @@ Meteor.methods({
     } else {
       const summoner = await getSummoner({ platformId, summonerId });
       if (!summoner) {
-        console.error('getParticipantPerformance', 'summoner not found', region, summonerId);
+        console.error('getParticipantPerformance', 'summoner not found', platformId, summonerId);
         return {};
       }
       accountId = summoner.accountId;
@@ -161,7 +158,7 @@ Meteor.methods({
     const championMastery = await getChampionMastery({ platformId, summonerId, championId });
     const leaguePositions = await getLeaguePositions({ platformId, summonerId });
     if (!leaguePositions) {
-      console.error('getParticipantPerformance', 'leaguePositions error', region, summonerId);
+      console.error('getParticipantPerformance', 'leaguePositions error', platformId, summonerId);
     }
 
     let stats = {
@@ -199,7 +196,7 @@ Meteor.methods({
               console.error(
                 'getParticipantPerformance',
                 'participantIdentity error',
-                region,
+                platformId,
                 match.gameId,
                 summonerId
               );
@@ -222,7 +219,7 @@ Meteor.methods({
             console.error(
               'getParticipantPerformance',
               'matchDetails error',
-              region,
+              platformId,
               match.gameId,
               error.message
             );
@@ -367,13 +364,13 @@ Meteor.methods({
 
     return matches.sort((a, b) => b.gameCreation - a.gameCreation);
   },
-  getMatchWithTimeline(gameId, platformId) {
+  async getMatchWithTimeline(matchId, platformId) {
     this.unblock();
 
-    check(gameId, Number);
+    check(matchId, Number);
     check(platformId, String);
 
-    return getMatchWithTimeline(gameId, platformId);
+    return await getMatchWithTimeline({ platformId, matchId });
   },
   async getParticipantHeatmap(props) {
     this.unblock();
@@ -388,7 +385,6 @@ Meteor.methods({
     const { platformId, summonerId, championId, mapId, role } = props;
 
     try {
-      const region = endpoints.find(e => e.platformId === platformId).region;
       const trophyHunter = TrophyHunters.findOne({ summonerId });
       let accountId;
       if (trophyHunter) {
@@ -412,8 +408,8 @@ Meteor.methods({
 
       const futures = matchList.matches.splice(0, numberOfMatches.timelines).map(match => {
         const future = new Future();
-        Meteor.defer(() => {
-          const matchDetails = riotApi.getMatchWithTimeline(region, match.gameId);
+        Meteor.defer(async () => {
+          const matchDetails = await getMatchWithTimeline({ platformId, matchId: match.gameId });
           future.return(matchDetails);
         });
         return {
@@ -458,7 +454,6 @@ Meteor.methods({
     check(championId, Number);
     check(mapId, Number);
 
-    const region = endpoints.find(e => e.platformId === platformId).region;
     const trophyHunter = TrophyHunters.findOne({ summonerId });
     let accountId, summonerName;
     if (trophyHunter) {
@@ -484,8 +479,8 @@ Meteor.methods({
 
     const futures = matchList.matches.splice(0, numberOfMatches.timelines).map(match => {
       const future = new Future();
-      Meteor.defer(() => {
-        const matchDetails = riotApi.getMatchWithTimeline(region, match.gameId);
+      Meteor.defer(async () => {
+        const matchDetails = await getMatchWithTimeline({ platformId, matchId: match.gameId });
         future.return(matchDetails);
       });
       return {
