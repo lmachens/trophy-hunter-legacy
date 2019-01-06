@@ -27,24 +27,32 @@ const numberOfMatches = {
 const past = new Date(Date.now() - 1000 * 60 * 60 * 24 * 30 * 6); // Last 5 months
 
 Meteor.methods({
-  async getSummonerId({ accountId, region }) {
+  async getMeteorUser({ accountId, region }) {
     this.unblock();
     check(accountId, Number);
     check(region, String);
 
     const trophyHunter = TrophyHunters.findOne(
       { accountId, region },
-      { fields: { summonerId: 1 } }
+      { fields: { region: 1, summonerId: 1, summonerName: 1 } }
     );
     if (trophyHunter) {
-      return trophyHunter.summonerId;
+      return {
+        username: `${trophyHunter.region}.${trophyHunter.summonerId}`,
+        password: `${trophyHunter.region}.${trophyHunter.summonerId}`,
+        summonerName: trophyHunter.summonerName
+      };
     }
     const platformId = getPlatformIdByRegion(region);
     const summoner = await getSummoner({ platformId, accountId });
     if (!summoner) {
       return false;
     }
-    return summoner.id;
+    return {
+      username: `${region}.${summoner.id}`,
+      password: `${region}.${summoner.id}`,
+      summonerName: summoner.name
+    };
   },
   getPlayedTogether(props) {
     this.unblock();

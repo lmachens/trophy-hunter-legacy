@@ -54,7 +54,11 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
   try {
     const gameSessions = await getGameSessions({ mapId, champ1Id, champ2Id });
     const matchPromises = gameSessions.map(gameSession =>
-      getMatch({ platformId: gameSession.game.platformId, matchId: gameSession.game.gameId })
+      getMatch({
+        platformId: gameSession.game.platformId,
+        matchId: gameSession.game.gameId,
+        version: 'v4'
+      })
     );
     axios
       .all(matchPromises)

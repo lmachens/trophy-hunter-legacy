@@ -22,9 +22,8 @@ const oldRegions = {
 const createTrophyHunter = async function(options, user) {
   const region = oldRegions[options.region] || options.region;
   const platformId = getPlatformIdByRegion(region);
-  const summonerId = options.summonerId;
-  const summoner = await getSummoner({ platformId, summonerId });
-  const leaguePositions = await getLeaguePositions({ platformId, summonerId });
+  const summoner = await getSummoner({ platformId, summonerName: options.summonerName });
+  const leaguePositions = await getLeaguePositions({ platformId, summonerId: summoner.id });
 
   if (TrophyHunters.findOne({ userId: user._id })) {
     console.log('TrophyHunter already exists', summoner.name);
@@ -35,7 +34,7 @@ const createTrophyHunter = async function(options, user) {
   TrophyHunters.insert({
     userId: user._id,
     accountId: summoner.accountId,
-    summonerId: options.summonerId,
+    summonerId: summoner.id,
     summonerName: summoner.name,
     summonerLevel: summoner.summonerLevel,
     leaguePositions,

@@ -6,10 +6,10 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getMatch = ({ platformId, matchId }) => {
+const getMatch = ({ platformId, matchId, version = 'v3' }) => {
   return axios
     .get(
-      `https://${platformId}.api.riotgames.com/lol/match/v3/matches/${matchId}?api_key=${
+      `https://${platformId}.api.riotgames.com/lol/match/${version}/matches/${matchId}?api_key=${
         process.env.LEAGUE_API_KEY
       }`
     )
@@ -17,13 +17,13 @@ const getMatch = ({ platformId, matchId }) => {
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
-  const { platformId, matchId }: any = parse(req.url, true).query;
+  const { platformId, matchId, version }: any = parse(req.url, true).query;
   if (!platformId || !matchId) {
     res.writeHead(400);
     return res.end('Invalid query');
   }
 
-  getMatch({ platformId, matchId })
+  getMatch({ platformId, matchId, version })
     .then(result => {
       // Cache result https://zeit.co/docs/v2/routing/caching/#caching-lambda-responses
       res.setHeader('Cache-Control', 's-maxage=31536000, maxage=0');
