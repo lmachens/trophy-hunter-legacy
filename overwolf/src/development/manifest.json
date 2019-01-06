@@ -3,7 +3,7 @@
   "type": "WebApp",
   "meta": {
     "name": "Trophy Hunter (dev)",
-    "version": "2.18.1",
+    "version": "2.22.1",
     "minimum-overwolf-version": "0.108.209.0",
     "author": "Trophy Hunter",
     "icon": "src/assets/IconMouseOver.png",
@@ -28,6 +28,10 @@
       "simple-io-plugin": {
         "file": "src/plugins/simple-io-plugin.dll",
         "class": "overwolf.plugins.SimpleIOPlugin"
+      },
+      "http-request-plugin": {
+        "file": "src/plugins/http_request.dll",
+        "class": "com.overwolf.net.HttpRequest"
       }
     },
     "protocol_override_domains": {

@@ -12,12 +12,17 @@ const leagueClientUxProcessName = 'LeagueClientUx';
 const leagueClientLogFileIdentifier = 'LeagueClient.log';
 const lolLauncherId = 109021;
 class LauncherListener {
-  constructor({ simpleIO, listeners, identifier }) {
+  constructor({ httpRequest, simpleIO, listeners, identifier }) {
     _initialiseProps.call(this);
 
     if (!simpleIO) {
       throw new Error('simpleIO are required');
     }
+    if (!httpRequest) {
+      throw new Error('httpRequest is required');
+    }
+    this.httpRequest = httpRequest;
+
     this.simpleIO = simpleIO;
     this.leagueClientLogFileIdentifier = `${leagueClientLogFileIdentifier}-${identifier}`;
 
@@ -156,7 +161,6 @@ var _initialiseProps = function () {
       const installPath = launcher.path.substr(0, launcher.path.lastIndexOf('/RADS/') + 1);
 
       _this.simpleIO.onFileListenerChanged.addListener(_this.handleLeagueClientChange);
-      _this.leagueClientSettingsPath = `${installPath}CONFIG/LeagueClientSettings.yaml`;
 
       const leagueClientLogDirectory = `${installPath}Logs/LeagueClient Logs/`;
       const filename = yield new Promise(function (resolve) {
@@ -176,17 +180,90 @@ var _initialiseProps = function () {
 
       if (_this.listeners.has('loggedIn') || _this.listeners.has('summonerInfo')) {
         _this.simpleIO.getTextFile(leagueClientLogPath, false, _this.handleLeagueClientLog);
-        _this.simpleIO.getTextFile(_this.leagueClientSettingsPath, false, _this.handleLeagueClientSettings);
       }
 
-      if (_this.listeners.has('loggedIn') || _this.listeners.has('champSelect') || _this.listeners.has('lobby')) console.log('start listen on file');
+      console.log('start listen on file');
       _this.simpleIO.listenOnFile(_this.leagueClientLogFileIdentifier, leagueClientLogPath, true, _this.listenOnLeagueClientChange);
+
+      // LCU
+      const args = {};
+      const regexp = /--([^=]+)=?([^"]*)/g;
+      let match;
+      while ((match = regexp.exec(launcher.commandLine)) != null) {
+        const [, key, value] = match;
+        args[key] = value;
+      }
+
+      const password = args['remoting-auth-token'];
+      _this.port = args['app-port'];
+
+      _this.headers = {
+        Accept: 'application/json',
+        Authorization: `Basic ${btoa(`riot:${password}`)}`
+      };
     });
 
     return function (_x) {
       return _ref.apply(this, arguments);
     };
   })();
+
+  this.handleLeagueClientLog = (() => {
+    var _ref2 = _asyncToGenerator(function* (status, data) {
+      if (!status) {
+        return console.log('handleLeagueClientLog', 'failed to get LeagueClient.txt contents', status);
+      }
+      if (/LOGIN_HIDE_EVENT/.test(data)) {
+        const summonerInfo = yield _this.getSummonerInfo();
+        _this.setState({
+          loggedIn: true,
+          summonerInfo
+        });
+      }
+    });
+
+    return function (_x2, _x3) {
+      return _ref2.apply(this, arguments);
+    };
+  })();
+
+  this.getSummonerInfo = _asyncToGenerator(function* () {
+    const regionLocale = yield _this.fetch('riotclient/region-locale');
+    if (regionLocale && regionLocale.code === 200) {
+      const summoner = yield _this.fetch('lol-summoner/v1/current-summoner');
+      if (summoner && summoner.code === 200 && summoner.body.displayName) {
+        return {
+          accountId: summoner.body.accountId,
+          summonerId: summoner.body.summonerId,
+          region: regionLocale.body.region,
+          locale: regionLocale.body.locale,
+          summonerName: summoner.body.displayName
+        };
+      } else {
+        console.log(`Can not fetch summoner ${JSON.stringify(summoner)}`);
+      }
+    } else {
+      console.log(`Can not fetch region ${JSON.stringify(regionLocale)}`);
+    }
+  });
+
+  this.fetch = query => {
+    const url = `https://127.0.0.1:${this.port}/${query}`;
+    return new Promise(resolve => {
+      this.httpRequest.fetch(url, this.headers, (success, result) => {
+        if (!success || !result) {
+          console.error(`fetch failed: ${url}`);
+          resolve();
+        } else {
+          const { code, body } = result;
+          resolve({
+            code,
+            body: JSON.parse(body)
+          });
+        }
+      });
+    });
+  };
 
   this.listenToNewLogFile = leagueClientLogDirectory => {
     if (this.listenToNewLogFileInterval) return;
@@ -202,17 +279,6 @@ var _initialiseProps = function () {
     }, 1000);
   };
 
-  this.handleLeagueClientLog = (status, data) => {
-    if (!status) {
-      return console.log('handleLeagueClientLog', 'failed to get LeagueClient.txt contents', status);
-    }
-    if (/LOGIN_HIDE_EVENT/.test(data)) {
-      this.setState({
-        loggedIn: true
-      });
-    }
-  };
-
   this.listenOnLeagueClientChange = (fileId, status) => {
     console.log('listenOnLeagueClientChange');
     if (fileId !== this.leagueClientLogFileIdentifier) {
@@ -223,60 +289,48 @@ var _initialiseProps = function () {
     }
   };
 
-  this.handleLeagueClientSettings = (status, data) => {
-    if (!status) {
-      return console.log('handleLeagueClientSettings', 'failed to get LeagueClientSettings.yaml contents', status);
-    }
-    const region = data.match(/region: "(\w+)"/);
-    const accountId = data.match(/accountId: (\d+)/);
-
-    if (region && accountId) {
-      this.setState({
-        summonerInfo: {
-          accountId: parseInt(accountId[1]),
-          id: false,
-          region: region[1]
-        }
-      });
-    }
-  };
-
   this.handleLeagueClientChange = (id, status, line) => {
     if (id === this.leagueClientLogFileIdentifier && (this.listeners.has('loggedIn') || this.listeners.has('champSelect') || this.listeners.has('lobby'))) {
       this.processLogLine(line);
     }
   };
 
-  this.processLogLine = line => {
-    const champSelect = this.getChampSelect(line);
-    if (/LOGIN_HIDE_EVENT/.test(line)) {
-      //console.log('LOGIN_HIDE_EVENT');
-      this.setState({
-        loggedIn: true
-      });
-      this.simpleIO.getTextFile(this.leagueClientSettingsPath, false, this.handleLeagueClientSettings);
-    } else if (champSelect) {
-      //console.log('champSelect');
-      this.setState({
-        champSelect
-      });
-    } else if (/GAMEFLOW_EVENT.GAME_LAUNCHED/.test(line)) {
-      //console.log('GAME_LAUNCHED');
-      this.setState({
-        gameLaunched: true
-      });
-    } else if (/GAMEFLOW_EVENT.TERMINATED/.test(line) || /GAMEFLOW_EVENT.GAME_COMPLETED/.test(line)) {
-      //console.log('TERMINATED/GAME_COMPLETED');
-      this.setState({
-        gameLaunched: false
-      });
-    } else if (/Shut down EventCollector/.test(line)) {
-      this.handleTerminated('Shut down EventCollector');
-      setTimeout(() => {
-        overwolf.games.launchers.getRunningLaunchersInfo(this.handleRunningLaunchersInfo);
-      }, 1000);
-    }
-  };
+  this.processLogLine = (() => {
+    var _ref4 = _asyncToGenerator(function* (line) {
+      const champSelect = _this.getChampSelect(line);
+      if (/LOGIN_HIDE_EVENT/.test(line)) {
+        const summonerInfo = yield _this.getSummonerInfo();
+        _this.setState({
+          loggedIn: true,
+          summonerInfo
+        });
+      } else if (champSelect) {
+        //console.log('champSelect');
+        _this.setState({
+          champSelect
+        });
+      } else if (/GAMEFLOW_EVENT.GAME_LAUNCHED/.test(line)) {
+        //console.log('GAME_LAUNCHED');
+        _this.setState({
+          gameLaunched: true
+        });
+      } else if (/GAMEFLOW_EVENT.TERMINATED/.test(line) || /GAMEFLOW_EVENT.GAME_COMPLETED/.test(line)) {
+        //console.log('TERMINATED/GAME_COMPLETED');
+        _this.setState({
+          gameLaunched: false
+        });
+      } else if (/Shut down EventCollector/.test(line)) {
+        _this.handleTerminated('Shut down EventCollector');
+        setTimeout(function () {
+          overwolf.games.launchers.getRunningLaunchersInfo(_this.handleRunningLaunchersInfo);
+        }, 1000);
+      }
+    });
+
+    return function (_x4) {
+      return _ref4.apply(this, arguments);
+    };
+  })();
 
   this.setState = nextState => {
     this.listeners.forEach((value, key) => {

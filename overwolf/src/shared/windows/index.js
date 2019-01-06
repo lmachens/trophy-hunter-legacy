@@ -1,6 +1,6 @@
 import { avoidMoreAds, hideAds, showAds } from '../lib/ads.js';
 import { closeWindow, openWindow } from '../lib/windows.js';
-import { loadLoLStartPlugin, loadSimpleIOPlugin } from '../lib/plugins.js';
+import { loadLoLStartPlugin, loadHttpRequestPlugin, loadSimpleIOPlugin } from '../lib/plugins.js';
 import { setSource, source } from '../lib/core.js';
 
 import LauncherListener from '../lib/launcherListener.js';
@@ -29,11 +29,12 @@ async function init() {
   overwolf.games.events.onError.addListener(onError);
 
   startLoLPlugin = await loadLoLStartPlugin();
-
+  const httpRequest = await loadHttpRequestPlugin();
   const simpleIO = await loadSimpleIOPlugin();
   new LauncherListener({
     identifier: 'index',
     simpleIO,
+    httpRequest,
     listeners: {
       summonerInfo: handleSummonerInfoChange,
       lobby: handleLobbyChange,

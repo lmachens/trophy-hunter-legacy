@@ -4,9 +4,11 @@ let init = (() => {
       yield openWindow('MainWindow');
     } else {
       const simpleIO = yield loadSimpleIOPlugin();
+      const httpRequest = yield loadHttpRequestPlugin();
       launcherListener = new LauncherListener({
         identifier: 'controller',
         simpleIO,
+        httpRequest,
         listeners: {
           loggedIn: handleLoggedIn
         }
@@ -41,7 +43,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 import LauncherListener from '../lib/launcherListener.js';
 import { isLoLRunning } from '../lib/runningGame.js';
-import { loadSimpleIOPlugin } from '../lib/plugins.js';
+import { loadSimpleIOPlugin, loadHttpRequestPlugin } from '../lib/plugins.js';
 import { openWindow } from '../lib/windows.js';
 
 console.log('Controller Window');

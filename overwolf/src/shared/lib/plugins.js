@@ -21,3 +21,15 @@ export const loadSimpleIOPlugin = function() {
     });
   });
 };
+
+export const loadHttpRequestPlugin = function() {
+  return new Promise((resolve, reject) => {
+    overwolf.extensions.current.getExtraObject('http-request-plugin', result => {
+      if (result.status !== 'success') {
+        reject('Can not load http-request-plugin');
+      } else {
+        resolve(result.object);
+      }
+    });
+  });
+};
