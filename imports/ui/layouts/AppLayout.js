@@ -193,11 +193,11 @@ class AppLayout extends Component {
         } else {
           Meteor.call('UserPresence:setDefaultStatus', 'online');
         }
+        const lastVersion = data && data.lastVersion;
+        this.setState({
+          lastVersion
+        });
       }
-      const lastVersion = data && data.lastVersion;
-      this.setState({
-        lastVersion
-      });
     });
     this.initialize();
   }

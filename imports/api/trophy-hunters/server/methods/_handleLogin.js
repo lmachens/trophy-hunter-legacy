@@ -21,6 +21,9 @@ const handleLogin = async function(serverVersion) {
     return false;
   }
   const trophyHunter = TrophyHunters.findOne({ userId });
+  if (!trophyHunter) {
+    return false;
+  }
   const platformId = getPlatformIdByRegion(trophyHunter.region);
   const summonerId = trophyHunter.summonerId;
   const summoner = await getSummoner({ platformId, summonerId });

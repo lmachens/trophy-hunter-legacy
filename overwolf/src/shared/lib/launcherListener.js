@@ -247,7 +247,6 @@ class LauncherListener {
       this.setState({
         summonerInfo: {
           accountId: parseInt(accountId[1]),
-          id: false,
           region: region[1]
         }
       });

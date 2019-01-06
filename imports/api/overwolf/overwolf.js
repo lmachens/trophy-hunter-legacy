@@ -1,12 +1,9 @@
 import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
-import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import endpoints from '/imports/api/riot-api/endpoints';
-import oldRegionsMap from '/imports/api/riot-api/regions';
 
 export default class Overwolf {
   constructor(props) {
-    this.summonerId = undefined;
     this.messageListeners = [];
     this.onError = props.onError;
 
@@ -61,28 +58,18 @@ export default class Overwolf {
     this.messageListeners[event].push(callback);
   }
 
-  loginOrCreateUser(username, password, summonerId, region, overwolfUser) {
-    if (Meteor.loggingIn()) {
-      return;
-    }
-    const trophyHunter = TrophyHunters.findOne({ userId: Meteor.userId() });
-    if (trophyHunter && trophyHunter.summonerId === summonerId) {
-      console.log('loginOrCreateUser - same summonerId', username);
-      Meteor.call('updateOverwolfUser', overwolfUser);
-      return;
-    }
+  loginOrCreateUser({ user, region, overwolfUser }) {
+    console.log(`loginOrCreateUser ${JSON.stringify(user)}`, overwolfUser);
 
-    console.log('loginOrCreateUser', username, overwolfUser);
-
-    Meteor.loginWithPassword(username, password, error => {
+    Meteor.loginWithPassword(user.username, user.password, error => {
       if (error) {
         if (error.reason === 'User not found') {
           // if user does not exists -> create a user
           Accounts.createUser(
             {
-              username,
-              password,
-              summonerId,
+              username: user.username,
+              password: user.password,
+              summonerName: user.summonerName,
               region,
               overwolfUser
             },
@@ -108,10 +95,8 @@ export default class Overwolf {
     });
   }
 
-  login({ region, accountId, id: summonerId, overwolfUser }) {
-    region = oldRegionsMap[region.toLowerCase()] || region;
+  login({ region, accountId, overwolfUser }) {
     region = region.toUpperCase();
-
     const endpoint = endpoints.find(endpoint => endpoint.region === region);
 
     if (region === 'PBE') {
@@ -121,43 +106,31 @@ export default class Overwolf {
       throw new Meteor.Error('Error', 'Your region is not supported');
     }
 
-    if (accountId && !summonerId) {
-      Meteor.call('getSummonerId', { accountId, region }, (error, result) => {
-        if (error || !result) {
-          throw new Meteor.Error('Error', `Can not find summoner id for ${accountId} in ${region}`);
-        }
-        this.handleLogin({ accountId, region, summonerId: result, overwolfUser });
-      });
-    } else {
-      this.handleLogin({ accountId, region, summonerId, overwolfUser });
-    }
-  }
-
-  handleLogin({ accountId, region, summonerId, overwolfUser }) {
-    summonerId = parseInt(summonerId);
-    if (isNaN(summonerId)) {
-      throw new Meteor.Error('Error', `Can not find summoner id for ${accountId} in ${region}`);
-    }
-    this.summonerId = summonerId;
-    const username = `${region}.${summonerId}`;
-    const password = username;
-
-    // check if the username has changed
-    const user = Meteor.user();
-    if (user && user.username !== username) {
-      // logout first
-      Meteor.logout(error => {
-        if (error) {
-          console.log('logout error:', error);
-        }
-        this.loginOrCreateUser(username, password, summonerId, region, overwolfUser);
-      });
-    } else if (!user) {
-      // try to login
-      this.loginOrCreateUser(username, password, summonerId, region, overwolfUser);
-    } else {
-      Meteor.call('updateOverwolfUser', overwolfUser);
-    }
+    Meteor.call('getMeteorUser', { accountId, region }, (error, user) => {
+      if (error || !user) {
+        throw new Meteor.Error('Error', `Can not find user for ${accountId} in ${region}`);
+      }
+      // check if the username has changed
+      const currentUser = Meteor.user();
+      if (currentUser && currentUser.username !== user.username) {
+        // logout first
+        Meteor.logout(error => {
+          if (error) {
+            console.log('logout error:', error);
+          }
+          this.loginOrCreateUser({
+            user,
+            region,
+            overwolfUser
+          });
+        });
+      } else if (!currentUser) {
+        // try to login
+        this.loginOrCreateUser({ user, region, overwolfUser });
+      } else {
+        Meteor.call('updateOverwolfUser', overwolfUser);
+      }
+    });
   }
 
   startMatch() {
