@@ -10,10 +10,15 @@ const leagueClientUxProcessName = 'LeagueClientUx';
 const leagueClientLogFileIdentifier = 'LeagueClient.log';
 const lolLauncherId = 109021;
 class LauncherListener {
-  constructor({ simpleIO, listeners, identifier }) {
+  constructor({ httpRequest, simpleIO, listeners, identifier }) {
     if (!simpleIO) {
       throw new Error('simpleIO are required');
     }
+    if (!httpRequest) {
+      throw new Error('httpRequest is required');
+    }
+    this.httpRequest = httpRequest;
+
     this.simpleIO = simpleIO;
     this.leagueClientLogFileIdentifier = `${leagueClientLogFileIdentifier}-${identifier}`;
 
@@ -146,7 +151,6 @@ class LauncherListener {
     const installPath = launcher.path.substr(0, launcher.path.lastIndexOf('/RADS/') + 1);
 
     this.simpleIO.onFileListenerChanged.addListener(this.handleLeagueClientChange);
-    this.leagueClientSettingsPath = `${installPath}CONFIG/LeagueClientSettings.yaml`;
 
     const leagueClientLogDirectory = `${installPath}Logs/LeagueClient Logs/`;
     const filename = await new Promise(resolve => {
@@ -169,25 +173,87 @@ class LauncherListener {
 
     if (this.listeners.has('loggedIn') || this.listeners.has('summonerInfo')) {
       this.simpleIO.getTextFile(leagueClientLogPath, false, this.handleLeagueClientLog);
-      this.simpleIO.getTextFile(
-        this.leagueClientSettingsPath,
-        false,
-        this.handleLeagueClientSettings
-      );
     }
 
-    if (
-      this.listeners.has('loggedIn') ||
-      this.listeners.has('champSelect') ||
-      this.listeners.has('lobby')
-    )
-      console.log('start listen on file');
+    console.log('start listen on file');
     this.simpleIO.listenOnFile(
       this.leagueClientLogFileIdentifier,
       leagueClientLogPath,
       true,
       this.listenOnLeagueClientChange
     );
+
+    // LCU
+    const args = {};
+    const regexp = /--([^=]+)=?([^"]*)/g;
+    let match;
+    while ((match = regexp.exec(launcher.commandLine)) != null) {
+      const [, key, value] = match;
+      args[key] = value;
+    }
+
+    const password = args['remoting-auth-token'];
+    this.port = args['app-port'];
+
+    this.headers = {
+      Accept: 'application/json',
+      Authorization: `Basic ${btoa(`riot:${password}`)}`
+    };
+  };
+
+  handleLeagueClientLog = async (status, data) => {
+    if (!status) {
+      return console.log(
+        'handleLeagueClientLog',
+        'failed to get LeagueClient.txt contents',
+        status
+      );
+    }
+    if (/LOGIN_HIDE_EVENT/.test(data)) {
+      const summonerInfo = await this.getSummonerInfo();
+      this.setState({
+        loggedIn: true,
+        summonerInfo
+      });
+    }
+  };
+
+  getSummonerInfo = async () => {
+    const regionLocale = await this.fetch('riotclient/region-locale');
+    if (regionLocale && regionLocale.code === 200) {
+      const summoner = await this.fetch('lol-summoner/v1/current-summoner');
+      if (summoner && summoner.code === 200 && summoner.body.displayName) {
+        return {
+          accountId: summoner.body.accountId,
+          summonerId: summoner.body.summonerId,
+          region: regionLocale.body.region,
+          locale: regionLocale.body.locale,
+          summonerName: summoner.body.displayName
+        };
+      } else {
+        console.log(`Can not fetch summoner ${JSON.stringify(summoner)}`);
+      }
+    } else {
+      console.log(`Can not fetch region ${JSON.stringify(regionLocale)}`);
+    }
+  };
+
+  fetch = query => {
+    const url = `https://127.0.0.1:${this.port}/${query}`;
+    return new Promise(resolve => {
+      this.httpRequest.fetch(url, this.headers, (success, result) => {
+        if (!success || !result) {
+          console.error(`fetch failed: ${url}`);
+          resolve();
+        } else {
+          const { code, body } = result;
+          resolve({
+            code,
+            body: JSON.parse(body)
+          });
+        }
+      });
+    });
   };
 
   listenToNewLogFile = leagueClientLogDirectory => {
@@ -207,21 +273,6 @@ class LauncherListener {
     }, 1000);
   };
 
-  handleLeagueClientLog = (status, data) => {
-    if (!status) {
-      return console.log(
-        'handleLeagueClientLog',
-        'failed to get LeagueClient.txt contents',
-        status
-      );
-    }
-    if (/LOGIN_HIDE_EVENT/.test(data)) {
-      this.setState({
-        loggedIn: true
-      });
-    }
-  };
-
   listenOnLeagueClientChange = (fileId, status) => {
     console.log('listenOnLeagueClientChange');
     if (fileId !== this.leagueClientLogFileIdentifier) {
@@ -229,27 +280,6 @@ class LauncherListener {
     }
     if (!status) {
       return console.log('something bad happened with: ' + fileId);
-    }
-  };
-
-  handleLeagueClientSettings = (status, data) => {
-    if (!status) {
-      return console.log(
-        'handleLeagueClientSettings',
-        'failed to get LeagueClientSettings.yaml contents',
-        status
-      );
-    }
-    const region = data.match(/region: "(\w+)"/);
-    const accountId = data.match(/accountId: (\d+)/);
-
-    if (region && accountId) {
-      this.setState({
-        summonerInfo: {
-          accountId: parseInt(accountId[1]),
-          region: region[1]
-        }
-      });
     }
   };
 
@@ -264,18 +294,14 @@ class LauncherListener {
     }
   };
 
-  processLogLine = line => {
+  processLogLine = async line => {
     const champSelect = this.getChampSelect(line);
     if (/LOGIN_HIDE_EVENT/.test(line)) {
-      //console.log('LOGIN_HIDE_EVENT');
+      const summonerInfo = await this.getSummonerInfo();
       this.setState({
-        loggedIn: true
+        loggedIn: true,
+        summonerInfo
       });
-      this.simpleIO.getTextFile(
-        this.leagueClientSettingsPath,
-        false,
-        this.handleLeagueClientSettings
-      );
     } else if (champSelect) {
       //console.log('champSelect');
       this.setState({

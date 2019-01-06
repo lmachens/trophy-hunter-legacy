@@ -13,11 +13,12 @@ let init = (() => {
     overwolf.games.events.onError.addListener(onError);
 
     startLoLPlugin = yield loadLoLStartPlugin();
-
+    const httpRequest = yield loadHttpRequestPlugin();
     const simpleIO = yield loadSimpleIOPlugin();
     new LauncherListener({
       identifier: 'index',
       simpleIO,
+      httpRequest,
       listeners: {
         summonerInfo: handleSummonerInfoChange,
         lobby: handleLobbyChange,
@@ -86,7 +87,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 import { avoidMoreAds, hideAds, showAds } from '../lib/ads.js';
 import { closeWindow, openWindow } from '../lib/windows.js';
-import { loadLoLStartPlugin, loadSimpleIOPlugin } from '../lib/plugins.js';
+import { loadLoLStartPlugin, loadHttpRequestPlugin, loadSimpleIOPlugin } from '../lib/plugins.js';
 import { setSource, source } from '../lib/core.js';
 
 import LauncherListener from '../lib/launcherListener.js';
