@@ -1,44 +1,28 @@
-import extendEvents from './extendEvents';
-import extendGeneralGroups from './extendGeneralGroups';
-import extendMatchStats from './extendMatchStats';
-import extendParticipantGroups from './extendParticipantGroups';
-import extendParticipantTimelineStats from './extendParticipantTimelineStats';
-import extendTeamTimelineStats from './extendTeamTimelineStats';
-import getParticipantIdentity from './getParticipantIdentity';
-import getPartitionedParticipants from './getPartitionedParticipants';
-import extendAllGroupMatchStats from './extendAllGroupMatchStats';
-
 import { MAP_NAMES } from '../../riot-api/gameConstants';
+import extendGeneralGroups from './extendGeneralGroups';
+import extendParticipantGroups from './extendParticipantGroups';
+import extendEvents from './extendEvents';
+import extendAllGroupMatchStats from './extendAllGroupMatchStats';
+import getPartitionedParticipants from './getPartitionedParticipants';
+import extendMatchStats from './extendMatchStats';
+import extendTeamTimelineStats from './extendTeamTimelineStats';
+import extendParticipantTimelineStats from './extendParticipantTimelineStats';
 import extendTeamsMatchStats from './extendTeamsMatchStats';
 import extendParticipantGroupsMatchStats from './extendParticipantGroupsMatchStats';
 
 // matchExtensionParameters needs two parameters:
 // (1) extendStatsParticipantIds: This contains the id's of the participants that need calculated stats.
 // (2) withTimeline: if yes: compute timeline stats
-function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
+function extendMatchResultAll(matchResult, matchExtensionParameters) {
   matchExtensionParameters = Object.assign(
     {},
     {
       withTimeline: true,
-      extendStatsParticipantIds: [],
-      extendParticipants: []
+      extendedParticipants: matchResult.participants
     },
     matchExtensionParameters
   );
   const extendedMatchResult = Object.assign({}, matchResult);
-
-  // Extend identity
-  if (!extendedMatchResult.participantIdentity) {
-    extendedMatchResult.participantIdentity = getParticipantIdentity(
-      extendedMatchResult,
-      summonerId
-    );
-  }
-  if (matchExtensionParameters.extendStatsParticipantIds.length == 0) {
-    matchExtensionParameters.extendStatsParticipantIds.push(
-      extendedMatchResult.participantIdentity.participantId
-    );
-  }
 
   //general match info
   extendedMatchResult.isSummonersRift = extendedMatchResult.mapId === MAP_NAMES.SUMMONERS_RIFT;
@@ -48,13 +32,9 @@ function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
 
   extendGeneralGroups(matchResult);
   // extend participant groups for single participants
-  matchExtensionParameters.extendStatsParticipantIds.forEach(id => {
-    const participant = extendParticipantGroups(id, matchResult);
-    matchExtensionParameters.extendParticipants.push(participant);
+  extendedMatchResult.participants.forEach(participant => {
+    extendParticipantGroups(participant.id, matchResult);
   });
-  //TODO: change obtainedCheck
-  extendedMatchResult.participant = matchExtensionParameters.extendParticipants[0];
-  extendedMatchResult.team = extendedMatchResult.participant.team;
 
   if (matchExtensionParameters.withTimeline) {
     extendedMatchResult.teams[0].idCheck = id => id <= extendedMatchResult.teamThreshold;
@@ -91,4 +71,4 @@ function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
   return extendedMatchResult;
 }
 
-export default extendMatchResult;
+export default extendMatchResultAll;
