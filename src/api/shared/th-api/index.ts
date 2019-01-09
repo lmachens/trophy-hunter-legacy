@@ -9,3 +9,4 @@ export { default as getMatchWithTimeline } from './getMatchWithTimeline';
 export { default as getTimeline } from './getTimeline';
 export { default as getSummoner } from './getSummoner';
 export { default as getTrophies } from './getTrophies';
+export { default as getSampleExtendedMatchResults } from './getSampleExtendedMatchResults';

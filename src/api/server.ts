@@ -8,6 +8,7 @@ import leaguePositionsApi from './endpoints/league-positions';
 import championMasteryApi from './endpoints/champion-mastery';
 import matchlistApi from './endpoints/matchlist';
 import matchupApi from './endpoints/matchup';
+import sampleExtendedMatchResultsApi from './endpoints/sampleExtendedMatchResults';
 
 if (!process.env.LEAGUE_API_KEY) {
   throw `No process.env.LEAGUE_API_KEY set. Set env LEAGUE_API_KEY="RGAPI-xxx" first`;
@@ -81,4 +82,12 @@ if (!process.env.MATCHUP_API_ENDPOINT) {
 
 http.createServer(matchupApi).listen(5008, hostname, () => {
   console.log(`matchupApi running at http://${hostname}:${5008}/`);
+});
+
+if (!process.env.SAMPLEEXTENDEDMATCHRESULTS_API_ENDPOINT) {
+  process.env.SAMPLEEXTENDEDMATCHRESULTS_API_ENDPOINT = `http://${hostname}:${5009}`;
+}
+
+http.createServer(sampleExtendedMatchResultsApi).listen(5009, hostname, () => {
+  console.log(`sampleExtendedMatchResultsApi running at http://${hostname}:${5009}/`);
 });
