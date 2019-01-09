@@ -9,6 +9,7 @@ import extendTeamTimelineStats from './extendTeamTimelineStats';
 import extendParticipantTimelineStats from './extendParticipantTimelineStats';
 import extendTeamsMatchStats from './extendTeamsMatchStats';
 import extendParticipantGroupsMatchStats from './extendParticipantGroupsMatchStats';
+import extendMatchStatsAll from './extendMatchStatsAll';
 
 // matchExtensionParameters needs two parameters:
 // (1) extendStatsParticipantIds: This contains the id's of the participants that need calculated stats.
@@ -18,7 +19,7 @@ function extendMatchResultAll(matchResult, matchExtensionParameters) {
     {},
     {
       withTimeline: true,
-      extendedParticipants: matchResult.participants
+      extendParticipants: matchResult.participants
     },
     matchExtensionParameters
   );
@@ -33,7 +34,7 @@ function extendMatchResultAll(matchResult, matchExtensionParameters) {
   extendGeneralGroups(matchResult);
   // extend participant groups for single participants
   extendedMatchResult.participants.forEach(participant => {
-    extendParticipantGroups(participant.id, matchResult);
+    extendParticipantGroups(participant.participantId, matchResult);
   });
 
   if (matchExtensionParameters.withTimeline) {
@@ -46,14 +47,7 @@ function extendMatchResultAll(matchResult, matchExtensionParameters) {
 
   extendTeamsMatchStats(extendedMatchResult);
 
-  // Extend partitioned participants (participant, others, opponents, ...)
-  const partitionedParticipants = getPartitionedParticipants(
-    extendedMatchResult.participant.participantId,
-    extendedMatchResult
-  );
-  Object.assign(extendedMatchResult, partitionedParticipants);
-
-  extendMatchStats(extendedMatchResult);
+  extendMatchStatsAll(extendedMatchResult);
   if (matchExtensionParameters.withTimeline) {
     extendTeamTimelineStats(extendedMatchResult.teams[0]);
     extendTeamTimelineStats(extendedMatchResult.teams[1]);

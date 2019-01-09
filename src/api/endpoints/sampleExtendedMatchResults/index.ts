@@ -1,9 +1,9 @@
 import axios from 'axios';
-import extendMatchResult from '../../shared/matches/extendMatchResult';
 import calculateTrophies from '../../shared/trophies/calculateTrophies';
 import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
 import exampleMatches from '../../shared/matches/exampleMatches';
+import extendMatchResultAll from '../../shared/matches/extendMatchResult/extendMatchResultsAll';
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   axios
@@ -13,11 +13,7 @@ export default (req: IncomingMessage, res: ServerResponse) => {
         const extendedMatchResults = [];
 
         sampleMatchesArray.forEach(match => {
-          const extendedMatchResult = extendMatchResult(
-            match,
-            'aR6YdOSN9sG6R31d6e9g2CGboeTAXDzcyxcT5nkReJBU-Y8',
-            null
-          );
+          const extendedMatchResult = extendMatchResultAll(match, null);
           extendedMatchResults.push(extendedMatchResult);
         });
 
