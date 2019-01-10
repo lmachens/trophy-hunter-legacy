@@ -9,15 +9,15 @@ if (!process.env.LEAGUE_API_KEY) {
 const getSummoner = ({ platformId, summonerId, accountId, summonerName }) => {
   let url;
   if (summonerId) {
-    url = `https://${platformId}.api.riotgames.com/lol/summoner/v3/summoners/${summonerId}?api_key=${
+    url = `https://${platformId}.api.riotgames.com/lol/summoner/v4/summoners/${summonerId}?api_key=${
       process.env.LEAGUE_API_KEY
     }`;
   } else if (accountId) {
-    url = `https://${platformId}.api.riotgames.com/lol/summoner/v3/summoners/by-account/${accountId}?api_key=${
+    url = `https://${platformId}.api.riotgames.com/lol/summoner/v4/summoners/by-account/${accountId}?api_key=${
       process.env.LEAGUE_API_KEY
     }`;
   } else {
-    url = `https://${platformId}.api.riotgames.com/lol/summoner/v3/summoners/by-name/${encodeURI(
+    url = `https://${platformId}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURI(
       summonerName
     )}?api_key=${process.env.LEAGUE_API_KEY}`;
   }

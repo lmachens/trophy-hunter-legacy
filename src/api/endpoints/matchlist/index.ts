@@ -7,7 +7,7 @@ if (!process.env.LEAGUE_API_KEY) {
 }
 
 const getMatchList = ({ platformId, accountId, championId, beginTime, endIndex, queueIds }) => {
-  let url = `https://${platformId}.api.riotgames.com/lol/match/v3/matchlists/by-account/${accountId}?api_key=${
+  let url = `https://${platformId}.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?api_key=${
     process.env.LEAGUE_API_KEY
   }`;
   if (championId) {

@@ -9,7 +9,7 @@ if (!process.env.LEAGUE_API_KEY) {
 const getActiveGame = ({ platformId, summonerId }) => {
   return axios
     .get(
-      `https://${platformId}.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/${summonerId}?api_key=${
+      `https://${platformId}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${summonerId}?api_key=${
         process.env.LEAGUE_API_KEY
       }`
     )

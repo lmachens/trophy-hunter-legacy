@@ -9,7 +9,7 @@ if (!process.env.LEAGUE_API_KEY) {
 const getTimeline = ({ platformId, matchId }) => {
   return axios
     .get(
-      `https://${platformId}.api.riotgames.com/lol/match/v3/timelines/by-match/${matchId}?api_key=${
+      `https://${platformId}.api.riotgames.com/lol/match/v4/timelines/by-match/${matchId}?api_key=${
         process.env.LEAGUE_API_KEY
       }`
     )

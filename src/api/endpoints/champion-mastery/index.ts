@@ -9,7 +9,7 @@ if (!process.env.LEAGUE_API_KEY) {
 const getChampionMastery = ({ platformId, summonerId, championId }) => {
   return axios
     .get(
-      `https://${platformId}.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/${summonerId}/by-champion/${championId}?api_key=${
+      `https://${platformId}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${summonerId}/by-champion/${championId}?api_key=${
         process.env.LEAGUE_API_KEY
       }`
     )
