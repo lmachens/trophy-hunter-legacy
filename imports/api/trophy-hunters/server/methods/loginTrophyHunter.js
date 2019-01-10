@@ -11,10 +11,10 @@ import {
   getActiveGame
 } from '/imports/shared/th-api/index.ts';
 
-const isIngame = async ({ summonerId, platformId }) => {
+const isIngame = async ({ userId, platformId, summonerId }) => {
   // Check if still ingame
   let isIngame;
-  const activeGameSession = GameSessions.findOne({ summonerId, checkedStatus: 'matchInProgress' });
+  const activeGameSession = GameSessions.findOne({ userId, checkedStatus: 'matchInProgress' });
   if (!activeGameSession) {
     isIngame = false;
   } else {
@@ -143,8 +143,6 @@ const loginTrophyHunter = async function({
       }
     );
 
-    const ingame = await isIngame({ summonerId, platformId });
-
     let userId;
     const trophyHunter = TrophyHunters.findOne(
       { $or: [{ puuid }, { region, summonerName: targetSummonerName }] },
@@ -168,6 +166,7 @@ const loginTrophyHunter = async function({
       });
     }
 
+    const ingame = await isIngame({ userId, platformId, summonerId });
     this.setUserId(userId);
     return {
       userId,
