@@ -114,7 +114,6 @@ const loginTrophyHunter = async function({
     const summoner = await getSummoner({ platformId, summonerName: targetSummonerName });
     if (!summoner) {
       console.log(`loginTrophyHunter: can not find summoner for ${platformId} ${summonerName}`);
-      this.setUserId(null);
       return null;
     }
     const {
@@ -153,7 +152,6 @@ const loginTrophyHunter = async function({
       { fields: { userId: 1 } }
     );
     if (trophyHunter) {
-      this.setUserId(trophyHunter.userId);
       userId = trophyHunter.userId;
     } else {
       userId = createUser({
@@ -171,7 +169,7 @@ const loginTrophyHunter = async function({
     }
 
     const ingame = await isIngame({ userId, platformId, summonerId });
-    this.setUserId(userId);
+
     return {
       userId,
       ingame

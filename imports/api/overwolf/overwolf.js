@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 import endpoints from '/imports/api/riot-api/endpoints';
 
 export default class Overwolf {
@@ -78,18 +79,22 @@ export default class Overwolf {
           throw new Meteor.Error('Error', `Can not find ${summonerName} in ${region}`);
         }
         if (Meteor.userId() !== result.userId) {
-          Meteor.connection.setUserId(result.userId);
-        } else {
-          Meteor.call('updateOverwolfUser', overwolfUser);
-        }
-        if (result.isIngame) {
-          Meteor.call('UserPresence:setDefaultStatus', 'ingame');
-        } else {
-          Meteor.call('UserPresence:setDefaultStatus', 'online');
+          Accounts.callLoginMethod({
+            methodArguments: [{ userId: result.userId }],
+            userCallback: () => this.setStatus(result.isIngame)
+          });
         }
       }
     );
   }
+
+  setStatus = isIngame => {
+    if (isIngame) {
+      Meteor.call('UserPresence:setDefaultStatus', 'ingame');
+    } else {
+      Meteor.call('UserPresence:setDefaultStatus', 'online');
+    }
+  };
 
   startMatch() {
     console.log('startMatch');

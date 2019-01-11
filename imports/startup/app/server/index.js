@@ -4,6 +4,7 @@ import './user-presence';
 import '../../server/mongo';
 import '../../server/process';
 import '../../server/admin';
+import '../../server/login';
 
 import TrophyStats from '/imports/api/trophies/trophyStats';
 import trophies from '/imports/shared/trophies/index.ts';
