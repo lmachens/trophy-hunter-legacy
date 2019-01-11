@@ -139,7 +139,11 @@ async function refreshMatchForGameSession(gameSessionId, job) {
   // calculate features
   job.log('Calculate features', { data: { type: 'app' } });
   let obtainedFeatures = {};
-  const extendedMatchResult = extendMatchResult(matchResult, trophyHunter.summonerId);
+  const extendedMatchResult = extendMatchResult({
+    matchResult: matchResult,
+    summonerId: trophyHunter.summonerId,
+    summonerName: trophyHunter.summonerName
+  });
   //console.time('calculateFeatures');
   obtainedFeatures = calculateFeatures(extendedMatchResult, trophyHunter);
   //console.timeEnd('calculateFeatures');
@@ -382,6 +386,7 @@ async function refreshMatchForGameSession(gameSessionId, job) {
       platformId: gameSession.game.platformId,
       matchId: gameSession.game.gameId,
       summonerId: gameSession.summonerId,
+      summonerName: gameSession.summonerName,
       championId: gameSession.championId
     },
     read: false
@@ -412,6 +417,7 @@ async function refreshMatchForGameSession(gameSessionId, job) {
           platformId: gameSession.game.platformId,
           matchId: gameSession.game.gameId,
           summonerId: gameSession.summonerId,
+          summonerName: gameSession.summonerName,
           championId: gameSession.championId
         },
         read: false,

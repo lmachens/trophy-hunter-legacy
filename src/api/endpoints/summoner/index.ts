@@ -17,9 +17,9 @@ const getSummoner = ({ platformId, summonerId, accountId, summonerName, version 
       process.env.LEAGUE_API_KEY
     }`;
   } else {
-    url = `https://${platformId}.api.riotgames.com/lol/summoner/${version}/summoners/by-name/${encodeURI(
-      summonerName
-    )}?api_key=${process.env.LEAGUE_API_KEY}`;
+    url = `https://${platformId}.api.riotgames.com/lol/summoner/${version}/summoners/by-name/${summonerName}?api_key=${
+      process.env.LEAGUE_API_KEY
+    }`;
   }
   return axios.get(url).then(response => response.data);
 };
@@ -33,7 +33,6 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     res.writeHead(400);
     return res.end('Invalid query');
   }
-
   getSummoner({ platformId, summonerId, accountId, summonerName, version })
     .then(result => {
       // Cache result for one day because data might change
@@ -41,7 +40,8 @@ export default (req: IncomingMessage, res: ServerResponse) => {
       res.end(JSON.stringify(result));
     })
     .catch(error => {
-      res.writeHead(error.response.status);
-      res.end(error.response.statusText);
+      console.log(error);
+      res.writeHead(error.response ? error.response.status : 400);
+      res.end(error.response ? error.response.statusText : error.message);
     });
 };

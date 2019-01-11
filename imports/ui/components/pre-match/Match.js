@@ -69,7 +69,11 @@ export const MatchHeader = () => (
 );
 
 const Match = ({ match, trophyHunter }) => {
-  const { participant } = extendMatchResult(match, trophyHunter.summonerId);
+  const { participant } = extendMatchResult({
+    matchResult: match,
+    summonerId: trophyHunter.summonerId,
+    summonerName: trophyHunter.summonerName
+  });
   const perk = perks[participant.stats.perk0];
   return (
     <div style={styles.root}>

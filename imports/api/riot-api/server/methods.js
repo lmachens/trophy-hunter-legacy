@@ -574,5 +574,16 @@ Meteor.methods({
     } catch (error) {
       return null;
     }
+  },
+  async getSummonerByLegacySummonerId({ platformId, summonerId }) {
+    check(platformId, String);
+    check(summonerId, Number);
+
+    try {
+      const summoner = await getSummoner({ platformId, summonerId });
+      return summoner;
+    } catch (error) {
+      return null;
+    }
   }
 });
