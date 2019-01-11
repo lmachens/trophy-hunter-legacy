@@ -268,9 +268,9 @@ const mapStateToProps = ({
   uiStates: { startFrame, endFrame }
 }) => {
   if (!mapTarget) return { mapId, startFrame, endFrame };
-  const identifier = `${platformId}-${mapTarget.summonerId}-${mapTarget.championId}-${
+  const identifier = `${platformId}&${mapTarget.summonerId}&${mapTarget.championId}&${
     mapTarget.role
-  }-${mapId}`;
+  }&${mapId}`;
   const participantHeatmap = participantsHeatmapByParticipant[identifier] || {};
 
   return {

@@ -39,12 +39,10 @@ const getGameSessions = async ({ mapId, champ1Id, champ2Id }) => {
 };
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
-  const {
-    champ1Id: champ1IdString,
-    champ2Id: champ2IdString,
-    mapId: mapIdString,
-    version
-  }: any = parse(req.url, true).query;
+  const { champ1Id: champ1IdString, champ2Id: champ2IdString, mapId: mapIdString }: any = parse(
+    req.url,
+    true
+  ).query;
   if (!champ1IdString || !champ2IdString || !mapIdString) {
     res.writeHead(400);
     return res.end('Invalid query');
@@ -58,8 +56,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     const matchPromises = gameSessions.map(gameSession =>
       getMatch({
         platformId: gameSession.game.platformId,
-        matchId: gameSession.game.gameId,
-        version
+        matchId: gameSession.game.gameId
       })
     );
     axios

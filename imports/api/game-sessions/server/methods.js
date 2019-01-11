@@ -174,6 +174,7 @@ Meteor.methods({
     GameSessions.insert({
       userId,
       region: trophyHunter.region,
+      summonerName: trophyHunter.summonerName,
       accountId: trophyHunter.accountId,
       summonerId: trophyHunter.summonerId,
       checkedStatus: 'matchInProgress',

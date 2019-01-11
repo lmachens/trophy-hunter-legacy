@@ -9,21 +9,26 @@ const cache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
-const getChampionMastery = ({ platformId, summonerId, championId, version = 'v4' }) => {
-  const key = `${platformId}-${summonerId}-${championId}-${version}`;
+const getChampionMastery = ({ platformId, summonerId, championId }) => {
+  const key = `${platformId}&${summonerId}&${championId}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
+  const version = typeof summonerId === 'number' ? 'v3' : 'v4';
+  const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&championId=${championId}&version=${version}`;
+  console.log(url);
   return axios
-    .get(
-      `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&championId=${championId}&version=${version}`
-    )
+    .get(url)
     .then(response => {
       if (response.data) {
         cache.set(key, response.data);
       }
       return response.data;
+    })
+    .catch(error => {
+      error.message = `${error.message}: ${url}`;
+      throw error;
     });
 };
 

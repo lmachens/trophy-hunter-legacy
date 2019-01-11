@@ -49,7 +49,7 @@ export const fetchMatchupMatches = identifier => {
   return dispatch => {
     dispatch(requestMatchupMatches(identifier));
     return new Promise(resolve => {
-      const params = identifier.split('-');
+      const params = identifier.split('&');
       const champ1Id = parseInt(params[0]);
       const champ2Id = parseInt(params[1]);
       const mapId = parseInt(params[2]);

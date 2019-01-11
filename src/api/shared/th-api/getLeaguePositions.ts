@@ -9,19 +9,26 @@ const cache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
-const getLeaguePositions = ({ platformId, summonerId, version = 'v4' }) => {
-  const key = `${platformId}-${summonerId}-${version}`;
+const getLeaguePositions = ({ platformId, summonerId }) => {
+  const key = `${platformId}&${summonerId}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
+  const version = typeof summonerId === 'number' ? 'v3' : 'v4';
+  const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`;
+  console.log(url);
   return axios
-    .get(`${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`)
+    .get(url)
     .then(response => {
       if (response.data) {
         cache.set(key, response.data);
       }
       return response.data;
+    })
+    .catch(error => {
+      error.message = `${error.message}: ${url}`;
+      throw error;
     });
 };
 

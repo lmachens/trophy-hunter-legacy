@@ -11,23 +11,23 @@ import { store } from '../../../store/store';
 import { withTracker } from 'meteor/react-meteor-data';
 
 const LiveMatchContainer = withTracker(
-  ({ championStatsByChampionId, userId, region, accountId, gameId }) => {
-    if (accountId) accountId = parseInt(accountId);
+  ({ championStatsByChampionId, userId, region, gameId, summonerName }) => {
     if (gameId) gameId = parseInt(gameId);
     if (region) {
       region = (oldRegionsMap[region.toLowerCase()] || region).toUpperCase();
     }
     const handle = Meteor.subscribe('gameSessions.private.recent', {
       region,
-      accountId,
-      gameId
+      gameId,
+      summonerName
     });
     const loading = !handle.ready();
 
     const query = {};
-    if (region && accountId) {
+    if (region && summonerName) {
       query.region = region;
-      query.accountId = accountId;
+      query.summonerName = summonerName;
+
       if (gameId) {
         query['game.gameId'] = gameId;
       }
@@ -98,7 +98,6 @@ const LiveMatchContainer = withTracker(
       store.dispatch(setLiveMatch(newLiveMatch));
     }
     return {
-      accountId,
       loading,
       gameSession
     };

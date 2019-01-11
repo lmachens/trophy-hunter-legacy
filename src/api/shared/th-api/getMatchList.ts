@@ -15,7 +15,6 @@ interface GetMatchListProps {
   beginTime?: string;
   endIndex?: string;
   queueIds?: string[];
-  version?: string;
 }
 
 const getMatchList = ({
@@ -24,26 +23,26 @@ const getMatchList = ({
   championId,
   beginTime,
   endIndex,
-  queueIds,
-  version = 'v4'
+  queueIds
 }: GetMatchListProps) => {
-  let key = `${platformId}-${accountId}-${version}`;
+  let key = `${platformId}&${accountId}`;
+  const version = typeof accountId === 'number' ? 'v3' : 'v4';
   let url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}&version=${version}`;
   if (championId) {
-    key += `-c-${championId}`;
+    key += `&c&${championId}`;
     url += `&championId=${championId}`;
   }
   if (beginTime) {
-    key += `-b-${beginTime}`;
+    key += `&b&${beginTime}`;
     url += `&beginTime=${beginTime}`;
   }
   if (endIndex) {
-    key += `-e-${endIndex}`;
+    key += `&e&${endIndex}`;
     url += `&endIndex=${endIndex}`;
   }
   if (queueIds) {
     queueIds.forEach(queueId => {
-      key += `-q-${queueId}`;
+      key += `&q&${queueId}`;
       url += `&queue=${queueId}`;
     });
   }
@@ -51,11 +50,18 @@ const getMatchList = ({
   if (data) {
     return new Promise(resolve => resolve(data));
   }
-  return axios.get(url).then(response => {
-    if (response.data) {
-      cache.set(key, response.data);
-    }
-    return response.data;
-  });
+  console.log(url);
+  return axios
+    .get(url)
+    .then(response => {
+      if (response.data) {
+        cache.set(key, response.data);
+      }
+      return response.data;
+    })
+    .catch(error => {
+      error.message = `${error.message}: ${url}`;
+      throw error;
+    });
 };
 export default getMatchList;

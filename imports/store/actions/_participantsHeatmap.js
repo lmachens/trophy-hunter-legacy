@@ -49,9 +49,9 @@ export const fetchParticipantHeatmap = identifier => {
   return dispatch => {
     dispatch(requestParticipantHeatmap(identifier));
     return new Promise(resolve => {
-      const params = identifier.split('-');
+      const params = identifier.split('&');
       const platformId = params[0];
-      const summonerId = parseInt(params[1]);
+      const summonerId = parseInt(params[1]) || params[1];
       const championId = parseInt(params[2]);
       const role = params[3];
       const mapId = parseInt(params[4]);

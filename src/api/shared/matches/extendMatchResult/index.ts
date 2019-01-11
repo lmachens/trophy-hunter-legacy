@@ -49,10 +49,10 @@ function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
 
   // Extend identity
   if (!extendedMatchResult.participantIdentity) {
-    extendedMatchResult.participantIdentity = getParticipantIdentity(
-      extendedMatchResult,
+    extendedMatchResult.participantIdentity = getParticipantIdentity({
+      participantIdentities: extendedMatchResult.participantIdentities,
       summonerId
-    );
+    });
   }
   if (matchExtensionParameters.extendStatsParticipantIds.length == 0) {
     matchExtensionParameters.extendStatsParticipantIds.push(

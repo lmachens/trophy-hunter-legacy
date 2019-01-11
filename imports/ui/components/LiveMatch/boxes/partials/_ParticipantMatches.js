@@ -64,7 +64,7 @@ ParticipantMatches.propTypes = {
 
 const mapStateToProps = ({ liveMatch: { platformId }, matchesByParticipant }, { participant }) => {
   if (!participant) return {};
-  const identifier = `${platformId}-${participant.summonerId}`;
+  const identifier = `${platformId}&${participant.summonerId}`;
   const participantMatches = matchesByParticipant[identifier] || {
     isFetching: true
   };

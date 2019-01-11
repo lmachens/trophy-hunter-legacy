@@ -20,6 +20,7 @@ import V0MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import app from '../app';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import overlay from '../overlay';
+import live from '../live';
 
 // Set url to origin to avoid CSP issues when the origin and ROOT_URL are different.
 // For example when you visit app.th.gl and the ROOT_URL is app.loltrophyhunter.de.
@@ -39,6 +40,7 @@ const App = () => (
           <V0MuiThemeProvider muiTheme={getMuiTheme(universeTheme)}>
             <Switch>
               {overlay}
+              {live}
               {app}
             </Switch>
           </V0MuiThemeProvider>

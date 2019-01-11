@@ -13,40 +13,40 @@ interface GetSummonerProps {
   summonerId?: string | number;
   accountId?: string | number;
   summonerName?: string;
-  version?: string;
 }
 
-const getSummoner = ({
-  platformId,
-  summonerId,
-  accountId,
-  summonerName,
-  version = 'v4'
-}: GetSummonerProps) => {
+const getSummoner = ({ platformId, summonerId, accountId, summonerName }: GetSummonerProps) => {
   let key;
   let url;
   if (summonerId) {
-    key = `${platformId}-s-${summonerId}-${version}`;
+    key = `${platformId}&s&${summonerId}`;
+    const version = typeof summonerId === 'number' ? 'v3' : 'v4';
     url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`;
   } else if (accountId) {
-    key = `${platformId}-a-${accountId}-${version}`;
+    key = `${platformId}&a&${accountId}`;
+    const version = typeof accountId === 'number' ? 'v3' : 'v4';
     url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}&version=${version}`;
   } else {
-    key = `${platformId}-n-${summonerName}-${version}`;
-    url = `${apiEndpoint}?platformId=${platformId}&summonerName=${encodeURI(
-      summonerName
-    )}&version=${version}`;
+    key = `${platformId}&n&${summonerName}`;
+    url = `${apiEndpoint}?platformId=${platformId}&summonerName=${encodeURI(summonerName)}`;
   }
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
-  return axios.get(url).then(response => {
-    if (response.data) {
-      cache.set(key, response.data);
-    }
-    return response.data;
-  });
+  console.log(url);
+  return axios
+    .get(url)
+    .then(response => {
+      if (response.data) {
+        cache.set(key, response.data);
+      }
+      return response.data;
+    })
+    .catch(error => {
+      error.message = `${error.message}: ${url}`;
+      throw error;
+    });
 };
 
 export default getSummoner;

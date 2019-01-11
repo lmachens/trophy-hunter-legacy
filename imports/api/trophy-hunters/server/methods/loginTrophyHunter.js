@@ -128,17 +128,21 @@ const loginTrophyHunter = async function({
     } = summoner;
     const leaguePositions = await getLeaguePositions({ platformId, summonerId: summoner.id });
     TrophyHunters.update(
-      { puuid },
+      { $or: [{ puuid }, { region, summonerName: targetSummonerName }] },
       {
         $set: {
+          puuid,
+          accountId,
           summonerId,
           summonerName,
-          profileIconId,
           summonerLevel,
           leaguePositions,
+          profileIconId,
+          region,
+          overwolfUser,
+          revisionDate,
           lastLogin: new Date(),
-          lastVersion: serverVersion,
-          revisionDate
+          lastVersion: serverVersion
         }
       }
     );
