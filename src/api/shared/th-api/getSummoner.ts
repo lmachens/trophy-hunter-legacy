@@ -13,20 +13,29 @@ interface GetSummonerProps {
   summonerId?: string | number;
   accountId?: string | number;
   summonerName?: string;
+  version?: string;
 }
 
-const getSummoner = ({ platformId, summonerId, accountId, summonerName }: GetSummonerProps) => {
+const getSummoner = ({
+  platformId,
+  summonerId,
+  accountId,
+  summonerName,
+  version = 'v4'
+}: GetSummonerProps) => {
   let key;
   let url;
   if (summonerId) {
-    key = `${platformId}-s-${summonerId}`;
-    url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}`;
+    key = `${platformId}-s-${summonerId}-${version}`;
+    url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`;
   } else if (accountId) {
-    key = `${platformId}-a-${accountId}`;
-    url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}`;
+    key = `${platformId}-a-${accountId}-${version}`;
+    url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}&version=${version}`;
   } else {
-    key = `${platformId}-n-${summonerName}`;
-    url = `${apiEndpoint}?platformId=${platformId}&summonerName=${encodeURI(summonerName)}`;
+    key = `${platformId}-n-${summonerName}-${version}`;
+    url = `${apiEndpoint}?platformId=${platformId}&summonerName=${encodeURI(
+      summonerName
+    )}&version=${version}`;
   }
   const data = cache.get(key);
   if (data) {

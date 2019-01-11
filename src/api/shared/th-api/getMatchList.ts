@@ -15,6 +15,7 @@ interface GetMatchListProps {
   beginTime?: string;
   endIndex?: string;
   queueIds?: string[];
+  version?: string;
 }
 
 const getMatchList = ({
@@ -23,10 +24,11 @@ const getMatchList = ({
   championId,
   beginTime,
   endIndex,
-  queueIds
+  queueIds,
+  version = 'v4'
 }: GetMatchListProps) => {
-  let key = `${platformId}-${accountId}`;
-  let url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}`;
+  let key = `${platformId}-${accountId}-${version}`;
+  let url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}&version=${version}`;
   if (championId) {
     key += `-c-${championId}`;
     url += `&championId=${championId}`;

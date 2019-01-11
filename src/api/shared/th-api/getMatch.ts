@@ -8,17 +8,19 @@ const cache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
-const getMatch = ({ platformId, matchId }) => {
-  const key = `${platformId}-${matchId}`;
+const getMatch = ({ platformId, matchId, version = 'v4' }) => {
+  const key = `${platformId}-${matchId}-${version}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
-  return axios.get(`${apiEndpoint}?platformId=${platformId}&matchId=${matchId}`).then(response => {
-    if (response.data) {
-      cache.set(key, response.data);
-    }
-    return response.data;
-  });
+  return axios
+    .get(`${apiEndpoint}?platformId=${platformId}&matchId=${matchId}&version=${version}`)
+    .then(response => {
+      if (response.data) {
+        cache.set(key, response.data);
+      }
+      return response.data;
+    });
 };
 export default getMatch;

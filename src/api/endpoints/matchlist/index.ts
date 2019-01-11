@@ -6,8 +6,16 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getMatchList = ({ platformId, accountId, championId, beginTime, endIndex, queueIds }) => {
-  let url = `https://${platformId}.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?api_key=${
+const getMatchList = ({
+  platformId,
+  accountId,
+  championId,
+  beginTime,
+  endIndex,
+  queueIds,
+  version
+}) => {
+  let url = `https://${platformId}.api.riotgames.com/lol/match/${version}/matchlists/by-account/${accountId}?api_key=${
     process.env.LEAGUE_API_KEY
   }`;
   if (championId) {
@@ -28,7 +36,7 @@ const getMatchList = ({ platformId, accountId, championId, beginTime, endIndex, 
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
-  const { platformId, accountId, championId, beginTime, endIndex, queueId }: any = parse(
+  const { platformId, accountId, championId, beginTime, endIndex, queueId, version }: any = parse(
     req.url,
     true
   ).query;
@@ -37,7 +45,7 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     return res.end('Invalid query');
   }
   const queueIds = queueId && typeof queueId === 'string' ? [queueId] : queueId;
-  getMatchList({ platformId, accountId, championId, beginTime, endIndex, queueIds })
+  getMatchList({ platformId, accountId, championId, beginTime, endIndex, queueIds, version })
     .then(result => {
       // Cache result for 20 minutes because data might change
       res.setHeader('Cache-Control', 's-maxage=1200, maxage=0');

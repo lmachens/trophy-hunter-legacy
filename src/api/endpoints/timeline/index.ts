@@ -6,10 +6,10 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getTimeline = ({ platformId, matchId }) => {
+const getTimeline = ({ platformId, matchId, version }) => {
   return axios
     .get(
-      `https://${platformId}.api.riotgames.com/lol/match/v4/timelines/by-match/${matchId}?api_key=${
+      `https://${platformId}.api.riotgames.com/lol/match/${version}/timelines/by-match/${matchId}?api_key=${
         process.env.LEAGUE_API_KEY
       }`
     )
@@ -18,13 +18,13 @@ const getTimeline = ({ platformId, matchId }) => {
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   console.log(`Timeline ${req.url}`);
-  const { platformId, matchId }: any = parse(req.url, true).query;
+  const { platformId, matchId, version }: any = parse(req.url, true).query;
   if (!platformId || !matchId) {
     res.writeHead(400);
     return res.end('Invalid query');
   }
 
-  getTimeline({ platformId, matchId })
+  getTimeline({ platformId, matchId, version })
     .then(result => {
       // Cache result https://zeit.co/docs/v2/routing/caching/#caching-lambda-responses
       res.setHeader('Cache-Control', 's-maxage=31536000, maxage=0');

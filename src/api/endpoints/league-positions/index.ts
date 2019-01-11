@@ -6,10 +6,10 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getLeaguePositions = ({ platformId, summonerId }) => {
+const getLeaguePositions = ({ platformId, summonerId, version = 'v4' }) => {
   return axios
     .get(
-      `https://${platformId}.api.riotgames.com/lol/league/v4/positions/by-summoner/${summonerId}?api_key=${
+      `https://${platformId}.api.riotgames.com/lol/league/${version}/positions/by-summoner/${summonerId}?api_key=${
         process.env.LEAGUE_API_KEY
       }`
     )
@@ -17,13 +17,13 @@ const getLeaguePositions = ({ platformId, summonerId }) => {
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
-  const { platformId, summonerId }: any = parse(req.url, true).query;
+  const { platformId, summonerId, version }: any = parse(req.url, true).query;
   if (!platformId || !summonerId) {
     res.writeHead(400);
     return res.end('Invalid query');
   }
 
-  getLeaguePositions({ platformId, summonerId })
+  getLeaguePositions({ platformId, summonerId, version })
     .then(result => {
       // Cache result https://zeit.co/docs/v2/routing/caching/#caching-lambda-responses
       res.setHeader('Cache-Control', 's-maxage=31536000, maxage=0');

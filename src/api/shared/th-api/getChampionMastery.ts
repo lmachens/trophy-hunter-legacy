@@ -9,15 +9,15 @@ const cache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
-const getChampionMastery = ({ platformId, summonerId, championId }) => {
-  const key = `${platformId}-${summonerId}-${championId}`;
+const getChampionMastery = ({ platformId, summonerId, championId, version = 'v4' }) => {
+  const key = `${platformId}-${summonerId}-${championId}-${version}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
   return axios
     .get(
-      `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&championId=${championId}`
+      `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&championId=${championId}&version=${version}`
     )
     .then(response => {
       if (response.data) {

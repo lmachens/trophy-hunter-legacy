@@ -8,14 +8,16 @@ const cache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
-const getMatchup = ({ champ1Id, champ2Id, mapId }) => {
-  const key = `${champ1Id}-${champ2Id}-${mapId}`;
+const getMatchup = ({ champ1Id, champ2Id, mapId, version = 'v4' }) => {
+  const key = `${champ1Id}-${champ2Id}-${mapId}-${version}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
   return axios
-    .get(`${apiEndpoint}?champ1Id=${champ1Id}&champ2Id=${champ2Id}&mapId=${mapId}`)
+    .get(
+      `${apiEndpoint}?champ1Id=${champ1Id}&champ2Id=${champ2Id}&mapId=${mapId}&version=${version}`
+    )
     .then(response => {
       if (response.data) {
         cache.set(key, response.data);
