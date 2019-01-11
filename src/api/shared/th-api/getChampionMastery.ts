@@ -17,7 +17,7 @@ const getChampionMastery = ({ platformId, summonerId, championId }) => {
   }
   const version = typeof summonerId === 'number' ? 'v3' : 'v4';
   const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&championId=${championId}&version=${version}`;
-  console.log(url);
+
   return axios
     .get(url)
     .then(response => {

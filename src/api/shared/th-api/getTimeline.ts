@@ -15,7 +15,7 @@ const getTimeline = ({ platformId, matchId }) => {
     return new Promise(resolve => resolve(data));
   }
   const url = `${apiEndpoint}?platformId=${platformId}&matchId=${matchId}`;
-  console.log(url);
+
   return axios
     .get(url)
     .then(response => {

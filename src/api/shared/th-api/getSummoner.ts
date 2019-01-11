@@ -34,7 +34,7 @@ const getSummoner = ({ platformId, summonerId, accountId, summonerName }: GetSum
   if (data) {
     return new Promise(resolve => resolve(data));
   }
-  console.log(url);
+
   return axios
     .get(url)
     .then(response => {

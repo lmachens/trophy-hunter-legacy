@@ -15,7 +15,7 @@ const getMatchup = ({ champ1Id, champ2Id, mapId }) => {
     return new Promise(resolve => resolve(data));
   }
   const url = `${apiEndpoint}?champ1Id=${champ1Id}&champ2Id=${champ2Id}&mapId=${mapId}`;
-  console.log(url);
+
   return axios
     .get(url)
     .then(response => {

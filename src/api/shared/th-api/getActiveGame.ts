@@ -16,7 +16,7 @@ const getActiveGame = ({ platformId, summonerId }) => {
   }
   const version = typeof summonerId === 'number' ? 'v3' : 'v4';
   const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`;
-  console.log(url);
+
   return axios
     .get(url)
     .then(response => {
