@@ -7,6 +7,7 @@ import withRouteParams from '../withRouteParams';
 export default (
   <Route path="/live">
     <OverlayLayout>
+      <Route component={LiveMatch} exact path="/live" />
       <Route component={withRouteParams(LiveMatch)} exact path="/live/:region/:summonerName" />
     </OverlayLayout>
   </Route>

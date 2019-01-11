@@ -1,5 +1,8 @@
 # Change Log
 
+### Changed
+- Updated Riot API from v3 to v4 which adds a security layer for the privacy of players. [Readmore](https://github.com/lmachens/trophy-hunter/issues/40).
+
 ## [2.22.1] - 2019-01-01
 ### Added
 - Added new trophy [trophy:wujuStyle].
