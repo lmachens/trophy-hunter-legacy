@@ -104,7 +104,7 @@ async function cleanup(job, cb) {
         if (!currentGame || !gameSession.game || gameSession.game.gameId != currentGame.gameId) {
           console.log('cleanup'.blue, trophyHunter.summonerName.magenta, 'setMatchEnd');
           oldMatchesInProgress++;
-          gameSession.setMatchEnd(false, trophyHunter.userId);
+          gameSession.setMatchEnd(false);
         }
         resolve();
       });

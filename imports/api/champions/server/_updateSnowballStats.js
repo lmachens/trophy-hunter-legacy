@@ -8,7 +8,7 @@ export const updateSnowballStats = match => {
   Object.values(match.participantIdentities).forEach(participantIdentity => {
     const matchForParticipant = Object.assign({}, match);
     matchForParticipant.participantIdentity = participantIdentity;
-    const extendedMatch = extendMatchResult(matchForParticipant);
+    const extendedMatch = extendMatchResult({ matchResult: matchForParticipant });
     const {
       championId,
       stats: { snowballKills, win },

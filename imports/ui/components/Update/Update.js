@@ -1,5 +1,6 @@
 import { Button, Dialog } from '../generic';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Changelog from '../Changelog';
 import { Meteor } from 'meteor/meteor';
@@ -8,25 +9,13 @@ import PropTypes from 'prop-types';
 const serverVersion = Meteor.settings && Meteor.settings.public.version;
 
 class Update extends Component {
-  state = {
-    open: false
-  };
-
-  componentDidMount() {
-    const { lastVersion } = this.props;
-    if (serverVersion > lastVersion) {
-      this.setState({ open: true });
-    }
-  }
-
   handleClose = () => {
-    this.setState({ open: false });
+    Meteor.call('readChangelog');
   };
 
   render() {
-    const { lastVersion } = this.props;
-    const { open } = this.state;
-
+    const { lastVersion, trophyHunter } = this.props;
+    const open = serverVersion > trophyHunter.lastVersion;
     return (
       <Dialog
         actions={<Button label="Close" onClick={this.handleClose} />}
@@ -41,7 +30,12 @@ class Update extends Component {
 }
 
 Update.propTypes = {
-  lastVersion: PropTypes.string
+  lastVersion: PropTypes.string,
+  trophyHunter: PropTypes.object
 };
 
-export default Update;
+const mapStateToProps = ({ account: { tropyHunter } }) => {
+  return { tropyHunter };
+};
+
+export default connect(mapStateToProps)(Update);

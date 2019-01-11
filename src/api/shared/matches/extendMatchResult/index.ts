@@ -35,7 +35,18 @@ function extendTeamsMatchStats(extendedMatchResult) {
 // matchExtensionParameters needs two parameters:
 // (1) extendStatsParticipantIds: This contains the id's of the participants that need calculated stats.
 // (2) withTimeline: if yes: compute timeline stats
-function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
+interface ExtendMatchResultProps {
+  matchResult: any;
+  summonerId?: string | number;
+  summonerName?: string;
+  matchExtensionParameters?: any;
+}
+function extendMatchResult({
+  matchResult,
+  summonerId,
+  summonerName,
+  matchExtensionParameters
+}: ExtendMatchResultProps) {
   matchExtensionParameters = Object.assign(
     {},
     {
@@ -49,10 +60,11 @@ function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
 
   // Extend identity
   if (!extendedMatchResult.participantIdentity) {
-    extendedMatchResult.participantIdentity = getParticipantIdentity(
-      extendedMatchResult,
-      summonerId
-    );
+    extendedMatchResult.participantIdentity = getParticipantIdentity({
+      participantIdentities: extendedMatchResult.participantIdentities,
+      summonerId,
+      summonerName
+    });
   }
   if (matchExtensionParameters.extendStatsParticipantIds.length == 0) {
     matchExtensionParameters.extendStatsParticipantIds.push(

@@ -25,4 +25,4 @@ const updateOverwolfUser = function(overwolfUser) {
   });
 };
 
-export { updateOverwolfUser };
+export default updateOverwolfUser;

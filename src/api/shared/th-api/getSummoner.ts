@@ -19,25 +19,34 @@ const getSummoner = ({ platformId, summonerId, accountId, summonerName }: GetSum
   let key;
   let url;
   if (summonerId) {
-    key = `${platformId}-s-${summonerId}`;
-    url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}`;
+    key = `${platformId}&s&${summonerId}`;
+    const version = typeof summonerId === 'number' ? 'v3' : 'v4';
+    url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`;
   } else if (accountId) {
-    key = `${platformId}-a-${accountId}`;
-    url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}`;
+    key = `${platformId}&a&${accountId}`;
+    const version = typeof accountId === 'number' ? 'v3' : 'v4';
+    url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}&version=${version}`;
   } else {
-    key = `${platformId}-n-${summonerName}`;
+    key = `${platformId}&n&${summonerName}`;
     url = `${apiEndpoint}?platformId=${platformId}&summonerName=${encodeURI(summonerName)}`;
   }
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
-  return axios.get(url).then(response => {
-    if (response.data) {
-      cache.set(key, response.data);
-    }
-    return response.data;
-  });
+
+  return axios
+    .get(url)
+    .then(response => {
+      if (response.data) {
+        cache.set(key, response.data);
+      }
+      return response.data;
+    })
+    .catch(error => {
+      error.message = `${error.message}: ${url}`;
+      throw error;
+    });
 };
 
 export default getSummoner;

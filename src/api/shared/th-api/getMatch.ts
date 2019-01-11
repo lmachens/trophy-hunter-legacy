@@ -8,19 +8,25 @@ const cache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
-const getMatch = ({ platformId, matchId, version = 'v3' }) => {
-  const key = `${platformId}-${matchId}`;
+const getMatch = ({ platformId, matchId }) => {
+  const key = `${platformId}&${matchId}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
+  const url = `${apiEndpoint}?platformId=${platformId}&matchId=${matchId}`;
+
   return axios
-    .get(`${apiEndpoint}?platformId=${platformId}&matchId=${matchId}&version=${version}`)
+    .get(url)
     .then(response => {
       if (response.data) {
         cache.set(key, response.data);
       }
       return response.data;
+    })
+    .catch(error => {
+      error.message = `${error.message}: ${url}`;
+      throw error;
     });
 };
 export default getMatch;

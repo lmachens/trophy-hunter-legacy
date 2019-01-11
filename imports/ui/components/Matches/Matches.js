@@ -72,7 +72,11 @@ export class Matches extends React.Component {
     if (match.checkedStatus === 'failed') {
       Meteor.call('restartJob', match._id);
     } else if (match.checkedStatus === 'checked' && match.isMatched()) {
-      history.push(`/match/${match.game.platformId}/${match.game.gameId}/${match.summonerId}`);
+      if (match.summonerName) {
+        history.push(`/game/${match.game.platformId}/${match.game.gameId}/${match.summonerName}`);
+      } else {
+        history.push(`/match/${match.game.platformId}/${match.game.gameId}/${match.summonerId}`);
+      }
     }
   };
 

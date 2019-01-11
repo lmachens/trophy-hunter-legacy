@@ -9,18 +9,24 @@ const cache = new NodeCache({
 });
 
 const getMatchup = ({ champ1Id, champ2Id, mapId }) => {
-  const key = `${champ1Id}-${champ2Id}-${mapId}`;
+  const key = `${champ1Id}&${champ2Id}&${mapId}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
+  const url = `${apiEndpoint}?champ1Id=${champ1Id}&champ2Id=${champ2Id}&mapId=${mapId}`;
+
   return axios
-    .get(`${apiEndpoint}?champ1Id=${champ1Id}&champ2Id=${champ2Id}&mapId=${mapId}`)
+    .get(url)
     .then(response => {
       if (response.data) {
         cache.set(key, response.data);
       }
       return response.data;
+    })
+    .catch(error => {
+      error.message = `${error.message}: ${url}`;
+      throw error;
     });
 };
 

@@ -47,9 +47,9 @@ export const fetchPlayedTogether = identifier => {
   return dispatch => {
     dispatch(requestPlayedTogether(identifier));
     return new Promise(resolve => {
-      const params = identifier.split('-');
+      const params = identifier.split('&');
       const platformId = params[0];
-      const summonerIds = params[1].split('.').map(summonerId => parseInt(summonerId));
+      const summonerIds = params[1].split('|').map(summonerId => parseInt(summonerId));
       Meteor.call(
         'getPlayedTogether',
         {

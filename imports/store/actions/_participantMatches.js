@@ -49,9 +49,9 @@ export const fetchParticipantMatches = identifier => {
   return dispatch => {
     dispatch(requestParticipantMatches(identifier));
     return new Promise(resolve => {
-      const params = identifier.split('-');
+      const params = identifier.split('&');
       const platformId = params[0];
-      const summonerId = parseInt(params[1]);
+      const summonerId = parseInt(params[1]) || params[1];
       Meteor.call('getParticipantMatches', { platformId, summonerId }, (error, matches) => {
         if (error) {
           return resolve(dispatch(receiveParticipantMatchesError({ identifier, error })));

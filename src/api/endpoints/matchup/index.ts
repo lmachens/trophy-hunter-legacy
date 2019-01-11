@@ -56,8 +56,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     const matchPromises = gameSessions.map(gameSession =>
       getMatch({
         platformId: gameSession.game.platformId,
-        matchId: gameSession.game.gameId,
-        version: 'v4'
+        matchId: gameSession.game.gameId
       })
     );
     axios
