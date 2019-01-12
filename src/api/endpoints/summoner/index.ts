@@ -40,7 +40,6 @@ export default (req: IncomingMessage, res: ServerResponse) => {
       res.end(JSON.stringify(result));
     })
     .catch(error => {
-      console.log(error);
       res.writeHead(error.response ? error.response.status : 400);
       res.end(error.response ? error.response.statusText : error.message);
     });

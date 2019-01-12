@@ -20,11 +20,11 @@ const getSummoner = ({ platformId, summonerId, accountId, summonerName }: GetSum
   let url;
   if (summonerId) {
     key = `${platformId}&s&${summonerId}`;
-    const version = typeof summonerId === 'number' ? 'v3' : 'v4';
+    const version = /^\d+$/.test(`${summonerId}`) ? 'v3' : 'v4';
     url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`;
   } else if (accountId) {
     key = `${platformId}&a&${accountId}`;
-    const version = typeof accountId === 'number' ? 'v3' : 'v4';
+    const version = /^\d+$/.test(`${accountId}`) ? 'v3' : 'v4';
     url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}&version=${version}`;
   } else {
     key = `${platformId}&n&${summonerName}`;
