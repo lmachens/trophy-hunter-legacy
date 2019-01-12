@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.0.0] - 2019-01-12
 ### Added
 - Trophy Hunter Season 2019 started!
 ### Changed
