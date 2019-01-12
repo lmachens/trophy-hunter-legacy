@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import safeParseInt from '../../../api/utilities/safeParseInt';
 
 class LegacyMatch extends React.Component {
   state = {
@@ -11,7 +12,7 @@ class LegacyMatch extends React.Component {
     const { platformId, summonerId } = this.props;
     Meteor.call(
       'getSummonerByLegacySummonerId',
-      { summonerId: parseInt(summonerId), platformId },
+      { summonerId: safeParseInt(summonerId), platformId },
       (err, result) => {
         if (!err && result) {
           this.setState({ summoner: result });

@@ -7,6 +7,7 @@ import {
 } from '../types';
 
 import { Meteor } from 'meteor/meteor';
+import safeParseInt from '../../api/utilities/safeParseInt';
 
 export const clearPlayedTogether = () => {
   return {
@@ -49,7 +50,7 @@ export const fetchPlayedTogether = identifier => {
     return new Promise(resolve => {
       const params = identifier.split('&');
       const platformId = params[0];
-      const summonerIds = params[1].split('|').map(summonerId => parseInt(summonerId));
+      const summonerIds = params[1].split('|').map(summonerId => safeParseInt(summonerId));
       Meteor.call(
         'getPlayedTogether',
         {
