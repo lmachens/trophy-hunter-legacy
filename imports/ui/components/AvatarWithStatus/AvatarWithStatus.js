@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { avatarUrl, getProfileIcon } from '../../../api/riot-api/staticData';
+import { avatarUrl, getProfileIcon, getLeagueImage } from '../../../api/riot-api/staticData';
 
 import { Avatar } from '../generic';
 import PropTypes from 'prop-types';
@@ -142,7 +142,8 @@ class AvatarWithStatus extends Component {
     const { leaguePositions } = this.props.trophyHunter;
 
     const leaguePosition = leaguePositions.find(position => position.queueType === queueType) || {
-      tier: 'PROVISIONAL'
+      tier: 'PROVISIONAL',
+      rank: ''
     };
 
     let title = '';
@@ -157,10 +158,7 @@ class AvatarWithStatus extends Component {
     return (
       <div style={{ margin: 5 }}>
         <div style={styles.imageContainer}>
-          <img
-            src={`/images/leagues/${leaguePosition.tier.toLowerCase()}.png`}
-            style={styles.leagueImage}
-          />
+          <img src={getLeagueImage(leaguePosition)} style={styles.leagueImage} />
         </div>
         <div style={{ marginTop: 5 }}>
           {title}

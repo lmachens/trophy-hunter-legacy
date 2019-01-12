@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Tooltip } from '../../../generic/Tooltip';
 import { TooltipTitle } from '../../../generic/TooltipTitle';
 import classNames from 'classnames';
+import { getLeagueImage } from '/imports/api/riot-api/staticData';
 
 const leaguesOrdered = [
   'CHALLENGER',
@@ -46,7 +47,8 @@ const styles = {
 };
 
 const provisional = {
-  tier: 'provisional'
+  tier: 'provisional',
+  rank: ''
 };
 
 class Leagues extends PureComponent {
@@ -70,10 +72,7 @@ class Leagues extends PureComponent {
             {soloDuo.rank && <span> {soloDuo.rank}</span>}
           </Typography>
           <div className={classes.imgContainer}>
-            <img
-              className={classes.tooltipLeagueImage}
-              src={`/images/leagues/${soloDuo.tier.toLowerCase()}.png`}
-            />
+            <img className={classes.tooltipLeagueImage} src={getLeagueImage(soloDuo)} />
           </div>
         </div>
         <div className={classes.tooltipLeague}>
@@ -83,10 +82,7 @@ class Leagues extends PureComponent {
             {flex5v5.rank && <span> {flex5v5.rank}</span>}
           </Typography>
           <div className={classes.imgContainer}>
-            <img
-              className={classes.tooltipLeagueImage}
-              src={`/images/leagues/${flex5v5.tier.toLowerCase()}.png`}
-            />
+            <img className={classes.tooltipLeagueImage} src={getLeagueImage(flex5v5)} />
           </div>
         </div>
         <div className={classes.tooltipLeague}>
@@ -96,10 +92,7 @@ class Leagues extends PureComponent {
             {flex3v3.rank && <span> {flex3v3.rank}</span>}
           </Typography>
           <div className={classes.imgContainer}>
-            <img
-              className={classes.tooltipLeagueImage}
-              src={`/images/leagues/${flex3v3.tier.toLowerCase()}.png`}
-            />
+            <img className={classes.tooltipLeagueImage} src={getLeagueImage(flex3v3)} />
           </div>
         </div>
       </div>
@@ -108,10 +101,7 @@ class Leagues extends PureComponent {
     return (
       <div className={classNames(classes.leagueImgContainer, className)}>
         <Tooltip title={<TooltipTitle content={tooltipContent} title="Leagues" />}>
-          <img
-            className={classes.league}
-            src={`/images/leagues/${highestTier.tier.toLowerCase()}.png`}
-          />
+          <img className={classes.league} src={getLeagueImage(highestTier)} />
         </Tooltip>
       </div>
     );
