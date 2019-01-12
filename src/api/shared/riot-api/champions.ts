@@ -5378,7 +5378,7 @@ const champions = {
       {
         name: 'Hexplosive Minefield',
         sanitizedDescription:
-          'Ziggs scatters proximity mines that detonate on enemy contact, dealing magic damage and slowing.',
+          'Ziggs scatters proximity mines that detonate on enemy contact, dealing magic damage and slowing. Successive mine detonations on the same target deal reduced damage.',
         image: {
           full: 'ZiggsE.png'
         },
@@ -5510,9 +5510,8 @@ const champions = {
       image: {
         full: 'Draven_passive.png'
       },
-      name: 'League of Draven',
-      sanitizedDescription:
-        "Draven gains his fans' Adoration when he catches a Spinning Axe or kills a minion, monster, or tower. Killing enemy champions grants Draven bonus gold based on how much Adoration he has."
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Ranged'
   },
@@ -7533,7 +7532,7 @@ const champions = {
       {
         name: 'Sentinel',
         sanitizedDescription:
-          'Passively gain Attack Damage when near her Oathsworn ally, and deal bonus damage when striking the same target. Activate to send a soul to scout out the path, revealing the area in front of it.',
+          'Gain bonus damage when Kalista and her Oathsworn strike the same target. Activate to send a soul to scout out the path, revealing the area in front of it.',
         image: {
           full: 'KalistaW.png'
         },
@@ -7755,11 +7754,11 @@ const champions = {
       {
         name: 'Bellows Breath',
         sanitizedDescription:
-          'Ornn advances, breathing fire and shielding himself. Enemies hit by the final gout of flame become Brittle.',
+          'Ornn advances, breathing fire. Enemies hit by the final gout of flame become Brittle.',
         image: {
           full: 'OrnnW.png'
         },
-        cooldownBurn: '17/15/13/11/9'
+        cooldownBurn: '12'
       },
       {
         name: 'Searing Charge',
@@ -7786,7 +7785,7 @@ const champions = {
       },
       name: 'Living Forge',
       sanitizedDescription:
-        'Ornn can spend gold to forge non-consumable items anywhere.Additionally, when Ornn reaches level 13 masterwork upgrades for some items become available for Ornn and his team to purchase.Ornn can smith items directly from his forge menu or the shop.'
+        'Ornn gains an additional 10% bonus Armor and Magic Resistance from all sources.Ornn can spend gold to forge non-consumable items anywhere.Additionally, when Ornn reaches level 13, he will upgrade any eligible items into masterwork items for himself, up to 2 max. For each level after 13, Ornn can upgrade an item for an ally by going near them and clicking on them, max 1 per ally.Ornn can smith items directly from his forge menu or the shop.'
     },
     range: 'Melee'
   },
@@ -7901,7 +7900,7 @@ const champions = {
     },
     range: 'Melee'
   },
-  version: '8.24.1'
+  version: '9.1.1'
 };
 
 export default champions;
