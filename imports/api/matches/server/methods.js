@@ -24,13 +24,17 @@ Meteor.methods({
         );
         if (!trophyHunter) return future.return(null);
 
-        const match = await getMatchWithTimeline({ platformId, matchId: gameId });
-        if (!match) return future.return(null);
+        try {
+          const match = await getMatchWithTimeline({ platformId, matchId: gameId });
+          if (!match) return future.return(null);
 
-        future.return({
-          trophyHunter,
-          match
-        });
+          future.return({
+            trophyHunter,
+            match
+          });
+        } catch (error) {
+          future.return(null);
+        }
       });
       return future;
     });
