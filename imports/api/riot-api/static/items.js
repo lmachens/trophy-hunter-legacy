@@ -1516,6 +1516,30 @@ const items = {
       sanitizedDescription: 'Activate to become invincible but unable to take actions',
       tags: ['Armor', 'SpellDamage', 'Active', 'CooldownReduction']
     },
+    '3387': {
+      id: 3387,
+      name: 'Frozen Fist',
+      sanitizedDescription: 'Basic attacks create a slow field after spell cast',
+      tags: ['Armor', 'Mana', 'CooldownReduction', 'Slow']
+    },
+    '3388': {
+      id: 3388,
+      name: "Youmuu's Wraithblade",
+      sanitizedDescription: 'Activate to greatly increase Movement Speed',
+      tags: ['Damage', 'Active', 'CooldownReduction', 'NonbootsMovement', 'ArmorPenetration']
+    },
+    '3389': {
+      id: 3389,
+      name: 'Might of the Ruined King',
+      sanitizedDescription: "Deals damage based on target's Health, can steal Movement Speed",
+      tags: ['Damage', 'AttackSpeed', 'LifeSteal', 'Active', 'Slow', 'OnHit', 'NonbootsMovement']
+    },
+    '3390': {
+      id: 3390,
+      name: "Luden's Pulse",
+      sanitizedDescription: 'Increases Ability Power, Mana, and Cooldown Reduction',
+      tags: ['SpellDamage', 'Mana', 'CooldownReduction', 'OnHit']
+    },
     '3400': {
       id: 3400,
       name: "'Your Cut'",
@@ -2019,7 +2043,7 @@ const items = {
     }
   },
   type: 'item',
-  version: '8.24.1'
+  version: '9.1.1'
 };
 
 const itemValues = Object.values(items.data);

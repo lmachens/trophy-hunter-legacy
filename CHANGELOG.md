@@ -1,7 +1,8 @@
 # Change Log
 
 ### Changed
-- Updated Riot API from v3 to v4 which adds a security layer for the privacy of players. [Readmore](https://github.com/lmachens/trophy-hunter/issues/40).
+- Updated Riot API from v3 to v4 which adds a security layer for the privacy of players.
+- Updated to Riot API version 9.1.1.
 ### Fixed
 - Show 2019 tier and division images including new iron and grandmaster.
 
