@@ -3,11 +3,13 @@
   "name": "trophy-hunter",
   "scripts": {
     "api": "yarn --cwd \"api\" dev",
+    "creator": "yarn --cwd \"creator\" dev",
     "build-overwolf": "yarn --cwd \"overwolf\" build",
     "www": "yarn --cwd \"www\" dev"    
   },
   "workspaces": [
     "api",
+    "creator",
     "overwolf",
     "www"
   ],
