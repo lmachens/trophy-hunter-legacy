@@ -36,7 +36,7 @@ export default async function refreshMatchForGameSessionWorker(job, cb) {
     });
     job.fail(error.message);
     if (error.reason !== 'match not found') {
-      console.log(error);
+      console.log(error.message);
     }
   }
 

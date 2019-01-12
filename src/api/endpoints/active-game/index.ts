@@ -25,8 +25,8 @@ export default (req: IncomingMessage, res: ServerResponse) => {
 
   getActiveGame({ platformId, summonerId, version })
     .then(result => {
-      // Cache result for one minute because data might change
-      res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
+      // Do not cache results
+      res.setHeader('Cache-Control', 's-maxage=0, maxage=0');
       res.end(JSON.stringify(result));
     })
     .catch(error => {
