@@ -18,9 +18,8 @@ Meteor.publish(null, function() {
       fields: {
         updatedAt: 0,
         createdAt: 0,
-        //rank: 0,
-        //seasonRank: 0,
         score: 0,
+        s9Score: 0,
         seasonScore: 0,
         tournamentRank: 0,
         tournamentScore: 0,
@@ -57,7 +56,9 @@ const detailsFields = {
   region: 1,
   rank: 1,
   score: 1,
+  s9Rank: 1,
   seasonRank: 1,
+  s9Score: 1,
   seasonScore: 1,
   tournamentRank: 1,
   tournamentScore: 1,
@@ -137,7 +138,9 @@ Meteor.publish('trophyHunters.public.rank', function(userId) {
           fields: {
             rank: 1,
             score: 1,
+            s9Rank: 1,
             seasonRank: 1,
+            s9Score: 1,
             seasonScore: 1,
             tournamentRank: 1,
             tournamentScore: 1

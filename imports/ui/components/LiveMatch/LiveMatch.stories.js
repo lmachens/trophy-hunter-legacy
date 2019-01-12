@@ -333,6 +333,7 @@ storiesOf('Components', module).add('LiveMatch', () => {
       leaguePositions: [{ queueType: 'RANKED_SOLO_5x5', tier: 'diamond', rank: 'V' }],
       stats: { championGames: 123, losses: 23, wins: 100 },
       trophyHunter: {
+        s9Rank: 12,
         seasonRank: 22,
         rank: 43
       },
