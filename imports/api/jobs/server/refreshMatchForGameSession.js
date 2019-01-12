@@ -453,14 +453,14 @@ const updateTrophyHunters = function({
   if (!trophyHunter.rank) {
     trophyHunter.rank = TrophyHunters.find({ score: { $gt: 0 } }).count() + 1;
   }
-  if (!trophyHunter.seasonRank) {
-    trophyHunter.seasonRank = TrophyHunters.find({ seasonScore: { $gt: 0 } }).count() + 1;
+  if (!trophyHunter.s9Rank) {
+    trophyHunter.s9Rank = TrophyHunters.find({ s9Score: { $gt: 0 } }).count() + 1;
   }
   if (!trophyHunter.tournamentRank) {
     trophyHunter.tournamentRank = TrophyHunters.find({ tournamentScore: { $gt: 0 } }).count() + 1;
   }
   const newScore = (trophyHunter.score || 0) + earnedTrophyPoints;
-  const newSeasonScore = (trophyHunter.seasonScore || 0) + earnedTrophyPoints;
+  const newSeasonScore = (trophyHunter.s9Score || 0) + earnedTrophyPoints;
 
   // Update ranking
   const soared = TrophyHunters.update(
@@ -478,17 +478,17 @@ const updateTrophyHunters = function({
   const newRank = trophyHunter.rank - soared;
   const seasonSoared = TrophyHunters.update(
     {
-      seasonScore: { $lte: newSeasonScore },
-      seasonRank: { $lt: trophyHunter.seasonRank }
+      s9Score: { $lte: newSeasonScore },
+      s9Rank: { $lt: trophyHunter.s9Rank }
     },
     {
       $inc: {
-        seasonRank: 1
+        s9Rank: 1
       }
     },
     { multi: true, bypassCollection2: true }
   );
-  const newSeasonRank = trophyHunter.seasonRank - seasonSoared;
+  const newSeasonRank = trophyHunter.s9Rank - seasonSoared;
 
   const playstyle = calculatePlaystyle(trophyHunter.attributes);
   const update = {
@@ -498,8 +498,8 @@ const updateTrophyHunters = function({
       trophyPoints: trophyHunter.trophyPoints + earnedTrophyPoints,
       score: newScore,
       rank: newRank,
-      seasonScore: newSeasonScore,
-      seasonRank: newSeasonRank,
+      s9Score: newSeasonScore,
+      s9Rank: newSeasonRank,
       attributes: trophyHunter.attributes
     }
   };

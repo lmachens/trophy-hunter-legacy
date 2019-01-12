@@ -70,7 +70,7 @@ class Level extends Component {
       title = getName(trophyHunter);
       subtitle = (
         <span>
-          <Rank rank={trophyHunter.seasonRank} /> | {getBasicStats(trophyHunter)}
+          <Rank rank={trophyHunter.s9Rank} /> | {getBasicStats(trophyHunter)}
         </span>
       );
     } else {

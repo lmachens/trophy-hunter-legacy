@@ -26,7 +26,7 @@ class RankingNavigation extends Component {
       youTube: !!youTube,
       twitch: !!twitch,
       summonerName: summonerName || '',
-      season: season || SEASONS.S8
+      season: season || SEASONS.S9
     };
   }
 
@@ -39,7 +39,7 @@ class RankingNavigation extends Component {
       youTube: !!youTube,
       twitch: !!twitch,
       summonerName: summonerName || '',
-      season: season || SEASONS.S8
+      season: season || SEASONS.S9
     });
   }
 
@@ -150,6 +150,7 @@ class RankingNavigation extends Component {
               style={{ width: 150, marginRight: 10, marginLeft: 4 }}
               value={season}
             >
+              <MenuItem primaryText="S9" value={SEASONS.S9} />
               <MenuItem primaryText="S8" value={SEASONS.S8} />
               <MenuItem primaryText="Trophy Hunt" value={SEASONS.TOURNAMENT1} />
               <MenuItem primaryText="All-Time" value={SEASONS.ALLTIME} />

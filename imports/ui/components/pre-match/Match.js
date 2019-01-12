@@ -83,7 +83,7 @@ const Match = ({ match, trophyHunter }) => {
       <div style={styles.trophyHunter}>
         <AvatarWithStatus hideStatus size={30} trophyHunter={trophyHunter} />
       </div>
-      <div style={styles.rank}>{trophyHunter.seasonRank}</div>
+      <div style={styles.rank}>{trophyHunter.s9Rank}</div>
       <div style={styles.kda}>
         {participant.stats.kills}/{participant.stats.deaths}/{participant.stats.assists}
       </div>

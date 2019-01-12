@@ -64,6 +64,7 @@ const createUser = ({
     leaguePositions,
     profileIconId,
     score: 0,
+    s9Score: 0,
     seasonScore: 0,
     tournamentScore: 0,
     trophyPoints: 0,

@@ -274,7 +274,9 @@ Meteor.methods({
             accountId: 1,
             rank: 1,
             score: 1,
+            s9Rank: 1,
             seasonRank: 1,
+            s9Score: 1,
             seasonScore: 1,
             summonerLevel: 1,
             lastLogin: 1

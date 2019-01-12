@@ -121,7 +121,7 @@ class AvatarWithStatus extends Component {
           {trophyHunter.status}
         </span>
         <br />
-        {trophyHunter.seasonRank ? `${trophyHunter.seasonRank}. Rank` : 'Unranked'}{' '}
+        {trophyHunter.s9Rank ? `${trophyHunter.s9Rank}. Rank` : 'Unranked'}{' '}
         {trophyHunter.rank && `(${trophyHunter.rank}. All-Time)`}
         <br />
         {trophyHunter.lastLogin && `Last Login ${moment(trophyHunter.lastLogin).calendar()}`}
