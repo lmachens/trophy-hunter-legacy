@@ -6,6 +6,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Welcome from '/imports/ui/pages/welcome/WelcomePage';
 import withRouteParams from '../withRouteParams';
+import LegacyMatch from '/imports/ui/pages/match/LegacyMatch';
 
 const Trees = props => <Level {...props} tab="trees" />;
 const Trophies = props => <Level {...props} tab="trophies" />;
@@ -21,9 +22,16 @@ export default (
     <Route component={withRouteParams(Matches)} exact path="/profile/:userId/matches" />
     <Route component={withRouteParams(Playstyle)} exact path="/profile/:userId/playstyle" />
     <Route
+      component={withRouteParams(LegacyMatch)}
+      exact
+      key="/match/:platformId/:matchId/:summonerId"
+      path="/match/:platformId/:matchId/:summonerId"
+    />
+    <Route
       component={withRouteParams(Match)}
       exact
-      path="/match/:platformId/:matchId/:summonerId"
+      key="/game/:platformId/:matchId/:summonerName"
+      path="/game/:platformId/:matchId/:summonerName"
     />
   </ProjectLayout>
 );
