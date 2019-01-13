@@ -1,5 +1,8 @@
 export interface JSONEditorProps {
-  json: any;
+  json?: any;
+  text?: any;
   mode: 'code' | 'form' | 'tree';
-  onChange?(json: string): void;
+  onChangeJSON?(json: string): void;
+  onChangeText?(text: string): void;
+  [key: string]: any;
 }
