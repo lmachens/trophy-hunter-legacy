@@ -20,6 +20,7 @@ function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
     {},
     {
       withTimeline: true,
+      extendAllParticipants: true,
       extendStatsParticipantIds: [],
       extendParticipants: []
     },
@@ -27,17 +28,21 @@ function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
   );
   const extendedMatchResult = Object.assign({}, matchResult);
 
-  // Extend identity
-  if (!extendedMatchResult.participantIdentity) {
-    extendedMatchResult.participantIdentity = getParticipantIdentity(
-      extendedMatchResult,
-      summonerId
-    );
-  }
-  if (matchExtensionParameters.extendStatsParticipantIds.length == 0) {
-    matchExtensionParameters.extendStatsParticipantIds.push(
-      extendedMatchResult.participantIdentity.participantId
-    );
+  if (matchExtensionParameters.extendAllParticipants) {
+    matchExtensionParameters.extendParticipants = extendedMatchResult.participants;
+  } else {
+    // Extend identity
+    if (!extendedMatchResult.participantIdentity) {
+      extendedMatchResult.participantIdentity = getParticipantIdentity(
+        extendedMatchResult,
+        summonerId
+      );
+    }
+    if (matchExtensionParameters.extendStatsParticipantIds.length == 0) {
+      matchExtensionParameters.extendStatsParticipantIds.push(
+        extendedMatchResult.participantIdentity.participantId
+      );
+    }
   }
 
   //general match info

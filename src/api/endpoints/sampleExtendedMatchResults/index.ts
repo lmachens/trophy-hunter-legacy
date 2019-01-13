@@ -1,10 +1,14 @@
 import axios from 'axios';
 import calculateTrophies from '../../shared/trophies/calculateTrophies';
-import { parse } from 'url';
+
 import { IncomingMessage, ServerResponse } from 'http';
 import exampleMatches from '../../shared/matches/exampleMatches';
 import extendMatchResultAll from '../../shared/matches/extendMatchResult/extendMatchResultsAll';
+// ESM
+import { parse, stringify } from 'flatted/esm';
 
+// CJS
+const { parse, stringify } = require('flatted/cjs');
 export default (req: IncomingMessage, res: ServerResponse) => {
   axios
     .all([exampleMatches])
@@ -14,7 +18,9 @@ export default (req: IncomingMessage, res: ServerResponse) => {
 
         sampleMatchesArray.forEach(match => {
           const extendedMatchResult = extendMatchResultAll(match, null);
-          extendedMatchResults.push(extendedMatchResult);
+          const participantsStatsArray = [];
+          extendedMatchResult.participants.forEach(part => participantsStatsArray.push( part.stats));
+          extendedMatchResults.push(participantsStatsArray);
         });
 
         const result = {
@@ -24,7 +30,8 @@ export default (req: IncomingMessage, res: ServerResponse) => {
         res.setHeader('Cache-Control', 's-maxage=31536000, maxage=0');
 
         const cache = new Set();
-        res.end(
+        res.end(JSON.stringify(result));
+        /* res.end(
           JSON.stringify(result, function(key, value) {
             if (typeof value === 'object' && value !== null) {
               if (cache.has(value)) {
@@ -42,7 +49,7 @@ export default (req: IncomingMessage, res: ServerResponse) => {
             }
             return value;
           })
-        );
+        ); */
       })
     )
     .catch(error => {
