@@ -13,10 +13,15 @@ const spectateCurrentMatch = async function(userId) {
     throw new Meteor.Error('Trophy hunter not found');
   }
   const platformId = getPlatformIdByRegion(trophyHunter.region);
-  const currentGame = await getActiveGame({
-    platformId,
-    summonerId: trophyHunter.summonerId
-  });
+  let currentGame;
+  try {
+    currentGame = await getActiveGame({
+      platformId,
+      summonerId: trophyHunter.summonerId
+    });
+  } catch (error) {
+    currentGame = null;
+  }
   if (!currentGame) {
     throw new Meteor.Error('Current game not found');
   }

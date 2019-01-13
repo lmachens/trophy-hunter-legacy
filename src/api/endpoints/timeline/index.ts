@@ -17,7 +17,6 @@ const getTimeline = ({ platformId, matchId }) => {
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
-  console.log(`Timeline ${req.url}`);
   const { platformId, matchId }: any = parse(req.url, true).query;
   if (!platformId || !matchId) {
     res.writeHead(400);
