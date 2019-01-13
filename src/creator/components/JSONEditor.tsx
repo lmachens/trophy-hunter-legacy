@@ -10,22 +10,22 @@ const styles = {
   }
 };
 
-const JSONEditor: FunctionComponent<JSONEditorProps> = ({ json, text, ...other }) => {
+const JSONEditor: FunctionComponent<JSONEditorProps> = ({ json, ...other }) => {
   const container = useRef(null);
   const jsoneditor = useRef(null);
   useEffect(
     () => {
       if (jsoneditor.current) {
-        jsoneditor.current.update(json || text);
+        jsoneditor.current.update(json);
       } else {
         jsoneditor.current = new JSONEditorLib(container.current, other);
-        jsoneditor.current.set(json || text);
+        jsoneditor.current.set(json);
       }
       return () => {
-        jsoneditor.current.destroy();
+        //jsoneditor.current.destroy();
       };
     },
-    [json, text]
+    [json]
   );
 
   return <div ref={container} style={styles.container} />;
