@@ -39,9 +39,12 @@ export default (req: IncomingMessage, res: ServerResponse) => {
       res.setHeader('Cache-Control', 's-maxage=86400, maxage=0');
       res.end(JSON.stringify(result));
     })
-    .catch(error => {
-      console.log(error);
-      res.writeHead(error.response ? error.response.status : 400);
-      res.end(error.response ? error.response.statusText : error.message);
+    .catch(({ response, message }) => {
+      if (response && response.status === 400) {
+        console.log(message, platformId, summonerId, accountId, summonerName, version);
+        res.setHeader('Cache-Control', 's-maxage=86400, maxage=0');
+      }
+      res.writeHead(response ? response.status : 400);
+      res.end(response ? response.statusText : message);
     });
 };

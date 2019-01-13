@@ -7,6 +7,7 @@ import {
 } from '../types';
 
 import { Meteor } from 'meteor/meteor';
+import safeParseInt from '../../api/utilities/safeParseInt';
 
 export const clearParticipantPerformance = () => {
   return {
@@ -49,7 +50,7 @@ export const fetchParticipantPerformance = identifier => {
     return new Promise(resolve => {
       const params = identifier.split('&');
       const platformId = params[0];
-      const summonerId = parseInt(params[1]) || params[1];
+      const summonerId = safeParseInt(params[1]);
       const championId = parseInt(params[2]);
       Meteor.call(
         'getParticipantPerformance',

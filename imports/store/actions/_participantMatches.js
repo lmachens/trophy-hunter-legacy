@@ -7,6 +7,7 @@ import {
 } from '../types';
 
 import { Meteor } from 'meteor/meteor';
+import safeParseInt from '../../api/utilities/safeParseInt';
 
 export const clearParticipantMatches = () => {
   return {
@@ -51,7 +52,7 @@ export const fetchParticipantMatches = identifier => {
     return new Promise(resolve => {
       const params = identifier.split('&');
       const platformId = params[0];
-      const summonerId = parseInt(params[1]) || params[1];
+      const summonerId = safeParseInt(params[1]);
       Meteor.call('getParticipantMatches', { platformId, summonerId }, (error, matches) => {
         if (error) {
           return resolve(dispatch(receiveParticipantMatchesError({ identifier, error })));
