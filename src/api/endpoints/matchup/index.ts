@@ -39,6 +39,9 @@ const getGameSessions = async ({ mapId, champ1Id, champ2Id }) => {
 };
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
   const { champ1Id: champ1IdString, champ2Id: champ2IdString, mapId: mapIdString }: any = parse(
     req.url,
     true

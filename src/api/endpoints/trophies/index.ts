@@ -6,6 +6,9 @@ import { IncomingMessage, ServerResponse } from 'http';
 import { getMatch, getTimeline } from '../../shared/th-api';
 
 export default (req: IncomingMessage, res: ServerResponse) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
   const { platformId, matchId, summonerName }: any = parse(req.url, true).query;
   if (!platformId || !matchId || !summonerName) {
     res.writeHead(400);

@@ -17,14 +17,17 @@ const getSummoner = ({ platformId, summonerId, accountId, summonerName, version 
       process.env.LEAGUE_API_KEY
     }`;
   } else {
-    url = `https://${platformId}.api.riotgames.com/lol/summoner/${version}/summoners/by-name/${summonerName}?api_key=${
-      process.env.LEAGUE_API_KEY
-    }`;
+    url = `https://${platformId}.api.riotgames.com/lol/summoner/${version}/summoners/by-name/${encodeURI(
+      summonerName
+    )}?api_key=${process.env.LEAGUE_API_KEY}`;
   }
   return axios.get(url).then(response => response.data);
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
   const { platformId, summonerId, accountId, summonerName, version }: any = parse(
     req.url,
     true
