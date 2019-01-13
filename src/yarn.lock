@@ -736,6 +736,11 @@
   resolved "https://registry.yarnpkg.com/@sphinxxxx/color-conversion/-/color-conversion-2.2.1.tgz#88e94a50fa79f48bb0d1490bb716df8d506941dd"
   integrity sha512-5+ofCE09lF6C7DPSVyvQ2Nf0oaue3Cl+SosT45DYy5nhgUXsOq3TetArC1q8mVfAOjhG0WReQPPFBdc4xXVNkg==
 
+"@types/ace@*":
+  version "0.0.42"
+  resolved "https://registry.yarnpkg.com/@types/ace/-/ace-0.0.42.tgz#941973bc5c1d5c9213f0561b8b2d82a18e1400ea"
+  integrity sha512-ZakacqExJnGSoz0fSFtSL1A1Df+MIqTIPBBMl1ppEU8wS5AWGx0EPQPOyiAazkyMrskI0iG16tT+K1ZmIJGGnA==
+
 "@types/anymatch@*":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.0.tgz#d1d55958d1fccc5527d4aba29fc9c4b942f563ff"
@@ -747,6 +752,13 @@
   integrity sha512-j+UcCWI+FsbI5/FQP/Kj2CXyplWAz39ktHFkXk84h7dNblKRSoNJs95PZFRd96NQGqsPEPgeclqnznWZr14ZDA==
   dependencies:
     "@types/node" "*"
+
+"@types/jsoneditor@^5.19.0":
+  version "5.19.0"
+  resolved "https://registry.yarnpkg.com/@types/jsoneditor/-/jsoneditor-5.19.0.tgz#3632475c128061f6e0a8552c8d46c5d4d07820e9"
+  integrity sha512-tlDzMiYycFpPAyrwNm/vfl40gxDgC+F+3uYrBttpsObdKaghpE0iQxMjiZ4xiCA6kAG/4na9hTkfkXxsyfh3tA==
+  dependencies:
+    "@types/ace" "*"
 
 "@types/mongodb@^3.1.18":
   version "3.1.18"
