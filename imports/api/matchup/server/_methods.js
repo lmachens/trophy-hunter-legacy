@@ -13,6 +13,11 @@ Meteor.methods({
     });
     const { champ1Id, champ2Id, mapId } = props;
 
-    return await getMatchup({ champ1Id, champ2Id, mapId });
+    try {
+      return await getMatchup({ champ1Id, champ2Id, mapId });
+    } catch (error) {
+      console.error(error.message);
+      throw error.message;
+    }
   }
 });
