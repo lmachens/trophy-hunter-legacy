@@ -40,12 +40,21 @@ const styles = {
 
 class LiveMatch extends PureComponent {
   render() {
-    const { classes, firstTeam, secondTeam, region, accountId, loading, userId } = this.props;
+    const {
+      classes,
+      firstTeam,
+      secondTeam,
+      region,
+      accountId,
+      summonerName,
+      loading,
+      userId
+    } = this.props;
 
     if (!firstTeam && !loading) {
       return (
         <Typography align="center">
-          Can not find match for {region ? `${accountId} in ${region}` : userId}
+          Can not find match for {region ? `${accountId || summonerName} in ${region}` : userId}
         </Typography>
       );
     }
@@ -115,7 +124,8 @@ LiveMatch.propTypes = {
   region: PropTypes.string,
   accountId: PropTypes.number,
   userId: PropTypes.string,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  summonerName: PropTypes.string
 };
 
 const mapStateToProps = ({ liveMatch: { firstTeam, secondTeam } }) => {

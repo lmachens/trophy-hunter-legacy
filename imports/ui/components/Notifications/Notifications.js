@@ -192,7 +192,11 @@ class NotificationsComponent extends Component {
     const data = notification.data;
     switch (notification.type) {
       case notificationTypes.MATCH_ANALYSED:
-        history.push(`/match/${data.platformId}/${data.matchId}/${data.summonerId}`);
+        if (data.summonerName) {
+          history.push(`/game/${data.platformId}/${data.matchId}/${data.summonerName}`);
+        } else {
+          history.push(`/match/${data.platformId}/${data.matchId}/${data.summonerId}`);
+        }
         break;
 
       case notificationTypes.STREAM_ONLINE:

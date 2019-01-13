@@ -1,5 +1,5 @@
 import { MAP_NAMES, queuesByMatchId } from '/imports/shared/riot-api/gameConstants.ts';
-import { check } from 'meteor/check';
+import { check, Match } from 'meteor/check';
 import extendMatchStats from '/imports/shared/matches/extendMatchResult/extendMatchStats.ts';
 import getParticipantIdentity from '/imports/shared/matches/extendMatchResult/getParticipantIdentity.ts';
 import getParticipantIdentityByChampionId from '/imports/shared/matches/extendMatchResult/getParticipantIdentityByChampionId.ts';
@@ -27,33 +27,6 @@ const numberOfMatches = {
 const past = new Date(Date.now() - 1000 * 60 * 60 * 24 * 30 * 6); // Last 5 months
 
 Meteor.methods({
-  async getMeteorUser({ accountId, region }) {
-    this.unblock();
-    check(accountId, Number);
-    check(region, String);
-
-    const trophyHunter = TrophyHunters.findOne(
-      { accountId, region },
-      { fields: { region: 1, summonerId: 1, summonerName: 1 } }
-    );
-    if (trophyHunter) {
-      return {
-        username: `${trophyHunter.region}.${trophyHunter.summonerId}`,
-        password: `${trophyHunter.region}.${trophyHunter.summonerId}`,
-        summonerName: trophyHunter.summonerName
-      };
-    }
-    const platformId = getPlatformIdByRegion(region);
-    const summoner = await getSummoner({ platformId, accountId });
-    if (!summoner) {
-      return false;
-    }
-    return {
-      username: `${region}.${summoner.id}`,
-      password: `${region}.${summoner.id}`,
-      summonerName: summoner.name
-    };
-  },
   getPlayedTogether(props) {
     this.unblock();
     check(props, {
@@ -61,316 +34,359 @@ Meteor.methods({
       summonerIds: Array
     });
 
-    const { summonerIds, platformId } = props;
+    try {
+      const { summonerIds, platformId } = props;
 
-    const futures = summonerIds.map(summonerId => {
-      const future = new Future();
-      Meteor.defer(async () => {
-        let accountId;
-        const trophyHunter = TrophyHunters.findOne({ summonerId }, { fields: { accountId: 1 } });
+      const futures = summonerIds.map(summonerId => {
+        const future = new Future();
+        Meteor.defer(async () => {
+          try {
+            let accountId;
+            const trophyHunter = TrophyHunters.findOne(
+              { summonerId },
+              { fields: { accountId: 1 } }
+            );
 
-        if (!trophyHunter) {
-          const summoner = await getSummoner({ platformId, summonerId });
-          if (!summoner) {
-            return future.return(null);
-          }
-          accountId = summoner.accountId;
-        } else {
-          accountId = trophyHunter.accountId;
-        }
+            if (!trophyHunter) {
+              const summoner = await getSummoner({ platformId, summonerId });
+              if (!summoner) {
+                return future.return(null);
+              }
+              accountId = summoner.accountId;
+            } else {
+              accountId = trophyHunter.accountId;
+            }
 
-        const matchList = await getMatchList({ platformId, accountId });
-        if (!matchList || !matchList.matches.length) {
-          return future.return(null);
-        }
-        future.return({ summonerId, matchList });
-      });
-      return future;
-    });
-
-    const games = {};
-    const playedTogether = {};
-    const playedTogeterBySummonerId = {};
-    futures.forEach(future => {
-      const result = future.wait();
-      if (result) {
-        const { summonerId, matchList } = result;
-        playedTogeterBySummonerId[summonerId] = {
-          matchesAnalysed: matchList.endIndex,
-          matchesSince: matchList.matches[matchList.matches.length - 1].timestamp,
-          with: {}
-        };
-        matchList.matches.forEach(match => {
-          if (!games[match.gameId]) {
-            games[match.gameId] = [summonerId];
-          } else {
-            games[match.gameId].push(summonerId);
-            playedTogether[match.gameId] = games[match.gameId];
+            let matchList;
+            try {
+              matchList = await getMatchList({ platformId, accountId });
+            } catch (error) {
+              matchList = {};
+            }
+            if (!matchList.matches) {
+              return future.return(null);
+            }
+            future.return({ summonerId, matchList });
+          } catch (error) {
+            future.return(null);
           }
         });
-      }
-    });
-    Object.values(playedTogether).forEach(summonerIds => {
-      summonerIds.forEach(summonerId => {
-        const otherSummonerIds = summonerIds.filter(id => id !== summonerId);
-        otherSummonerIds.forEach(otherSummonerId => {
-          if (!playedTogeterBySummonerId[summonerId].with[otherSummonerId]) {
-            playedTogeterBySummonerId[summonerId].with[otherSummonerId] = 0;
-          }
-          playedTogeterBySummonerId[summonerId].with[otherSummonerId]++;
+        return future;
+      });
+
+      const games = {};
+      const playedTogether = {};
+      const playedTogeterBySummonerId = {};
+      futures.forEach(future => {
+        const result = future.wait();
+        if (result) {
+          const { summonerId, matchList } = result;
+          playedTogeterBySummonerId[summonerId] = {
+            matchesAnalysed: matchList.endIndex,
+            matchesSince: matchList.matches[matchList.matches.length - 1].timestamp,
+            with: {}
+          };
+          matchList.matches.forEach(match => {
+            if (!games[match.gameId]) {
+              games[match.gameId] = [summonerId];
+            } else {
+              games[match.gameId].push(summonerId);
+              playedTogether[match.gameId] = games[match.gameId];
+            }
+          });
+        }
+      });
+      Object.values(playedTogether).forEach(summonerIds => {
+        summonerIds.forEach(summonerId => {
+          const otherSummonerIds = summonerIds.filter(id => id !== summonerId);
+          otherSummonerIds.forEach(otherSummonerId => {
+            if (!playedTogeterBySummonerId[summonerId].with[otherSummonerId]) {
+              playedTogeterBySummonerId[summonerId].with[otherSummonerId] = 0;
+            }
+            playedTogeterBySummonerId[summonerId].with[otherSummonerId]++;
+          });
         });
       });
-    });
 
-    return playedTogeterBySummonerId;
+      return playedTogeterBySummonerId;
+    } catch (error) {
+      return null;
+    }
   },
   async getParticipantPerformance(props) {
     this.unblock();
     check(props, {
       platformId: String,
-      summonerId: Number,
+      summonerId: Match.OneOf(Number, String),
       championId: Number
     });
-    const { platformId, summonerId, championId } = props;
 
-    const trophyHunter = TrophyHunters.findOne(
-      { summonerId },
-      {
-        fields: {
-          accountId: 1,
-          rank: 1,
-          score: 1,
-          seasonRank: 1,
-          seasonScore: 1,
-          summonerLevel: 1,
-          lastLogin: 1
-        }
-      }
-    );
+    try {
+      const { platformId, summonerId, championId } = props;
 
-    let accountId;
-    let summonerLevel;
-    if (trophyHunter) {
-      accountId = trophyHunter.accountId;
-      summonerLevel = trophyHunter.summonerLevel;
-    } else {
       const summoner = await getSummoner({ platformId, summonerId });
       if (!summoner) {
         console.error('getParticipantPerformance', 'summoner not found', platformId, summonerId);
         return {};
       }
-      accountId = summoner.accountId;
-      summonerLevel = summoner.summonerLevel;
-    }
+      const { accountId, summonerLevel, name: summonerName } = summoner;
 
-    const championMastery = await getChampionMastery({ platformId, summonerId, championId });
-    const leaguePositions = await getLeaguePositions({ platformId, summonerId });
-    if (!leaguePositions) {
-      console.error('getParticipantPerformance', 'leaguePositions error', platformId, summonerId);
-    }
-
-    let stats = {
-      wins: 0,
-      losses: 0,
-      championGames: 0,
-      beginTime: past
-    };
-
-    let beginTime = stats.beginTime.getTime();
-    const summonerStats = SummonerStats.findOne({ accountId });
-    if (summonerStats) {
-      const championStats = summonerStats.champions[`${championId}`];
-      if (championStats) {
-        // Only check for new matches
-        stats = championStats;
-        beginTime = championStats.endTime.getTime();
+      let championMastery;
+      try {
+        championMastery = await getChampionMastery({ platformId, summonerId, championId });
+      } catch (error) {
+        championMastery = null;
       }
-    }
+      let leaguePositions;
+      try {
+        leaguePositions = await getLeaguePositions({ platformId, summonerId });
+      } catch (error) {
+        leaguePositions = null;
+      }
+      if (!leaguePositions) {
+        console.error('getParticipantPerformance', 'leaguePositions error', platformId, summonerId);
+      }
 
-    const matchList = await getMatchList({ platformId, accountId, championId, beginTime });
-    if (matchList && matchList.matches) {
-      stats.championGames += matchList.matches.length;
+      let stats = {
+        wins: 0,
+        losses: 0,
+        championGames: 0,
+        beginTime: past
+      };
 
-      const matchesToAnalyse = matchList.matches.slice(0, numberOfMatches.stats);
+      let beginTime = stats.beginTime.getTime();
+      const summonerStats = SummonerStats.findOne({ accountId });
+      if (summonerStats) {
+        const championStats = summonerStats.champions[`${championId}`];
+        if (championStats) {
+          // Only check for new matches
+          stats = championStats;
+          beginTime = championStats.endTime.getTime();
+        }
+      }
 
-      const futures = matchesToAnalyse.map(match => {
-        const future = new Future();
+      let matchList;
+      try {
+        matchList = await getMatchList({ platformId, accountId, championId, beginTime });
+      } catch (error) {
+        matchList = {};
+      }
+      if (matchList.matches) {
+        stats.championGames += matchList.matches.length;
 
-        getMatch({ platformId, matchId: match.gameId })
-          .then(matchDetails => {
-            matchDetails.participantIdentity = getParticipantIdentity(matchDetails, summonerId);
+        const matchesToAnalyse = matchList.matches.slice(0, numberOfMatches.stats);
 
-            if (!matchDetails.participantIdentity) {
+        const futures = matchesToAnalyse.map(match => {
+          const future = new Future();
+
+          getMatch({ platformId, matchId: match.gameId })
+            .then(matchDetails => {
+              matchDetails.participantIdentity = getParticipantIdentity({
+                participantIdentities: matchDetails.participantIdentities,
+                summonerId,
+                summonerName
+              });
+
+              if (!matchDetails.participantIdentity) {
+                console.error(
+                  'getParticipantPerformance',
+                  'participantIdentity error',
+                  platformId,
+                  match.gameId,
+                  summonerId
+                );
+                future.return(null);
+                return;
+              }
+
+              // Extend partitioned participants (participant, others, opponents, ...)
+              const partitionedParticipants = getPartitionedParticipants(
+                matchDetails.participantIdentity.participantId,
+                matchDetails
+              );
+              Object.assign(matchDetails, partitionedParticipants);
+
+              // Extend match stats
+              extendMatchStats(matchDetails);
+              future.return(matchDetails.participant.stats);
+            })
+            .catch(error => {
               console.error(
                 'getParticipantPerformance',
-                'participantIdentity error',
+                'matchDetails error',
                 platformId,
                 match.gameId,
-                summonerId
+                error.message
               );
               future.return(null);
-              return;
-            }
+            });
 
-            // Extend partitioned participants (participant, others, opponents, ...)
-            const partitionedParticipants = getPartitionedParticipants(
-              matchDetails.participantIdentity.participantId,
-              matchDetails
-            );
-            Object.assign(matchDetails, partitionedParticipants);
-
-            // Extend match stats
-            extendMatchStats(matchDetails);
-            future.return(matchDetails.participant.stats);
-          })
-          .catch(error => {
-            console.error(
-              'getParticipantPerformance',
-              'matchDetails error',
-              platformId,
-              match.gameId,
-              error.message
-            );
-            future.return(null);
-          });
-
-        return future;
-      });
-
-      futures.forEach(future => {
-        const participantStats = future.wait();
-        if (!participantStats) {
-          return;
-        }
-        if (participantStats.win) {
-          stats.wins++;
-        } else {
-          stats.losses++;
-        }
-        Object.entries(participantStats).forEach(([key, statistic]) => {
-          if (Number.isFinite(statistic)) {
-            stats[key] = stats[key] ? stats[key] + statistic : statistic;
-          } else if (typeof statistic === 'boolean') {
-            if (!stats[key]) {
-              stats[key] = 0;
-            }
-            if (statistic) {
-              stats[key]++;
-            }
-          }
+          return future;
         });
-      });
 
-      stats.endTime = new Date();
-      const champions = summonerStats ? summonerStats.champions : {};
-      champions[championId] = stats;
+        futures.forEach(future => {
+          const participantStats = future.wait();
+          if (!participantStats) {
+            return;
+          }
+          if (participantStats.win) {
+            stats.wins++;
+          } else {
+            stats.losses++;
+          }
+          Object.entries(participantStats).forEach(([key, statistic]) => {
+            if (Number.isFinite(statistic)) {
+              stats[key] = stats[key] ? stats[key] + statistic : statistic;
+            } else if (typeof statistic === 'boolean') {
+              if (!stats[key]) {
+                stats[key] = 0;
+              }
+              if (statistic) {
+                stats[key]++;
+              }
+            }
+          });
+        });
 
-      SummonerStats.upsert(
-        {
-          accountId
-        },
-        {
-          $setOnInsert: {
+        stats.endTime = new Date();
+        const champions = summonerStats ? summonerStats.champions : {};
+        champions[championId] = stats;
+
+        SummonerStats.upsert(
+          {
             accountId
           },
-          $set: {
-            champions
+          {
+            $setOnInsert: {
+              accountId
+            },
+            $set: {
+              champions
+            }
+          }
+        );
+      }
+
+      const trophyHunter = TrophyHunters.findOne(
+        { summonerId: summoner.id },
+        {
+          fields: {
+            accountId: 1,
+            rank: 1,
+            score: 1,
+            s9Rank: 1,
+            seasonRank: 1,
+            s9Score: 1,
+            seasonScore: 1,
+            summonerLevel: 1,
+            lastLogin: 1
           }
         }
       );
-    }
 
-    return {
-      championMastery,
-      stats,
-      trophyHunter,
-      summonerLevel,
-      leaguePositions
-    };
+      return {
+        championMastery,
+        stats,
+        trophyHunter,
+        summonerLevel,
+        leaguePositions
+      };
+    } catch (error) {
+      console.log(error.message);
+      return null;
+    }
   },
   async getParticipantMatches(params) {
     this.unblock();
 
     check(params, {
       platformId: String,
-      summonerId: Number
-    });
-    const { platformId, summonerId } = params;
-
-    const trophyHunter = TrophyHunters.findOne({ summonerId });
-    let accountId, summonerName;
-    if (trophyHunter) {
-      accountId = trophyHunter.accountId;
-      summonerName = trophyHunter.summonerName;
-    } else {
-      const summoner = await getSummoner({ platformId, summonerId });
-      if (!summoner) {
-        throw new Meteor.Error('getParticipantMatches', 'summoner not found');
-      }
-      accountId = summoner.accountId;
-      summonerName = summoner.summonerName;
-    }
-    const matchList = await getMatchList({ platformId, accountId, endIndex: 8 });
-    if (!matchList) {
-      throw new Meteor.Error('getParticipantMatches', 'matchList error');
-    }
-    if (!matchList.matches) {
-      return [];
-    }
-
-    const futures = matchList.matches.splice(0, numberOfMatches.recent).map(match => {
-      const future = new Future();
-      getMatch({ platformId, matchId: match.gameId })
-        .then(matchDetails => {
-          matchDetails.participantIdentity = getParticipantIdentityByChampionId(
-            matchDetails,
-            match.champion
-          );
-          if (!matchDetails.participantIdentity) return future.return(null);
-          if (!matchDetails.participantIdentity.player) {
-            matchDetails.participantIdentity.player = {
-              accountId,
-              summonerId,
-              summonerName
-            };
-          }
-          future.return(matchDetails);
-        })
-        .catch(() => {
-          future.return(null);
-        });
-
-      return future;
+      summonerId: Match.OneOf(Number, String)
     });
 
-    const matches = [];
-    futures.forEach(future => {
-      const result = future.wait();
-      if (result) {
-        const { gameId, participants, participantIdentities } = result;
-        const participantIdentity = participantIdentities.find(
-          identity => identity.player.summonerId === summonerId
-        );
-        const participant1 = participants.find(
-          participant => participant.participantId === participantIdentity.participantId
-        );
-        const participant2 = participants.find(participant => {
-          const enemyTeam = participant.teamId !== participant1.teamId;
-          const sameRole = participant.timeline.role === participant1.timeline.role;
-          const sameLane = participant.timeline.lane === participant1.timeline.lane;
-          return enemyTeam && sameRole && sameLane;
-        });
-        if (participant2) {
-          matches.push({
-            gameId,
-            participant1,
-            participant2
-          });
+    try {
+      const { platformId, summonerId } = params;
+
+      const trophyHunter = TrophyHunters.findOne({ summonerId });
+      let accountId, summonerName;
+      if (trophyHunter) {
+        accountId = trophyHunter.accountId;
+        summonerName = trophyHunter.summonerName;
+      } else {
+        const summoner = await getSummoner({ platformId, summonerId });
+        if (!summoner) {
+          throw new Meteor.Error('getParticipantMatches', 'summoner not found');
         }
+        accountId = summoner.accountId;
+        summonerName = summoner.summonerName;
       }
-    });
+      let matchList;
+      try {
+        matchList = await getMatchList({ platformId, accountId, endIndex: 8 });
+      } catch (error) {
+        matchList = {};
+      }
 
-    return matches.sort((a, b) => b.gameCreation - a.gameCreation);
+      if (!matchList.matches) {
+        return [];
+      }
+
+      const futures = matchList.matches.splice(0, numberOfMatches.recent).map(match => {
+        const future = new Future();
+        getMatch({ platformId, matchId: match.gameId })
+          .then(matchDetails => {
+            matchDetails.participantIdentity = getParticipantIdentityByChampionId(
+              matchDetails,
+              match.champion
+            );
+            if (!matchDetails.participantIdentity) return future.return(null);
+            if (!matchDetails.participantIdentity.player) {
+              matchDetails.participantIdentity.player = {
+                accountId,
+                summonerId,
+                summonerName
+              };
+            }
+            future.return(matchDetails);
+          })
+          .catch(() => {
+            future.return(null);
+          });
+
+        return future;
+      });
+
+      const matches = [];
+      futures.forEach(future => {
+        const result = future.wait();
+        if (result) {
+          const { gameId, participants, participantIdentities } = result;
+          const participantIdentity = participantIdentities.find(
+            identity => identity.player.summonerId === summonerId
+          );
+          const participant1 = participants.find(
+            participant => participant.participantId === participantIdentity.participantId
+          );
+          const participant2 = participants.find(participant => {
+            const enemyTeam = participant.teamId !== participant1.teamId;
+            const sameRole = participant.timeline.role === participant1.timeline.role;
+            const sameLane = participant.timeline.lane === participant1.timeline.lane;
+            return enemyTeam && sameRole && sameLane;
+          });
+          if (participant2) {
+            matches.push({
+              gameId,
+              participant1,
+              participant2
+            });
+          }
+        }
+      });
+
+      return matches.sort((a, b) => b.gameCreation - a.gameCreation);
+    } catch (error) {
+      return null;
+    }
   },
   async getMatchWithTimeline(matchId, platformId) {
     this.unblock();
@@ -378,21 +394,25 @@ Meteor.methods({
     check(matchId, Number);
     check(platformId, String);
 
-    return await getMatchWithTimeline({ platformId, matchId });
+    try {
+      return await getMatchWithTimeline({ platformId, matchId });
+    } catch (error) {
+      return null;
+    }
   },
   async getParticipantHeatmap(props) {
     this.unblock();
 
     check(props, {
       platformId: String,
-      summonerId: Number,
+      summonerId: Match.OneOf(Number, String),
       championId: Number,
       role: String,
       mapId: Number
     });
-    const { platformId, summonerId, championId, mapId, role } = props;
 
     try {
+      const { platformId, summonerId, championId, mapId, role } = props;
       const trophyHunter = TrophyHunters.findOne({ summonerId });
       let accountId;
       if (trophyHunter) {
@@ -409,16 +429,26 @@ Meteor.methods({
         if (mapId !== MAP_NAMES.HOWLING_ABYSS) console.log('unsupported map id', mapId);
         return [];
       }
-      const matchList = await getMatchList({ platformId, accountId, championId, queueIds });
-      if (!matchList || !matchList.matches) {
+      let matchList;
+      try {
+        matchList = await getMatchList({ platformId, accountId, championId, queueIds });
+      } catch (error) {
+        matchList = {};
+      }
+
+      if (!matchList.matches) {
         return [];
       }
 
       const futures = matchList.matches.splice(0, numberOfMatches.timelines).map(match => {
         const future = new Future();
         Meteor.defer(async () => {
-          const matchDetails = await getMatchWithTimeline({ platformId, matchId: match.gameId });
-          future.return(matchDetails);
+          try {
+            const matchDetails = await getMatchWithTimeline({ platformId, matchId: match.gameId });
+            future.return(matchDetails);
+          } catch (error) {
+            future.return(null);
+          }
         });
         return {
           future
@@ -451,91 +481,111 @@ Meteor.methods({
       return { framesByTeamId };
     } catch (error) {
       console.error(error);
-      throw error;
+      return null;
     }
   },
   async getSummonerChampionTimelines(platformId, summonerId, championId, mapId) {
     this.unblock();
 
     check(platformId, String);
-    check(summonerId, Number);
+    check(summonerId, Match.OneOf(Number, String));
     check(championId, Number);
     check(mapId, Number);
 
-    const trophyHunter = TrophyHunters.findOne({ summonerId });
-    let accountId, summonerName;
-    if (trophyHunter) {
-      accountId = trophyHunter.accountId;
-      summonerName = trophyHunter.summonerName;
-    } else {
-      const summoner = await getSummoner({ platformId, summonerId });
-      if (!summoner) {
-        throw new Meteor.Error('getSummonerChampionTimelines', 'summoner not found');
+    try {
+      const trophyHunter = TrophyHunters.findOne({ summonerId });
+      let accountId, summonerName;
+      if (trophyHunter) {
+        accountId = trophyHunter.accountId;
+        summonerName = trophyHunter.summonerName;
+      } else {
+        const summoner = await getSummoner({ platformId, summonerId });
+        if (!summoner) {
+          throw new Meteor.Error('getSummonerChampionTimelines', 'summoner not found');
+        }
+        accountId = summoner.accountId;
+        summonerName = summoner.summonerName;
       }
-      accountId = summoner.accountId;
-      summonerName = summoner.summonerName;
-    }
-    const queueIds = queuesByMatchId[mapId];
-    if (!queueIds) {
-      if (mapId !== MAP_NAMES.HOWLING_ABYSS) console.log('unsupported map id', mapId);
-      return [];
-    }
-    const matchList = await getMatchList({ platformId, accountId, championId, queueIds });
-    if (!matchList || !matchList.matches) {
-      return [];
-    }
+      const queueIds = queuesByMatchId[mapId];
+      if (!queueIds) {
+        if (mapId !== MAP_NAMES.HOWLING_ABYSS) console.log('unsupported map id', mapId);
+        return [];
+      }
+      let matchList;
+      try {
+        matchList = await getMatchList({ platformId, accountId, championId, queueIds });
+      } catch (error) {
+        matchList = {};
+      }
 
-    const futures = matchList.matches.splice(0, numberOfMatches.timelines).map(match => {
-      const future = new Future();
-      Meteor.defer(async () => {
-        const matchDetails = await getMatchWithTimeline({ platformId, matchId: match.gameId });
-        future.return(matchDetails);
+      if (!matchList.matches) {
+        return [];
+      }
+
+      const futures = matchList.matches.splice(0, numberOfMatches.timelines).map(match => {
+        const future = new Future();
+        Meteor.defer(async () => {
+          try {
+            const matchDetails = await getMatchWithTimeline({ platformId, matchId: match.gameId });
+            future.return(matchDetails);
+          } catch (error) {
+            future.return(null);
+          }
+        });
+        return {
+          future
+        };
       });
-      return {
-        future
-      };
-    });
 
-    const matches = [];
-    futures.forEach(({ future }) => {
-      const matchDetails = future.wait();
+      const matches = [];
+      futures.forEach(({ future }) => {
+        const matchDetails = future.wait();
 
-      if (matchDetails && matchDetails.timeline) {
-        matchDetails.participantIdentity = getParticipantIdentityByChampionId(
-          matchDetails,
-          championId
-        );
-        if (!matchDetails.participantIdentity) {
-          return;
+        if (matchDetails && matchDetails.timeline) {
+          matchDetails.participantIdentity = getParticipantIdentityByChampionId(
+            matchDetails,
+            championId
+          );
+          if (!matchDetails.participantIdentity) {
+            return;
+          }
+          if (!matchDetails.participantIdentity.player) {
+            matchDetails.participantIdentity.player = {
+              accountId,
+              summonerId,
+              summonerName
+            };
+          }
+          matches.push(matchDetails);
         }
-        if (!matchDetails.participantIdentity.player) {
-          matchDetails.participantIdentity.player = {
-            accountId,
-            summonerId,
-            summonerName
-          };
-        }
-        matches.push(matchDetails);
-      }
-    });
+      });
 
-    return matches;
+      return matches;
+    } catch (error) {
+      return null;
+    }
   },
-  async getSummoner({ region, summonerName }) {
+  async getSummonerByLegacyAccountId({ region, accountId }) {
     check(region, String);
-    check(summonerName, String);
+    check(accountId, Number);
 
-    const trophyHunter = TrophyHunters.findOne({ summonerName });
-    if (trophyHunter) {
-      return trophyHunter;
-    } else {
+    try {
       const platformId = getPlatformIdByRegion(region);
-      const summoner = await getSummoner({ platformId, summonerName });
-      if (!summoner) {
-        throw new Meteor.Error('getSummoner', 'summoner not found');
-      }
-      summoner.summonerName = summonerName;
+      const summoner = await getSummoner({ platformId, accountId });
       return summoner;
+    } catch (error) {
+      return null;
+    }
+  },
+  async getSummonerByLegacySummonerId({ platformId, summonerId }) {
+    check(platformId, String);
+    check(summonerId, Number);
+
+    try {
+      const summoner = await getSummoner({ platformId, summonerId });
+      return summoner;
+    } catch (error) {
+      return null;
     }
   }
 });

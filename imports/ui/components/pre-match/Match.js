@@ -69,7 +69,11 @@ export const MatchHeader = () => (
 );
 
 const Match = ({ match, trophyHunter }) => {
-  const { participant } = extendMatchResult(match, trophyHunter.summonerId);
+  const { participant } = extendMatchResult({
+    matchResult: match,
+    summonerId: trophyHunter.summonerId,
+    summonerName: trophyHunter.summonerName
+  });
   const perk = perks[participant.stats.perk0];
   return (
     <div style={styles.root}>
@@ -79,7 +83,7 @@ const Match = ({ match, trophyHunter }) => {
       <div style={styles.trophyHunter}>
         <AvatarWithStatus hideStatus size={30} trophyHunter={trophyHunter} />
       </div>
-      <div style={styles.rank}>{trophyHunter.seasonRank}</div>
+      <div style={styles.rank}>{trophyHunter.s9Rank}</div>
       <div style={styles.kda}>
         {participant.stats.kills}/{participant.stats.deaths}/{participant.stats.assists}
       </div>

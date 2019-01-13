@@ -4,6 +4,7 @@ import ItemsPage from '/imports/ui/pages/items/ItemsPage';
 import Level from '/imports/ui/components/Level';
 import LoginPage from '../../ui/pages/login/LoginPage';
 import Match from '/imports/ui/pages/match/Match';
+import LegacyMatch from '/imports/ui/pages/match/LegacyMatch';
 import Ranking from '/imports/ui/pages/ranking/Ranking';
 import React from 'react';
 import { Route } from 'react-router-dom';
@@ -51,10 +52,16 @@ export default (
         path="/profile/:userId/playstyle"
       />
       <Route
-        component={withRouteParams(Match)}
+        component={withRouteParams(LegacyMatch)}
         exact
         key="/match/:platformId/:matchId/:summonerId"
         path="/match/:platformId/:matchId/:summonerId"
+      />
+      <Route
+        component={withRouteParams(Match)}
+        exact
+        key="/game/:platformId/:matchId/:summonerName"
+        path="/game/:platformId/:matchId/:summonerName"
       />
       <Route component={withRouteParams(ItemsPage)} exact key="/items" path="/items" />
       <Route component={withRouteParams(LoginPage)} exact key="/login" path="/login" />

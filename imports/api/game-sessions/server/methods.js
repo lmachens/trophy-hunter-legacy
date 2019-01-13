@@ -174,6 +174,7 @@ Meteor.methods({
     GameSessions.insert({
       userId,
       region: trophyHunter.region,
+      summonerName: trophyHunter.summonerName,
       accountId: trophyHunter.accountId,
       summonerId: trophyHunter.summonerId,
       checkedStatus: 'matchInProgress',
@@ -239,7 +240,7 @@ Meteor.methods({
     const game = await getActiveGame({ platformId, summonerId: trophyHunter.summonerId });
     // Check if there is a current game and it is the same as in activeGameSession
     if (!game) {
-      activeMatch.setMatchEnd(false, userId);
+      activeMatch.setMatchEnd(false);
       return true;
     }
     return false;

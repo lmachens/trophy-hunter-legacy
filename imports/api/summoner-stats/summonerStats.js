@@ -18,7 +18,7 @@ SummonerStats.deny({
 });
 
 SummonerStats.schema = new SimpleSchema({
-  accountId: { type: Number, unique: true },
+  accountId: { type: SimpleSchema.oneOf(String, Number), unique: true },
   champions: { type: Object, blackbox: true },
   createdAt: { type: Date },
   updatedAt: { type: Date }

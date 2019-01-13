@@ -9,17 +9,25 @@ const cache = new NodeCache({
 });
 
 const getTimeline = ({ platformId, matchId }) => {
-  const key = `${platformId}-${matchId}`;
+  const key = `${platformId}&${matchId}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
-  return axios.get(`${apiEndpoint}?platformId=${platformId}&matchId=${matchId}`).then(response => {
-    if (response.data) {
-      cache.set(key, response.data);
-    }
-    return response.data;
-  });
+  const url = `${apiEndpoint}?platformId=${platformId}&matchId=${matchId}`;
+
+  return axios
+    .get(url)
+    .then(response => {
+      if (response.data) {
+        cache.set(key, response.data);
+      }
+      return response.data;
+    })
+    .catch(error => {
+      error.message = `${error.message}: ${url}`;
+      throw error;
+    });
 };
 
 export default getTimeline;

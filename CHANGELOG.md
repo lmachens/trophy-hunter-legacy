@@ -1,5 +1,14 @@
 # Change Log
 
+## [3.0.0] - 2019-01-12
+### Added
+- Trophy Hunter Season 2019 started!
+### Changed
+- Updated Riot API from v3 to v4 which adds a security layer for the privacy of players.
+- Updated to Riot API version 9.1.1.
+### Fixed
+- Show 2019 tier and division images including new iron and grandmaster.
+
 ## [2.22.1] - 2019-01-01
 ### Added
 - Added new trophy [trophy:wujuStyle].

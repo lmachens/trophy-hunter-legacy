@@ -11,7 +11,6 @@ import { Dialog, IconButton, RaisedButton } from '../components/generic';
 import React, { Component } from 'react';
 import SettingsDialog from '../components/SettingsDialog';
 
-import { Accounts } from 'meteor/accounts-base';
 import Ads from '../../api/ads/ads';
 import ConnectionStatus from '../components/ConnectionStatus';
 import Encyclopedia from '../components/encyclopedia/Encyclopedia';
@@ -165,40 +164,6 @@ class AppLayout extends Component {
       }
     });
 
-    Accounts.onLogin(() => {
-      this.handleLogin();
-    });
-    const userId = Meteor.userId();
-    const loggingIn = Meteor.loggingIn();
-    if (userId && !loggingIn) {
-      this.handleLogin();
-    } else if (!userId && !loggingIn) {
-      this.initialize();
-    } else {
-      setTimeout(() => {
-        this.initialize();
-      }, 6000);
-    }
-  }
-
-  handleLogin() {
-    console.log('handleLogin');
-    Meteor.call('handleLogin', serverVersion, (error, data) => {
-      if (error) {
-        console.error('handleLogin', error);
-      }
-      if (data) {
-        if (data.isIngame) {
-          Meteor.call('UserPresence:setDefaultStatus', 'ingame');
-        } else {
-          Meteor.call('UserPresence:setDefaultStatus', 'online');
-        }
-        const lastVersion = data && data.lastVersion;
-        this.setState({
-          lastVersion
-        });
-      }
-    });
     this.initialize();
   }
 

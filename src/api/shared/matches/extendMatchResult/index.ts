@@ -15,7 +15,18 @@ import extendParticipantGroupsMatchStats from './extendParticipantGroupsMatchSta
 // matchExtensionParameters needs two parameters:
 // (1) extendStatsParticipantIds: This contains the id's of the participants that need calculated stats.
 // (2) withTimeline: if yes: compute timeline stats
-function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
+interface ExtendMatchResultProps {
+  matchResult: any;
+  summonerId?: string | number;
+  summonerName?: string;
+  matchExtensionParameters?: any;
+}
+function extendMatchResult({
+  matchResult,
+  summonerId,
+  summonerName,
+  matchExtensionParameters
+}: ExtendMatchResultProps) {
   matchExtensionParameters = Object.assign(
     {},
     {
@@ -28,21 +39,18 @@ function extendMatchResult(matchResult, summonerId, matchExtensionParameters) {
   );
   const extendedMatchResult = Object.assign({}, matchResult);
 
-  if (matchExtensionParameters.extendAllParticipants) {
-    matchExtensionParameters.extendParticipants = extendedMatchResult.participants;
-  } else {
-    // Extend identity
-    if (!extendedMatchResult.participantIdentity) {
-      extendedMatchResult.participantIdentity = getParticipantIdentity(
-        extendedMatchResult,
-        summonerId
-      );
-    }
-    if (matchExtensionParameters.extendStatsParticipantIds.length == 0) {
-      matchExtensionParameters.extendStatsParticipantIds.push(
-        extendedMatchResult.participantIdentity.participantId
-      );
-    }
+  // Extend identity
+  if (!extendedMatchResult.participantIdentity) {
+    extendedMatchResult.participantIdentity = getParticipantIdentity({
+      participantIdentities: extendedMatchResult.participantIdentities,
+      summonerId,
+      summonerName
+    });
+  }
+  if (matchExtensionParameters.extendStatsParticipantIds.length == 0) {
+    matchExtensionParameters.extendStatsParticipantIds.push(
+      extendedMatchResult.participantIdentity.participantId
+    );
   }
 
   //general match info

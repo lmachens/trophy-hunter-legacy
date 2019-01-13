@@ -56,8 +56,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     const matchPromises = gameSessions.map(gameSession =>
       getMatch({
         platformId: gameSession.game.platformId,
-        matchId: gameSession.game.gameId,
-        version: 'v4'
+        matchId: gameSession.game.gameId
       })
     );
     axios
@@ -92,7 +91,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
       })
       .catch(error => {
         if (!error.response) {
-          console.log(error);
+          console.log(error.message);
           error.response = {
             status: 400,
             statusText: 'Internal error'

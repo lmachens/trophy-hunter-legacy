@@ -9,7 +9,7 @@ const cache = new NodeCache({
 });
 
 const getTrophies = ({ platformId, matchId, summonerId }) => {
-  const key = `${platformId}-${matchId}`;
+  const key = `${platformId}&${matchId}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));

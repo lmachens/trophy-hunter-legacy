@@ -86,7 +86,7 @@ const RankingContainer = withTracker(({ season }) => {
 
 class RankingSelector extends PureComponent {
   state = {
-    season: SEASONS.S8
+    season: SEASONS.S9
   };
 
   handleClick = season => event => {
@@ -109,15 +109,15 @@ class RankingSelector extends PureComponent {
           }}
         >
           <span
-            onClick={this.handleClick(SEASONS.S8)}
+            onClick={this.handleClick(SEASONS.S9)}
             style={{
               cursor: 'pointer',
               marginRight: 3,
               color:
-                universeTheme.palette[season === SEASONS.S8 ? 'secondaryTextColor' : 'textColor']
+                universeTheme.palette[season === SEASONS.S9 ? 'secondaryTextColor' : 'textColor']
             }}
           >
-            S8
+            S9
           </span>
           <span
             onClick={this.handleClick(SEASONS.ALLTIME)}
@@ -131,18 +131,6 @@ class RankingSelector extends PureComponent {
             }}
           >
             All-Time
-          </span>
-          <span
-            onClick={this.handleClick(SEASONS.TOURNAMENT1)}
-            style={{
-              cursor: 'pointer',
-              color:
-                universeTheme.palette[
-                  season === SEASONS.TOURNAMENT1 ? 'secondaryTextColor' : 'textColor'
-                ]
-            }}
-          >
-            Trophy Hunt
           </span>
         </span>
         <RankingContainer season={season} />

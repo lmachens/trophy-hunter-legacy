@@ -1,5 +1,6 @@
 import { badges } from './';
 import { featuresWithBadge } from '../features';
+import safeParseInt from '../utilities/safeParseInt';
 
 export const generateBadgesByParticipantPerformance = ({
   participantPerformance,
@@ -17,7 +18,9 @@ export const generateBadgesByParticipantPerformance = ({
   if (playedTogether && playedTogether[participant.summonerId]) {
     const premades = Object.entries(playedTogether[participant.summonerId].with).reduce(
       (acc, [summonerId, times]) => {
-        const playedWithParticipant = participants.find(p => p.summonerId === parseInt(summonerId));
+        const playedWithParticipant = participants.find(
+          p => p.summonerId === safeParseInt(summonerId)
+        );
         if (times > 1 && playedWithParticipant) {
           let matchesSince;
           if (

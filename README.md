@@ -63,7 +63,8 @@ Please follow the instructions on [Overwolf Developer](http://developers.overwol
 1. Download the [Developers version of Overwolf](https://download.overwolf.com/install/Download?Channel=Developers). You can skip this step if you already installed Overwolf.
 1. Start Overwolf and click on Settings (either the wrench icon on the dock, or the Settings button on the tray icon menu).
 1. Go to the Support tab, you will see a link labelled "Development Options". Click that.
-1. Click on "Load unpacked extension" and navigate to `overwolf/dist/development`.
+1. Build Overwolf app. `cd src && yarn && yarn build-overwolf`
+1. Click on "Load unpacked extension" and navigate to `src/dist/development`.
 1. The app will connect to http://localhost:3000.
 
 ## Contribute

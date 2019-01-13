@@ -271,8 +271,8 @@ const perks = {
     key: 'Celerity',
     icon: 'perk-images/Styles/Sorcery/Celerity/CelerityTemp.png',
     name: 'Celerity',
-    shortDesc: 'All movement speed bonuses are 8% more effective on you.',
-    longDesc: 'All movement bonuses are 8% more effective on you.'
+    shortDesc: 'All movement speed bonuses are 10% more effective on you.',
+    longDesc: 'All movement bonuses are 10% more effective on you.'
   },
   '8236': {
     id: 8236,
@@ -435,7 +435,7 @@ const perks = {
     shortDesc:
       'Whenever you gain a shield, your next basic attack against a champion deals bonus adaptive damage.',
     longDesc:
-      'While shielded, gain 1 - 10 Armor and Magic Resist based on Level.Whenever you gain a new shield,  your next basic attack against a champion deals 4 - 21 (+1.5% Bonus Health) (+8.5% New Shield Amount) bonus adaptive damage.You have up to 2s after the shield expires to use this effect.'
+      'While shielded, gain 1 - 10 Armor and Magic Resist based on Level.Whenever you gain a new shield,  your next basic attack against a champion deals 5 - 30 (+1.5% Bonus Health) (+8.5% New Shield Amount) bonus adaptive damage.You have up to 2s after the shield expires to use this effect.'
   },
   '8410': {
     id: 8410,
@@ -598,7 +598,7 @@ const perks = {
     shortDesc:
       'Gain a large amount of Attack Speed for the first 3 attacks made against enemy champions.',
     longDesc:
-      'Gain 75-125% Attack Speed for the first 3 attacks made against enemy champions.No more than 2s can elapse between attacks or this effect will end.Hail of Blades allows you to temporarily exceed the attack speed limit.Cooldown: 4s out of combat.'
+      'Gain 110% Attack Speed when you attack an enemy champion for up to 3 attacks.No more than 2s can elapse between attacks or this effect will end.Cooldown: 4s out of combat.Attack resets increase the attack limit by 1.Allows you to temporarily exceed the attack speed limit.'
   }
 };
 

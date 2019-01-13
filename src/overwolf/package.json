@@ -1,0 +1,16 @@
+{
+  "name": "trophy-hunter-overwolf",
+  "description": "Trophy Hunter Overwolf",
+  "version": "0.0.1",
+  "license": "GPL-3.0",
+  "scripts": {
+    "build": "cross-env BABEL_ENV=development babel development -d ../dist/development --copy-files && cross-env BABEL_ENV=production babel production -d ../dist/production --copy-files"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-minify": "0.5.0",
+    "cross-env": "5.2.0"
+  }
+}
+ 
