@@ -247,7 +247,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     const ownCS = participant.stats.totalMinionsKilled + participant.stats.neutralMinionsKilled;
 
     const otherCSMax = Math.max(
-      ...extendedMatchResult.others.map(
+      ...participant.others.map(
         other => other.stats.totalMinionsKilled + other.stats.neutralMinionsKilled
       )
     );
