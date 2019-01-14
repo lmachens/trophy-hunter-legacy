@@ -72,18 +72,14 @@ function getOthersMatchStats(others) {
   return result;
 }
 
-function getAdditionalParticipantStats({
-  participant,
-  team,
-  others,
-  gameDuration,
-  maxEnemyJungleCsOthers,
-  maxTeamJungleCsOthers
-}) {
+function getAdditionalParticipantStats(
+  { gameDuration, maxEnemyJungleCsOthers, maxTeamJungleCsOthers },
+  participant
+) {
   const result: any = {};
   result.validMatch = 1;
   result.killParticipation =
-    (participant.stats.kills + participant.stats.assists) / Math.max(1, team.kills);
+    (participant.stats.kills + participant.stats.assists) / Math.max(1, participant.team.kills);
   result.damageDealtToTakenRatio =
     participant.stats.totalDamageDealtToChampions /
     Math.max(1.0, participant.stats.totalDamageTaken);
@@ -92,37 +88,43 @@ function getAdditionalParticipantStats({
     Math.max(participant.stats.deaths, 1);
   result.longestTimeSpentLiving = participant.stats.longestTimeSpentLiving || gameDuration;
   result.leastDeaths =
-    participant.stats.deaths <= Math.min(...others.map(other => other.stats.deaths));
+    participant.stats.deaths <= Math.min(...participant.others.map(other => other.stats.deaths));
   result.mostDeaths =
-    participant.stats.deaths >= Math.max(...others.map(other => other.stats.deaths));
+    participant.stats.deaths >= Math.max(...participant.others.map(other => other.stats.deaths));
   result.mostCS =
     participant.stats.totalMinionsKilled >=
-    Math.max(...others.map(other => other.stats.totalMinionsKilled));
+    Math.max(...participant.others.map(other => other.stats.totalMinionsKilled));
   //the +1 in next line doesnt really change the result and is an easy way to avoid division by zero.
   result.mostDamagePerGold =
     participant.stats.totalDamageDealtToChampions / (participant.stats.goldEarned + 1) >=
     Math.max(
-      ...others.map(other => other.stats.totalDamageDealtToChampions / (other.stats.goldEarned + 1))
+      ...participant.others.map(
+        other => other.stats.totalDamageDealtToChampions / (other.stats.goldEarned + 1)
+      )
     );
   result.mostDamage =
     participant.stats.totalDamageDealtToChampions >=
-    Math.max(...others.map(other => other.stats.totalDamageDealtToChampions));
+    Math.max(...participant.others.map(other => other.stats.totalDamageDealtToChampions));
   result.mostDestructs =
     participant.stats.inhibitorKills + participant.stats.turretKills >=
-    Math.max(...others.map(other => other.stats.inhibitorKills + other.stats.turretKills));
+    Math.max(
+      ...participant.others.map(other => other.stats.inhibitorKills + other.stats.turretKills)
+    );
   result.mostJnglCS =
     participant.stats.neutralMinionsKilledEnemyJungle >= maxEnemyJungleCsOthers &&
     participant.stats.neutralMinionsKilledTeamJungle >= maxTeamJungleCsOthers;
-  result.mostKills = participant.stats.kills >= Math.max(...others.map(other => other.stats.kills));
+  result.mostKills =
+    participant.stats.kills >= Math.max(...participant.others.map(other => other.stats.kills));
   result.mostKP =
     participant.stats.kills + participant.stats.assists >=
-    Math.max(...others.map(other => other.stats.kills + other.stats.assists));
+    Math.max(...participant.others.map(other => other.stats.kills + other.stats.assists));
   result.mostVisionScore =
-    participant.stats.visionScore > Math.max(...others.map(other => other.stats.visionScore));
+    participant.stats.visionScore >
+    Math.max(...participant.others.map(other => other.stats.visionScore));
   result.leastVisionScore =
     participant.stats.visionScore <
     Math.min(
-      ...others.map(other => {
+      ...participant.others.map(other => {
         return other.stats.visionScore;
       })
     );
@@ -139,26 +141,26 @@ function getOpponentsMatchStats(opponents) {
 
   return result;
 }
-export default function extendMatchStats(extendedMatchResult) {
-  const { participant, participants, teammates, team, others, opponents } = extendedMatchResult;
+export default function extendMatchStats(extendedMatchResult, participant) {
+  const { participants } = extendedMatchResult;
 
   // Extend team
-  const additionalTeamStats = getAdditionalTeamStats(teammates);
-  Object.assign(team, additionalTeamStats);
+  const additionalTeamStats = getAdditionalTeamStats(participant.team.participants);
+  Object.assign(participant.team, additionalTeamStats);
 
   // Extend participants match stats
   const participantsMatchStats = getParticipantsMatchStats(participants);
   Object.assign(extendedMatchResult, participantsMatchStats);
 
   // Extend others match stats
-  const othersMatchStats = getOthersMatchStats(others);
+  const othersMatchStats = getOthersMatchStats(participant.others);
   Object.assign(extendedMatchResult, othersMatchStats);
 
   // Extend participant
-  const additionalParticipantStats = getAdditionalParticipantStats(extendedMatchResult);
+  const additionalParticipantStats = getAdditionalParticipantStats(extendedMatchResult, participant);
   Object.assign(participant.stats, additionalParticipantStats);
 
   // Extend opponents match stats
-  const opponentsMatchStats = getOpponentsMatchStats(opponents);
+  const opponentsMatchStats = getOpponentsMatchStats(participant.opponentTeam.participants);
   Object.assign(extendedMatchResult, opponentsMatchStats);
 }

@@ -39,6 +39,25 @@ function extendMatchResult({
   );
   const extendedMatchResult = Object.assign({}, matchResult);
 
+  
+  //general match info
+  extendedMatchResult.isSummonersRift = extendedMatchResult.mapId === MAP_NAMES.SUMMONERS_RIFT;
+  extendedMatchResult.isModeClassic = extendedMatchResult.gameMode === 'CLASSIC';
+  extendedMatchResult.isMatchedGame = extendedMatchResult.gameType === 'MATCHED_GAME';
+  extendedMatchResult.teamThreshold = extendedMatchResult.participants.length / 2; // 3 for 3v3, 5 for 5v5
+
+  extendGeneralGroups(matchResult);
+
+  if(matchExtensionParameters.extendAllParticipants)
+  {
+    matchExtensionParameters.extendParticipants = matchResult.participants;
+
+   // extend participant groups for single participants
+  extendedMatchResult.participants.forEach(participant => {
+    extendParticipantGroups(participant.participantId, matchResult);
+  });
+  }
+  else{
   // Extend identity
   if (!extendedMatchResult.participantIdentity) {
     extendedMatchResult.participantIdentity = getParticipantIdentity({
@@ -52,19 +71,13 @@ function extendMatchResult({
       extendedMatchResult.participantIdentity.participantId
     );
   }
-
-  //general match info
-  extendedMatchResult.isSummonersRift = extendedMatchResult.mapId === MAP_NAMES.SUMMONERS_RIFT;
-  extendedMatchResult.isModeClassic = extendedMatchResult.gameMode === 'CLASSIC';
-  extendedMatchResult.isMatchedGame = extendedMatchResult.gameType === 'MATCHED_GAME';
-  extendedMatchResult.teamThreshold = extendedMatchResult.participants.length / 2; // 3 for 3v3, 5 for 5v5
-
-  extendGeneralGroups(matchResult);
   // extend participant groups for single participants
   matchExtensionParameters.extendStatsParticipantIds.forEach(id => {
     const participant = extendParticipantGroups(id, matchResult);
     matchExtensionParameters.extendParticipants.push(participant);
   });
+  }
+  
   //TODO: change obtainedCheck
   extendedMatchResult.participant = matchExtensionParameters.extendParticipants[0];
   extendedMatchResult.team = extendedMatchResult.participant.team;
@@ -79,14 +92,17 @@ function extendMatchResult({
 
   extendTeamsMatchStats(extendedMatchResult);
 
+  if(!matchExtensionParameters.extendAllParticipants)
+  {
   // Extend partitioned participants (participant, others, opponents, ...)
   const partitionedParticipants = getPartitionedParticipants(
     extendedMatchResult.participant.participantId,
     extendedMatchResult
   );
   Object.assign(extendedMatchResult, partitionedParticipants);
-
-  extendMatchStats(extendedMatchResult);
+  }
+ matchExtensionParameters.extendParticipants.forEach(p =>
+  extendMatchStats(extendedMatchResult, p));
   if (matchExtensionParameters.withTimeline) {
     extendTeamTimelineStats(extendedMatchResult.teams[0]);
     extendTeamTimelineStats(extendedMatchResult.teams[1]);
