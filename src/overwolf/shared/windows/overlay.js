@@ -10,7 +10,7 @@ const setOverlayUrl = summonerInfo => {
     const parsed = JSON.parse(summonerInfo);
 
     if (parsed && parsed.region && parsed.summonerName) {
-      src += `/${parsed.region}/${parsed.summonerName}`;
+      src += `/${parsed.region}/${encodeURI(parsed.summonerName)}`;
     }
   }
   document.getElementById('app').src = src;

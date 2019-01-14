@@ -36,6 +36,9 @@ const getMatchList = ({
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
   const { platformId, accountId, championId, beginTime, endIndex, queueId, version }: any = parse(
     req.url,
     true

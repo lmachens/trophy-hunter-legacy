@@ -17,7 +17,9 @@ const getTimeline = ({ platformId, matchId }) => {
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
-  console.log(`Timeline ${req.url}`);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
   const { platformId, matchId }: any = parse(req.url, true).query;
   if (!platformId || !matchId) {
     res.writeHead(400);

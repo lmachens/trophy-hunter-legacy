@@ -18,10 +18,15 @@ const isIngame = async ({ userId, platformId, summonerId }) => {
   if (!activeGameSession) {
     isIngame = false;
   } else {
-    const currentGame = await getActiveGame({
-      platformId,
-      summonerId
-    });
+    let currentGame;
+    try {
+      currentGame = await getActiveGame({
+        platformId,
+        summonerId
+      });
+    } catch (error) {
+      currentGame = null;
+    }
     // Check if there is a current game and it is the same as in activeGameSession
     if (
       !currentGame ||

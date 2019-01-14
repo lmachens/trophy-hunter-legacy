@@ -17,6 +17,9 @@ const getActiveGame = ({ platformId, summonerId, version = 'v4' }) => {
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
   const { platformId, summonerId, version }: any = parse(req.url, true).query;
   if (!platformId || !summonerId) {
     res.writeHead(400);
