@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.0.1] - 2019-01-12
 ### Fixed
 - Fixed trophy search by name.
 - Fixed LAS region support.
