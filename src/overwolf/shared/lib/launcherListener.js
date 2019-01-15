@@ -201,7 +201,7 @@ class LauncherListener {
     };
   };
 
-  handleLeagueClientLog = async (status, data) => {
+  handleLeagueClientLog = (status, data) => {
     if (!status) {
       return console.log(
         'handleLeagueClientLog',
@@ -210,11 +210,7 @@ class LauncherListener {
       );
     }
     if (/LOGIN_HIDE_EVENT/.test(data)) {
-      const summonerInfo = await this.getSummonerInfo();
-      this.setState({
-        loggedIn: true,
-        summonerInfo
-      });
+      this.getSummonerInfo();
     }
   };
 
@@ -223,15 +219,19 @@ class LauncherListener {
     if (regionLocale && regionLocale.code === 200) {
       const summoner = await this.fetch('lol-summoner/v1/current-summoner');
       if (summoner && summoner.code === 200 && summoner.body.displayName) {
-        return {
-          accountId: summoner.body.accountId,
-          summonerId: summoner.body.summonerId,
-          region: regionLocale.body.region,
-          locale: regionLocale.body.locale,
-          summonerName: summoner.body.displayName
-        };
+        this.setState({
+          loggedIn: true,
+          summonerInfo: {
+            accountId: summoner.body.accountId,
+            summonerId: summoner.body.summonerId,
+            region: regionLocale.body.region,
+            locale: regionLocale.body.locale,
+            summonerName: summoner.body.displayName
+          }
+        });
       } else {
         console.log(`Can not fetch summoner ${JSON.stringify(summoner)}`);
+        setTimeout(this.getSummonerInfo, 2000);
       }
     } else {
       console.log(`Can not fetch region ${JSON.stringify(regionLocale)}`);
@@ -294,14 +294,10 @@ class LauncherListener {
     }
   };
 
-  processLogLine = async line => {
+  processLogLine = line => {
     const champSelect = this.getChampSelect(line);
     if (/LOGIN_HIDE_EVENT/.test(line)) {
-      const summonerInfo = await this.getSummonerInfo();
-      this.setState({
-        loggedIn: true,
-        summonerInfo
-      });
+      this.getSummonerInfo();
     } else if (champSelect) {
       //console.log('champSelect');
       this.setState({
