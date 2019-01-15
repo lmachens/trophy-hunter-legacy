@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import endpoints from '/imports/api/riot-api/endpoints';
+import { getPlatformIdByRegion } from '/imports/shared/th-api/index.ts';
 
 export default class Overwolf {
   constructor(props) {
@@ -60,12 +60,13 @@ export default class Overwolf {
 
   login({ region, summonerName, overwolfUser }) {
     region = region.toUpperCase();
-    const endpoint = endpoints.find(endpoint => endpoint.region === region);
-
-    if (region === 'PBE') {
-      throw new Meteor.Error('Error', 'Public Beta Environment is not supported');
-    }
-    if (!endpoint) {
+    try {
+      const endpoint = getPlatformIdByRegion(region);
+      console.log(`Use ${endpoint} platform`);
+    } catch (error) {
+      if (region === 'PBE') {
+        throw new Meteor.Error('Error', 'Public Beta Environment is not supported');
+      }
       Meteor.call('sendToSlack', {
         username: 'Region Alert',
         icon_emoji: ':information_source:',
