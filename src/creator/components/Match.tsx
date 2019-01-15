@@ -7,6 +7,19 @@ import calculateTrophies from '../shared/trophies/calculateTrophies';
 
 const DynamicJSONEditor = dynamic<JSONEditorProps>(import('./JSONEditor') as any, { ssr: false });
 
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%'
+  },
+  views: {
+    flex: 1,
+    display: 'flex',
+    height: '100%'
+  }
+};
+
 const matchKey = 'th-creator-match';
 let lastMatch;
 try {
@@ -57,15 +70,18 @@ const Match = () => {
   };
 
   return (
-    <div>
+    // @ts-ignore
+    <div style={styles.container}>
       <LoadMatch onLoad={handleLoad} />
-      <DynamicJSONEditor
-        json={match}
-        onValidate={handleValidate}
-        mode="code"
-        onChangeText={handleChangeText}
-      />
-      <DynamicJSONEditor json={participants} mode="tree" />
+      <div style={styles.views}>
+        <DynamicJSONEditor
+          json={match}
+          onValidate={handleValidate}
+          mode="code"
+          onChangeText={handleChangeText}
+        />
+        <DynamicJSONEditor json={participants} mode="tree" />
+      </div>
     </div>
   );
 };
