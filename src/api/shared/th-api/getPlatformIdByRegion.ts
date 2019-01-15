@@ -6,6 +6,7 @@ const regionToPlatformId = {
   kr: 'kr',
   lan: 'la1',
   las: 'la2',
+  na: 'na1',
   oce: 'oc1',
   tr: 'tr1',
   ru: 'ru',
@@ -13,9 +14,15 @@ const regionToPlatformId = {
   global: 'global'
 };
 
+const allPlatformIds = Object.values(regionToPlatformId);
+
 const getPlatformIdByRegion = region => {
   const lowerCaseRegion = region.toLowerCase();
-  return regionToPlatformId[lowerCaseRegion] || lowerCaseRegion;
+  const platformId = regionToPlatformId[lowerCaseRegion] || lowerCaseRegion;
+  if (allPlatformIds.includes(platformId)) {
+    return platformId;
+  }
+  throw `Region ${region} not supported`;
 };
 
 export default getPlatformIdByRegion;

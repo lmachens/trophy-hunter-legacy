@@ -3,5 +3,5 @@ database/
 **/node_modules/*
 **/packages/*
 **/dist/*
-overwolf/src/shared/*
+**/overwolf/shared/*
 build

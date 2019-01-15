@@ -1,4 +1,5 @@
 import '/imports/api/timestampedCollection';
+import '/imports/api/alerts/server/methods';
 import '/imports/api/game-sessions/gameSessions';
 import '/imports/api/game-sessions/server/publications';
 import '/imports/api/game-sessions/server/methods';

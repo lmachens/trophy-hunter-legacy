@@ -1,0 +1,157 @@
+{
+  "manifest_version": 1,
+  "type": "WebApp",
+  "meta": {
+    "name": "Trophy Hunter (dev)",
+    "version": "3.0.1",
+    "minimum-overwolf-version": "0.108.209.0",
+    "author": "Trophy Hunter",
+    "icon": "src/assets/IconMouseOver.png",
+    "icon_gray": "src/assets/IconMouseNormal.png",
+    "description": "Earn trophies for playing League of Legends.",
+    "launcher_icon": "src/assets/TrophyHunter.ico"
+  },
+  "permissions": ["DesktopStreaming", "Extensions", "Streaming", "Profile", "GameInfo", "Hotkeys"],
+  "protocol_override_domains": {
+    "googlesyndication": "http"
+  },
+  "data": {
+    "game_targeting": {
+      "type": "dedicated",
+      "game_ids": [5426]
+    },
+    "extra-objects": {
+      "lol-start-plugin": {
+        "file": "src/plugins/lol-start-plugin.dll",
+        "class": "lol_start_plugin.lol_start"
+      },
+      "simple-io-plugin": {
+        "file": "src/plugins/simple-io-plugin.dll",
+        "class": "overwolf.plugins.SimpleIOPlugin"
+      },
+      "http-request-plugin": {
+        "file": "src/plugins/http_request.dll",
+        "class": "com.overwolf.net.HttpRequest"
+      }
+    },
+    "protocol_override_domains": {
+      "googlesyndication": "http"
+    },
+    "externally_connectable": {
+      "matches": [
+        "http://localhost:3000",
+        "https://loltrophyhunter.com/",
+        "https://*.loltrophyhunter.com/",
+        "https://fonts.googleapis.com",
+        "https://ddragon.leagueoflegends.com",
+        "https://www.patreon.com",
+        "https://cl1.widgetbot.io",
+        "https://widgetbot.io"
+      ]
+    },
+    "start_window": "ControllerWindow",
+    "windows": {
+      "ControllerWindow": {
+        "file": "src/windows/controller.html",
+        "min_size": {
+          "width": 0,
+          "height": 0
+        },
+        "max_size": {
+          "width": 0,
+          "height": 0
+        },
+        "size": {
+          "width": 0,
+          "height": 0
+        },
+        "start_position": {
+          "top": 0,
+          "left": 0
+        },
+        "transparent": true,
+        "clickthrough": true,
+        "show_in_taskbar": false,
+        "desktop_only": true,
+        "grab_keyboard_focus": false,
+        "grab_focus_on_desktop": false
+      },
+      "MainWindow": {
+        "file": "src/windows/index.html",
+        "transparent": true,
+        "resizable": false,
+        "show_in_taskbar": true,
+        "keep_window_location": true,
+        "in_game_only": false,
+        "desktop_only": true,
+        "native_window": true,
+        "use_os_windowing": true,
+        "popup_blocker": true,
+        "min_size": {
+          "width": 1222,
+          "height": 720
+        },
+        "max_size": {
+          "width": 1222,
+          "height": 720
+        },
+        "size": {
+          "width": 1222,
+          "height": 720
+        },
+        "block_top_window_navigation": true,
+        "mute": true,
+        "enable_top_isolation": true
+      },
+      "OverlayWindow": {
+        "file": "src/windows/overlay.html",
+        "disable_restore_animation": true,
+        "transparent": true,
+        "resizable": false,
+        "show_in_taskbar": false,
+        "keep_window_location": false,
+        "in_game_only": true,
+        "desktop_only": false,
+        "use_os_windowing": false,
+        "clickthrough": false,
+        "topmost": false,
+        "popup_blocker": true,
+        "min_size": {
+          "width": 1222,
+          "height": 720
+        },
+        "max_size": {
+          "width": 1222,
+          "height": 720
+        },
+        "size": {
+          "width": 1222,
+          "height": 720
+        },
+        "start_position": {
+          "top": 100,
+          "left": 100
+        },
+        "block_top_window_navigation": true,
+        "mute": true,
+        "enable_top_isolation": true
+      }
+    },
+    "hotkeys": {
+      "trophy_hunter_overlay_dev": {
+        "title": "Show Overlay",
+        "action-type": "custom",
+        "default": "Shift+F3"
+      }
+    },
+    "launch_events": [
+      {
+        "event": "GameLaunch",
+        "event_data": {
+          "game_ids": [5426, 10902]
+        },
+        "start_minimized": true
+      }
+    ]
+  }
+}

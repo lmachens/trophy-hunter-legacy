@@ -27,6 +27,10 @@ export const register = ({ name }) => {
     const now = new Date();
     ServerStats.update({ name }, { $set: { connections: count, updatedAt: now } });
   }, 60000);
+
+  process.on('exit', () => {
+    ServerStats.remove({ name });
+  });
 };
 
 export const removeDead = () => {

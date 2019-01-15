@@ -11,7 +11,7 @@ import {
 import LiveMatch from './LiveMatch';
 import React from 'react';
 import { store } from '../../../store/store';
-import { storiesOf } from '@storybook/react';
+import { storiesOf } from '@storybook/react'; // eslint-disable-line
 
 storiesOf('Components', module).add('LiveMatch', () => {
   const firstTeam = [
@@ -313,7 +313,7 @@ storiesOf('Components', module).add('LiveMatch', () => {
     })
   );
   const summonerIds = [...firstTeam, ...secondTeam].map(participant => participant.summonerId);
-  const playedTogetherIdentifier = `EUW1-${summonerIds.join('.')}`;
+  const playedTogetherIdentifier = `EUW1&${summonerIds.join('.')}`;
   store.dispatch(
     receivePlayedTogether(playedTogetherIdentifier, {
       [firstTeam[0].summonerId]: {
@@ -329,10 +329,11 @@ storiesOf('Components', module).add('LiveMatch', () => {
     })
   );
   store.dispatch(
-    receiveParticipantPerformance(`EUW1-${firstTeam[0].summonerId}-${firstTeam[0].championId}`, {
+    receiveParticipantPerformance(`EUW1&${firstTeam[0].summonerId}&${firstTeam[0].championId}`, {
       leaguePositions: [{ queueType: 'RANKED_SOLO_5x5', tier: 'diamond', rank: 'V' }],
       stats: { championGames: 123, losses: 23, wins: 100 },
       trophyHunter: {
+        s9Rank: 12,
         seasonRank: 22,
         rank: 43
       },
@@ -343,7 +344,7 @@ storiesOf('Components', module).add('LiveMatch', () => {
     })
   );
   store.dispatch(
-    receiveParticipantPerformance(`EUW1-${secondTeam[0].summonerId}-${secondTeam[0].championId}`, {
+    receiveParticipantPerformance(`EUW1&${secondTeam[0].summonerId}&${secondTeam[0].championId}`, {
       leaguePositions: [{ queueType: 'RANKED_SOLO_5x5', tier: 'gold', rank: 'II' }],
       championMastery: {
         championLevel: 4
@@ -353,7 +354,7 @@ storiesOf('Components', module).add('LiveMatch', () => {
   );
   store.dispatch(
     receiveParticipantHeatmap(
-      `EUW1-${mapTarget.summonerId}-${mapTarget.championId}-JUNGLE-${liveMatch.mapId}`,
+      `EUW1&${mapTarget.summonerId}&${mapTarget.championId}&JUNGLE&${liveMatch.mapId}`,
       {
         framesByTeamId: {
           100: [
@@ -595,9 +596,9 @@ storiesOf('Components', module).add('LiveMatch', () => {
 
   store.dispatch(
     receiveMatchupStats({
-      identifier: `${liveMatch.firstTeamTarget.championId}-${
+      identifier: `${liveMatch.firstTeamTarget.championId}&${
         liveMatch.secondTeamTarget.championId
-      }-${liveMatch.firstTeamTarget.role}`,
+      }&${liveMatch.firstTeamTarget.role}`,
       stats: {
         champ1Id: 69,
         champ2Id: 266,
@@ -646,9 +647,9 @@ storiesOf('Components', module).add('LiveMatch', () => {
 
   store.dispatch(
     receiveMatchupMatches({
-      identifier: `${liveMatch.firstTeamTarget.championId}-${
+      identifier: `${liveMatch.firstTeamTarget.championId}&${
         liveMatch.secondTeamTarget.championId
-      }-${liveMatch.mapId}`,
+      }&${liveMatch.mapId}`,
       matches: [
         {
           participant1: {

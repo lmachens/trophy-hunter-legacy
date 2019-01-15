@@ -39,6 +39,9 @@ const getGameSessions = async ({ mapId, champ1Id, champ2Id }) => {
 };
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
   const { champ1Id: champ1IdString, champ2Id: champ2IdString, mapId: mapIdString }: any = parse(
     req.url,
     true
@@ -56,8 +59,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     const matchPromises = gameSessions.map(gameSession =>
       getMatch({
         platformId: gameSession.game.platformId,
-        matchId: gameSession.game.gameId,
-        version: 'v4'
+        matchId: gameSession.game.gameId
       })
     );
     axios
@@ -92,7 +94,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
       })
       .catch(error => {
         if (!error.response) {
-          console.log(error);
+          console.log(error.message);
           error.response = {
             status: 400,
             statusText: 'Internal error'

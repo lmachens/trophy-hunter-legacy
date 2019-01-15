@@ -82,7 +82,7 @@ class AllTrophies extends Component {
     if (onlyQuests) {
       filteredTrophies = getActiveQuestTrophies(trophyHunter);
     } else if (name) {
-      const regExp = new RegExp(escapeStringRegexp(name), 'gi');
+      const regExp = new RegExp(escapeStringRegexp(name), 'i');
       filteredTrophies = Object.values(trophies).filter(trophy => {
         return regExp.test(trophy.name) || regExp.test(trophy.description);
       });

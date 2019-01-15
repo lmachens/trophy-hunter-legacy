@@ -64,12 +64,16 @@ class Match extends Component {
     }
   }
 
-  updateMatchWithTimeline({ matchId, platformId, summonerId }) {
+  updateMatchWithTimeline({ matchId, platformId, summonerId, summonerName }) {
     matchId = parseInt(matchId);
-    summonerId = parseInt(summonerId);
+    summonerId = parseInt(summonerId) || summonerId;
     Meteor.call('getMatchWithTimeline', matchId, platformId, (error, result) => {
       if (result) {
-        const extendedMatchResult = extendMatchResult(result, summonerId);
+        const extendedMatchResult = extendMatchResult({
+          matchResult: result,
+          summonerId,
+          summonerName
+        });
 
         this.setState({
           matchWithTimeline: result,
@@ -121,10 +125,11 @@ class Match extends Component {
     const participantIdenty = extendedMatchResult.participantIdentities.find(identity => {
       return identity.participantId === participantId;
     });
-    const newExtendedMatchResult = extendMatchResult(
-      matchWithTimeline,
-      participantIdenty.player.summonerId
-    );
+    const newExtendedMatchResult = extendMatchResult({
+      matchResult: matchWithTimeline,
+      summonerId: participantIdenty.player.summonerId,
+      summonerName: participantIdenty.player.summonerName
+    });
     this.setState({
       extendedMatchResult: newExtendedMatchResult
     });
@@ -136,7 +141,7 @@ class Match extends Component {
   };
 
   renderMatch() {
-    const { summonerId } = this.props;
+    const { summonerName } = this.props;
     const { extendedMatchResult, matchWithTimeline, noData } = this.state;
 
     return (
@@ -150,7 +155,7 @@ class Match extends Component {
               window.open(
                 `https://www.loltrophyhunter.com/match/${matchWithTimeline.platformId}/${
                   matchWithTimeline.gameId
-                }/${summonerId}`
+                }/${summonerName}`
               )
             }
             style={styles.viewOnWeb}
@@ -223,7 +228,7 @@ class Match extends Component {
 Match.propTypes = {
   platformId: PropTypes.string.isRequired,
   matchId: PropTypes.string.isRequired,
-  summonerId: PropTypes.string.isRequired
+  summonerName: PropTypes.string.isRequired
 };
 
 export default Match;

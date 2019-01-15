@@ -96,20 +96,28 @@ async function cleanup(job, cb) {
           return console.log(gameSession._id);
         }
         const platformId = getPlatformIdByRegion(trophyHunter.region);
-        const currentGame = await getActiveGame({
-          platformId,
-          summonerId: trophyHunter.summonerId
-        });
-        // Check if there is a current game and it is the same as in activeGameSession
-        if (!currentGame || !gameSession.game || gameSession.game.gameId != currentGame.gameId) {
-          console.log('cleanup'.blue, trophyHunter.summonerName.magenta, 'setMatchEnd');
-          oldMatchesInProgress++;
-          gameSession.setMatchEnd(false, trophyHunter.userId);
+        try {
+          const currentGame = await getActiveGame({
+            platformId,
+            summonerId: trophyHunter.summonerId
+          });
+          // Check if there is a current game and it is the same as in activeGameSession
+          if (!currentGame || !gameSession.game || gameSession.game.gameId != currentGame.gameId) {
+            console.log('cleanup'.blue, trophyHunter.summonerName.magenta, 'setMatchEnd');
+            oldMatchesInProgress++;
+            gameSession.setMatchEnd(false);
+          }
+        } catch (error) {
+          console.error(error.message);
         }
         resolve();
       });
     });
-  await Promise.all(promises);
+  try {
+    await Promise.all(promises);
+  } catch (error) {
+    console.error(error.message);
+  }
 
   const removedSummonerStats = SummonerStats.remove({
     updatedAt: {

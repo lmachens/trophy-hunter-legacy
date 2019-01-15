@@ -24,9 +24,10 @@ GameSessions.deny({
 GameSessions.schema = new SimpleSchema({
   _id: { type: String, regEx: SimpleSchema.RegEx.Id },
   userId: { type: String, regEx: SimpleSchema.RegEx.Id },
-  accountId: { type: SimpleSchema.Integer },
+  summonerName: { type: String },
+  accountId: { type: SimpleSchema.oneOf(String, SimpleSchema.Integer) },
   region: { type: String },
-  summonerId: { type: Number },
+  summonerId: { type: SimpleSchema.oneOf(String, Number) },
   checkedStatus: { type: String }, // matchInProgress, pending, failed, checked
   game: { type: Object, blackbox: true, optional: true },
   championId: { type: Number },

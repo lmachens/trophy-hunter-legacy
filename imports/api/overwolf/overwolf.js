@@ -1,6 +1,6 @@
-import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
-import endpoints from '/imports/api/riot-api/endpoints';
+import { Accounts } from 'meteor/accounts-base';
+import { getPlatformIdByRegion } from '/imports/shared/th-api/index.ts';
 
 export default class Overwolf {
   constructor(props) {
@@ -58,80 +58,52 @@ export default class Overwolf {
     this.messageListeners[event].push(callback);
   }
 
-  loginOrCreateUser({ user, region, overwolfUser }) {
-    console.log(`loginOrCreateUser ${JSON.stringify(user)}`, overwolfUser);
-
-    Meteor.loginWithPassword(user.username, user.password, error => {
-      if (error) {
-        if (error.reason === 'User not found') {
-          // if user does not exists -> create a user
-          Accounts.createUser(
-            {
-              username: user.username,
-              password: user.password,
-              summonerName: user.summonerName,
-              region,
-              overwolfUser
-            },
-            error => {
-              if (error) {
-                throw new Meteor.Error('login', 'can not create an account', error);
-              }
-              parent.window.postMessage(
-                {
-                  overwolf: true,
-                  type: 'showHelp'
-                },
-                '*'
-              );
-            }
-          );
-        } else {
-          throw new Meteor.Error('login', 'can not login', error);
-        }
-      } else {
-        Meteor.call('updateOverwolfUser', overwolfUser);
-      }
-    });
-  }
-
-  login({ region, accountId, overwolfUser }) {
+  login({ region, summonerName, overwolfUser }) {
     region = region.toUpperCase();
-    const endpoint = endpoints.find(endpoint => endpoint.region === region);
-
-    if (region === 'PBE') {
-      throw new Meteor.Error('Error', 'Public Beta Environment is not supported');
-    }
-    if (!endpoint) {
-      throw new Meteor.Error('Error', 'Your region is not supported');
-    }
-
-    Meteor.call('getMeteorUser', { accountId, region }, (error, user) => {
-      if (error || !user) {
-        throw new Meteor.Error('Error', `Can not find user for ${accountId} in ${region}`);
+    try {
+      const endpoint = getPlatformIdByRegion(region);
+      console.log(`Use ${endpoint} platform`);
+    } catch (error) {
+      if (region === 'PBE') {
+        throw new Meteor.Error('Error', 'Public Beta Environment is not supported');
       }
-      // check if the username has changed
-      const currentUser = Meteor.user();
-      if (currentUser && currentUser.username !== user.username) {
-        // logout first
-        Meteor.logout(error => {
-          if (error) {
-            console.log('logout error:', error);
-          }
-          this.loginOrCreateUser({
-            user,
-            region,
-            overwolfUser
+      Meteor.call('sendToSlack', {
+        username: 'Region Alert',
+        icon_emoji: ':information_source:',
+        text: `Region ${region} not found`
+      });
+      throw new Meteor.Error(
+        'Error',
+        `Region ${region} is not supported. We will try to support it as soon as possible.`
+      );
+    }
+
+    const serverVersion = Meteor.settings && Meteor.settings.public.version;
+
+    Meteor.call(
+      'loginTrophyHunter',
+      { region, summonerName, overwolfUser, serverVersion },
+      (error, result) => {
+        if (error) {
+          throw new Meteor.Error('Error', `Can not find ${summonerName} in ${region}`);
+        }
+        if (Meteor.userId() !== result.userId) {
+          Accounts.callLoginMethod({
+            methodArguments: [{ userId: result.userId }],
+            userCallback: () => this.setStatus(result.isIngame)
           });
-        });
-      } else if (!currentUser) {
-        // try to login
-        this.loginOrCreateUser({ user, region, overwolfUser });
-      } else {
-        Meteor.call('updateOverwolfUser', overwolfUser);
+        }
       }
-    });
+    );
   }
+
+  setStatus = isIngame => {
+    if (isIngame) {
+      Meteor.call('UserPresence:setDefaultStatus', 'ingame');
+    } else {
+      Meteor.call('UserPresence:setDefaultStatus', 'online');
+    }
+  };
 
   startMatch() {
     console.log('startMatch');

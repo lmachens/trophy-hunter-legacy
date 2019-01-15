@@ -3,6 +3,7 @@ import './jobs';
 import '../../server/admin';
 import '../../server/mongo';
 import '../../server/process';
+import '../../server/login';
 
 import { InstanceStatus } from 'meteor/lmachens:multiple-instances-status';
 import { Meteor } from 'meteor/meteor';

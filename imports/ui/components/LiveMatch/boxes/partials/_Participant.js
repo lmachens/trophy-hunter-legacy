@@ -353,7 +353,7 @@ const mapStateToProps = (
   },
   { participant }
 ) => {
-  const identifier = `${platformId}-${participant.summonerId}-${participant.championId}`;
+  const identifier = `${platformId}&${participant.summonerId}&${participant.championId}`;
   const participantPerformance = participantsPerformanceByParticipant[identifier] || {};
   const leaguePositions = participantPerformance.leaguePositions || [];
   const stats = participantPerformance.stats || {};
@@ -362,7 +362,7 @@ const mapStateToProps = (
 
   const participants = [...firstTeam, ...secondTeam];
   const summonerIds = participants.map(participant => participant.summonerId);
-  const playedTogetherIdentifier = `${platformId}-${summonerIds.join('.')}`;
+  const playedTogetherIdentifier = `${platformId}&${summonerIds.join('|')}`;
   const playedTogether = playedTogetherBySummonerIds[playedTogetherIdentifier] || {};
   const badges = generateBadgesByParticipantPerformance({
     participantPerformance,

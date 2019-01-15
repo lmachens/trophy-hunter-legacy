@@ -36,11 +36,19 @@ class RecentMatch extends Component {
     ) {
       if (!getSetting({ settings }, 'matchResults', 'avoidOpenWhenAnalysed')) {
         console.log('open analysed match');
-        history.push(
-          `/match/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${
-            recentMatch.summonerId
-          }`
-        );
+        if (recentMatch.summonerName) {
+          history.push(
+            `/game/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${
+              recentMatch.summonerName
+            }`
+          );
+        } else {
+          history.push(
+            `/match/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${
+              recentMatch.summonerId
+            }`
+          );
+        }
       } else {
         console.log('do not open analysed match');
       }
@@ -76,9 +84,21 @@ class RecentMatch extends Component {
         styles.background
       );
     }
-    const link = recentMatch
-      ? `/match/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${recentMatch.summonerId}`
-      : location.pathname;
+    let link;
+    if (recentMatch) {
+      if (recentMatch.summonerName) {
+        link = `/game/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${
+          recentMatch.summonerName
+        }`;
+      } else {
+        link = `/match/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${
+          recentMatch.summonerId
+        }`;
+      }
+    } else {
+      link = location.pathname;
+    }
+
     return (
       <Link onClick={this.handleClick} to={link}>
         <HoverableBorder

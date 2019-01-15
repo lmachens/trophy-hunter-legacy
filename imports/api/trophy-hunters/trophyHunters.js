@@ -38,13 +38,17 @@ TrophyHunters.schema = new SimpleSchema({
   summonerName: { type: String },
   summonerLevel: { type: Number },
   profileIconId: { type: Number },
-  accountId: { type: SimpleSchema.Integer },
-  summonerId: { type: SimpleSchema.Integer },
+  puuid: { type: String },
+  revisionDate: { type: SimpleSchema.Integer },
+  accountId: { type: SimpleSchema.oneOf(String, SimpleSchema.Integer) },
+  summonerId: { type: SimpleSchema.oneOf(String, SimpleSchema.Integer) },
   region: { type: String },
   rank: { type: Number, optional: true },
   score: { type: Number },
+  s9Rank: { type: Number, optional: true },
   seasonRank: { type: Number, optional: true },
-  seasonScore: { type: Number },
+  s9Score: { type: Number },
+  seasonScore: { type: Number, optional: true },
   tournamentRank: { type: Number, optional: true },
   tournamentScore: { type: Number, optional: true },
   trophyPoints: { type: Number },
@@ -97,7 +101,9 @@ TrophyHunters.publicFields = {
   region: 1,
   rank: 1,
   score: 1,
+  s9Rank: 1,
   seasonRank: 1,
+  s9Score: 1,
   seasonScore: 1,
   tournamentRank: 1,
   tournamentScore: 1,
@@ -127,7 +133,9 @@ TrophyHunters.paginationFields = {
   'items.patreon.badge': 1,
   rank: 1,
   score: 1,
+  s9Rank: 1,
   seasonRank: 1,
+  s9Score: 1,
   seasonScore: 1,
   tournamentRank: 1,
   tournamentScore: 1,
@@ -148,6 +156,7 @@ if (Meteor.isServer) {
       region: 1,
       'items.twitch.visible': 1,
       'items.youTube.visible': 1,
+      s9Rank: 1,
       seasonRank: 1
     },
     { background: true }
@@ -165,6 +174,14 @@ if (Meteor.isServer) {
   );
   rawCollection.createIndex(
     {
+      s9Rank: 1,
+      'items.twitch.visible': 1,
+      'items.youTube.visible': 1
+    },
+    { background: true }
+  );
+  rawCollection.createIndex(
+    {
       seasonRank: 1,
       'items.twitch.visible': 1,
       'items.youTube.visible': 1
@@ -173,16 +190,21 @@ if (Meteor.isServer) {
   );
   rawCollection.createIndex({ status: 1, 'channels.name': 1 }, { background: true });
   rawCollection.createIndex({ rank: 1 }, { background: true });
+  rawCollection.createIndex({ s9Rank: 1 }, { background: true });
   rawCollection.createIndex({ seasonRank: 1 }, { background: true });
+  rawCollection.createIndex({ region: 1, s9Rank: 1 }, { background: true });
   rawCollection.createIndex({ region: 1, seasonRank: 1 }, { background: true });
   rawCollection.createIndex({ accountId: 1, region: 1 }, { background: true });
   rawCollection.createIndex({ friends: 1 }, { background: true });
+  rawCollection.createIndex({ summonerName: 1, s9Rank: 1 }, { background: true });
   rawCollection.createIndex({ summonerName: 1, seasonRank: 1 }, { background: true });
+  rawCollection.createIndex({ region: 1, summonerName: 1, s9Rank: 1 }, { background: true });
   rawCollection.createIndex({ region: 1, summonerName: 1, seasonRank: 1 }, { background: true });
   rawCollection.createIndex({ region: 1, summonerName: 1, rank: 1 }, { background: true });
   rawCollection.createIndex({ lastLogin: 1 }, { background: true });
   rawCollection.createIndex({ treeTrophyNamesObtained: 1 }, { background: true });
   rawCollection.createIndex({ score: -1, rank: -1 }, { background: true });
+  rawCollection.createIndex({ s9Score: -1, s9Rank: -1 }, { background: true });
   rawCollection.createIndex({ seasonScore: -1, seasonRank: -1 }, { background: true });
   rawCollection.createIndex({ tournamentScore: -1, tournamentRank: -1 }, { background: true });
 }

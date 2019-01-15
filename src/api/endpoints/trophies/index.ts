@@ -6,8 +6,11 @@ import { IncomingMessage, ServerResponse } from 'http';
 import { getMatch, getTimeline } from '../../shared/th-api';
 
 export default (req: IncomingMessage, res: ServerResponse) => {
-  const { platformId, matchId, summonerId }: any = parse(req.url, true).query;
-  if (!platformId || !matchId || !summonerId) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
+  const { platformId, matchId, summonerName }: any = parse(req.url, true).query;
+  if (!platformId || !matchId || !summonerName) {
     res.writeHead(400);
     return res.end('Invalid query');
   }
@@ -20,7 +23,7 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     .then(
       axios.spread((match, timeline) => {
         match.timeline = timeline;
-        const extendedMatchResult = extendMatchResult(match, parseInt(summonerId), null);
+        const extendedMatchResult = extendMatchResult({ matchResult: match, summonerName });
         const trophiesObtained = calculateTrophies({ extendedMatchResult });
         const result = {
           data: trophiesObtained,

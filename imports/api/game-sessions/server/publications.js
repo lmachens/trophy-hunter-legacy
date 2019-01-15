@@ -10,6 +10,7 @@ const simpleFields = {
   'game.gameId': 1,
   'game.platformId': 1,
   'game.gameQueueConfigId': 1,
+  summonerName: 1,
   summonerId: 1,
   championId: 1,
   trophiesObtained: 1,
@@ -44,6 +45,7 @@ const publicFieldsMatchInProgress = {
   checkedStatus: 1,
   region: 1,
   accountId: 1,
+  summonerName: 1,
   summonerId: 1,
   'game.gameId': 1,
   'game.participants.teamId': 1,
@@ -62,11 +64,12 @@ const publicFieldsMatchInProgress = {
 
 Meteor.publish('gameSessions.private.recent', function(props = {}) {
   check(props, Object);
-  const { region, accountId, gameId } = props;
+  const { region, gameId, summonerName } = props;
   const query = {};
-  if (region && accountId) {
+  if (region && summonerName) {
     query.region = region;
-    query.accountId = accountId;
+    query.summonerName = summonerName;
+
     if (gameId) {
       query['game.gameId'] = gameId;
     }
@@ -76,6 +79,7 @@ Meteor.publish('gameSessions.private.recent', function(props = {}) {
       return this.ready();
     }
   }
+
   return GameSessions.find(query, {
     sort: { createdAt: -1 },
     limit: 1,

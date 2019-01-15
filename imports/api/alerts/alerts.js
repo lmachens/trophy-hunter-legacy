@@ -23,7 +23,6 @@ class Alerts {
       throw new Meteor.Error('settings', 'slack is empty');
     }
 
-    console.log('sendToSlack', data);
     const callOptions = {
       data
     };

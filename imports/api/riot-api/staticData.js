@@ -141,3 +141,6 @@ export const getSpectatorDomainAndPort = platformId => {
       };
   }
 };
+
+export const getLeagueImage = ({ tier, rank }) =>
+  `/images/leagues/${tier.toLowerCase()}_${rank.toLowerCase()}.png`;
