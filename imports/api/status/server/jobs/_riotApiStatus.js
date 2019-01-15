@@ -5,11 +5,11 @@ import { RiotApiStatus } from '../../collections';
 
 const apiUrl = 'https://querijn.codes/api_status/1.1/';
 const relevantEndpoints = [
-  'champion-mastery-v3',
-  'league-v3',
-  'match-v3',
-  'spectator-v3',
-  'summoner-v3'
+  'champion-mastery-v4',
+  'league-v4',
+  'match-v4',
+  'spectator-v4',
+  'summoner-v4'
 ];
 
 const refreshRiotApiStatus = (job, cb) => {
