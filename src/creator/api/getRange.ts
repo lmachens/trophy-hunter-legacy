@@ -1,4 +1,4 @@
-import RANGE from '/imports/shared/champions/range.ts';
+import RANGE from '../../api/shared/champions/range';
 
 const shapeshifters = ['Elise', 'Gnar', 'Kayle'];
 const getRange = ({ id, stats }) => {
