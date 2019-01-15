@@ -16,6 +16,9 @@ const styles: any = {
     flexDirection: 'column',
     height: '100%'
   },
+  actions: {
+    display: 'flex'
+  },
   views: {
     flex: 1,
     display: 'flex',
@@ -39,6 +42,9 @@ const handleChangeText = text => {
 };
 const Match = () => {
   const [match, setMatch] = useState(lastMatch);
+  const [platformId, setPlatformId] = useState('euw1');
+  const [matchId, setMatchId] = useState('3795861223');
+
   const [participants, setParticipants] = useState('Loading');
 
   useEffect(() => {}, []);
@@ -72,10 +78,22 @@ const Match = () => {
     handleChangeText(value);
   };
 
+  const handlePlatformIdChange = event => {
+    setPlatformId(event.target.value);
+  };
+
+  const handleMatchIdChange = event => {
+    setMatchId(event.target.value);
+  };
+
   return (
     <Page>
       <div style={styles.container}>
-        <LoadMatch onLoad={handleLoad} />
+        <div style={styles.actions}>
+          <input onChange={handlePlatformIdChange} value={platformId} placeholder="platform id" />
+          <input onChange={handleMatchIdChange} value={matchId} placeholder="match id" />
+          <LoadMatch onLoad={handleLoad} platformId={platformId} matchId={matchId} />
+        </div>
         <div style={styles.views}>
           <DynamicJSONEditor
             json={match}
