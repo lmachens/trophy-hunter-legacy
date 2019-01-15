@@ -31,7 +31,7 @@ function extendMatchResult({
     {},
     {
       withTimeline: true,
-      extendAllParticipants: true,
+      extendAllParticipants: false,
       extendStatsParticipantIds: [],
       extendParticipants: []
     },

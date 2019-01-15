@@ -29,14 +29,21 @@ const Match = () => {
 
   const handleValidate = json => {
     try {
-      const result = json.participantIdentities.reduce((result, participantIdentity) => {
-        const extendedMatchResult = extendMatchResult({
-          matchResult: json,
-          summonerName: participantIdentity.player.summonerName
-        });
-        const stats = extendedMatchResult.participant.stats;
+      const extendedMatchResult = extendMatchResult({
+        matchResult: json,
+        matchExtensionParameters: {
+          withTimeline: true,
+          extendAllParticipants: true,
+          extendStatsParticipantIds: [],
+          extendParticipants: []
+        }
+      });
+
+      const result = extendedMatchResult.participants.reduce((result, participant) => {
+        
+        const stats = participant.stats;
         const trophies = calculateTrophies({ extendedMatchResult });
-        result[participantIdentity.player.summonerName] = {
+        result[participant.participantId] = {
           stats,
           trophies
         };
