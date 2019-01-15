@@ -31,6 +31,11 @@ const endpoints = [
     host: 'la1.api.riotgames.com'
   },
   {
+    region: 'LA2',
+    platformId: 'LA2',
+    host: 'la2.api.riotgames.com'
+  },
+  {
     region: 'LAS',
     platformId: 'LA2',
     host: 'la2.api.riotgames.com'

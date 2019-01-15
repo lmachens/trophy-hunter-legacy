@@ -66,7 +66,15 @@ export default class Overwolf {
       throw new Meteor.Error('Error', 'Public Beta Environment is not supported');
     }
     if (!endpoint) {
-      throw new Meteor.Error('Error', 'Your region is not supported');
+      Meteor.call('sendToSlack', {
+        username: 'Region Alert',
+        icon_emoji: ':information_source:',
+        text: `Region ${region} not found`
+      });
+      throw new Meteor.Error(
+        'Error',
+        `Region ${region} is not supported. We will try to support it as soon as possible.`
+      );
     }
 
     const serverVersion = Meteor.settings && Meteor.settings.public.version;

@@ -1,5 +1,10 @@
 # Change Log
 
+## [3.0.1] - 2019-01-12
+### Fixed
+- Fixed trophy search by name.
+- Fixed LAS region support.
+
 ## [3.0.0] - 2019-01-12
 ### Added
 - Trophy Hunter Season 2019 started!
