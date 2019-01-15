@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "license": "GPL-3.0",
   "scripts": {
-    "build": "cross-env BABEL_ENV=development babel development -d ../dist/development --copy-files && cross-env BABEL_ENV=production babel production -d ../dist/production --copy-files"
+    "build": "cross-env BABEL_ENV=development babel development -d ../../dist/development --copy-files && cross-env BABEL_ENV=production babel production -d ../../dist/production --copy-files"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
