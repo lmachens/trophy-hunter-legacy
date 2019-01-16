@@ -1,9 +1,9 @@
 import React from 'react';
 import { getMatchWithTimeline } from '../shared/th-api';
 
-const LoadMatch = ({ onLoad }) => {
+const LoadMatch = ({ onLoad, platformId, matchId }) => {
   const handleClick = () => {
-    getMatchWithTimeline({ platformId: 'euw1', matchId: 3795861223 }).then(onLoad);
+    getMatchWithTimeline({ platformId, matchId }).then(onLoad);
   };
 
   return <button onClick={handleClick}>Load</button>;

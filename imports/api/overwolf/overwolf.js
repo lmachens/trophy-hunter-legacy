@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { getPlatformIdByRegion } from '/imports/shared/th-api/index.ts';
+import normalizeRegion from './normalizeRegion';
 
 export default class Overwolf {
   constructor(props) {
@@ -59,7 +60,7 @@ export default class Overwolf {
   }
 
   login({ region, summonerName, overwolfUser }) {
-    region = region.toUpperCase();
+    region = normalizeRegion(region);
     try {
       const endpoint = getPlatformIdByRegion(region);
       console.log(`Use ${endpoint} platform`);

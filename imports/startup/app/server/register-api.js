@@ -9,7 +9,6 @@ import '/imports/api/matches/server/methods';
 import '/imports/api/notifications/notifications';
 import '/imports/api/notifications/server/methods';
 import '/imports/api/notifications/server/publications';
-import '/imports/api/riot-api/server/riotApi';
 import '/imports/api/riot-api/server/methods';
 import '/imports/api/trophies/trophyStats';
 import '/imports/api/trophies/server/methods';
