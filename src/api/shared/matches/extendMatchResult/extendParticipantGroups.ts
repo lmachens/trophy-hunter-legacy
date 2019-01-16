@@ -8,7 +8,7 @@ export default function extendParticipantGroups(participantId, extendedMatchResu
     return team.teamId === participant.teamId;
   });
   participant.opponentTeam = extendedMatchResult.teams.find(team => {
-    return team.teamId != participant.teamId;
+    return team.teamId !== participant.teamId;
   });
 
   // Process participants

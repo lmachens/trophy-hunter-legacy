@@ -1,3 +1,4 @@
+import extendAllGroupMatchStats from './extendAllGroupMatchStats';
 import extendEvents from './extendEvents';
 import extendGeneralGroups from './extendGeneralGroups';
 import extendMatchStats from './extendMatchStats';
@@ -9,7 +10,6 @@ import extendTeamStats from './extendTeamStats';
 import extendTeamTimelineStats from './extendTeamTimelineStats';
 import getParticipantIdentity from './getParticipantIdentity';
 import getPartitionedParticipants from './getPartitionedParticipants';
-import extendAllGroupMatchStats from './extendAllGroupMatchStats';
 
 import { MAP_NAMES } from '../../riot-api/gameConstants';
 
@@ -47,16 +47,13 @@ function extendMatchResult({
   summonerName,
   matchExtensionParameters
 }: ExtendMatchResultProps) {
-  matchExtensionParameters = Object.assign(
-    {},
-    {
-      withTimeline: true,
-      extendStatsParticipantIds: [],
-      extendParticipants: []
-    },
-    matchExtensionParameters
-  );
-  const extendedMatchResult = Object.assign({}, matchResult);
+  matchExtensionParameters = {
+    withTimeline: true,
+    extendStatsParticipantIds: [],
+    extendParticipants: [],
+    ...matchExtensionParameters
+  };
+  const extendedMatchResult = { ...matchResult };
 
   // Extend identity
   if (!extendedMatchResult.participantIdentity) {
@@ -66,13 +63,13 @@ function extendMatchResult({
       summonerName
     });
   }
-  if (matchExtensionParameters.extendStatsParticipantIds.length == 0) {
+  if (matchExtensionParameters.extendStatsParticipantIds.length === 0) {
     matchExtensionParameters.extendStatsParticipantIds.push(
       extendedMatchResult.participantIdentity.participantId
     );
   }
 
-  //general match info
+  // general match info
   extendedMatchResult.isSummonersRift = extendedMatchResult.mapId === MAP_NAMES.SUMMONERS_RIFT;
   extendedMatchResult.isModeClassic = extendedMatchResult.gameMode === 'CLASSIC';
   extendedMatchResult.isMatchedGame = extendedMatchResult.gameType === 'MATCHED_GAME';
@@ -84,7 +81,7 @@ function extendMatchResult({
     const participant = extendParticipantGroups(id, matchResult);
     matchExtensionParameters.extendParticipants.push(participant);
   });
-  //TODO: change obtainedCheck
+  // TODO: change obtainedCheck
   extendedMatchResult.participant = matchExtensionParameters.extendParticipants[0];
   extendedMatchResult.team = extendedMatchResult.participant.team;
 

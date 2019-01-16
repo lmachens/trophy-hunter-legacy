@@ -1,9 +1,9 @@
-import getRange from './getRange';
-import getItems from './getItems';
-import getSummonerSpells from './getSummonerSpells';
-import getReforgedRunePaths from './getReforgedRunePaths';
-import getChampions from './getChampions';
 import getChampion from './getChampion';
+import getChampions from './getChampions';
+import getItems from './getItems';
+import getRange from './getRange';
+import getReforgedRunePaths from './getReforgedRunePaths';
+import getSummonerSpells from './getSummonerSpells';
 
 const replaceHTMLTags = strInputCode => strInputCode.replace(/<\/?[^>]+(>|$)/g, '');
 
@@ -69,8 +69,12 @@ const getStaticData = async version => {
     const championsStaticData = await getChampions({ version, lang });
     const promises = Object.values(championsStaticData.data)
       .sort((a: any, b: any) => {
-        if (a.key < b.key) return -1;
-        if (a.key > b.key) return 1;
+        if (a.key < b.key) {
+          return -1;
+        }
+        if (a.key > b.key) {
+          return 1;
+        }
         return 0;
       })
       .map(({ id, key, name, title }) => {

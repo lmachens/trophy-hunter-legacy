@@ -28,11 +28,13 @@ import darkness from './definitions/darkness';
 import david from './definitions/david';
 import deadlyShadow from './definitions/deadlyShadow';
 import deadlyVenom from './definitions/deadlyVenom';
+import deathFromBelow from './definitions/deathFromBelow';
 import deathMarks from './definitions/deathMarks';
 import deepSea from './definitions/deepSea';
 import demolitionPear from './definitions/demolitionPear';
 import disruptor from './definitions/disruptor';
 import dominating from './definitions/dominating';
+import dominus from './definitions/dominus';
 import doubleKill from './definitions/doubleKill';
 import dragonSlayer from './definitions/dragonSlayer';
 import duelist from './definitions/duelist';
@@ -200,10 +202,8 @@ import wisdom from './definitions/wisdom';
 import wizard from './definitions/wizard';
 import wolfPack from './definitions/wolfPack';
 import wormMasher from './definitions/wormMasher';
-import zenithBlade from './definitions/zenithBlade';
-import dominus from './definitions/dominus';
-import deathFromBelow from './definitions/deathFromBelow';
 import wujuStyle from './definitions/wujuStyle';
+import zenithBlade from './definitions/zenithBlade';
 
 interface Trophy {
   name: string;
@@ -211,8 +211,8 @@ interface Trophy {
   description: string;
   svgPath: string;
   score: number;
-  obtainedCheck(prop: any): boolean;
   context: string;
+  obtainedCheck(prop: any): boolean;
 }
 
 interface Trophies {

@@ -1,6 +1,6 @@
-import extendKillStats from './extendKillStats';
 import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
+import extendKillStats from './extendKillStats';
 
 function extendGeneralEvents(extendedMatchResult) {
   const events: any = {};
@@ -98,7 +98,7 @@ function extendTeamEvents(extendedMatchResult, team) {
   );
   team.events.deaths = events.allKills.filter(kill => team.idCheck(kill.victimId));
   team.events.buildingKills = events.allBuildingKills.filter(event => {
-    return team.teamId != event.teamId;
+    return team.teamId !== event.teamId;
   });
   team.events.turretKills = team.events.buildingKills.filter(event => {
     return event.type === 'BUILDING_KILL' && event.buildingType === 'TOWER_BUILDING';
@@ -117,7 +117,8 @@ function extendTeamEvents(extendedMatchResult, team) {
   // gold
   team.events.totalGoldFrames = extendedMatchResult.timeline.frames.map(({ participantFrames }) => {
     let result = 0;
-    let from, to;
+    let from;
+    let to;
     if (team.teamId === 100) {
       from = 1;
       to = teamThreshold + 1;

@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, FunctionComponent } from 'react';
 import JSONEditorLib from 'jsoneditor';
 import 'jsoneditor/dist/jsoneditor.css';
+import React, { FunctionComponent, useEffect, useRef } from 'react';
 import { JSONEditorProps } from './types';
 
 const styles = {
@@ -21,7 +21,7 @@ const JSONEditor: FunctionComponent<JSONEditorProps> = ({ json, ...other }) => {
         jsoneditor.current.set(json);
       }
       return () => {
-        //jsoneditor.current.destroy();
+        // jsoneditor.current.destroy();
       };
     },
     [json]

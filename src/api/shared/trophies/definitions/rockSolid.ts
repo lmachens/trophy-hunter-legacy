@@ -12,7 +12,7 @@ const rockSolid = {
     return (
       match.participant.opponentTeam.physicalDamageRatio > 0.6 &&
       match.team.win === 'Win' &&
-      match.participant.championId === 54 //malphite
+      match.participant.championId === 54 // malphite
     );
   },
   context: 'matches',

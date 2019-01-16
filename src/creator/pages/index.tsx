@@ -1,10 +1,10 @@
-import Page from '../layouts/Page';
-import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { JSONEditorProps } from '../types';
+import React, { useEffect, useState } from 'react';
 import LoadMatch from '../components/LoadMatch';
+import Page from '../layouts/Page';
 import extendMatchResult from '../shared/matches/extendMatchResult';
 import calculateTrophies from '../shared/trophies/calculateTrophies';
+import { JSONEditorProps } from '../types';
 
 const DynamicJSONEditor = dynamic<JSONEditorProps>(import('../components/JSONEditor') as any, {
   ssr: false

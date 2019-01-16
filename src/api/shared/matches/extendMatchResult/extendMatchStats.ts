@@ -30,7 +30,7 @@ function getParticipantsMatchStats(participants) {
   );
   result.maxTotalMinionsKilled = Math.max(...participants.map(p => p.stats.totalMinionsKilled));
   result.maxKillParticipation = Math.max(...participants.map(p => p.stats.kills + p.stats.assists));
-  //result.maxDamagePerGold = Math.max(...participants.map((p) => p.stats.totalDamageDealtToChampions / (p.stats.goldEarned + 1)));
+  // result.maxDamagePerGold = Math.max(...participants.map((p) => p.stats.totalDamageDealtToChampions / (p.stats.goldEarned + 1)));
   result.maxWardsKilled = Math.max(...participants.map(p => p.stats.wardsKilled));
   result.maxWardsPlaced = Math.max(...participants.map(p => p.stats.wardsPlaced));
   result.maxVisionWardsBoughtInGame = Math.max(
@@ -98,7 +98,7 @@ function getAdditionalParticipantStats({
   result.mostCS =
     participant.stats.totalMinionsKilled >=
     Math.max(...others.map(other => other.stats.totalMinionsKilled));
-  //the +1 in next line doesnt really change the result and is an easy way to avoid division by zero.
+  // the +1 in next line doesnt really change the result and is an easy way to avoid division by zero.
   result.mostDamagePerGold =
     participant.stats.totalDamageDealtToChampions / (participant.stats.goldEarned + 1) >=
     Math.max(
