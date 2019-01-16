@@ -1,5 +1,8 @@
 # Change Log
 
+### Fixed
+- Fixed invalid region detects which lead to new user accounts.
+
 ## [3.0.1] - 2019-01-12
 ### Fixed
 - Fixed trophy search by name.
