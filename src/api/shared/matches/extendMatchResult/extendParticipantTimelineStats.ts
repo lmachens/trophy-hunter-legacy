@@ -1,9 +1,9 @@
-import { domains } from '../../riot-api/gameConstants';
 import groupBy from 'lodash.groupby';
 import zip from 'lodash.zip';
+import { domains } from '../../riot-api/gameConstants';
 
-import champions from '../../riot-api/champions';
 import RANGE from '../../champions/range';
+import champions from '../../riot-api/champions';
 
 const turretRange = 500;
 
@@ -128,7 +128,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     let teammatesMoreAssistsThanKills = true;
     participant.team.participants.forEach(teammate => {
       if (
-        teammate.participantId != participant.participantId &&
+        teammate.participantId !== participant.participantId &&
         teammate.stats.kills > assistsToParticipantById[teammate.participantId - 1]
       ) {
         teammatesMoreAssistsThanKills = false;
@@ -162,7 +162,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     participant.stats.isGrandChallengeGame = isGrandChallengeGame;
   }
 
-  //test for cursedGroundKills
+  // test for cursedGroundKills
   if (extendedMatchResult.isSummonersRift) {
     let cursedGroundKills = 0;
     participant.events.kills.forEach(kill => {
@@ -275,7 +275,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
         const otherKill = events.allKills[index - i];
         const killedBefore = otherKill.timestamp <= kill.timestamp;
         const stillDead = otherKill.timestamp + otherKill.deathTime >= kill.timestamp;
-        const notParticipant = otherKill.victimId != participant.participantId;
+        const notParticipant = otherKill.victimId !== participant.participantId;
         currentDeaths += killedBefore && stillDead && notParticipant ? 1 : 0;
         if (!(killedBefore && stillDead && notParticipant)) {
           break;
@@ -314,7 +314,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
       Object.keys(
         groupBy(
           participant.events.killParticipations.filter(
-            kill => kill.timestamp < 15 * 60 * 1000 //15 minutes
+            kill => kill.timestamp < 15 * 60 * 1000 // 15 minutes
           ),
           kill => kill.victimId
         )
@@ -344,10 +344,10 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
       teammate =>
         teammate.timeline.lane === participant.timeline.lane &&
         teammate.timeline.role === participant.timeline.role &&
-        'JUNGLE' != participant.timeline.lane &&
-        'DUO_SUPPORT' != participant.timeline.role
+        'JUNGLE' !== participant.timeline.lane &&
+        'DUO_SUPPORT' !== participant.timeline.role
     );
-    if (laneOpponents.length == 1) {
+    if (laneOpponents.length === 1) {
       const laneOpponent = laneOpponents[0];
       participant.stats.flameHorizon =
         laneOpponent.stats.totalMinionsKilled + laneOpponent.stats.neutralMinionsKilled + 100 <=
@@ -359,8 +359,8 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
           laneOpponent.timeline.creepsPerMinDeltas['0-10'] * 10;
       }
     }
-    if (laneOpponents.length == 2) {
-      //this can happen on botlane if the system doesnt understand who is adc and who is support
+    if (laneOpponents.length === 2) {
+      // this can happen on botlane if the system doesnt understand who is adc and who is support
       let laneOpponent1CS =
         laneOpponents[0].stats.totalMinionsKilled + laneOpponents[0].stats.neutralMinionsKilled;
       let laneOpponent2CS =
@@ -388,7 +388,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     }
   }
 
-  //check for trinityForceKills
+  // check for trinityForceKills
   {
     const trinityForceBuy = events.all.find(
       event =>
@@ -396,7 +396,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
         event.type === 'ITEM_PURCHASED' &&
         event.itemId === 3078
     );
-    if (trinityForceBuy != undefined) {
+    if (trinityForceBuy !== undefined) {
       const trinityForceBuyTime = trinityForceBuy.timestamp;
       participant.stats.trinityForceKills = participant.events.kills.filter(
         kill =>
@@ -405,7 +405,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     }
   }
 
-  //check for darkin blade kills
+  // check for darkin blade kills
   {
     const buyEvent = events.all.find(
       event =>
@@ -413,7 +413,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
         event.type === 'ITEM_PURCHASED' &&
         event.itemId === 3124
     );
-    if (buyEvent != undefined) {
+    if (buyEvent !== undefined) {
       const buyTime = buyEvent.timestamp;
       participant.stats.darkinBladeKills = participant.events.kills.filter(
         kill => kill.timestamp > buyTime && buyTime <= kill.timestamp + 90000
@@ -508,11 +508,13 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
   participant.stats.duoTriplekill = participantDuoKillParticipationsByTeammate.some(
     (duoKills: any) =>
       zip(duoKills, duoKills.slice(1), duoKills.slice(2)).some(triple => {
-        const isDefined = triple[2] != undefined;
-        if (!isDefined) return false;
-        const isMultiKill_1_2 = triple[0].timestamp + 10000 > triple[1].timestamp;
-        const isMultiKill_2_3 = triple[1].timestamp + 10000 > triple[2].timestamp;
-        return isMultiKill_1_2 && isMultiKill_2_3;
+        const isDefined = triple[2] !== undefined;
+        if (!isDefined) {
+          return false;
+        }
+        const isMultiKill12 = triple[0].timestamp + 10000 > triple[1].timestamp;
+        const isMultiKill23 = triple[1].timestamp + 10000 > triple[2].timestamp;
+        return isMultiKill12 && isMultiKill23;
       })
   );
 
@@ -650,7 +652,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
 
   // check for shockwave kills
   participant.stats.shockwaveKills = participant.events.kills.filter((kill, index) => {
-    if (index != 0) {
+    if (index !== 0) {
       const otherKill = participant.events.kills[index - 1];
       const in1SecFromEachOther = kill.timestamp - otherKill.timestamp <= 1000;
       const sufficientClose =
@@ -684,7 +686,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
             (kill.position.x - middleX) * (kill.position.x - middleX) +
               (kill.position.y - middleY) * (kill.position.y - middleY)
           ) <= 2000;
-        //adc didnt die +- 10 sec of that roaming kill
+        // adc didnt die +- 10 sec of that roaming kill
         const noADCDeath20Sec = !adcDeaths.some(
           death =>
             death.timestamp + 10000 < kill.timestamp && death.timestamp - 10000 > kill.timestamp
@@ -718,7 +720,9 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     const teamFightRange = 2500;
     const teamFightTimeRange = 10000;
     participant.stats.teamfightLastKills = events.allKills.filter((kill, index) => {
-      if (index < 3 || kill.killerId != participant.participantId) return false;
+      if (index < 3 || kill.killerId !== participant.participantId) {
+        return false;
+      }
       const kill1 = events.allKills[index - 3];
       const kill2 = events.allKills[index - 2];
       const kill3 = events.allKills[index - 1];
@@ -770,14 +774,14 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     const killTimingsOK = participant.events.kills.every((kill, index) => {
       let killInTiming = true;
       if (index === 0) {
-        //5 min after minions spawn
+        // 5 min after minions spawn
         killInTiming = kill.timestamp < 375000;
       } else {
         // less than 5 min between consecutive kills
         killInTiming = kill.timestamp < participant.events.kills[index - 1].timestamp + 300000;
       }
       if (index === participant.events.kills.length - 1) {
-        //In 5 min before end
+        // In 5 min before end
         killInTiming =
           killInTiming && kill.timestamp >= extendedMatchResult.gameDuration * 1000 - 300000;
       }
@@ -832,7 +836,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     }
   ).length;
 
-  //baronClearKills
+  // baronClearKills
   participant.stats.baronClearParticipations = participant.events.killParticipations.filter(kp =>
     participant.opponentTeam.events.baronKills.some(
       baron => baron.timestamp < kp.timestamp && kp.timestamp < baron.timestamp + 210000
@@ -841,7 +845,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
 
   const fedTeammate = participant.team.participants.find(
     teammate =>
-      teammate.participantId != participant.participantId &&
+      teammate.participantId !== participant.participantId &&
       (teammate.stats.kills >= extendedMatchResult.maxKills &&
         teammate.stats.totalDamageDealtToChampions >=
           participant.stats.others.maxTotalDamageDealtToChampions)
@@ -853,7 +857,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
       assist.killerId === fedTeammate.participantId
   ).length;
 
-  //extend feature trophyHunt:
+  // extend feature trophyHunt:
   participant.stats.trophyHunt =
     extendedMatchResult.isSummonersRift && participant.stats.victimCount >= 5;
 
@@ -864,5 +868,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
         Math.min(...kills.map(kill => kill.timestamp))
       )
     );
-  } else participant.stats.earliestTrophyHunt = 6000000; // 100 minuts. just a very big number. If this is set to 0, it will not work when checking for the minimal earliest trophy hunt  (for summoner features).
+  } else {
+    participant.stats.earliestTrophyHunt = 6000000;
+  } // 100 minuts. just a very big number. If this is set to 0, it will not work when checking for the minimal earliest trophy hunt  (for summoner features).
 }

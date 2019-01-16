@@ -23,7 +23,7 @@ export default function extendAllGroupMatchStats(extendedMatchResult) {
   extendedMatchResult.maxKillParticipation = Math.max(
     ...participants.map(p => p.stats.kills + p.stats.assists)
   );
-  //extendedMatchResult.maxDamagePerGold = Math.max(...participants.map((p) => p.stats.totalDamageDealtToChampions / (p.stats.goldEarned + 1)));
+  // extendedMatchResult.maxDamagePerGold = Math.max(...participants.map((p) => p.stats.totalDamageDealtToChampions / (p.stats.goldEarned + 1)));
   extendedMatchResult.maxWardsKilled = Math.max(...participants.map(p => p.stats.wardsKilled));
   extendedMatchResult.maxWardsPlaced = Math.max(...participants.map(p => p.stats.wardsPlaced));
   extendedMatchResult.maxVisionWardsBoughtInGame = Math.max(

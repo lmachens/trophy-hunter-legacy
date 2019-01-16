@@ -1,5 +1,5 @@
-import { ARAM } from '../types';
 import SCORES from '../scores';
+import { ARAM } from '../types';
 
 const noxianArmy = {
   name: 'noxianArmy',

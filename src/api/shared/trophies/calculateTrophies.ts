@@ -1,5 +1,5 @@
-import getTrophiesCategory from './getTrophiesCategory';
 import trophies from './';
+import getTrophiesCategory from './getTrophiesCategory';
 
 const calculateTrophies = ({
   extendedMatchResult,
@@ -18,7 +18,7 @@ const calculateTrophies = ({
   });
 
   if (trophiesObtained.length === 0) {
-    const cake = trophies['cake'];
+    const cake = trophies.cake;
     trophiesObtained.push(cake);
   }
 

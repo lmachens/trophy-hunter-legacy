@@ -14,9 +14,15 @@ const aram = [MATCHMAKING.ARAM_5v5, MATCHMAKING.BILGEWATER_ARAM_5x5];
 const twistedTreeline = [MATCHMAKING.BLIND_PICK_3v3, MATCHMAKING.RANKED_3v3];
 
 const getTrophiesCategory = queueId => {
-  if (summonersRift.includes(queueId)) return SUMMONERS_RIFT;
-  if (aram.includes(queueId)) return ARAM;
-  if (twistedTreeline.includes(queueId)) return TWISTED_TREELINE;
+  if (summonersRift.includes(queueId)) {
+    return SUMMONERS_RIFT;
+  }
+  if (aram.includes(queueId)) {
+    return ARAM;
+  }
+  if (twistedTreeline.includes(queueId)) {
+    return TWISTED_TREELINE;
+  }
 };
 
 export default getTrophiesCategory;
