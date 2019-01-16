@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.0.2] - 2019-01-16
 ### Fixed
 - Fixed invalid region detects which lead to new user accounts.
 
