@@ -84,8 +84,8 @@ http.createServer(matchupApi).listen(5008, hostname, () => {
   console.log(`matchupApi running at http://${hostname}:${5008}/`);
 });
 
-if (!process.env.SAMPLEEXTENDEDMATCHRESULTS_API_ENDPOINT) {
-  process.env.SAMPLEEXTENDEDMATCHRESULTS_API_ENDPOINT = `http://${hostname}:${5009}`;
+if (!process.env.PARICIPANT_STATS_API_ENDPOINT) {
+  process.env.PARICIPANT_STATS_API_ENDPOINT = `http://${hostname}:${5009}`;
 }
 
 http.createServer(participantStatsApi).listen(5009, hostname, () => {
