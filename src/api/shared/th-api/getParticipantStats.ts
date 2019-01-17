@@ -2,8 +2,7 @@ import axios from 'axios';
 import NodeCache from 'node-cache';
 
 const apiEndpoint =
-  process.env.PARTICIPANT_STATS_API_ENDPOINT ||
-  'https://www.th.gl/api/participant-stats';
+  process.env.PARTICIPANT_STATS_API_ENDPOINT || 'https://www.th.gl/api/participant-stats';
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
