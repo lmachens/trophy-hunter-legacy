@@ -20,7 +20,7 @@ export default function getPartitionedParticipants(participantId, { participants
     return team.teamId === result.participant.teamId;
   });
   result.opponentTeam = teams.find(team => {
-    return team.teamId != result.participant.teamId;
+    return team.teamId !== result.participant.teamId;
   });
 
   return result;

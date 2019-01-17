@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import Page from '../layouts/Page';
-import getStaticData from '../api/getStaticData';
 import dynamic from 'next/dynamic';
+import React, { useState } from 'react';
+import getStaticData from '../api/getStaticData';
+import Page from '../layouts/Page';
 import { JSONEditorProps } from '../types';
 
 const DynamicJSONEditor = dynamic<JSONEditorProps>(import('../components/JSONEditor') as any, {

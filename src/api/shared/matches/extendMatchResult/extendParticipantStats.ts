@@ -38,7 +38,7 @@ export default function extendParticipantStats({ gameDuration }, participant) {
   result.mostCS =
     participant.stats.totalMinionsKilled >=
     Math.max(...participant.others.map(other => other.stats.totalMinionsKilled));
-  //the +1 in next line doesnt really change the result and is an easy way to avoid division by zero.
+  // the +1 in next line doesnt really change the result and is an easy way to avoid division by zero.
   result.mostDamagePerGold =
     participant.stats.totalDamageDealtToChampions / (participant.stats.goldEarned + 1) >=
     Math.max(

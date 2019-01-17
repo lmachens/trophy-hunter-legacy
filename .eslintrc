@@ -30,7 +30,7 @@
     "import/resolver": {
       "meteor": {
         "extensions": [".js", ".jsx"],
-        "moduleDirectory": ["app/node_modules"]
+        "moduleDirectory": ["node_modules", "app/node_modules"]
       }
     },
     "import/extensions": [".js", ".jsx"],

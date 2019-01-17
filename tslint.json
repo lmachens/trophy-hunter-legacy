@@ -1,0 +1,24 @@
+{
+  "extends": ["tslint:latest", "tslint-config-prettier", "tslint-react"],
+  "linterOptions": {
+    "exclude": ["node_modules/**", "dist/**"]
+  },
+  "rules": {
+    "interface-name": false,
+    "member-access": false,
+    "no-implicit-dependencies": false,
+    "jsx-no-multiline-js": false,
+    "no-submodule-imports": false,
+    "object-literal-sort-keys": false,
+    "no-console": false,
+    "no-require-imports": false,
+    "jsx-boolean-value": false,
+    "jsx-no-lambda": false,
+    "no-bitwise": false,
+    "no-shadowed-variable": false,
+    "no-empty": false,
+    "prefer-conditional-expression": false,
+    "prefer-for-of": false,
+    "radix": false
+  }
+}

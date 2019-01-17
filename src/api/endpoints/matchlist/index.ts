@@ -1,6 +1,6 @@
-import { parse } from 'url';
-import { IncomingMessage, ServerResponse } from 'http';
 import axios from 'axios';
+import { IncomingMessage, ServerResponse } from 'http';
+import { parse } from 'url';
 
 if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');

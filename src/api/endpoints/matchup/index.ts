@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
-import { getMatch } from '../../shared/th-api';
+import { parse } from 'url';
 import mongo from '../../shared/mongo';
+import { getMatch } from '../../shared/th-api';
 
 const getGameSessions = async ({ mapId, champ1Id, champ2Id }) => {
   const db = await mongo('production');

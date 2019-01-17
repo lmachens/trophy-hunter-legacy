@@ -1,17 +1,17 @@
 import http from 'http';
-import matchApi from './endpoints/match';
-import timelineApi from './endpoints/timeline';
-import trophiesApi from './endpoints/trophies';
-import summonerApi from './endpoints/summoner';
 import activeGameApi from './endpoints/active-game';
-import leaguePositionsApi from './endpoints/league-positions';
 import championMasteryApi from './endpoints/champion-mastery';
+import leaguePositionsApi from './endpoints/league-positions';
+import matchApi from './endpoints/match';
 import matchlistApi from './endpoints/matchlist';
 import matchupApi from './endpoints/matchup';
-import getParticipantStatsApi from './endpoints/getParticipantStats';
+import participantStatsApi from './endpoints/participant-stats';
+import summonerApi from './endpoints/summoner';
+import timelineApi from './endpoints/timeline';
+import trophiesApi from './endpoints/trophies';
 
 if (!process.env.LEAGUE_API_KEY) {
-  throw `No process.env.LEAGUE_API_KEY set. Set env LEAGUE_API_KEY="RGAPI-xxx" first`;
+  throw new Error(`No process.env.LEAGUE_API_KEY set. Set env LEAGUE_API_KEY="RGAPI-xxx" first`);
 }
 
 const hostname = '127.0.0.1';
@@ -88,6 +88,6 @@ if (!process.env.SAMPLEEXTENDEDMATCHRESULTS_API_ENDPOINT) {
   process.env.SAMPLEEXTENDEDMATCHRESULTS_API_ENDPOINT = `http://${hostname}:${5009}`;
 }
 
-http.createServer(getParticipantStatsApi).listen(5009, hostname, () => {
-  console.log(`getParticipantStatsApi running at http://${hostname}:${5009}/`);
+http.createServer(participantStatsApi).listen(5009, hostname, () => {
+  console.log(`participantStatsApi running at http://${hostname}:${5009}/`);
 });

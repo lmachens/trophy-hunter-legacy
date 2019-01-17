@@ -22,7 +22,7 @@ const getPlatformIdByRegion = region => {
   if (allPlatformIds.includes(platformId)) {
     return platformId;
   }
-  throw `Region ${region} not supported`;
+  throw new Error(`Region ${region} not supported`);
 };
 
 export default getPlatformIdByRegion;
