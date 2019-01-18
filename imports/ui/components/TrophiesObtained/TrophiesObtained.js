@@ -86,10 +86,10 @@ class TrophiesObtained extends React.Component {
       if (newInTree && isNew) {
         badge = 'firstTimeAndActiveQuest';
         earnedTrophyPoints += getFirstTimeBonus(trophy);
-        earnedTrophyPoints += getTreeBonus(trophy);
+        earnedTrophyPoints += getTreeBonus(trophy) * newInTree;
       } else if (newInTree) {
         badge = 'activeQuest';
-        earnedTrophyPoints += getTreeBonus(trophy);
+        earnedTrophyPoints += getTreeBonus(trophy) * newInTree;
       } else if (isNew) {
         badge = 'firstTime';
         earnedTrophyPoints += getFirstTimeBonus(trophy);

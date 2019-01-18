@@ -1,5 +1,8 @@
 # Change Log
 
+### Fixed
+- Fixed display of earned points if the active quest bonus applied in multiple trees.
+
 ## [3.0.2] - 2019-01-16
 ### Fixed
 - Fixed invalid region detects which lead to new user accounts.
