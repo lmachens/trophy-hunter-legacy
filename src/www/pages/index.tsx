@@ -1,13 +1,9 @@
-import Link from 'next/link';
 import React from 'react';
-import Header from '../components/header';
+import Landing from '../components/Landing';
+import Page from '../layouts/Page';
 
-export default ({ url }) => (
-  <main>
-    <Header />
-    <p>This is the home page. URL: {JSON.stringify(url)}</p>
-    <Link href="/about">
-      <a>About</a>
-    </Link>
-  </main>
+export default props => (
+  <Page {...props}>
+    <Landing {...props} />
+  </Page>
 );

@@ -1,13 +1,9 @@
-import Link from 'next/link';
 import React from 'react';
-import Header from '../components/header';
+import About from '../components/About';
+import Page from '../layouts/Page';
 
-export default () => (
-  <main>
-    <Header />
-    <p>This is the about page</p>
-    <Link href="/">
-      <a>Go home</a>
-    </Link>
-  </main>
+export default props => (
+  <Page {...props}>
+    <About {...props} />
+  </Page>
 );
