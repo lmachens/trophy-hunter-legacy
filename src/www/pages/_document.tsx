@@ -24,18 +24,29 @@ class JssDocument extends Document<{ registry: any }> {
     return (
       <html>
         <Head>
-          <style>{`
-            html,
-            body,
-            #__next {
-              height: 100%;
-              margin: 0;
-            }
-            body {
-              background: #0a0a0c;
-            }
-        `}</style>
-          <style id="server-side-styles">{this.props.registry.toString()}</style>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+          />
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                html,
+                body,
+                #__next {
+                  height: 100%;
+                  margin: 0;
+                }
+                body {
+                  background: #0a0a0c;
+                }
+              `
+            }}
+          />
+          <style
+            id="server-side-styles"
+            dangerouslySetInnerHTML={{ __html: this.props.registry.toString() }}
+          />
         </Head>
 
         <body>

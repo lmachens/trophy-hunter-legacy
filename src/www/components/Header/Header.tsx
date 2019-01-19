@@ -18,6 +18,18 @@ const Header = () => {
       <Link href="/">
         <Button>Home</Button>
       </Link>
+      <Link
+        href={{
+          pathname: '/match',
+          query: {
+            platformId: 'EUW1',
+            matchId: 3892210993,
+            summonerName: 'sirlunchalot619'
+          }
+        }}
+      >
+        <Button>Sample Match</Button>
+      </Link>
       <Link href="/about">
         <Button>About</Button>
       </Link>

@@ -18,5 +18,10 @@ module.exports = phase => {
 
   const withTypescript = require('@zeit/next-typescript');
 
-  return withTypescript();
+  return withTypescript({
+    webpack(config) {
+      config.resolve.symlinks = false;
+      return config;
+    }
+  });
 };
