@@ -1,3 +1,7 @@
+// https://material-ui.com/css-in-js/basics/#migration-for-material-ui-core-users
+const install = require('@material-ui/styles').install;
+install();
+
 // Typescript workaround: https://github.com/zeit/next.js/issues/5750#issuecomment-442313585
 const { PHASE_PRODUCTION_SERVER } =
   process.env.NODE_ENV === 'development'
@@ -14,5 +18,10 @@ module.exports = phase => {
 
   const withTypescript = require('@zeit/next-typescript');
 
-  return withTypescript();
+  return withTypescript({
+    webpack(config) {
+      config.resolve.symlinks = false;
+      return config;
+    }
+  });
 };

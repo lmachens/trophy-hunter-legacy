@@ -7,11 +7,13 @@
     "dev": "next"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.0",
+    "@material-ui/styles": "^3.0.0-alpha.8",
     "@zeit/next-typescript": "^1.1.1",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^7.0.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "next": "^8.0.0-canary.7",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1"
   },
   "devDependencies": {
     "@types/next": "^7.0.6",
@@ -19,4 +21,3 @@
     "@types/react-dom": "^16.0.11"
   }
 }
- 
