@@ -1,7 +1,4 @@
-import {
-  processHeartbeatJobsServiceJob,
-  processRefreshRiotApiStatusJob
-} from '../../../api/status/server/jobs';
+import { processRefreshRiotApiStatusJob } from '../../../api/status/server/jobs';
 
 import { Job } from 'meteor/simonsimcity:job-collection';
 import Jobs from '/imports/api/jobs/jobs';
@@ -39,5 +36,4 @@ Meteor.startup(function() {
     .save();
 
   processRefreshRiotApiStatusJob();
-  processHeartbeatJobsServiceJob();
 });
