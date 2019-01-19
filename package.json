@@ -1,10 +1,19 @@
 {
+  "private": true,
   "name": "trophy-hunter",
-  "version": "1.0.0",
   "scripts": {
-    "test": "npm run lint",
-    "lint": "tslint --project ./tsconfig.json"
+    "app": "cd src/app && meteor npm start",
+    "api": "yarn --cwd \"src/api\" dev",
+    "creator": "yarn --cwd \"src/creator\" dev",
+    "build-overwolf": "yarn --cwd \"src/overwolf\" build",
+    "www": "yarn --cwd \"src/www\" dev"    
   },
+  "workspaces": [
+    "src/api",
+    "src/creator",
+    "src/overwolf",
+    "src/www"
+  ],
   "devDependencies": {
     "husky": "^1.3.1",
     "lint-staged": "8.1.0",

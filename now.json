@@ -7,8 +7,8 @@
     "MONGODB_URI": "@mongodb_uri"
   },
   "builds": [
-    { "src": "api/endpoints/**/*.ts", "use": "@now/node@canary" },
-    { "src": "www/next.config.js", "use": "@now/next" }
+    { "src": "src/api/endpoints/**/*.ts", "use": "@now/node@canary" },
+    { "src": "src/www/next.config.js", "use": "@now/next" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/endpoints/$1" },
