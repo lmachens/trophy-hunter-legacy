@@ -1,6 +1,6 @@
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import extendMatchResult from '../../shared/matches/extendMatchResult';
 import calculateTrophies from '../../shared/trophies/calculateTrophies';
 
@@ -12,20 +12,30 @@ const useStyles = makeStyles({
 
 const Match = ({ match, summonerName }) => {
   const classes = useStyles();
+  const [extendedMatch, setExtendedMatch] = useState<any>(null);
+  const [trophies, setTrophies] = useState([]);
 
-  useEffect(() => {
-    const extendedMatch = extendMatchResult({
-      matchResult: match,
-      summonerName
-    });
-    const trophies = calculateTrophies({ extendedMatchResult: extendedMatch });
-  });
+  useEffect(
+    () => {
+      const extendedMatchResult = extendMatchResult({
+        matchResult: match,
+        summonerName
+      });
+      console.log(extendedMatchResult);
+      setExtendedMatch(extendedMatchResult);
+      const calculatedTrophies = calculateTrophies({ extendedMatchResult });
+      setTrophies(calculatedTrophies);
+    },
+    [match, summonerName]
+  );
 
-  // const { win } = match.participant.stats;
-  const win = true;
+  if (!extendedMatch) {
+    return null;
+  }
+  const { win } = extendedMatch.participant.stats;
   return (
     <div className={classes.container}>
-      <Typography variant="h2">
+      <Typography variant="h4">
         <span>
           {summonerName}{' '}
           <span style={{ color: win ? 'green' : '#9C172A' }}>{win ? 'won' : 'lost'}!</span>
