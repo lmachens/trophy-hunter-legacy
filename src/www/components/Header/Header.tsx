@@ -1,5 +1,6 @@
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+import Link from 'next/link';
 import React from 'react';
 
 const useStyles = makeStyles({
@@ -14,7 +15,12 @@ const Header = () => {
   const classes = useStyles();
   return (
     <header className={classes.header}>
-      <Button>Home</Button>
+      <Link href="/">
+        <Button>Home</Button>
+      </Link>
+      <Link href="/about">
+        <Button>About</Button>
+      </Link>
     </header>
   );
 };
