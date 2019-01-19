@@ -32,9 +32,9 @@ class Status extends PureComponent {
   };
 
   componentDidMount() {
-    const { hasJobServiceHeartbeat, riotApiStatus, loading } = this.props;
+    const { riotApiStatus, loading } = this.props;
     const hasRiotApiStatusIssues = riotApiStatus && riotApiStatus.length > 0;
-    const hasIssue = hasRiotApiStatusIssues || !hasJobServiceHeartbeat;
+    const hasIssue = hasRiotApiStatusIssues;
 
     if (hasIssue && !loading) {
       this.showTooltip();
@@ -43,11 +43,11 @@ class Status extends PureComponent {
 
   componentDidUpdate(prevProps) {
     const hadRiotApiStatusIssues = prevProps.riotApiStatus && prevProps.riotApiStatus.length > 0;
-    const hadIssue = hadRiotApiStatusIssues || !prevProps.hasJobServiceHeartbeat;
+    const hadIssue = hadRiotApiStatusIssues;
 
-    const { hasJobServiceHeartbeat, riotApiStatus } = this.props;
+    const { riotApiStatus } = this.props;
     const hasRiotApiStatusIssues = riotApiStatus && riotApiStatus.length > 0;
-    const hasIssue = hasRiotApiStatusIssues || !hasJobServiceHeartbeat;
+    const hasIssue = hasRiotApiStatusIssues;
 
     if (hasIssue && (!hadIssue || prevProps.loading)) {
       this.showTooltip();
@@ -135,7 +135,6 @@ const StatusContainer = withTracker(() => {
 
   return {
     riotApiStatus,
-    hasJobServiceHeartbeat,
     loading
   };
 })(Status);
