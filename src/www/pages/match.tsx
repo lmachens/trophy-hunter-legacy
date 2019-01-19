@@ -1,9 +1,7 @@
 import React from 'react';
 import Match from '../components/Match';
 import Page from '../layouts/Page';
-import extendMatchResult from '../shared/matches/extendMatchResult';
 import { getMatchWithTimeline } from '../shared/th-api';
-import calculateTrophies from '../shared/trophies/calculateTrophies';
 
 const MatchPage = props => (
   <Page {...props}>
@@ -17,14 +15,9 @@ MatchPage.getInitialProps = async ({ query }) => {
     throw new Error('invalid query');
   }
 
-  const matchWithTimeline = await getMatchWithTimeline({ platformId, matchId });
-  const match = extendMatchResult({
-    matchResult: matchWithTimeline,
-    summonerName
-  });
-  const trophies = calculateTrophies({ extendedMatchResult: match });
+  const match = await getMatchWithTimeline({ platformId, matchId });
 
-  return { match, trophies, summonerName };
+  return { match, summonerName };
 };
 
 export default MatchPage;
