@@ -1,68 +1,27 @@
 {
+  "private": true,
   "name": "trophy-hunter",
-  "version": "1.0.0",
   "scripts": {
-    "syncpackages": "meteor node cli.js syncpackages",
-    "build-cli": "cd tools/cli && rollup -c",
-    "database": "mongod --dbpath database --replSet rs0",
-    "app": "cd app && cross-env MONGO_URL=mongodb://localhost:27017/trophy_hunter cross-env MONGO_URL_OPLOG=mongodb://localhost:27017/local cross-env INSTANCE=development npm start",
-    "app-debug": "cd app && cross-env MONGO_URL=mongodb://localhost:27017/trophy_hunter cross-env MONGO_URL_OPLOG=mongodb://localhost:27017/local cross-env INSTANCE=development npm run debug",
-    "app-bundle": "cd app && cross-env MONGO_URL=mongodb://localhost:27017/trophy_hunter cross-env MONGO_URL_OPLOG=mongodb://localhost:27017/local cross-env INSTANCE=development npm start -- --extra-packages bundle-visualizer --production",
-    "project": "cd project && cross-env MONGO_URL=mongodb://localhost:27017/trophy_hunter cross-env MONGO_URL_OPLOG=mongodb://localhost:27017/local npm start",
-    "project-debug": "cd project && cross-env MONGO_URL=mongodb://localhost:27017/trophy_hunter cross-env MONGO_URL_OPLOG=mongodb://localhost:27017/local npm run debug",
-    "jobs": "cd jobs && cross-env MONGO_URL=mongodb://localhost:27017/trophy_hunter cross-env MONGO_URL_OPLOG=mongodb://localhost:27017/local npm start",
-    "jobs-production": "cd jobs && cross-env MONGO_URL=mongodb://localhost:27017/production cross-env MONGO_URL_OPLOG=mongodb://localhost:27017/local npm start",
-    "jobs-debug": "cd jobs && cross-env MONGO_URL=mongodb://localhost:27017/trophy_hunter cross-env MONGO_URL_OPLOG=mongodb://localhost:27017/local npm run debug",
-    "debug": "cd app && meteor debug --settings settings.json && cd ..",
-    "test": "npm run lint",
-    "lint": "eslint . && tslint --project ./tsconfig.json",
-    "lint-fix": "eslint . --fix && tslint --project ./tsconfig.json --fix",
-    "pretest": "npm run lint --silent",
-    "precommit": "lint-staged",
-    "prettier-all": "prettier --config .prettierrc --write -l {.,**,**/**}/{*.js,*.jsx} !**/.meteor/**",
-    "storybook": "start-storybook -p 6006 -s ./app/public",
-    "build-storybook": "build-storybook"
+    "app": "cd src/app && meteor npm start",
+    "api": "yarn --cwd \"src/api\" dev",
+    "creator": "yarn --cwd \"src/creator\" dev",
+    "build-overwolf": "yarn --cwd \"src/overwolf\" build",
+    "www": "yarn --cwd \"src/www\" dev"    
   },
+  "workspaces": [
+    "src/api",
+    "src/creator",
+    "src/overwolf",
+    "src/www"
+  ],
   "devDependencies": {
-    "@babel/core": "7.2.2",
-    "@babel/plugin-proposal-class-properties": "7.2.3",
-    "@babel/plugin-transform-runtime": "7.2.0",
-    "@babel/preset-env": "7.2.3",
-    "@babel/preset-react": "7.0.0",
-    "@babel/preset-typescript": "^7.1.0",
-    "@storybook/cli": "4.1.6",
-    "@storybook/react": "4.1.6",
-    "@storybook/ui": "4.1.6",
-    "babel-eslint": "10.0.1",
-    "babel-loader": "8.0.4",
-    "cross-env": "5.2.0",
-    "css-loader": "2.1.0",
-    "es-abstract": "^1.12.0",
-    "eslint": "5.11.1",
-    "eslint-config-prettier": "3.3.0",
-    "eslint-import-resolver-meteor": "0.4.0",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-jest": "22.1.2",
-    "eslint-plugin-jsx-a11y": "6.1.2",
-    "eslint-plugin-meteor": "5.1.0",
-    "eslint-plugin-prettier": "3.0.1",
-    "eslint-plugin-react": "^7.11.1",
-    "fs": "0.0.2",
     "husky": "^1.3.1",
-    "jest": "23.6.0",
     "lint-staged": "8.1.0",
-    "lodash.defaultsdeep": "4.6.0",
     "prettier": "1.15.3",
-    "react-event-listener": "^0.6.4",
-    "recompose": "0.30.0",
-    "rollup": "0.68.1",
-    "rollup-plugin-babel": "4.1.0",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.2.2",
-    "typescript-eslint-parser": "^21.0.2",
-    "yargs": "12.0.5"
+    "typescript": "^3.2.2"
   },
   "husky": {
     "hooks": {
@@ -72,11 +31,6 @@
   },
   "lint-staged": {
     "*.{js,jsx,json,ts,tsx,css}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{js,jsx}": [
-      "eslint --fix",
       "prettier --write",
       "git add"
     ],

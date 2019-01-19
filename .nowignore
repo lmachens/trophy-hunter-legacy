@@ -1,0 +1,14 @@
+.github
+.vscode
+dist
+node_modules
+src/api/server.ts
+src/app
+src/overwolf
+.gitignore
+.prettierignore
+.prettierrc
+CHANGELOG.md
+README.md
+tsconfig.json
+.next

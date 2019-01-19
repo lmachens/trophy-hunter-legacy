@@ -1,7 +1,0 @@
-.meteor/local/
-database/
-**/node_modules/*
-**/packages/*
-**/dist/*
-**/overwolf/shared/*
-build
