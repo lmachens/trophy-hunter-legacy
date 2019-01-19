@@ -14,8 +14,8 @@
     "jsoneditor": "^5.27.0",
     "next": "^8.0.0-canary.7",
     "next-images": "^1.0.4",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1"
   },
   "devDependencies": {
     "@types/jsoneditor": "^5.19.0",
