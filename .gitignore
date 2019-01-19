@@ -8,11 +8,9 @@ settings.json
 !tools/cli/settings.json
 node_modules/
 npm-debug.log
-database
 npm-debug.log*
 deploy/
 dump
-simple-io-plugin64.dll
 .cache
 build
 .next

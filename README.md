@@ -13,7 +13,6 @@ Trophy Hunter is a League of Legends app for [Overwolf](https://www.overwolf.com
   - [Overlay](#overlay)
   - [Main](#main)
 - [Develop](#develop)
-  - [Storybook](#storybook)
   - [App](#app)
 - [Contribute](#contribute)
 
@@ -46,24 +45,19 @@ More details [here](https://play.overwolf.com/trophy-hunter/).
 
 Clone this project with activated symlink support on Windows with `git clone -c core.symlinks=true git@github.com:lmachens/trophy-hunter.git`.
 
-### Storybook
-
-We added storybook to allow developing of React components.
-`npm run storybook` will process all `.stories.js` files.
-
 ### App
 
 Please follow the instructions on [Overwolf Developer](http://developers.overwolf.com/documentation/odk-2-0-introduction/creating-your-first-app/) to get white listed and sign up on [Riot Developer](https://developer.riotgames.com/) for the Riot API key. Without these requirements, you can only use core features in your Browser.
 
 1. Install [MongoDB](https://www.mongodb.com/de/download-center) and run it on port 27017
 1. Install [Meteor](https://www.meteor.com/install)
-1. Install dependencies with `meteor npm install`
-1. Copy `template.settings.json` to `app/settings.json`.
-1. Start the dev server with `meteor npm run app`. The app is available on http://localhost:3000.
+1. Install dependencies with `yarn && cd src/app && meteor npm install`
+1. Copy `src/app/template.settings.json` to `src/app/settings.json`.
+1. Start the dev server with `meteor npm start` from `src/app` or `yarn app` from top level. The app is available on http://localhost:3000.
 1. Download the [Developers version of Overwolf](https://download.overwolf.com/install/Download?Channel=Developers). You can skip this step if you already installed Overwolf.
 1. Start Overwolf and click on Settings (either the wrench icon on the dock, or the Settings button on the tray icon menu).
 1. Go to the Support tab, you will see a link labelled "Development Options". Click that.
-1. Build Overwolf app. `cd src && yarn && yarn build-overwolf`
+1. Build Overwolf app. `yarn build-overwolf`
 1. Click on "Load unpacked extension" and navigate to `dist/development`.
 1. The app will connect to http://localhost:3000.
 

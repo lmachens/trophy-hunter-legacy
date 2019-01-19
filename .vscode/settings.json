@@ -3,27 +3,19 @@
     "**/.git": true
   },
   "search.exclude": {
-    "database": true,
     "**/node_modules": true,
     "**/.meteor/local": true,
-    "jobs/imports": true,
-    "app/imports": true,
-    "project/imports": true,
-    "*/packages": true,
-    "imports/shared": true,
-    "**/dist": true
+    "src/**/shared": true,
+    "dist": true
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/node_modules": true,
-    "**/bower_components": true,
-    "**/.meteor/local": true
+    "**/.meteor/local": true,
+    "dist": true
   },
   "editor.formatOnSave": true,
-  "eslint.enable": true,
-  "eslint.autoFixOnSave": true,
-  "eslint.workingDirectories": ["./jobs", "./app", "./project", "./overwolf", "./.storybook"],
   "[markdown]": {
     "editor.formatOnSave": false
   }

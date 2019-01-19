@@ -1,4 +1,4 @@
-overwolf/dist/
+dist/
 **.md
 package.json
 package-lock.json
