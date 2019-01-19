@@ -1,6 +1,6 @@
 import { Tooltip } from '../generic/Tooltip';
 import { DoneIcon, WarningIcon } from '../icons';
-import { JobsServiceStatus, RiotApiStatus } from '../../../api/status/collections';
+import { RiotApiStatus } from '../../../api/status/collections';
 import React, { PureComponent } from 'react';
 import { Typography } from '../generic/_Typography';
 
@@ -74,12 +74,12 @@ class Status extends PureComponent {
   };
 
   render() {
-    const { style, hasJobServiceHeartbeat, riotApiStatus, loading } = this.props;
+    const { style, riotApiStatus, loading } = this.props;
 
     if (loading) return null;
 
     const hasRiotApiStatusIssues = riotApiStatus && riotApiStatus.length > 0;
-    const hasIssue = hasRiotApiStatusIssues || !hasJobServiceHeartbeat;
+    const hasIssue = hasRiotApiStatusIssues;
 
     const tooltipContent = (
       <div>
@@ -90,13 +90,6 @@ class Status extends PureComponent {
         </Typography>
         <Typography style={styles.status}>RiotAPI:</Typography>
         {hasRiotApiStatusIssues ? (
-          <WarningIcon style={styles.issue} />
-        ) : (
-          <DoneIcon style={styles.noIssue} />
-        )}
-        <br />
-        <Typography style={styles.status}>Match check service: </Typography>
-        {!hasJobServiceHeartbeat ? (
           <WarningIcon style={styles.issue} />
         ) : (
           <DoneIcon style={styles.noIssue} />
@@ -132,17 +125,13 @@ class Status extends PureComponent {
 Status.propTypes = {
   style: PropTypes.object,
   riotApiStatus: PropTypes.array.isRequired,
-  hasJobServiceHeartbeat: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired
 };
 
 const StatusContainer = withTracker(() => {
   const riotApiStatusHandle = Meteor.subscribe('riotApiStatus');
-  const jobServiceStatusHandle = Meteor.subscribe('jobsServiceStatus');
   const riotApiStatus = RiotApiStatus.find().fetch();
-  const jobServiceStatus = JobsServiceStatus.find().fetch();
-  const hasJobServiceHeartbeat = jobServiceStatus.length > 0;
-  const loading = !riotApiStatusHandle.ready() || !jobServiceStatusHandle.ready();
+  const loading = !riotApiStatusHandle.ready();
 
   return {
     riotApiStatus,
