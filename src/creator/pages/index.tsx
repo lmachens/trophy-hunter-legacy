@@ -56,7 +56,7 @@ const Match = () => {
           matchResult: json,
           summonerName: participantIdentity.player.summonerName
         });
-        JSON.stringify(extendedMatchResult);
+
         const stats = extendedMatchResult.participant.stats;
         const trophies = calculateTrophies({ extendedMatchResult });
         result[participantIdentity.player.summonerName] = {
