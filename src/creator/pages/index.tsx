@@ -37,7 +37,7 @@ try {
 const handleChangeText = text => {
   console.log(text);
   if (typeof localStorage === 'object') {
-    localStorage.setItem(matchKey, text);
+    localStorage.setItem(matchKey, JSON.stringify(text));
   }
 };
 const Match = () => {
@@ -56,6 +56,7 @@ const Match = () => {
           matchResult: json,
           summonerName: participantIdentity.player.summonerName
         });
+
         const stats = extendedMatchResult.participant.stats;
         const trophies = calculateTrophies({ extendedMatchResult });
         result[participantIdentity.player.summonerName] = {
