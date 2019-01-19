@@ -31,6 +31,9 @@ class JssDocument extends Document<{ registry: any }> {
               height: 100%;
               margin: 0;
             }
+            body {
+              background: #0a0a0c;
+            }
         `}</style>
           <style id="server-side-styles">{this.props.registry.toString()}</style>
         </Head>

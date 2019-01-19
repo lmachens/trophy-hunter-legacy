@@ -1,13 +1,26 @@
-import Link from 'next/link';
+import { Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 
-const Landing = ({ url }) => (
-  <div>
-    <p>This is the home page. URL: {JSON.stringify(url)}</p>
-    <Link href="/about">
-      <a>About</a>
-    </Link>
-  </div>
-);
+const useStyles = makeStyles({
+  container: {
+    textAlign: 'center'
+  },
+  image: {
+    width: '100%',
+    maxWidth: 1500
+  }
+});
+
+const Landing = () => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.container}>
+      <img src="/static/logo.png" className={classes.image} />
+      <Typography>Under construction</Typography>
+    </div>
+  );
+};
 
 export default Landing;

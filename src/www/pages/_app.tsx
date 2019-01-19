@@ -1,9 +1,7 @@
-import { install, ThemeProvider } from '@material-ui/styles';
-// https://material-ui.com/css-in-js/basics/#migration-for-material-ui-core-users
-install();
-
+import { ThemeProvider } from '@material-ui/styles';
 import App, { Container } from 'next/app';
 import React from 'react';
+import './_bootstrap';
 import theme from './_theme';
 
 export default class MyApp extends App<any> {
@@ -19,9 +17,11 @@ export default class MyApp extends App<any> {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <Component {...pageProps} />
-      </Container>
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Component {...pageProps} />
+        </Container>
+      </ThemeProvider>
     );
   }
 }
