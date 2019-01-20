@@ -1,4 +1,5 @@
 {
+  "championGGApiKey": "XXX",
   "twitchApiKey": "XXX",
   "public": {
     "version": "DEV",

@@ -1,8 +1,16 @@
 import { ChampionStats } from '../champion-stats';
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import { checkUser } from '/imports/startup/server/admin';
+import updateChampionGGStats from './updateChampionGGStats';
 
 Meteor.methods({
+  updateChampionGGStats() {
+    this.unblock();
+    checkUser();
+
+    updateChampionGGStats();
+  },
   getChampionStats(championId) {
     this.unblock();
     check(championId, Number);
