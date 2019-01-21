@@ -80,6 +80,6 @@ Meteor.startup(() => {
     }
   };
 
-  checkInstanceInterval = Meteor.setInterval(checkInstance, 60000);
+  checkInstanceInterval = setInterval(checkInstance, 60000);
   checkInstance();
 });
