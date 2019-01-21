@@ -4,15 +4,14 @@ import Notifications from '/imports/api/notifications/notifications';
 import SummonerStats from '/imports/api/summoner-stats/summonerStats';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import { UsersSessions } from 'meteor/lmachens:user-presence';
-import { removeDead } from '../../server-stats/server';
 import { getPlatformIdByRegion, getActiveGame } from '/imports/shared/th-api/index.ts';
 
 async function cleanup(job, cb) {
   console.log('cleanup'.blue, 'start');
 
-  // Remove old cleanup jobs
   Jobs.remove({ type: 'cleanup', status: 'completed' });
 
+  // Remove old cleanup jobs
   const veryLongPast = new Date(Date.now() - 3 * 30 * 24 * 60 * 60 * 1000); // 3 months ago
   const past = new Date(Date.now() - 90 * 60 * 1000); // 90 minutes ago
   const shortPast = new Date(Date.now() - 10 * 60 * 1000); // 10 minutes ago
@@ -148,8 +147,6 @@ async function cleanup(job, cb) {
     removedNotifications
   );
 
-  const removedDeadServers = removeDead();
-
   job.log('Cleaned up');
   job.done({
     oldGameSessions,
@@ -159,11 +156,7 @@ async function cleanup(job, cb) {
     oldMatchesInProgress,
     reprocessFailed,
     removedSummonerStats,
-    removedNotifications,
-    removedDeadServers
-  });
-  job.rerun({
-    wait: 15 * 60 * 1000 // rerun in 15 minutes
+    removedNotifications
   });
   cb();
 }

@@ -10,6 +10,7 @@ const getConnections = () => {
 };
 
 export const register = ({ name }) => {
+  console.log('register', name);
   const now = new Date();
   ServerStats.upsert(
     { name },
@@ -31,9 +32,4 @@ export const register = ({ name }) => {
   process.on('exit', () => {
     ServerStats.remove({ name });
   });
-};
-
-export const removeDead = () => {
-  const shortPast = new Date(Date.now() - 5 * 60 * 1000);
-  return ServerStats.remove({ updatedAt: { $lt: shortPast } });
 };
