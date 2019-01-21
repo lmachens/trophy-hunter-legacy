@@ -111,18 +111,18 @@ const updateChampionGGStats = () => {
             return;
           }
           championRoleMatchups.forEach(
-            ({ champ1_id: champ1Id, champ2_id: champ2Id, champ1, champ2, count, patch }) => {
+            ({ champ1_id: champ1Id, champ2_id: champ2Id, champ1, champ2, count, patch, _id }) => {
               ChampionMatchups.upsert(
                 {
                   champ1Id,
                   champ2Id,
-                  role
+                  role: _id.role
                 },
                 {
                   $setOnInsert: {
                     champ1Id,
                     champ2Id,
-                    role
+                    role: _id.role
                   },
                   $set: {
                     count,
