@@ -63,6 +63,7 @@ const refreshRiotApiStatus = (job, cb) => {
 export const processRefreshRiotApiStatusJob = () => {
   Jobs.remove({ type: 'refreshRiotApiStatus' });
   new Job.processJobs('Jobs', 'refreshRiotApiStatus', refreshRiotApiStatus);
+
   new Job(Jobs, 'refreshRiotApiStatus', {})
     .repeat({
       repeats: Job.forever,

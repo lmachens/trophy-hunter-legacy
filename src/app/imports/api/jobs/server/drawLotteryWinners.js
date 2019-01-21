@@ -7,6 +7,8 @@ import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 const drawLotteryWinners = (job, cb) => {
   console.log('drawLotteryWinners'.blue, 'start');
 
+  Jobs.remove({ type: 'drawLotteryWinners', status: 'completed' });
+
   const { lotteryId } = job.data;
 
   const lottery = Lotteries.findOne(lotteryId);
