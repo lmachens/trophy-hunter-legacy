@@ -271,15 +271,21 @@ class AppLayout extends Component {
             <OnlineTrophyHunters style={{ position: 'absolute', left: '326px', top: '11px' }} />
             <div style={{ position: 'absolute', top: 4, right: 228, zIndex: 1 }}>
               <RaisedButton
-                buttonStyle={{ width: 63 }}
-                label="Dev Blog"
+                buttonStyle={{ backgroundColor: '#24292e', width: 63 }}
+                label="GitHub"
                 labelStyle={{
                   color: 'white',
                   textTransform: 'none',
                   fontSize: 'inherit',
                   padding: 0
                 }}
-                onClick={() => window.open('https://medium.com/@trophyhunter')}
+                icon={
+                  <img
+                    src="/images/github.png"
+                    style={{ margin: '0 2px 2px 0', width: 15, height: 15 }}
+                  />
+                }
+                onClick={() => window.open('https://github.com/lmachens/trophy-hunter')}
                 secondary={true}
                 style={{ height: 20, width: '100%', minWidth: 63 }}
               />
