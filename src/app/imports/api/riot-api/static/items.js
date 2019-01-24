@@ -955,7 +955,8 @@ const items = {
     '3114': {
       id: 3114,
       name: 'Forbidden Idol',
-      sanitizedDescription: 'Increases Mana Regeneration and Cooldown Reduction',
+      sanitizedDescription:
+        'Increases Heal and Shield Power, Mana Regeneration, and Cooldown Reduction',
       tags: ['CooldownReduction', 'ManaRegen']
     },
     '3115': {
@@ -1637,6 +1638,12 @@ const items = {
       sanitizedDescription: "Kalista's spear that binds an Oathsworn Ally.",
       tags: ['Active']
     },
+    '3600': {
+      id: 3600,
+      name: 'The Black Spear',
+      sanitizedDescription: "Kalista's spear that binds an Oathsworn Ally.",
+      tags: ['Active']
+    },
     '3630': {
       id: 3630,
       name: 'Siege Teleport',
@@ -2043,7 +2050,7 @@ const items = {
     }
   },
   type: 'item',
-  version: '9.1.1'
+  version: '9.2.1'
 };
 
 const itemValues = Object.values(items.data);

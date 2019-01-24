@@ -1,5 +1,7 @@
 # Change Log
 
+### Changed
+- Updated to Riot API version 9.2.1.
 ### Fixed
 - Fixed display of earned points if the active quest bonus applied in multiple trees.
 

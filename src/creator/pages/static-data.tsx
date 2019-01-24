@@ -9,6 +9,7 @@ const DynamicJSONEditor = dynamic<JSONEditorProps>(import('../components/JSONEdi
 });
 
 const StaticData = () => {
+  const [version, setVersion] = useState('9.2.1');
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -30,10 +31,14 @@ const StaticData = () => {
     document.execCommand('copy');
   };
 
+  const handleVersionChange = event => {
+    setVersion(event.target.value);
+  };
+
   return (
     <Page>
       <form onSubmit={handleSubmit} noValidate>
-        <input name="version" value="9.1.1" />
+        <input name="version" value={version} onChange={handleVersionChange} />
         <button type="submit" disabled={loading}>
           Get Static Data
         </button>

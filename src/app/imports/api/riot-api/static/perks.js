@@ -55,7 +55,7 @@ const perks = {
     name: 'Cut Down',
     shortDesc: 'Deal more damage to champions with more max health than you.',
     longDesc:
-      'Deal 4% more damage to champions with 150 more max health than you, increasing to 12% at 2000 more max health.'
+      'Deal 4% to 10% more damage to champions, based on how much more max health they have than you.Bonus damage scales up linearly against enemies with 10% to 100% more max health than you.'
   },
   '8021': {
     id: 8021,
@@ -65,7 +65,7 @@ const perks = {
     shortDesc:
       'Attacking and moving builds Energy stacks. At 100 stacks, your next attack heals you and grants increased MS.',
     longDesc:
-      'Attacking and moving builds Energy stacks. At 100 stacks, your next attack is Energized.Energized attacks heal you for 3 - 60 (+0.3 Bonus AD, +0.3 AP) and grant +20% movement speed for 1s.Ranged Champions: Healing from minions is 20% effective.'
+      'Attacking and moving builds Energy stacks. At 100 stacks, your next attack is EnergizedEnergized attacks heal you for 3 - 60 (+0.3 Bonus AD, +0.3 AP) and grant +20% movement speed for 1s.Healing from minions is 20% effective for Ranged Champions.'
   },
   '8105': {
     id: 8105,
@@ -264,7 +264,7 @@ const perks = {
     name: 'Absolute Focus',
     shortDesc: 'While above 70% health, gain extra adaptive damage.',
     longDesc:
-      'While above 70% health, gain an adaptive bonus of up to 24 Attack Damage or 40 Ability Power (based on level). Grants 3 Attack Damage or 5 Ability Power at level 1. '
+      'While above 70% health, gain an adaptive bonus of up to 18 Attack Damage or 30 Ability Power (based on level). Grants 1.8 Attack Damage or 3 Ability Power at level 1. '
   },
   '8234': {
     id: 8234,
@@ -552,16 +552,17 @@ const perks = {
     name: 'Overheal',
     shortDesc: 'Excess healing on you becomes a shield.',
     longDesc:
-      'Excess healing on you becomes a shield, for up to 10% of your total health + 10.Shield is built up from 40% of excess self-healing, or 300% of excess healing from allies.'
+      'Excess healing on you becomes a shield, for up to 10 (+10% Max Health).Shield is built up from 40 to 100% of excess healing from yourself or any ally.'
   },
   '9103': {
     id: 9103,
     key: 'LegendBloodline',
     icon: 'perk-images/Styles/Precision/LegendBloodline/LegendBloodline.png',
     name: 'Legend: Bloodline',
-    shortDesc: 'Takedowns on enemies grant permanent Lifesteal. ',
+    shortDesc:
+      'Takedowns on enemies grant permanent Lifesteal. Weaker earlier but stronger later game than other Legend Runes.',
     longDesc:
-      'Gain 0.8% life steal for every Legend stack (max 10 stacks).Earn progress toward Legend stacks for every champion takedown, epic monster takedown, large monster kill, and minion kill.'
+      'Gain 0.6% life steal for every Legend stack (max 20 stacks).Earn progress toward Legend stacks for every champion takedown, epic monster takedown, large monster kill, and minion kill.'
   },
   '9104': {
     id: 9104,
