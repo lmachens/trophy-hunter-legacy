@@ -131,7 +131,7 @@ const summonerSpells = {
       id: 14,
       name: 'Ignite',
       description:
-        'Ignites target enemy champion, dealing 80-505 true damage (depending on champion level) over 5 seconds, grants you vision of the target, and reduces healing effects on them for the duration.',
+        'Ignites target enemy champion, dealing 70-410 true damage (depending on champion level) over 5 seconds, grants you vision of the target, and reduces healing effects on them for the duration.',
       image: {
         full: 'SummonerDot.png',
         sprite: 'spell0.png',
@@ -333,7 +333,7 @@ const summonerSpells = {
     }
   },
   type: 'summoner',
-  version: '9.1.1'
+  version: '9.2.1'
 };
 
 export default summonerSpells;

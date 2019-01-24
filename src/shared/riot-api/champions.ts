@@ -301,7 +301,7 @@ const champions = {
         image: {
           full: 'UrgotW.png'
         },
-        cooldownBurn: '13/12/11/10/9'
+        cooldownBurn: '17/15/13/11/9'
       },
       {
         name: 'Disdain',
@@ -2156,7 +2156,7 @@ const champions = {
       {
         name: "Vanguard's Edge",
         sanitizedDescription:
-          'Irelia fires a massive number of blades that explode outward upon hitting an enemy champion. Enemies hit by the blades are damaged and Marked. Afterwards the blades form a wall that will damage, slow and disarm enemies that walk through it.',
+          'Irelia fires a massive number of blades that explode outward upon hitting an enemy champion. Enemies hit by the blades are damaged and Marked. Afterwards the blades form a wall that will damage and slow enemies that walk through it.',
         image: {
           full: 'IreliaR.png'
         },
@@ -2169,7 +2169,7 @@ const champions = {
       },
       name: 'Ionian Fervor',
       sanitizedDescription:
-        'When Irelia strikes enemies with spells she gains a stacking bonus damage buff on her basic attacks. At maximum stacks she also gains Attack Speed and deals bonus damage to shields.'
+        'When Irelia strikes enemies with spells she gains a stacking bonus damage buff on her basic attacks. At maximum stacks she also gains Attack Speed.'
     },
     range: 'Melee'
   },
@@ -3287,7 +3287,7 @@ const champions = {
       },
       name: 'Blaze',
       sanitizedDescription:
-        "Brand's spells light his targets ablaze, dealing 4% of their maximum Health in magic damage over 4 seconds, stacking up to 3 times. If Brand kills an enemy while it is ablaze he regains mana. When Blaze reaches max stacks on a Champion or large monster, it becomes unstable. It detonates in 2 seconds, applying spell effects and dealing massive damage in an area around the victim."
+        "Brand's spells light his targets ablaze, dealing 2% of their maximum Health in magic damage over 4 seconds, stacking up to 3 times. If Brand kills an enemy while it is ablaze he regains mana. When Blaze reaches max stacks on a Champion or large monster, it becomes unstable. It detonates in 2 seconds, applying spell effects and dealing massive damage in an area around the victim."
     },
     range: 'Ranged'
   },
@@ -3386,7 +3386,7 @@ const champions = {
       {
         name: 'Final Hour',
         sanitizedDescription:
-          'Readying herself for an epic confrontation, Vayne gains increased Attack Damage, Invisibility during Tumble, and triple the bonus Movement Speed from Night Hunter.',
+          'Readying herself for an epic confrontation, Vayne gains increased Attack Damage, Invisibility during Tumble, reduced Tumble cooldown, and triple the bonus Movement Speed from Night Hunter.',
         image: {
           full: 'VayneInquisition.png'
         },
@@ -3484,7 +3484,7 @@ const champions = {
         image: {
           full: 'CassiopeiaW.png'
         },
-        cooldownBurn: '18/17/16/15/14'
+        cooldownBurn: '18/17.5/17/16.5/16'
       },
       {
         name: 'Twin Fang',
@@ -7170,7 +7170,7 @@ const champions = {
     ],
     passive: {
       image: {
-        full: 'Aatrox_Passive.AatroxUpdate.png'
+        full: 'Aatrox_Passive.png'
       },
       name: 'Deathbringer Stance',
       sanitizedDescription:
@@ -7443,7 +7443,7 @@ const champions = {
         image: {
           full: 'RekSaiRWrapper.png'
         },
-        cooldownBurn: '0'
+        cooldownBurn: '100/80/60'
       }
     ],
     passive: {
@@ -7789,6 +7789,61 @@ const champions = {
     },
     range: 'Melee'
   },
+  '517': {
+    id: 517,
+    key: 'Sylas',
+    name: 'Sylas',
+    title: 'the Unshackled',
+    image: {
+      full: 'Sylas.png'
+    },
+    spells: [
+      {
+        name: 'Chain Lash',
+        sanitizedDescription:
+          'Sylas lashes his chains out, intersecting at his targeted location dealing damage to and slowing enemies. After a delay, magical energy explodes from the intersection point dealing damage and increasing the slow.',
+        image: {
+          full: 'SylasQ.png'
+        },
+        cooldownBurn: '9/8/7/6/5'
+      },
+      {
+        name: 'Kingslayer',
+        sanitizedDescription:
+          'Sylas lunges at an enemy with magical force dealing execute based damage and healing himself against enemy champions.',
+        image: {
+          full: 'SylasW.png'
+        },
+        cooldownBurn: '14/13.5/13/12.5/12'
+      },
+      {
+        name: 'Abscond / Abduct',
+        sanitizedDescription:
+          'Sylas dashes and gains a shield. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits.',
+        image: {
+          full: 'SylasE.png'
+        },
+        cooldownBurn: '12/11.5/11/10.5/10'
+      },
+      {
+        name: 'Hijack',
+        sanitizedDescription: "Sylas steals the enemy's ultimate ability and can cast it freely.",
+        image: {
+          full: 'SylasR.png'
+        },
+        cooldownBurn: '85/50/15'
+      }
+    ],
+    passive: {
+      image: {
+        full: 'SylasP.png'
+      },
+      name: 'Petricite Burst',
+      sanitizedDescription:
+        "After casting a spell, Sylas's next basic attack whirls his energized chains around him dealing bonus magic damage to enemies hit."
+    },
+    range: 'Melee'
+  },
   '518': {
     id: 518,
     key: 'Neeko',
@@ -7900,7 +7955,7 @@ const champions = {
     },
     range: 'Melee'
   },
-  version: '9.1.1'
+  version: '9.2.1'
 };
 
 export default champions;
