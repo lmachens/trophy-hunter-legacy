@@ -209,7 +209,7 @@ class LauncherListener {
         status
       );
     }
-    if (/LOGIN_HIDE_EVENT/.test(data)) {
+    if (/LOGIN_HIDE_EVENT/.test(data) || /riot__rclient__remove_unneeded_releases/.test(data)) {
       this.getSummonerInfo();
     }
   };
@@ -296,7 +296,7 @@ class LauncherListener {
 
   processLogLine = line => {
     const champSelect = this.getChampSelect(line);
-    if (/LOGIN_HIDE_EVENT/.test(line)) {
+    if (/LOGIN_HIDE_EVENT/.test(line) || /riot__rclient__remove_unneeded_releases/.test(line)) {
       this.getSummonerInfo();
     } else if (champSelect) {
       //console.log('champSelect');
