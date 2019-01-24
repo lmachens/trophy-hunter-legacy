@@ -13,6 +13,7 @@ import hostname from './hostname';
 
 const processJobs = () => {
   console.log('Promoted to process jobs');
+  ServerStats.update({ name: hostname }, { $set: { primary: true } });
   // Start the Jobs queue running
   Jobs.startJobServer();
 
@@ -74,12 +75,12 @@ Meteor.startup(() => {
     ServerStats.remove({ updatedAt: { $lt: shortPast } });
 
     const oldestInstance = ServerStats.findOne({}, { sort: { createdAt: 1 } });
-    if (oldestInstance.name === hostname) {
+    if (oldestInstance && oldestInstance.name === hostname) {
       processJobs();
       clearInterval(checkInstanceInterval);
     }
   };
 
-  checkInstanceInterval = setInterval(checkInstance, 60000);
+  checkInstanceInterval = Meteor.setInterval(checkInstance, 60000);
   checkInstance();
 });
