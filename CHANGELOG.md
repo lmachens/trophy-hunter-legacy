@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.1.0] - 2019-01-24
 ### Changed
 - Updated to Riot API version 9.2.1.
 ### Fixed
