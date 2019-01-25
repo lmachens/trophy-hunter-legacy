@@ -18,7 +18,7 @@ const processJobs = () => {
   Jobs.startJobServer();
 
   Jobs.remove({ type: 'cleanup' });
-  new Job.processJobs('Jobs', 'cleanup', { workTimeout: 60000 }, cleanup);
+  new Job.processJobs('Jobs', 'cleanup', { workTimeout: 30 * 60000 }, cleanup);
 
   new Job(Jobs, 'cleanup', {})
     .repeat({
@@ -31,14 +31,19 @@ const processJobs = () => {
   new Job.processJobs(
     'Jobs',
     'refreshMatchForGameSession',
-    { workTimeout: 60000 },
+    { workTimeout: 30 * 60000 },
     refreshMatchForGameSession
   );
 
-  new Job.processJobs('Jobs', 'drawLotteryWinners', { workTimeout: 60000 }, drawLotteryWinners);
+  new Job.processJobs(
+    'Jobs',
+    'drawLotteryWinners',
+    { workTimeout: 30 * 60000 },
+    drawLotteryWinners
+  );
 
   Jobs.remove({ type: 'refreshStreams' });
-  new Job.processJobs('Jobs', 'refreshStreams', { workTimeout: 60000 }, refreshStreamsJob);
+  new Job.processJobs('Jobs', 'refreshStreams', { workTimeout: 30 * 60000 }, refreshStreamsJob);
 
   new Job(Jobs, 'refreshStreams', {})
     .repeat({
