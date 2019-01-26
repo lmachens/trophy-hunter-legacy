@@ -18,7 +18,7 @@ const processJobs = () => {
   Jobs.startJobServer();
 
   Jobs.remove({ type: 'cleanup' });
-  new Job.processJobs('Jobs', 'cleanup', { workTimeout: 30 * 60000 }, cleanup);
+  new Job.processJobs('Jobs', 'cleanup', { workTimeout: 5 * 60 * 60000 }, cleanup);
 
   new Job(Jobs, 'cleanup', {})
     .repeat({
