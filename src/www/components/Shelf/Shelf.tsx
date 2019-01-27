@@ -7,14 +7,34 @@ import Trophy from '../Trophy';
 const useStyles = makeStyles({
   container: {
     textAlign: 'center',
-    display: 'flex'
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative'
+  },
+  background: {
+    position: 'absolute',
+    backgroundSize: 'cover',
+    width: '100%',
+    height: '100%',
+    pointerEvents: 'none',
+    zIndex: -1,
+    backgroundImage: `url(/static/bg.jpg)`,
+    filter: 'brightness(.5) grayscale(100%)',
+    opacity: 0.5
   },
   image: {
     height: 211,
-    width: 200
+    width: 200,
+    margin: 5
   },
   content: {
-    padding: 10
+    padding: 10,
+    margin: '36px auto'
+  },
+  store: {
+    position: 'absolute',
+    bottom: 5,
+    right: 5
   }
 });
 
@@ -72,21 +92,27 @@ const Shelf = () => {
 
   return (
     <div className={classes.container}>
+      <div className={classes.background} />
       <img src="/static/logo_small.png" className={classes.image} />
       <div className={classes.content}>
-        {loading && <CircularProgress />}
+        {loading && (
+          <>
+            <CircularProgress />
+            <Typography>Checking trophies...</Typography>
+          </>
+        )}
         {!loading && (
           <>
             <Typography>You obtained {trophies.length} trophies!</Typography>
             {trophies.map(trophy => (
               <Trophy {...trophy} key={trophy.name} />
             ))}
-            <Button onClick={handleStoreClick}>
-              Become a Trophy Hunter and track your progress
-            </Button>
           </>
         )}
       </div>
+      <Button className={classes.store} onClick={handleStoreClick}>
+        Install Trophy Hunter
+      </Button>
     </div>
   );
 };
