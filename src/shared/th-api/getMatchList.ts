@@ -1,7 +1,7 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
 
-const apiEndpoint = process.env.MATCHLIST_API_ENDPOINT || 'https://www.th.gl/api/matchlist';
+const apiEndpoint = process.env.MATCHLIST_API_ENDPOINT || 'https://api.th.gl/matchlist';
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds

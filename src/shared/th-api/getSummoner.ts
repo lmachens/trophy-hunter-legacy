@@ -1,7 +1,7 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
 
-const apiEndpoint = process.env.SUMMONER_API_ENDPOINT || 'https://www.th.gl/api/summoner';
+const apiEndpoint = process.env.SUMMONER_API_ENDPOINT || 'https://api.th.gl/summoner';
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
