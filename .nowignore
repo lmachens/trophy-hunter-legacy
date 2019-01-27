@@ -4,11 +4,12 @@ dist
 node_modules
 src/api/server.ts
 src/app
+src/creator
 src/overwolf
 .gitignore
 .prettierignore
 .prettierrc
 CHANGELOG.md
 README.md
-tsconfig.json
+tslint.json
 .next
