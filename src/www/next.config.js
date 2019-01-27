@@ -13,7 +13,9 @@ const { PHASE_PRODUCTION_SERVER } =
 module.exports = phase => {
   if (phase === PHASE_PRODUCTION_SERVER) {
     // Config used to run in production.
-    return {};
+    return {
+      target: 'serverless'
+    };
   }
 
   const withTypescript = require('@zeit/next-typescript');
@@ -22,6 +24,7 @@ module.exports = phase => {
     webpack(config) {
       config.resolve.symlinks = false;
       return config;
-    }
+    },
+    target: 'serverless'
   });
 };
