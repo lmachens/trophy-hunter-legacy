@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
-import extendMatchResult from '../../../shared/matches/extendMatchResult';
-import { getMatch, getTimeline } from '../../../shared/th-api';
-import calculateTrophies from '../../../shared/trophies/calculateTrophies';
+import extendMatchResult from '../../shared/matches/extendMatchResult';
+import { getMatch, getTimeline } from '../../shared/th-api';
+import calculateTrophies from '../../shared/trophies/calculateTrophies';
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
