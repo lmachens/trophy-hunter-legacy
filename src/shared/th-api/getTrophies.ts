@@ -8,14 +8,14 @@ const cache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
-const getTrophies = ({ platformId, matchId, summonerId }) => {
-  const key = `${platformId}&${matchId}`;
+const getTrophies = ({ platformId, matchId, summonerName }) => {
+  const key = `${platformId}&${matchId}&${summonerName}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
   return axios
-    .get(`${apiEndpoint}?platformId=${platformId}&matchId=${matchId}&summonerId=${summonerId}`)
+    .get(`${apiEndpoint}?platformId=${platformId}&matchId=${matchId}&summonerName=${summonerName}`)
     .then(response => {
       if (response.data) {
         cache.set(key, response.data);
