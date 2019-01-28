@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "meteor run --settings settings.json --port 3000"
+    "start": "meteor run --settings settings.json --port 3000",
+    "storybook": "start-storybook -p 6006"
   },
   "meteor": {
     "mainModule": {
@@ -61,6 +62,11 @@
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
-    "@babel/preset-typescript": "^7.1.0"
+    "@babel/preset-typescript": "^7.1.0",
+    "@storybook/cli": "^4.1.11",
+    "@storybook/react": "^4.1.11",
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.2.4"
   }
 }
