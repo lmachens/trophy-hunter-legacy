@@ -40,12 +40,14 @@ interface ExtendMatchResultProps {
   summonerId?: string | number;
   summonerName?: string;
   matchExtensionParameters?: any;
+  championId?: number;
 }
 function extendMatchResult({
   matchResult,
   summonerId,
   summonerName,
-  matchExtensionParameters
+  matchExtensionParameters,
+  championId
 }: ExtendMatchResultProps) {
   matchExtensionParameters = {
     withTimeline: true,
@@ -62,6 +64,17 @@ function extendMatchResult({
       summonerId,
       summonerName
     });
+    if (!extendedMatchResult.participantIdentity && championId) {
+      const participant = extendedMatchResult.participants.find(
+        participant => participant.championId === championId
+      );
+      if (participant) {
+        const participantIdentity = extendedMatchResult.participantIdentities.find(
+          participantIdentity => participantIdentity.participantId === participant.participantId
+        );
+        extendedMatchResult.participantIdentity = participantIdentity;
+      }
+    }
   }
   if (matchExtensionParameters.extendStatsParticipantIds.length === 0) {
     matchExtensionParameters.extendStatsParticipantIds.push(

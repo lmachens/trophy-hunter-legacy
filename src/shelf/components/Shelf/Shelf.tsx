@@ -1,6 +1,7 @@
 import { Button, CircularProgress, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React, { useEffect, useState } from 'react';
+import champions from '../../shared/riot-api/champions';
 import { getPlatformIdByRegion, getTrophies } from '../../shared/th-api';
 import Trophy from '../Trophy';
 
@@ -9,7 +10,9 @@ const useStyles = makeStyles({
     textAlign: 'center',
     display: 'flex',
     alignItems: 'center',
-    position: 'relative'
+    position: 'relative',
+    height: '100%',
+    overflow: 'hidden'
   },
   background: {
     position: 'absolute',
@@ -39,7 +42,6 @@ const useStyles = makeStyles({
 });
 
 const sendMessageToGameSummary = (message, extra = '') => {
-  console.info('Send message to GameSummary', message, extra);
   if (parent) {
     parent.postMessage({ isOverwolfShelf: true, message, extra }, '*');
   }
@@ -62,21 +64,30 @@ const Shelf = () => {
         origin,
         data: { isGameSummaryMessage, message, extra }
       } = event;
-      if (/*origin === 'https://content.overwolf.com' && */ isGameSummaryMessage) {
+      if (origin === 'https://content.overwolf.com' && isGameSummaryMessage) {
         if (message === 'newParameters') {
-          const { region, matchId, summonerName } = extra;
+          const { region, matchId, summonerName, champion: championName } = extra.params;
+
+          // Workaround until "summonerName" exists
+          const champion: any = Object.values(champions).find(
+            (champion: any) => champion.name === championName
+          );
+          const championId = champion.id;
+
           const platformId = getPlatformIdByRegion(region);
           lastMatchId = matchId;
           setLoading(true);
           getTrophies({
             platformId,
             matchId,
-            summonerName
+            summonerName,
+            championId
           }).then(result => {
             if (matchId === lastMatchId) {
               const trophies = result.data.sort((a, b) => b.score - a.score);
               setTrophies(trophies);
               setLoading(false);
+              sendMessageToGameSummary('ready');
             }
           });
         }
