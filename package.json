@@ -7,7 +7,8 @@
     "creator": "yarn --cwd \"src/creator\" dev",
     "build-overwolf": "yarn --cwd \"src/overwolf\" build",
     "shelf": "yarn --cwd \"src/shelf\" dev",
-    "www": "yarn --cwd \"src/www\" dev"
+    "www": "yarn --cwd \"src/www\" dev",
+    "app-storybook": "cd src/app && npm run storybook"
   },
   "workspaces": [
     "src/api",
