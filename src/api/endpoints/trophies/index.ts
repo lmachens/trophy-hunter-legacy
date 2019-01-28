@@ -9,8 +9,8 @@ export default (req: IncomingMessage, res: ServerResponse) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
-  const { platformId, matchId, summonerName }: any = parse(req.url, true).query;
-  if (!platformId || !matchId || !summonerName) {
+  const { platformId, matchId, summonerName, championId }: any = parse(req.url, true).query;
+  if (!platformId || !matchId || (!summonerName && !championId)) {
     res.writeHead(400);
     return res.end('Invalid query');
   }
@@ -23,7 +23,11 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     .then(
       axios.spread((match, timeline) => {
         match.timeline = timeline;
-        const extendedMatchResult = extendMatchResult({ matchResult: match, summonerName });
+        const extendedMatchResult = extendMatchResult({
+          matchResult: match,
+          summonerName,
+          championId: parseInt(championId || '-1')
+        });
         const trophiesObtained = calculateTrophies({ extendedMatchResult });
         const result = {
           data: trophiesObtained,
