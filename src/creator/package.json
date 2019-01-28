@@ -11,7 +11,7 @@
     "@zeit/next-typescript": "^1.1.1",
     "axios": "^0.18.0",
     "isomorphic-unfetch": "^3.0.0",
-    "jsoneditor": "^5.27.0",
+    "jsoneditor": "^5.28.2",
     "next": "^8.0.0-canary.7",
     "next-images": "^1.0.4",
     "react": "^16.8.0-alpha.1",
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@types/jsoneditor": "^5.19.0",
     "@types/next": "^7.0.6",
-    "@types/react": "^16.7.18",
+    "@types/react": "^16.7.22",
     "@types/react-dom": "^16.0.11"
   }
 }

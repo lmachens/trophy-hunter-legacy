@@ -10,12 +10,12 @@
     "axios": "^0.18.0",
     "lodash.groupby": "4.6.0",
     "lodash.zip": "4.2.0",
-    "mongodb": "^3.1.10",
+    "mongodb": "^3.1.13",
     "node-cache": "^4.2.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "@types/mongodb": "^3.1.18",
+    "@types/mongodb": "^3.1.19",
     "@types/node": "^10.12.18",
     "ts-node-dev": "^1.0.0-pre.32"
   }
