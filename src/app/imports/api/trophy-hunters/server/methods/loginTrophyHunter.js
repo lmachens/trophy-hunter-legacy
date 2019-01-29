@@ -114,76 +114,80 @@ const loginTrophyHunter = async function({
   check(overwolfUser, Object);
   check(serverVersion, Match.Maybe(String));
 
-  try {
-    const platformId = getPlatformIdByRegion(region);
+  const platformId = getPlatformIdByRegion(region);
 
-    const summoner = await getSummoner({ platformId, summonerName: targetSummonerName });
-    if (!summoner) {
-      console.log(`loginTrophyHunter: can not find summoner for ${platformId} ${summonerName}`);
-      return null;
+  let summoner;
+  try {
+    summoner = await getSummoner({ platformId, summonerName: targetSummonerName });
+  } catch (error) {}
+  if (!summoner) {
+    throw `loginTrophyHunter: can not find summoner for ${platformId} ${targetSummonerName}`;
+  }
+
+  const {
+    id: summonerId,
+    name: summonerName,
+    profileIconId,
+    summonerLevel,
+    puuid,
+    accountId,
+    revisionDate
+  } = summoner;
+
+  const $set = {
+    puuid,
+    accountId,
+    summonerId,
+    summonerName,
+    summonerLevel,
+    profileIconId,
+    region,
+    overwolfUser,
+    revisionDate,
+    lastLogin: new Date(),
+    lastVersion: serverVersion
+  };
+
+  try {
+    $set.leaguePositions = await getLeaguePositions({ platformId, summonerId: summoner.id });
+  } catch (error) {}
+  TrophyHunters.update(
+    { $or: [{ puuid }, { region, summonerName: targetSummonerName }] },
+    {
+      $set
     }
-    const {
-      id: summonerId,
-      name: summonerName,
-      profileIconId,
-      summonerLevel,
+  );
+
+  let userId;
+  const trophyHunter = TrophyHunters.findOne(
+    { $or: [{ puuid }, { region, summonerName: targetSummonerName }] },
+    { fields: { userId: 1 } }
+  );
+  if (trophyHunter) {
+    userId = trophyHunter.userId;
+  } else {
+    userId = createUser({
       puuid,
       accountId,
+      summonerId,
+      summonerName,
+      summonerLevel,
+      leaguePositions,
+      profileIconId,
+      region,
+      overwolfUser,
       revisionDate
-    } = summoner;
-    const leaguePositions = await getLeaguePositions({ platformId, summonerId: summoner.id });
-    TrophyHunters.update(
-      { $or: [{ puuid }, { region, summonerName: targetSummonerName }] },
-      {
-        $set: {
-          puuid,
-          accountId,
-          summonerId,
-          summonerName,
-          summonerLevel,
-          leaguePositions,
-          profileIconId,
-          region,
-          overwolfUser,
-          revisionDate,
-          lastLogin: new Date(),
-          lastVersion: serverVersion
-        }
-      }
-    );
-
-    let userId;
-    const trophyHunter = TrophyHunters.findOne(
-      { $or: [{ puuid }, { region, summonerName: targetSummonerName }] },
-      { fields: { userId: 1 } }
-    );
-    if (trophyHunter) {
-      userId = trophyHunter.userId;
-    } else {
-      userId = createUser({
-        puuid,
-        accountId,
-        summonerId,
-        summonerName,
-        summonerLevel,
-        leaguePositions,
-        profileIconId,
-        region,
-        overwolfUser,
-        revisionDate
-      });
-    }
-
-    const ingame = await isIngame({ userId, platformId, summonerId });
-
-    return {
-      userId,
-      ingame
-    };
-  } catch (error) {
-    console.error(error.message);
-    return null;
+    });
   }
+
+  let ingame = false;
+  try {
+    ingame = await isIngame({ userId, platformId, summonerId });
+  } catch (error) {}
+  return {
+    userId,
+    ingame
+  };
 };
 
 export default loginTrophyHunter;
