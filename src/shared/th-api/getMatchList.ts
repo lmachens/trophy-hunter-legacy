@@ -25,9 +25,12 @@ const getMatchList = ({
   endIndex,
   queueIds
 }: GetMatchListProps) => {
+  if (/^\d+$/.test(`${accountId}`)) {
+    throw new Error(`getMatchList: deprecated accountId ${accountId} (${platformId})`);
+  }
+
   let key = `${platformId}&${accountId}`;
-  const version = typeof accountId === 'number' ? 'v3' : 'v4';
-  let url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}&version=${version}`;
+  let url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}`;
   if (championId) {
     key += `&c&${championId}`;
     url += `&championId=${championId}`;

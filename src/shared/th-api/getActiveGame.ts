@@ -3,8 +3,10 @@ import axios from 'axios';
 const apiEndpoint = process.env.ACTIVE_GAME_API_ENDPOINT || 'https://api.th.gl/active-game';
 
 const getActiveGame = ({ platformId, summonerId }) => {
-  const version = typeof summonerId === 'number' ? 'v3' : 'v4';
-  const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`;
+  if (/^\d+$/.test(`${summonerId}`)) {
+    throw new Error(`getActiveGame: deprecated summonerId ${summonerId} (${platformId})`);
+  }
+  const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}`;
 
   return axios
     .get(url)

@@ -10,13 +10,16 @@ const cache = new NodeCache({
 });
 
 const getChampionMastery = ({ platformId, summonerId, championId }) => {
+  if (/^\d+$/.test(`${summonerId}`)) {
+    throw new Error(`getChampionMastery: deprecated summonerId ${summonerId} (${platformId})`);
+  }
+
   const key = `${platformId}&${summonerId}&${championId}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
-  const version = typeof summonerId === 'number' ? 'v3' : 'v4';
-  const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&championId=${championId}&version=${version}`;
+  const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&championId=${championId}`;
 
   return axios
     .get(url)

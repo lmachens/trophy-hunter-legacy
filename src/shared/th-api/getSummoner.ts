@@ -19,13 +19,17 @@ const getSummoner = ({ platformId, summonerId, accountId, summonerName }: GetSum
   let key;
   let url;
   if (summonerId) {
+    if (/^\d+$/.test(`${summonerId}`)) {
+      throw new Error(`getSummoner: deprecated summonerId ${summonerId} (${platformId})`);
+    }
     key = `${platformId}&s&${summonerId}`;
-    const version = /^\d+$/.test(`${summonerId}`) ? 'v3' : 'v4';
-    url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`;
+    url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}`;
   } else if (accountId) {
+    if (/^\d+$/.test(`${accountId}`)) {
+      throw new Error(`getSummoner: deprecated accountId ${accountId} (${platformId})`);
+    }
     key = `${platformId}&a&${accountId}`;
-    const version = /^\d+$/.test(`${accountId}`) ? 'v3' : 'v4';
-    url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}&version=${version}`;
+    url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}`;
   } else {
     key = `${platformId}&n&${summonerName}`;
     url = `${apiEndpoint}?platformId=${platformId}&summonerName=${encodeURI(summonerName)}`;
