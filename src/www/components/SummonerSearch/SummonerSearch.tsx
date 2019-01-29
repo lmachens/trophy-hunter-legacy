@@ -1,4 +1,4 @@
-import { IconButton, InputBase, MenuItem, Paper, Select } from '@material-ui/core';
+import { IconButton, InputBase, MenuItem, Paper, Select, Tooltip } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
@@ -38,29 +38,31 @@ const SummonerSearch = ({ className }) => {
   };
 
   return (
-    <Paper className={classNames(classes.root, className)} elevation={1}>
-      <Select
-        value={region}
-        onChange={handleRegionChange}
-        input={<InputBase name="age" id="age-customized-select" />}
-      >
-        {regions.map(region => (
-          <MenuItem value={region} key={region}>
-            {region}
-          </MenuItem>
-        ))}
-      </Select>
-      <InputBase
-        autoFocus
-        className={classes.input}
-        placeholder="Summoner Name"
-        value={summonerName}
-        onChange={handleSummonerNameChange}
-      />
-      <IconButton className={classes.iconButton} aria-label="Search">
-        <SearchIcon />
-      </IconButton>
-    </Paper>
+    <Tooltip title="Summoner Search Comming Soon!" placement="top">
+      <Paper className={classNames(classes.root, className)} elevation={1}>
+        <Select
+          value={region}
+          onChange={handleRegionChange}
+          input={<InputBase name="age" id="age-customized-select" />}
+        >
+          {regions.map(region => (
+            <MenuItem value={region} key={region}>
+              {region}
+            </MenuItem>
+          ))}
+        </Select>
+        <InputBase
+          autoFocus
+          className={classes.input}
+          placeholder="Summoner Name"
+          value={summonerName}
+          onChange={handleSummonerNameChange}
+        />
+        <IconButton className={classes.iconButton} aria-label="Search" disabled>
+          <SearchIcon />
+        </IconButton>
+      </Paper>
+    </Tooltip>
   );
 };
 

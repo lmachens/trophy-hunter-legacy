@@ -28,6 +28,12 @@ class JssDocument extends Document<{ registry: any }> {
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
+          <meta name="description" content="Earn Trophies for playing League of Legends!" />
+          <meta property="og:description" content="Earn Trophies for playing League of Legends!" />
+          <meta
+            name="keywords"
+            content="League of Legends, LoL App, LoL Guide, Real-time In Game, Statistics, LoL Spectate, Overwolf, Champion Guide, Champion Build, LOLKing, Champion Counter"
+          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
