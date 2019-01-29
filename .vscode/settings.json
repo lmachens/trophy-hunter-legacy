@@ -6,7 +6,8 @@
     "**/node_modules": true,
     "**/.meteor/local": true,
     "src/**/shared": true,
-    "dist": true
+    "dist": true,
+    "**/.next": true
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,

@@ -1,14 +1,14 @@
-import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
+import Community from '../Community';
+import Features from '../Features';
+import Header from '../Header';
+import Home from '../Home';
+import Screenshots from '../Screenshots/Screenshots';
 
 const useStyles = makeStyles({
   container: {
-    textAlign: 'center'
-  },
-  image: {
-    width: '100%',
-    maxWidth: 1000
+    marginBottom: 100
   }
 });
 
@@ -17,8 +17,11 @@ const Landing = () => {
 
   return (
     <div className={classes.container}>
-      <img src="/static/logo.png" className={classes.image} />
-      <Typography>Under construction</Typography>
+      <Header />
+      <Home />
+      <Community />
+      <Screenshots />
+      <Features />
     </div>
   );
 };
