@@ -6,7 +6,7 @@ import DownloadButton from '../DownloadButton';
 import Parallax from '../Parallax';
 import SummonerSearch from '../SummonerSearch';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   container: {
     textAlign: 'center',
     margin: '0 auto',
@@ -34,24 +34,26 @@ const useStyles = makeStyles(theme => ({
       transform: 'translate(0, -15px)'
     }
   }
-}));
+});
 
 const Home = () => {
   const classes = useStyles();
 
   return (
-    <Parallax filter image={'/static/bg.jpg'}>
-      <div className={classes.container}>
-        <img src="/static/logo.png" className={classes.image} />
-        <SummonerSearch className={classes.summonerSearch} />
-        <DownloadButton />
-      </div>
-      <a href="#features" className={classes.more}>
-        <IconButton aria-label="More">
-          <KeyboardArrowDownIcon />
-        </IconButton>
-      </a>
-    </Parallax>
+    <div id="home">
+      <Parallax filter image={'/static/bg.jpg'}>
+        <div className={classes.container}>
+          <img src="/static/logo.png" className={classes.image} />
+          <SummonerSearch className={classes.summonerSearch} />
+          <DownloadButton />
+        </div>
+        <a href="#community" className={classes.more}>
+          <IconButton aria-label="More">
+            <KeyboardArrowDownIcon />
+          </IconButton>
+        </a>
+      </Parallax>
+    </div>
   );
 };
 

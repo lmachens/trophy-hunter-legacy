@@ -1,8 +1,9 @@
-import { Card, CardContent, Divider, Grid, Link, Typography } from '@material-ui/core';
+import { Card, CardContent, Grid, Link, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
+import TitleDivider from '../TitleDivider';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   container: {
     textAlign: 'center',
     margin: '0 auto',
@@ -12,13 +13,6 @@ const useStyles = makeStyles(theme => ({
   subtitle: {
     marginTop: 40
   },
-  divider: {
-    width: 200,
-    maxWidth: '100%',
-    margin: '20px auto',
-    borderTop: '2px solid',
-    color: theme.palette.secondary.main
-  },
   list: {
     textAlign: 'left'
   },
@@ -26,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     height: 200,
     backgroundColor: 'transparent'
   }
-}));
+});
 
 const Features = () => {
   const classes = useStyles();
@@ -36,13 +30,13 @@ const Features = () => {
       <Typography variant="h2" className={classes.subtitle}>
         Features
       </Typography>
-      <Divider className={classes.divider} />
+      <TitleDivider />
       <Grid container spacing={16}>
         <Grid item xs>
           <Card className={classes.feature}>
             <CardContent>
               <Typography variant="h4">Rich Stats</Typography>
-              <Divider className={classes.divider} />
+              <TitleDivider />
               <Typography component="ul" className={classes.list}>
                 <li>Win Rate</li>
                 <li>KDA</li>
@@ -56,7 +50,7 @@ const Features = () => {
           <Card className={classes.feature}>
             <CardContent>
               <Typography variant="h4">Guides</Typography>
-              <Divider className={classes.divider} />
+              <TitleDivider />
               <Typography component="ul" className={classes.list}>
                 <li>Build guides</li>
                 <li>Skill order</li>
@@ -70,7 +64,7 @@ const Features = () => {
           <Card className={classes.feature}>
             <CardContent>
               <Typography variant="h4">Rewards</Typography>
-              <Divider className={classes.divider} />
+              <TitleDivider />
               <Typography component="ul" className={classes.list}>
                 <li>Over 200 trophies</li>
                 <li>More competition</li>
@@ -86,7 +80,7 @@ const Features = () => {
           <Card className={classes.feature}>
             <CardContent>
               <Typography variant="h4">How it works</Typography>
-              <Divider className={classes.divider} />
+              <TitleDivider />
               <Typography component="ul" className={classes.list}>
                 <li>
                   <Link

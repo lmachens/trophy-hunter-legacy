@@ -20,7 +20,9 @@
     "next": "^8.0.0-canary.7",
     "node-cache": "^4.2.0",
     "react": "^16.8.0-alpha.1",
-    "react-dom": "^16.8.0-alpha.1"
+    "react-dom": "^16.8.0-alpha.1",
+    "react-swipeable-views": "^0.13.1",
+    "react-swipeable-views-utils": "^0.13.1"
   },
   "devDependencies": {
     "@types/next": "^7.0.6",

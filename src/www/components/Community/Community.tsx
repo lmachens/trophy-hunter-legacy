@@ -1,8 +1,9 @@
-import { Divider, Grid, Link, Typography } from '@material-ui/core';
+import { Grid, Link, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
+import TitleDivider from '../TitleDivider';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   container: {
     textAlign: 'center',
     margin: '0 auto',
@@ -12,17 +13,10 @@ const useStyles = makeStyles(theme => ({
   subtitle: {
     marginTop: 40
   },
-  divider: {
-    width: 200,
-    maxWidth: '100%',
-    margin: '20px auto',
-    borderTop: '2px solid',
-    color: theme.palette.secondary.main
-  },
   communityImage: {
     height: 140
   }
-}));
+});
 
 const Community = () => {
   const classes = useStyles();
@@ -32,7 +26,7 @@ const Community = () => {
       <Typography variant="h2" className={classes.subtitle}>
         Community
       </Typography>
-      <Divider className={classes.divider} />
+      <TitleDivider />
       <Grid container spacing={16}>
         <Grid item xs>
           <Link href="https://github.com/lmachens/trophy-hunter" target="_blank">
