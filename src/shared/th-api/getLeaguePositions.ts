@@ -10,13 +10,16 @@ const cache = new NodeCache({
 });
 
 const getLeaguePositions = ({ platformId, summonerId }) => {
+  if (/^\d+$/.test(`${summonerId}`)) {
+    throw new Error(`getLeaguePositions: deprecated summonerId ${summonerId} (${platformId})`);
+  }
+
   const key = `${platformId}&${summonerId}`;
   const data = cache.get(key);
   if (data) {
     return new Promise(resolve => resolve(data));
   }
-  const version = typeof summonerId === 'number' ? 'v3' : 'v4';
-  const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&version=${version}`;
+  const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}`;
 
   return axios
     .get(url)
