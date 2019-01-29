@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "th-www",
+  "alias": ["th.gl", "www.th.gl"],
+  "env": {
+    "LEAGUE_API_KEY": "@league_api_key",
+    "MONGODB_URI": "@mongodb_uri"
+  },
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+}
