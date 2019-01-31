@@ -34,8 +34,15 @@ const useStyles = makeStyles(theme => ({
   container: {
     textAlign: 'center',
     margin: '0 auto',
+    paddingTop: 40,
+    paddingBottom: 40,
+    backgroundImage: 'url(/static/screenshots.jpg)',
+    backgroundSize: 'contain',
+    backgroundPosition: 'center'
+  },
+  slideshow: {
     maxWidth: 1000,
-    padding: 10
+    margin: '0 auto'
   },
   subtitle: {
     marginTop: 40
@@ -64,25 +71,23 @@ const Screenshots = () => {
 
   return (
     <section className={classes.container} id="screenshots">
-      <Typography variant="h2" className={classes.subtitle}>
-        Screenshots
-      </Typography>
-      <TitleDivider />
-      <AutoPlaySwipeableViews
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-        interval={4000}
-      >
-        {screenshots.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <img className={classes.img} src={step.imgPath} alt={step.label} />
-            ) : null}
-          </div>
-        ))}
-      </AutoPlaySwipeableViews>
-      />
+      <div className={classes.slideshow}>
+        <AutoPlaySwipeableViews
+          index={activeStep}
+          onChangeIndex={handleStepChange}
+          enableMouseEvents
+          interval={5000}
+        >
+          {screenshots.map((step, index) => (
+            <div key={step.label}>
+              {Math.abs(activeStep - index) <= 2 ? (
+                <img className={classes.img} src={step.imgPath} alt={step.label} />
+              ) : null}
+            </div>
+          ))}
+        </AutoPlaySwipeableViews>
+        />
+      </div>
     </section>
   );
 };

@@ -7,7 +7,7 @@ import Screenshots from '../Screenshots/Screenshots';
 
 const useStyles = makeStyles({
   container: {
-    marginBottom: 100
+    textAlign: 'center'
   }
 });
 
