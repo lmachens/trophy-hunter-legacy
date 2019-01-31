@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
-import Community from '../Community';
 import Features from '../Features';
 import Header from '../Header';
 import Home from '../Home';
@@ -19,9 +18,8 @@ const Landing = () => {
     <div className={classes.container}>
       <Header />
       <Home />
-      <Community />
-      <Screenshots />
       <Features />
+      <Screenshots />
     </div>
   );
 };

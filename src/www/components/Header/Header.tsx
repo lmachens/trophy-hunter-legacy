@@ -1,11 +1,11 @@
 import { Button, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import NextLink from 'next/link';
 import React from 'react';
 
 const useStyles = makeStyles({
   header: {
-    position: 'fixed',
+    position: 'sticky',
+    top: 0,
     width: '100%',
     zIndex: 1,
     backgroundColor: '#0a0a0c',
@@ -21,14 +21,11 @@ const Header = () => {
       <Link href="#home">
         <Button>Home</Button>
       </Link>
-      <Link href="#community">
-        <Button>Community</Button>
+      <Link href="#features">
+        <Button>Features</Button>
       </Link>
       <Link href="#screenshots">
         <Button>Screenshots</Button>
-      </Link>
-      <Link href="#features">
-        <Button>Features</Button>
       </Link>
     </header>
   );
