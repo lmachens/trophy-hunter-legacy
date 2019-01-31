@@ -125,6 +125,7 @@ import rockSolid from './definitions/rockSolid';
 import rockSurfing from './definitions/rockSurfing';
 import sai from './definitions/sai';
 import sandsOfTime from './definitions/sandsOfTime';
+import sasquatch from './definitions/sasquatch';
 import sheepHunter from './definitions/sheepHunter';
 import shockwave from './definitions/shockwave';
 import siegeMaster from './definitions/siegeMaster';
@@ -346,6 +347,7 @@ const trophies: Trophies = {
   rockSurfing,
   sai,
   sandsOfTime,
+  sasquatch,
   sheepHunter,
   shockwave,
   siegeRam,
