@@ -4,8 +4,7 @@ import React from 'react';
 
 const useStyles = makeStyles({
   header: {
-    position: 'sticky',
-    top: 0,
+    position: 'fixed',
     width: '100%',
     zIndex: 1,
     backgroundColor: '#0a0a0c',
