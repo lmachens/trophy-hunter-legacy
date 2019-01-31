@@ -34,7 +34,6 @@ class JssDocument extends Document<{ registry: any }> {
             name="keywords"
             content="League of Legends, LoL App, LoL Guide, Real-time In Game, Statistics, LoL Spectate, Overwolf, Champion Guide, Champion Build, LOLKing, Champion Counter"
           />
-          <title>Trophy Hunter</title>
           <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
           <link
             rel="stylesheet"
