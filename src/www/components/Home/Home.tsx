@@ -1,4 +1,4 @@
-import { IconButton } from '@material-ui/core';
+import { Grid, IconButton, Link, Typography } from '@material-ui/core';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
@@ -33,6 +33,21 @@ const useStyles = makeStyles({
     '65%': {
       transform: 'translate(0, -15px)'
     }
+  },
+  community: {
+    position: 'absolute',
+    right: 10,
+    bottom: 10,
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    '@media (min-width: 960px)': {
+      flexDirection: 'row',
+      width: 180
+    }
+  },
+  communityImage: {
+    height: 40
   }
 });
 
@@ -40,20 +55,36 @@ const Home = () => {
   const classes = useStyles();
 
   return (
-    <div id="home">
+    <section id="home">
       <Parallax filter image={'/static/bg.jpg'}>
         <div className={classes.container}>
           <img src="/static/logo.png" className={classes.image} />
           <SummonerSearch className={classes.summonerSearch} />
           <DownloadButton />
         </div>
-        <a href="#community" className={classes.more}>
+        <a href="#features" className={classes.more}>
           <IconButton aria-label="More">
             <KeyboardArrowDownIcon />
           </IconButton>
         </a>
+        <div className={classes.community}>
+          <Link href="https://github.com/lmachens/trophy-hunter" target="_blank">
+            <img src="/static/github.png" className={classes.communityImage} />
+            <Typography>GitHub</Typography>
+          </Link>
+
+          <Link href="https://discord.gg/6aYTkbA" target="_blank">
+            <img src="/static/discord.png" className={classes.communityImage} />
+            <Typography>Discord</Typography>
+          </Link>
+
+          <Link href="https://twitter.com/LolTrophyHunter" target="_blank">
+            <img src="/static/twitter.png" className={classes.communityImage} />
+            <Typography>Twitter</Typography>
+          </Link>
+        </div>
       </Parallax>
-    </div>
+    </section>
   );
 };
 

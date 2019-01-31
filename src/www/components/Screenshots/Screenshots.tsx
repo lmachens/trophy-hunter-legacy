@@ -63,7 +63,7 @@ const Screenshots = () => {
   };
 
   return (
-    <div className={classes.container} id="screenshots">
+    <section className={classes.container} id="screenshots">
       <Typography variant="h2" className={classes.subtitle}>
         Screenshots
       </Typography>
@@ -83,7 +83,7 @@ const Screenshots = () => {
         ))}
       </AutoPlaySwipeableViews>
       />
-    </div>
+    </section>
   );
 };
 
