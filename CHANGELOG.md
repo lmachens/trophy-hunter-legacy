@@ -1,5 +1,6 @@
 # Change Log
-## Unpublished
+
+## [3.2.0] - 2019-02-01
 ### Added
 - New trees for Camille, Ivern, LeBlanc, Karthus and Zyra
 - New trophy [trophy:sasquatch].
