@@ -97,16 +97,26 @@ import masterYi1 from './definitions/masterYi1';
 import ekko1 from './definitions/ekko1';
 import twitch1 from './definitions/twitch1';
 import sona1 from './definitions/sona1';
+import camille1 from './definitions/camille1';
+import ivern1 from './definitions/ivern1';
+import karthus1 from './definitions/karthus1';
+import zyra1 from './definitions/zyra1';
+import leBlanc1 from './definitions/leBlanc1';
 
 export const activeTrees = {
+  camille1,
+  ivern1,
+  leBlanc1,
+  karthus1,
+  zyra1
+};
+
+export const expiredTrees = {
   gangplank1,
   masterYi1,
   ekko1,
   twitch1,
-  sona1
-};
-
-export const expiredTrees = {
+  sona1,
   illaoi1,
   rammus1,
   akali1,

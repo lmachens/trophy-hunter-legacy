@@ -64,6 +64,12 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
       event => event.timestamp < 600000
     ).length;
 
+    // assisted teammates before 12 minutes.
+    const assistsBefore12 = participant.events.assists.filter(event => event.timestamp < 720000);
+    participant.stats.assistedTeammmatesBefore12 = Object.values(
+      groupBy(assistsBefore12, event => event.killerId)
+    ).length;
+
     // kills before 12 minutes.
     participant.stats.snowballKills = participant.events.kills.filter(
       event => event.timestamp < 720000
