@@ -1,4 +1,5 @@
 import Notifications, { notificationTypes } from '/imports/api/notifications/notifications';
+import Jobs from '/imports/api/jobs/jobs';
 
 import Lotteries from '/imports/api/lotteries/lotteries';
 import LotteryTickets from '/imports/api/lotteries/lotteryTickets';
