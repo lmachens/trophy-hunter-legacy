@@ -31,11 +31,16 @@ const processJobs = () => {
   new Job.processJobs(
     'Jobs',
     'refreshMatchForGameSession',
-    { workTimeout: 30 * 60000 },
+    { workTimeout: 60 * 60000 },
     refreshMatchForGameSession
   );
 
-  new Job.processJobs('Jobs', 'drawLotteryWinners', drawLotteryWinners);
+  new Job.processJobs(
+    'Jobs',
+    'drawLotteryWinners',
+    { workTimeout: 10 * 60 * 60000 },
+    drawLotteryWinners
+  );
 
   Jobs.remove({ type: 'refreshStreams' });
   new Job.processJobs('Jobs', 'refreshStreams', { workTimeout: 30 * 60000 }, refreshStreamsJob);

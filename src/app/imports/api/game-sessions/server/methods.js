@@ -61,6 +61,19 @@ GameSessions.helpers({
     }
     job.save(); // Commit it to the server
   },
+  restartLottery() {
+    Jobs.getJob({ type: 'drawLotteryWinners', status: 'failed' }, (err, job) => {
+      if (job) {
+        job.restart({}, () => {
+          job.refresh();
+          job.delay(0);
+          job.ready({
+            force: false
+          });
+        });
+      }
+    });
+  },
   restartJob() {
     GameSessions.update(this._id, {
       $set: {
