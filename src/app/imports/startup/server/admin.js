@@ -49,11 +49,13 @@ Meteor.methods({
     Jobs.find({ type: 'drawLotteryWinners', status: 'failed' })
       .fetch()
       .forEach(job => {
-        job.restart({}, () => {
-          job.refresh();
-          job.delay(0);
-          job.ready({
-            force: false
+        Jobs.getJob(job._id, (err, failedJob) => {
+          failedJob.restart({}, () => {
+            failedJob.refresh();
+            failedJob.delay(0);
+            failedJob.ready({
+              force: false
+            });
           });
         });
       });
