@@ -46,8 +46,9 @@ Meteor.methods({
     return this.connection;
   },
   restartLottery() {
-    Jobs.getJob({ type: 'drawLotteryWinners', status: 'failed' }, (err, job) => {
-      if (job) {
+    Jobs.find({ type: 'drawLotteryWinners', status: 'failed' })
+      .fetch()
+      .forEach(job => {
         job.restart({}, () => {
           job.refresh();
           job.delay(0);
@@ -55,7 +56,6 @@ Meteor.methods({
             force: false
           });
         });
-      }
-    });
+      });
   }
 });
