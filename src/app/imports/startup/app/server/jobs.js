@@ -35,12 +35,7 @@ const processJobs = () => {
     refreshMatchForGameSession
   );
 
-  new Job.processJobs(
-    'Jobs',
-    'drawLotteryWinners',
-    { workTimeout: 30 * 60000 },
-    drawLotteryWinners
-  );
+  new Job.processJobs('Jobs', 'drawLotteryWinners', drawLotteryWinners);
 
   Jobs.remove({ type: 'refreshStreams' });
   new Job.processJobs('Jobs', 'refreshStreams', { workTimeout: 30 * 60000 }, refreshStreamsJob);
