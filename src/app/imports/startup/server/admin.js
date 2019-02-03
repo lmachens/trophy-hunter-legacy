@@ -1,6 +1,7 @@
 import GameSessions from '/imports/api/game-sessions/gameSessions';
 import { Meteor } from 'meteor/meteor';
 import os from 'os';
+import Jobs from '/imports/api/jobs/jobs';
 
 const hostname = os.hostname();
 
@@ -43,5 +44,18 @@ Meteor.methods({
     checkUser();
 
     return this.connection;
+  },
+  restartLottery() {
+    Jobs.getJob({ type: 'drawLotteryWinners', status: 'failed' }, (err, job) => {
+      if (job) {
+        job.restart({}, () => {
+          job.refresh();
+          job.delay(0);
+          job.ready({
+            force: false
+          });
+        });
+      }
+    });
   }
 });
