@@ -49,15 +49,8 @@ Meteor.methods({
     Jobs.find({ type: 'drawLotteryWinners', status: 'failed' })
       .fetch()
       .forEach(job => {
-        Jobs.getJob(job._id, (err, failedJob) => {
-          failedJob.restart({}, () => {
-            failedJob.refresh();
-            failedJob.delay(0);
-            failedJob.ready({
-              force: false
-            });
-          });
-        });
+        new Job(Jobs, 'drawLotteryWinners', { lotteryId: job.lotteryId }).save();
+        Jobs.remove(job._id);
       });
   }
 });
