@@ -1,4 +1,4 @@
-import { StylesProvider } from '@material-ui/styles';
+import { createGenerateClassName, StylesProvider } from '@material-ui/styles';
 import { SheetsRegistry } from 'jss';
 import Document, { Head, Main, NextScript } from 'next/document';
 import React from 'react';
@@ -7,9 +7,14 @@ class JssDocument extends Document<{ registry: any }> {
   static getInitialProps(ctx) {
     const registry = new SheetsRegistry();
     const sheetsManager = new Map();
+    const generateClassName = createGenerateClassName();
 
     const page = ctx.renderPage(App => props => (
-      <StylesProvider sheetsManager={sheetsManager} sheetsRegistry={registry}>
+      <StylesProvider
+        sheetsManager={sheetsManager}
+        sheetsRegistry={registry}
+        generateClassName={generateClassName}
+      >
         <App {...props} />
       </StylesProvider>
     ));

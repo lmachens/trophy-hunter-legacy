@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
   list: {
     marginTop: 35,
-    paddingInlineStart: 14
+    padding: 14
   },
   feature: {
     height: 300,
