@@ -132,12 +132,16 @@ const Shelf = () => {
                   return score + trophy.score;
                 }, 0);
                 setScore(score);
+                setError(false);
                 setLoading(false);
                 sendMessageToGameSummary('ready');
               }
             })
             .catch(() => {
+              setScore(0);
               setError(true);
+              setLoading(false);
+              setTrophiesByScore(DEFAULT_TROPHIES);
               sendMessageToGameSummary('ready');
             });
         }
