@@ -2,6 +2,8 @@ import GameSessions from '/imports/api/game-sessions/gameSessions';
 import { Meteor } from 'meteor/meteor';
 import os from 'os';
 import Jobs from '/imports/api/jobs/jobs';
+import { check } from 'meteor/check';
+import { drawLotteryWinners } from '/imports/api/jobs/server/drawLotteryWinners';
 
 const hostname = os.hostname();
 
@@ -49,8 +51,13 @@ Meteor.methods({
     Jobs.find({ type: 'drawLotteryWinners', status: 'failed' })
       .fetch()
       .forEach(job => {
-        new Job(Jobs, 'drawLotteryWinners', { lotteryId: job.lotteryId }).save();
+        new Job(Jobs, 'drawLotteryWinners', { lotteryId: job.data.lotteryId }).save();
         Jobs.remove(job._id);
       });
+  },
+  drawLotteryWinners(lotteryId) {
+    check(lotteryId, String);
+
+    drawLotteryWinners(lotteryId);
   }
 });
