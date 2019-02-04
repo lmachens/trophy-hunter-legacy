@@ -1,4 +1,4 @@
-import { Grid, IconButton, Link, Typography } from '@material-ui/core';
+import { IconButton, Link, Typography } from '@material-ui/core';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
