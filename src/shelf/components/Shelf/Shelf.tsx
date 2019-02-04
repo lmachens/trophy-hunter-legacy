@@ -1,4 +1,4 @@
-import { Button, Link, Typography } from '@material-ui/core';
+import { Button, CircularProgress, Link, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React, { useEffect, useState } from 'react';
 import champions from '../../shared/riot-api/champions';
@@ -80,6 +80,8 @@ const Shelf = () => {
   const classes = useStyles();
   const [trophiesByScore, setTrophiesByScore] = useState(DEFAULT_TROPHIES);
   const [score, setScore] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     sendMessageToGameSummary('loaded');
@@ -99,6 +101,8 @@ const Shelf = () => {
           );
           const championId = champion.id;
 
+          setLoading(true);
+          setError(false);
           const platformId = getPlatformIdByRegion(region);
           lastMatchId = matchId;
           getTrophies({
@@ -106,21 +110,36 @@ const Shelf = () => {
             matchId,
             summonerName,
             championId
-          }).then(result => {
-            if (matchId === lastMatchId) {
-              const trophiesByScore = result.data.reduce((trophiesByScore, trophy) => {
-                trophiesByScore[trophy.score].push(trophy);
-                return trophiesByScore;
-              }, DEFAULT_TROPHIES);
+          })
+            .then(result => {
+              if (matchId === lastMatchId) {
+                const trophiesByScore = result.data.reduce(
+                  (trophiesByScore, trophy) => {
+                    trophiesByScore[trophy.score].push(trophy);
+                    return trophiesByScore;
+                  },
+                  {
+                    [SCORES.EPIC]: [],
+                    [SCORES.VERY_HARD]: [],
+                    [SCORES.HARD]: [],
+                    [SCORES.MEDIUM]: [],
+                    [SCORES.EASY]: []
+                  }
+                );
 
-              setTrophiesByScore(trophiesByScore);
-              const score = result.data.reduce((score, trophy) => {
-                return score + trophy.score;
-              }, 0);
-              setScore(score);
+                setTrophiesByScore(trophiesByScore);
+                const score = result.data.reduce((score, trophy) => {
+                  return score + trophy.score;
+                }, 0);
+                setScore(score);
+                setLoading(false);
+                sendMessageToGameSummary('ready');
+              }
+            })
+            .catch(() => {
+              setError(true);
               sendMessageToGameSummary('ready');
-            }
-          });
+            });
         }
       }
     };
@@ -137,10 +156,21 @@ const Shelf = () => {
       <div className={classes.background} />
       <img src="/static/logo_small.png" className={classes.image} />
       <div className={classes.content}>
-        <div className={classes.score}>
-          <CountUp end={score} />
-          <Typography inline> Points</Typography>
-        </div>
+        {error && (
+          <>
+            <Typography variant="h4" color="primary">
+              Error
+            </Typography>
+            <Typography>Can not find match</Typography>
+          </>
+        )}
+        {loading && <CircularProgress />}
+        {!loading && (
+          <div className={classes.score}>
+            <CountUp end={score} />
+            <Typography inline> Points</Typography>
+          </div>
+        )}
         {trophiesByScore[SCORES.EPIC].map(trophy => (
           <Trophy {...trophy} key={trophy.name} />
         ))}

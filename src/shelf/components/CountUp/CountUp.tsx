@@ -15,7 +15,7 @@ const CountUp: FunctionComponent<CountUpProps> = ({ className, end }) => {
     countInstance.current = new Count(containerRef.current, 0, end);
     countInstance.current.start();
     return () => {};
-  });
+  }, []);
 
   return (
     <Typography inline className={className}>
