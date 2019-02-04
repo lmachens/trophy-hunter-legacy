@@ -1,4 +1,6 @@
 # Change Log
+### Added
+- Added new trophy [trophy:mudkipsPenta].
 
 ## [3.2.0] - 2019-02-01
 ### Added
