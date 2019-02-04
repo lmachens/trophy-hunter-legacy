@@ -19,8 +19,8 @@
   },
   "devDependencies": {
     "@types/jsoneditor": "^5.19.0",
-    "@types/next": "^7.0.6",
-    "@types/react": "^16.7.22",
+    "@types/next": "^7.0.8",
+    "@types/react": "^16.8.1",
     "@types/react-dom": "^16.0.11"
   }
 }
