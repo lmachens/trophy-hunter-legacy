@@ -1,8 +1,10 @@
-import { Button, CircularProgress, Typography } from '@material-ui/core';
+import { Button, CircularProgress, Link, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React, { useEffect, useState } from 'react';
 import champions from '../../shared/riot-api/champions';
 import { getPlatformIdByRegion, getTrophies } from '../../shared/th-api';
+import SCORES, { defs } from '../../shared/trophies/scores';
+import CountUp from '../CountUp';
 import Trophy from '../Trophy';
 
 const useStyles = makeStyles({
@@ -12,7 +14,8 @@ const useStyles = makeStyles({
     alignItems: 'center',
     position: 'relative',
     height: '100%',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    userSelect: 'none'
   },
   background: {
     position: 'absolute',
@@ -26,18 +29,32 @@ const useStyles = makeStyles({
     opacity: 0.5
   },
   image: {
-    height: 211,
+    height: 200,
     width: 200,
-    margin: 5
+    margin: 5,
+    pointerEvents: 'none'
   },
   content: {
     padding: 10,
-    margin: '36px auto'
+    margin: '40px 50px 50px 0px',
+    width: '100%'
   },
   store: {
     position: 'absolute',
     bottom: 5,
     right: 5
+  },
+  score: {},
+  community: {
+    position: 'absolute',
+    top: 12,
+    right: 5,
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'column'
+  },
+  communityImage: {
+    height: 32
   }
 });
 
@@ -51,10 +68,20 @@ const handleStoreClick = () => {
   sendMessageToGameSummary('openStorePage');
 };
 
+const DEFAULT_TROPHIES = {
+  [SCORES.EPIC]: [],
+  [SCORES.VERY_HARD]: [],
+  [SCORES.HARD]: [],
+  [SCORES.MEDIUM]: [],
+  [SCORES.EASY]: []
+};
+
 const Shelf = () => {
   const classes = useStyles();
+  const [trophiesByScore, setTrophiesByScore] = useState(DEFAULT_TROPHIES);
+  const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [trophies, setTrophies] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     sendMessageToGameSummary('loaded');
@@ -64,7 +91,7 @@ const Shelf = () => {
         origin,
         data: { isGameSummaryMessage, message, extra }
       } = event;
-      if (origin === 'https://content.overwolf.com' && isGameSummaryMessage) {
+      if (/*origin === 'https://content.overwolf.com' && */ isGameSummaryMessage) {
         if (message === 'newParameters') {
           const { region, matchId, summonerName, champion: championName } = extra.params;
 
@@ -74,22 +101,45 @@ const Shelf = () => {
           );
           const championId = champion.id;
 
+          setLoading(true);
+          setError(false);
           const platformId = getPlatformIdByRegion(region);
           lastMatchId = matchId;
-          setLoading(true);
           getTrophies({
             platformId,
             matchId,
             summonerName,
             championId
-          }).then(result => {
-            if (matchId === lastMatchId) {
-              const trophies = result.data.sort((a, b) => b.score - a.score);
-              setTrophies(trophies);
-              setLoading(false);
+          })
+            .then(result => {
+              if (matchId === lastMatchId) {
+                const trophiesByScore = result.data.reduce(
+                  (trophiesByScore, trophy) => {
+                    trophiesByScore[trophy.score].push(trophy);
+                    return trophiesByScore;
+                  },
+                  {
+                    [SCORES.EPIC]: [],
+                    [SCORES.VERY_HARD]: [],
+                    [SCORES.HARD]: [],
+                    [SCORES.MEDIUM]: [],
+                    [SCORES.EASY]: []
+                  }
+                );
+
+                setTrophiesByScore(trophiesByScore);
+                const score = result.data.reduce((score, trophy) => {
+                  return score + trophy.score;
+                }, 0);
+                setScore(score);
+                setLoading(false);
+                sendMessageToGameSummary('ready');
+              }
+            })
+            .catch(() => {
+              setError(true);
               sendMessageToGameSummary('ready');
-            }
-          });
+            });
         }
       }
     };
@@ -106,24 +156,65 @@ const Shelf = () => {
       <div className={classes.background} />
       <img src="/static/logo_small.png" className={classes.image} />
       <div className={classes.content}>
-        {loading && (
+        {error && (
           <>
-            <CircularProgress />
-            <Typography>Checking trophies...</Typography>
+            <Typography variant="h4" color="primary">
+              Error
+            </Typography>
+            <Typography>Can not find match</Typography>
           </>
         )}
+        {loading && <CircularProgress />}
         {!loading && (
-          <>
-            <Typography>You obtained {trophies.length} trophies!</Typography>
-            {trophies.map(trophy => (
-              <Trophy {...trophy} key={trophy.name} />
-            ))}
-          </>
+          <div className={classes.score}>
+            <CountUp end={score} />
+            <Typography inline> Points</Typography>
+          </div>
         )}
+        {trophiesByScore[SCORES.EPIC].map(trophy => (
+          <Trophy {...trophy} key={trophy.name} />
+        ))}
+
+        {trophiesByScore[SCORES.VERY_HARD].map(trophy => (
+          <Trophy {...trophy} key={trophy.name} />
+        ))}
+
+        {trophiesByScore[SCORES.HARD].map(trophy => (
+          <Trophy {...trophy} key={trophy.name} />
+        ))}
+
+        {trophiesByScore[SCORES.MEDIUM].map(trophy => (
+          <Trophy {...trophy} key={trophy.name} />
+        ))}
+
+        {trophiesByScore[SCORES.EASY].map(trophy => (
+          <Trophy {...trophy} key={trophy.name} />
+        ))}
       </div>
-      <Button className={classes.store} onClick={handleStoreClick}>
-        Install Trophy Hunter
+      <Button
+        variant="outlined"
+        color="primary"
+        className={classes.store}
+        onClick={handleStoreClick}
+      >
+        Download App
       </Button>
+      <div className={classes.community}>
+        <Link href="https://github.com/lmachens/trophy-hunter" target="_blank">
+          <img src="/static/github.png" className={classes.communityImage} />
+          <Typography>GitHub</Typography>
+        </Link>
+
+        <Link href="https://discord.gg/6aYTkbA" target="_blank">
+          <img src="/static/discord.png" className={classes.communityImage} />
+          <Typography>Discord</Typography>
+        </Link>
+
+        <Link href="https://twitter.com/LolTrophyHunter" target="_blank">
+          <img src="/static/twitter.png" className={classes.communityImage} />
+          <Typography>Twitter</Typography>
+        </Link>
+      </div>
     </div>
   );
 };

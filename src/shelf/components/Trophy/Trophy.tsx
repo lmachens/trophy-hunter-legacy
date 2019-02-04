@@ -8,7 +8,9 @@ const useStyles = makeStyles({
     textAlign: 'center'
   },
   icon: {
-    margin: 4
+    margin: 4,
+    height: 30,
+    width: 30
   }
 });
 
