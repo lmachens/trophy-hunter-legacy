@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const PageLayout: FunctionComponent = ({ children }) => (
   <>
-    <Header />
     <main>{children}</main>
+    <Footer />
   </>
 );
 

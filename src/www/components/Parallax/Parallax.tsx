@@ -4,7 +4,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 
 const useStyles = makeStyles({
   parallax: {
-    height: '100vh',
+    height: 'calc(100vh - 36px)',
     maxHeight: '1000px',
     overflow: 'hidden',
     position: 'relative',

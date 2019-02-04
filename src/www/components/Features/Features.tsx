@@ -17,7 +17,8 @@ const useStyles = makeStyles({
     marginTop: 30
   },
   list: {
-    marginTop: 35
+    marginTop: 35,
+    padding: 14
   },
   feature: {
     height: 300,
@@ -71,7 +72,7 @@ const Features = () => {
               Rich Stats
             </Typography>
             <TitleDivider className={classes.titleDividerLeft} />
-            <Typography color="inherit" className={classes.list}>
+            <Typography color="inherit" className={classes.list} component="ul">
               <li>Win Rate</li>
               <li>KDA</li>
               <li>Accuracy</li>
@@ -86,7 +87,7 @@ const Features = () => {
           <div className={classNames(classes.feature, classes.feature2)}>
             <Typography variant="h4">Guides</Typography>
             <TitleDivider className={classes.titleDividerRight} />
-            <Typography className={classes.list}>
+            <Typography className={classes.list} component="ul">
               <li>Build guides</li>
               <li>Skill order</li>
               <li>Item sets</li>
@@ -101,7 +102,7 @@ const Features = () => {
           <div className={classNames(classes.feature, classes.feature3)}>
             <Typography variant="h4">Rewards</Typography>
             <TitleDivider className={classes.titleDividerLeft} />
-            <Typography className={classes.list}>
+            <Typography className={classes.list} component="ul">
               <li>Over 200 trophies</li>
               <li>More competition</li>
               <li>More fun</li>
@@ -120,7 +121,7 @@ const Features = () => {
               How it works
             </Typography>
             <TitleDivider className={classes.titleDividerRight} />
-            <Typography color="inherit" className={classes.list}>
+            <Typography color="inherit" className={classes.list} component="ul">
               <li>
                 <Link
                   color="secondary"
