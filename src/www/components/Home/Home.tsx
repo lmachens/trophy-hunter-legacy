@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 import DownloadButton from '../DownloadButton';
 import Parallax from '../Parallax';
-import SummonerSearch from '../SummonerSearch';
+// import SummonerSearch from '../SummonerSearch';
 
 const useStyles = makeStyles({
   container: {
@@ -16,7 +16,8 @@ const useStyles = makeStyles({
   },
   image: {
     maxWidth: '90vw',
-    userSelect: 'none'
+    userSelect: 'none',
+    marginBottom: 10
   },
   summonerSearch: {
     margin: '10px 0'
@@ -59,7 +60,7 @@ const Home = () => {
       <Parallax filter image={'/static/bg.jpg'}>
         <div className={classes.container}>
           <img src="/static/logo.png" className={classes.image} />
-          <SummonerSearch className={classes.summonerSearch} />
+          {/* <SummonerSearch className={classes.summonerSearch} /> */}
           <DownloadButton />
         </div>
         <a href="#features" className={classes.more}>

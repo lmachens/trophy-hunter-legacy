@@ -35,10 +35,6 @@ class JssDocument extends Document<{ registry: any }> {
             content="League of Legends, LoL App, LoL Guide, Real-time In Game, Statistics, LoL Spectate, Overwolf, Champion Guide, Champion Build, LOLKing, Champion Counter"
           />
           <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-          />
           <style
             dangerouslySetInnerHTML={{
               __html: `
@@ -54,6 +50,34 @@ class JssDocument extends Document<{ registry: any }> {
                 }
                 body {
                   background: #0a0a0c;
+                }
+                
+                /* roboto-300 - latin */
+                @font-face {
+                  font-family: 'Roboto';
+                  font-style: normal;
+                  font-weight: 300;
+                  src: local('Roboto Light'), local('Roboto-Light'),
+                      url('/static/fonts/roboto-v18-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                      url('/static/fonts/roboto-v18-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+                }
+                /* roboto-regular - latin */
+                @font-face {
+                  font-family: 'Roboto';
+                  font-style: normal;
+                  font-weight: 400;
+                  src: local('Roboto'), local('Roboto-Regular'),
+                      url('/static/fonts/roboto-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                      url('/static/fonts/roboto-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+                }
+                /* roboto-500 - latin */
+                @font-face {
+                  font-family: 'Roboto';
+                  font-style: normal;
+                  font-weight: 500;
+                  src: local('Roboto Medium'), local('Roboto-Medium'),
+                      url('/static/fonts/roboto-v18-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+                      url('/static/fonts/roboto-v18-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
                 }
               `
             }}

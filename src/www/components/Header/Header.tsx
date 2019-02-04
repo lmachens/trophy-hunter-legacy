@@ -1,10 +1,11 @@
-import { Button, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 
 const useStyles = makeStyles({
   header: {
-    position: 'fixed',
+    height: 36,
+    position: 'sticky',
+    top: 0,
     width: '100%',
     zIndex: 1,
     backgroundColor: '#0a0a0c',
@@ -13,21 +14,9 @@ const useStyles = makeStyles({
   }
 });
 
-const Header = () => {
+const Header = ({ children }) => {
   const classes = useStyles();
-  return (
-    <header className={classes.header}>
-      <Link href="#home">
-        <Button>Home</Button>
-      </Link>
-      <Link href="#features">
-        <Button>Features</Button>
-      </Link>
-      <Link href="#screenshots">
-        <Button>Screenshots</Button>
-      </Link>
-    </header>
-  );
+  return <header className={classes.header}>{children}</header>;
 };
 
 export default Header;

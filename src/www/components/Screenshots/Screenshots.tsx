@@ -35,10 +35,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     margin: '0 auto',
     paddingTop: 40,
-    paddingBottom: 40,
-    backgroundImage: 'url(/static/screenshots.jpg)',
-    backgroundSize: 'contain',
-    backgroundPosition: 'center'
+    paddingBottom: 40
   },
   slideshow: {
     maxWidth: 1000,
@@ -71,6 +68,10 @@ const Screenshots = () => {
 
   return (
     <section className={classes.container} id="screenshots">
+      <Typography variant="h3" color="default">
+        Screenshots
+      </Typography>
+      <TitleDivider />
       <div className={classes.slideshow}>
         <AutoPlaySwipeableViews
           index={activeStep}
@@ -86,7 +87,6 @@ const Screenshots = () => {
             </div>
           ))}
         </AutoPlaySwipeableViews>
-        />
       </div>
     </section>
   );
