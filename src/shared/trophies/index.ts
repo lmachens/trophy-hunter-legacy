@@ -90,6 +90,7 @@ import mafiaBoss from './definitions/mafiaBoss';
 import maniac from './definitions/maniac';
 import master from './definitions/master';
 import mercenary from './definitions/mercenary';
+import mudkipsPenta from './definitions/mudkipsPenta';
 import myJungle from './definitions/myJungle';
 import neutralizer from './definitions/neutralizer';
 import newBorn from './definitions/newBorn';
@@ -312,6 +313,7 @@ const trophies: Trophies = {
   maniac,
   master,
   mercenary,
+  mudkipsPenta,
   bullying,
   myJungle,
   neutralizer,
