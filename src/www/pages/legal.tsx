@@ -1,3 +1,5 @@
+import './_bootstrap';
+
 import React from 'react';
 import Legal from '../components/Legal';
 import Page from '../layouts/Page';
