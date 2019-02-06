@@ -40,7 +40,7 @@ const Footer = () => {
         </Link>
         <Typography className={classes.limiter}>|</Typography>
         <Link href="/privacy">
-          <Typography>Cookie Policy</Typography>
+          <Typography>Privacy Policy</Typography>
         </Link>
       </div>
     </footer>
