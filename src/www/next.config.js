@@ -1,6 +1,4 @@
-// https://material-ui.com/css-in-js/basics/#migration-for-material-ui-core-users
-const install = require('@material-ui/styles').install;
-install();
+require('./bootstrap');
 
 // Typescript workaround: https://github.com/zeit/next.js/issues/5750#issuecomment-442313585
 const { PHASE_PRODUCTION_SERVER } =
@@ -23,6 +21,14 @@ module.exports = phase => {
   return withTypescript({
     webpack(config) {
       config.resolve.symlinks = false;
+      const oldEntry = config.entry;
+      config.entry = () => {
+        return oldEntry().then(entry => {
+          if (config.name === 'server') return entry;
+          entry['static/runtime/main.js'] = ['./bootstrap.js', ...entry['static/runtime/main.js']];
+          return entry;
+        });
+      };
       return config;
     },
     target: 'serverless'
