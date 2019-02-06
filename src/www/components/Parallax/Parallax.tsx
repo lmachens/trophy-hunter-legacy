@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   parallax: {
     height: 'calc(100vh - 36px)',
     maxHeight: '1000px',
@@ -13,31 +13,28 @@ const useStyles = makeStyles({
     justifyContent: 'center'
   },
   filter: {
-    filter: 'brightness(.5) grayscale(100%)',
     position: 'absolute',
     zIndex: -1,
     width: '100%',
     height: '100%',
     backgroundPosition: 'center center',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    backgroundImage: 'url(/static/bg_small.jpg)',
+    [theme.breakpoints.up('md')]: {
+      backgroundImage: 'url(/static/bg_big.jpg)'
+    }
   },
   small: {
     height: '380px'
   }
-});
+}));
 
 const calculateTransform = () => {
   const windowScrollTop = window.pageYOffset / 3;
   return 'translate3d(0,' + windowScrollTop + 'px,0)';
 };
 
-interface ParallaxProps {
-  filter?: boolean;
-  image: string;
-  small?: boolean;
-}
-
-const Parallax: FunctionComponent<ParallaxProps> = ({ filter, children, image, small }) => {
+const Parallax: FunctionComponent = ({ children }) => {
   const classes = useStyles();
   const [transform, setTransform] = useState('');
 
@@ -56,15 +53,13 @@ const Parallax: FunctionComponent<ParallaxProps> = ({ filter, children, image, s
   };
 
   const parallaxClasses = classNames({
-    [classes.parallax]: true,
-    [classes.small]: small
+    [classes.parallax]: true
   });
   return (
     <div className={parallaxClasses}>
       <div
         className={classes.filter}
         style={{
-          backgroundImage: 'url(' + image + ')',
           transform
         }}
       />

@@ -57,7 +57,7 @@ const Home = () => {
 
   return (
     <section id="home">
-      <Parallax filter image={'/static/bg.jpg'}>
+      <Parallax>
         <div className={classes.container}>
           <img src="/static/logo.png" className={classes.image} />
           {/* <SummonerSearch className={classes.summonerSearch} /> */}
