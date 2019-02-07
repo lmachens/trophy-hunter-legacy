@@ -333,7 +333,7 @@ const summonerSpells = {
     }
   },
   type: 'summoner',
-  version: '9.2.1'
+  version: '9.3.1'
 };
 
 export default summonerSpells;

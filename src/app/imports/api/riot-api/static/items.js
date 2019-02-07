@@ -24,6 +24,12 @@ const items = {
       sanitizedDescription: 'Greatly increases Health',
       tags: ['Health']
     },
+    '1018': {
+      id: 1018,
+      name: 'Cloak of Agility',
+      sanitizedDescription: 'Increases critical strike chance',
+      tags: ['CriticalStrike']
+    },
     '1026': {
       id: 1026,
       name: 'Blasting Wand',
@@ -628,7 +634,8 @@ const items = {
     '3046': {
       id: 3046,
       name: 'Phantom Dancer',
-      sanitizedDescription: 'Move faster near enemies and reduce incoming damage',
+      sanitizedDescription:
+        'Move faster while attacking enemies and gain a shield when on low health.',
       tags: ['AttackSpeed', 'CriticalStrike', 'NonbootsMovement']
     },
     '3047': {
@@ -851,8 +858,8 @@ const items = {
     '3095': {
       id: 3095,
       name: 'Stormrazor',
-      sanitizedDescription: 'Start fights with a flurry of critical strikes',
-      tags: ['Damage', 'CriticalStrike', 'AttackSpeed', 'OnHit', 'NonbootsMovement']
+      sanitizedDescription: 'Tremendously empower other Energized effects.',
+      tags: ['Damage', 'AttackSpeed', 'OnHit']
     },
     '3096': {
       id: 3096,
@@ -1159,7 +1166,7 @@ const items = {
       id: 3161,
       name: 'Spear of Shojin',
       sanitizedDescription:
-        'Reduce damage taken from champions by a flat amount. Attack while near multiple enemy champions to increase this amount for a short time.',
+        'After casting your ultimate, your basic attacks reduces your remaining non-ultimate cooldowns.',
       tags: ['Health', 'Damage', 'CooldownReduction']
     },
     '3162': {
@@ -1221,6 +1228,12 @@ const items = {
       name: "Guardian's Hammer",
       sanitizedDescription: 'Good starting item for attackers',
       tags: ['Health', 'Damage', 'LifeSteal', 'Lane']
+    },
+    '3185': {
+      id: 3185,
+      name: 'The Lightbringer',
+      sanitizedDescription: 'Critical Strikes cause your target to bleed and be revealed',
+      tags: ['Active', 'CriticalStrike', 'Damage', 'OnHit', 'Stealth', 'Vision']
     },
     '3187': {
       id: 3187,
@@ -1605,8 +1618,9 @@ const items = {
     '3508': {
       id: 3508,
       name: 'Essence Reaver',
-      sanitizedDescription: 'Attack and cast spells faster after your ultimate',
-      tags: ['Damage', 'AttackSpeed', 'Mana', 'ManaRegen', 'CooldownReduction']
+      sanitizedDescription:
+        'Grants Critical Strike Chance, Cooldown Reduction, Attack Damage and restores mana on hit.',
+      tags: ['Damage', 'CriticalStrike', 'AttackSpeed', 'Mana', 'ManaRegen', 'CooldownReduction']
     },
     '3512': {
       id: 3512,
@@ -2050,7 +2064,7 @@ const items = {
     }
   },
   type: 'item',
-  version: '9.2.1'
+  version: '9.3.1'
 };
 
 const itemValues = Object.values(items.data);

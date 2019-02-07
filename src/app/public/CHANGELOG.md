@@ -1,6 +1,8 @@
 # Change Log
 ### Added
 - Added new trophy [trophy:mudkipsPenta].
+### Changed
+- Updated to Riot API version 9.3.1.
 
 ## [3.2.0] - 2019-02-01
 ### Added
