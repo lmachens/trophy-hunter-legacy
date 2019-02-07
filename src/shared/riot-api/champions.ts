@@ -747,7 +747,7 @@ const champions = {
         image: {
           full: 'SionW.png'
         },
-        cooldownBurn: '11'
+        cooldownBurn: '15/14/13/12/11'
       },
       {
         name: 'Roar of the Slayer',
@@ -2138,7 +2138,7 @@ const champions = {
       {
         name: 'Defiant Dance',
         sanitizedDescription:
-          'Irelia charges a strike that deals more damage as she charges. She takes reduced damage during the charge.',
+          'Irelia charges a strike that deals more damage as she charges. She takes reduced physical damage during the charge.',
         image: {
           full: 'IreliaW.png'
         },
@@ -2169,7 +2169,7 @@ const champions = {
       },
       name: 'Ionian Fervor',
       sanitizedDescription:
-        'When Irelia strikes enemies with spells she gains a stacking bonus damage buff on her basic attacks. At maximum stacks she also gains Attack Speed.'
+        'When Irelia strikes enemies with spells she gains stacking bonus Attack Speed. At maximum stacks she also gains bonus damage on hit.'
     },
     range: 'Melee'
   },
@@ -4136,7 +4136,7 @@ const champions = {
       {
         name: 'Five Point Strike',
         sanitizedDescription:
-          'Akali throws out five kunai, dealing damage based on her bonus Attack Damage and Ability Power and slowing. When cast near full energy, Five Point Strike heals Akali.',
+          'Akali throws out five kunai, dealing damage based on her bonus Attack Damage and Ability Power and slowing.',
         image: {
           full: 'AkaliQ.png'
         },
@@ -4149,7 +4149,7 @@ const champions = {
         image: {
           full: 'AkaliW.png'
         },
-        cooldownBurn: '21/18.5/16/13.5/11'
+        cooldownBurn: '21/19/17/15/13'
       },
       {
         name: 'Shuriken Flip',
@@ -6541,7 +6541,7 @@ const champions = {
       {
         name: 'Hookshot',
         sanitizedDescription:
-          'Camille pulls herself to a wall, leaping off and knocking up enemies upon landing.',
+          'Camille pulls herself to a wall, leaping off and knocking up enemy champions upon landing.',
         image: {
           full: 'CamilleE.png'
         },
@@ -7156,7 +7156,7 @@ const champions = {
         image: {
           full: 'AatroxE.png'
         },
-        cooldownBurn: '3/2.5/2/1.5/1'
+        cooldownBurn: '9/8/7/6/5'
       },
       {
         name: 'World Ender',
@@ -7955,7 +7955,7 @@ const champions = {
     },
     range: 'Melee'
   },
-  version: '9.2.1'
+  version: '9.3.1'
 };
 
 export default champions;
