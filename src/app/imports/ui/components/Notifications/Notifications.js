@@ -9,7 +9,7 @@ import {
 } from '../icons';
 import Notifications, { notificationTypes } from '../../../api/notifications/notifications';
 import React, { Component } from 'react';
-import trees, { expiredTrees } from '../../../api/trees/trees';
+import trees, { expiredTrees } from '/imports/shared/trees/index.ts';
 
 import LotteryWin from '../LotteryWin';
 import { Meteor } from 'meteor/meteor';

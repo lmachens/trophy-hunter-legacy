@@ -1,4 +1,4 @@
-import trees, { activeTrees } from '/imports/api/trees/trees';
+import trees, { activeTrees } from '/imports/shared/trees/index.ts';
 
 import trophies from '/imports/shared/trophies/index.ts';
 

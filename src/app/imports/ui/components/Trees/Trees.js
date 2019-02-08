@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import trees, { activeTrees, treeBonus } from '../../../api/trees/trees';
+import trees, { activeTrees, treeBonus } from '/imports/shared/trees/index.ts';
 
 import ActiveQuests from '../ActiveQuests';
 import CustomTreeSelector from '../CustomTreeSelector';

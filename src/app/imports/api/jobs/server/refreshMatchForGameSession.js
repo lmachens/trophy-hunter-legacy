@@ -1,5 +1,5 @@
 import Notifications, { notificationTypes } from '/imports/api/notifications/notifications';
-import trees, { activeTrees, treeBonus } from '/imports/api/trees/trees';
+import trees, { activeTrees, treeBonus } from '/imports/shared/trees/index.ts';
 import { updateFirstBloodStats, updateSnowballStats } from '../../champions/server';
 
 import GameSessions from '/imports/api/game-sessions/gameSessions';
