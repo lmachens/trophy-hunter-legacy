@@ -31,7 +31,10 @@ const Summoner: FunctionComponent<ISummonerProps> = ({
   return (
     <div className={classes.container}>
       <SummonerInfo region={region} leaguePositions={leaguePositions} {...summoner} />
-      <Trees trees={trophyHunter && trophyHunter.trees} />
+      <Trees
+        treeProgress={trophyHunter && trophyHunter.trees}
+        customTree={trophyHunter.customTree}
+      />
     </div>
   );
 };
