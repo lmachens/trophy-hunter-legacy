@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getChampionSquare } from '../../../api/riot-api/staticData';
 import { openEncyclopediaEntry } from '../../../store/actions';
-import trees from '../../../api/trees/trees';
+import trees from '/imports/shared/trees/index.ts';
 
 const styles = {
   container: {

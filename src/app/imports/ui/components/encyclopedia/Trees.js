@@ -1,6 +1,6 @@
 import { Avatar, List, ListItem, Subheader } from '../generic';
 import React, { Component } from 'react';
-import trees, { activeTrees, expiredTrees } from '../../../api/trees/trees';
+import trees, { activeTrees, expiredTrees } from '/imports/shared/trees/index.ts';
 
 import PropTypes from 'prop-types';
 import Tree from '../Tree';

@@ -1,4 +1,4 @@
-import trees, { treeBonus } from '../../../api/trees/trees';
+import trees, { treeBonus } from '/imports/shared/trees/index.ts';
 
 import PropTypes from 'prop-types';
 import React from 'react';

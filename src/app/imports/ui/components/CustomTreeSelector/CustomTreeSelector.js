@@ -5,7 +5,7 @@ import HelpBox from '../HelpBox';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import TreeTrophy from '../TreeTrophy';
-import { expiredTrees } from '../../../api/trees/trees';
+import { expiredTrees } from '/imports/shared/trees/index.ts';
 import universeTheme from '../../layouts/universeTheme';
 
 class CustomTreeSelector extends PureComponent {

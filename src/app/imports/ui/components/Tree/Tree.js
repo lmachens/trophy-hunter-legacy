@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import TreeItem from '../TreeItem';
-import { getTrophyNames } from '../../../api/trees/helpers';
 import trophies from '/imports/shared/trophies/index.ts';
 
 class Tree extends React.Component {
   render() {
     const { tree, trophyHunter, style } = this.props;
 
-    const trophyNames = getTrophyNames(tree);
+    const trophyNames = tree.leaves.map(trophy => {
+      return trophy.trophyName;
+    });
     const treeTrophies = trophyNames.map(trophyName => trophies[trophyName]);
 
     const localStyle = Object.assign({ position: 'relative' }, style);
