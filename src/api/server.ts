@@ -8,6 +8,7 @@ import matchupApi from './endpoints/matchup';
 import summonerApi from './endpoints/summoner';
 import timelineApi from './endpoints/timeline';
 import trophiesApi from './endpoints/trophies';
+import trophyHunterApi from './endpoints/trophy-hunter';
 
 if (!process.env.LEAGUE_API_KEY) {
   throw new Error(`No process.env.LEAGUE_API_KEY set. Set env LEAGUE_API_KEY="RGAPI-xxx" first`);
@@ -81,4 +82,12 @@ if (!process.env.MATCHUP_API_ENDPOINT) {
 
 http.createServer(matchupApi).listen(5008, hostname, () => {
   console.log(`matchupApi running at http://${hostname}:${5008}/`);
+});
+
+if (!process.env.TROPHY_HUNTER_API_ENDPOINT) {
+  process.env.TROPHY_HUNTER_API_ENDPOINT = `http://${hostname}:${5009}`;
+}
+
+http.createServer(trophyHunterApi).listen(5009, hostname, () => {
+  console.log(`trophyHunterApi running at http://${hostname}:${5009}/`);
 });
