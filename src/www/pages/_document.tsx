@@ -56,6 +56,12 @@ class JssDocument extends Document<{ registry: any }> {
                 body {
                   background: #0a0a0c;
                 }
+
+                #__next {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                }
                 
                 /* roboto-300 - latin */
                 @font-face {
