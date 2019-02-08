@@ -7,6 +7,9 @@ import Parallax from '../Parallax';
 // import SummonerSearch from '../SummonerSearch';
 
 const useStyles = makeStyles({
+  root: {
+    height: 'calc(100vh - 36px)'
+  },
   container: {
     textAlign: 'center',
     margin: '0 auto',
@@ -56,8 +59,8 @@ const Home = () => {
   const classes = useStyles();
 
   return (
-    <section id="home">
-      <Parallax>
+    <section id="home" className={classes.root}>
+      <Parallax small="/static/bg_small.jpg" big="/static/bg_big.jpg">
         <div className={classes.container}>
           <img src="/static/logo.png" className={classes.image} />
           {/* <SummonerSearch className={classes.summonerSearch} /> */}

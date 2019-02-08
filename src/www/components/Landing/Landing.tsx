@@ -6,6 +6,7 @@ import Features from '../Features';
 import Header from '../Header';
 import Home from '../Home';
 import Link from '../Link';
+import Parallax from '../Parallax';
 import Screenshots from '../Screenshots/Screenshots';
 import TitleDivider from '../TitleDivider';
 import Trees from '../Trees';
@@ -16,7 +17,13 @@ const useStyles = makeStyles({
   },
   section: {
     textAlign: 'center',
-    margin: '0 auto',
+    margin: '0 auto'
+  },
+  trees: {
+    paddingTop: 40,
+    paddingBottom: 40
+  },
+  screenshots: {
     paddingTop: 40,
     paddingBottom: 40
   }
@@ -43,14 +50,18 @@ const Landing = () => {
       </Header>
       <Home />
       <Features />
-      <section className={classNames(classes.section)} id="trees">
-        <Typography variant="h3" color="default">
-          Monthly Trees
-        </Typography>
-        <TitleDivider />
-        <Trees />
+      <section className={classes.section} id="trees">
+        <Parallax small="/static/bg2_small.jpg" big="/static/bg2_big.jpg">
+          <div className={classes.trees}>
+            <Typography variant="h3" color="default">
+              Monthly Trees
+            </Typography>
+            <TitleDivider />
+            <Trees />
+          </div>
+        </Parallax>
       </section>
-      <section className={classes.section} id="screenshots">
+      <section className={classNames(classes.section, classes.screenshots)} id="screenshots">
         <Typography variant="h3" color="default">
           Screenshots
         </Typography>
