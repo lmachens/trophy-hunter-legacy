@@ -1,7 +1,10 @@
 import JSONEditorLib from 'jsoneditor';
 import 'jsoneditor/dist/jsoneditor.css';
 import React, { FunctionComponent, useEffect, useRef } from 'react';
-import { JSONEditorProps } from './types';
+
+interface IJSONEditorProps {
+  json: string;
+}
 
 const styles = {
   container: {
@@ -9,23 +12,20 @@ const styles = {
   }
 };
 
-const JSONEditor: FunctionComponent<JSONEditorProps> = ({ json, ...other }) => {
+const JSONEditor: FunctionComponent<IJSONEditorProps> = ({ json, children, ...other }) => {
   const container = useRef(null);
   const jsoneditor = useRef(null);
-  useEffect(
-    () => {
-      if (jsoneditor.current) {
-        jsoneditor.current.update(json);
-      } else {
-        jsoneditor.current = new JSONEditorLib(container.current, other);
-        jsoneditor.current.set(json);
-      }
-      return () => {
-        // jsoneditor.current.destroy();
-      };
-    },
-    [json]
-  );
+  useEffect(() => {
+    if (jsoneditor.current) {
+      jsoneditor.current.update(json);
+    } else {
+      jsoneditor.current = new JSONEditorLib(container.current, other);
+      jsoneditor.current.set(json);
+    }
+    return () => {
+      // jsoneditor.current.destroy();
+    };
+  }, [json]);
 
   return <div ref={container} style={styles.container} />;
 };
