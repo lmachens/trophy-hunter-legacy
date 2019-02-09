@@ -12,16 +12,10 @@ import Parallax from '../Parallax';
 import Screenshots from '../Screenshots/Screenshots';
 import TitleDivider from '../TitleDivider';
 import Trees from '../Trees';
-import Trophies from '../Trophies';
 
 const useStyles = makeStyles(theme => ({
   container: {
     textAlign: 'center'
-  },
-  hidden: {
-    [theme.breakpoints.down('xs')]: {
-      display: 'none'
-    }
   },
   section: {
     textAlign: 'center',
@@ -35,9 +29,6 @@ const useStyles = makeStyles(theme => ({
   maxWidth: {
     maxWidth: 1000,
     margin: '0 auto'
-  },
-  alternative: {
-    backgroundImage: 'linear-gradient(to bottom right, #151515, #0a0a0c)'
   }
 }));
 
@@ -75,10 +66,7 @@ const Landing = () => {
         <Link href="#trees">
           <Button>Trees</Button>
         </Link>
-        <Link href="#trophies">
-          <Button>Trophies</Button>
-        </Link>
-        <Link href="#screenshots" className={classes.hidden}>
+        <Link href="#screenshots">
           <Button>Screenshots</Button>
         </Link>
       </Header>
@@ -98,19 +86,6 @@ const Landing = () => {
             <Trees treeProgress={demoTreeProgress} customTree="cassiopeia1" />
           </div>
         </Parallax>
-      </section>
-      <section
-        className={classNames(classes.section, classes.padding, classes.alternative)}
-        id="trophies"
-      >
-        <div className={classes.maxWidth}>
-          <Typography variant="h3" color="default">
-            Trophies
-          </Typography>
-          <TitleDivider />
-          <Trophies />
-        </div>
-        <DownloadButton />
       </section>
       <section className={classNames(classes.section, classes.padding)} id="screenshots">
         <Typography variant="h3" color="default">
