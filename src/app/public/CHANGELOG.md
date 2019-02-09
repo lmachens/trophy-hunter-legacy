@@ -1,5 +1,8 @@
 # Change Log
 
+### Added
+- Connect feedback form to our Discord server.
+
 ## [3.3.0] - 2019-02-08
 ### Added
 - Added new trophy [trophy:mudkipsPenta].
