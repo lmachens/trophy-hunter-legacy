@@ -1,8 +1,9 @@
-import { Button, Hidden, Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import React from 'react';
 import { activeTrees } from '../../shared/trees';
+import DownloadButton from '../DownloadButton';
 import Features from '../Features';
 import Header from '../Header';
 import Home from '../Home';
@@ -109,6 +110,7 @@ const Landing = () => {
           <TitleDivider />
           <Trophies />
         </div>
+        <DownloadButton />
       </section>
       <section className={classNames(classes.section, classes.padding)} id="screenshots">
         <Typography variant="h3" color="default">
