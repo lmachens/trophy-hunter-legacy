@@ -1,10 +1,10 @@
-<img src="./.github/logo.png" alt="Trophy Hunter" align="right" height="211" />
+<a href='https://th.gl/'><img src="./.github/logo.png" alt="Trophy Hunter" align="right" height="211" /></a>
 
 # Trophy Hunter
 
 Earn trophies while playing League of Legends, view information about your teammates and opponents and meet other hunters to play with.
 
-Trophy Hunter is a League of Legends app for [Overwolf](https://www.overwolf.com/).
+[Trophy Hunter](https://th.gl/) is a League of Legends app for [Overwolf](https://www.overwolf.com/).
 
 ## Table of content
 
