@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import TreeItem from '../TreeItem';
-import trophies from '/imports/shared/trophies/index.ts';
 
 class Tree extends React.Component {
   render() {

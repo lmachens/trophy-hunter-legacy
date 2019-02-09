@@ -15,6 +15,13 @@ const theme = createMuiTheme({
       root: {
         border: '1px solid rgba(255, 255, 255, 0.23)'
       }
+    },
+    MuiTooltip: {
+      tooltip: {
+        backgroundColor: '#111318',
+        border: '1px solid rgba(255, 255, 255, 0.23)',
+        maxWidth: 350
+      }
     }
   }
 });

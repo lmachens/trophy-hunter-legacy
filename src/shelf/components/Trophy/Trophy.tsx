@@ -1,4 +1,4 @@
-import { SvgIcon, Tooltip } from '@material-ui/core';
+import { SvgIcon, Tooltip, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 import { defs } from '../../shared/trophies/scores';
@@ -24,9 +24,9 @@ const Trophy = ({ name, title, description, svgPath, score }) => {
     <Tooltip
       title={
         <div className={classes.tooltip}>
-          <b>{title}</b>
-          <div dangerouslySetInnerHTML={{ __html: description }} />
-          <div style={{ color: gradient[0] }}>{label}</div>
+          <Typography color="primary">{title}</Typography>
+          <Typography dangerouslySetInnerHTML={{ __html: description }} />
+          <Typography style={{ color: gradient[0] }}>{label}</Typography>
         </div>
       }
     >

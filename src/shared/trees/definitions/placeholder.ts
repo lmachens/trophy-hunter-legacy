@@ -1,5 +1,5 @@
 const placeholder = {
-  title: 'No tree selected',
+  title: 'No custom tree selected',
   name: 'placeholder',
   championId: 0,
   leaves: []
