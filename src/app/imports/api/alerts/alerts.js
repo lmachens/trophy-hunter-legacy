@@ -28,6 +28,18 @@ class Alerts {
     };
     return this._post(slack.webhook, callOptions);
   }
+
+  sendToDiscord(data) {
+    const { discord } = Meteor.settings;
+    if (!discord || !discord.webhook) {
+      throw new Meteor.Error('settings', 'discord is empty');
+    }
+
+    const callOptions = {
+      data
+    };
+    return this._post(discord.webhook, callOptions);
+  }
 }
 
 const alerts = new Alerts();

@@ -11,6 +11,9 @@
   "slack": {
     "webhook": "https://hooks.slack.com/services/XXX"
   },
+  "discord": {
+    "webhook": "https://discordapp.com/api/webhooks/XXX/XXX"
+  },
   "patreon": {
     "id": "XXX",
     "secret": "XXX",
