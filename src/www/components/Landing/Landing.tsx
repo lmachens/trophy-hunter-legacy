@@ -62,7 +62,7 @@ const Landing = () => {
           <Button>Features</Button>
         </Link>
         <Link href="#trees">
-          <Button>Monthly Trees</Button>
+          <Button>Trees</Button>
         </Link>
         <Link href="#screenshots">
           <Button>Screenshots</Button>
