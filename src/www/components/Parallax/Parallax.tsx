@@ -5,6 +5,8 @@ import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
 interface IParallaxProps {
   small: string;
   big: string;
+  backgroundSize?: string;
+  backgroundPosition?: string;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -23,8 +25,8 @@ const useStyles = makeStyles(theme => ({
     zIndex: -1,
     width: '100%',
     height: '100vh',
-    backgroundPosition: 'center center',
-    backgroundSize: 'cover',
+    backgroundPosition: props.backgroundPosition,
+    backgroundSize: props.backgroundSize,
     backgroundImage: `url(${props.small})`,
     [theme.breakpoints.up('md')]: {
       backgroundImage: `url(${props.big})`
@@ -35,8 +37,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Parallax: FunctionComponent<IParallaxProps> = ({ children, small, big }) => {
+const Parallax: FunctionComponent<IParallaxProps> = ({
+  backgroundSize = 'cover',
+  backgroundPosition = 'center center',
+  children,
+  small,
+  big
+}) => {
   const classes = useStyles({
+    backgroundSize,
+    backgroundPosition,
     small,
     big
   });

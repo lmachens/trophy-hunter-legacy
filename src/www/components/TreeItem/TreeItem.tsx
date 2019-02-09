@@ -27,9 +27,7 @@ const useStyles = makeStyles({
     borderRadius: 10,
     width: 60,
     height: 60,
-    opacity: 0.35,
-    filter: 'alpha(opacity=35)',
-    transition: 'all 0.3s ease-out',
+    filter: 'brightness(0.4)',
     zIndex: 1
   },
   svg: {
@@ -38,14 +36,12 @@ const useStyles = makeStyles({
   line: {
     stroke: '#be9820',
     strokeWidth: '3px',
-    fill: 'transparent',
-    opacity: 0.35,
-    filter: 'alpha(opacity=35)',
+    opacity: 0.4,
     transition: 'all 0.3s ease-out'
   },
   obtained: {
     opacity: 1,
-    filter: 'alpha(opacity=100)'
+    filter: 'none'
   },
   trophySvg: {
     margin: '3px'
@@ -180,7 +176,7 @@ const TreeItem: FunctionComponent<ITreeItemProps> = ({
                 opacity: 1,
                 width: '100%',
                 height: '100%',
-                boxShadow: '0px 0px 5px 5px rgb(142, 121, 36)',
+                boxShadow: '#be9820 0px 0px 3px 3px',
                 borderRadius: '10px',
                 pointerEvents: 'none'
               }}

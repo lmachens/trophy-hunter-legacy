@@ -8,7 +8,7 @@ import Parallax from '../Parallax';
 
 const useStyles = makeStyles({
   root: {
-    height: 'calc(100vh - 36px)'
+    height: '100vh'
   },
   container: {
     textAlign: 'center',

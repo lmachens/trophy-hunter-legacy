@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    zoom: 0.4,
+    zoom: 0.45,
     [theme.breakpoints.up('sm')]: {
       zoom: 0.75
     },

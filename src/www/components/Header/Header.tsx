@@ -4,10 +4,10 @@ import React from 'react';
 const useStyles = makeStyles({
   header: {
     height: 36,
-    position: 'sticky',
+    position: 'fixed',
     top: 0,
     width: '100%',
-    zIndex: 1,
+    zIndex: 2,
     backgroundColor: '#0a0a0c',
     textAlign: 'center',
     borderBottom: `1px solid #31271e`

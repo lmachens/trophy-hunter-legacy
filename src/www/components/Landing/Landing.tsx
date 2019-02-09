@@ -2,6 +2,7 @@ import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import React from 'react';
+import { activeTrees } from '../../shared/trees';
 import Features from '../Features';
 import Header from '../Header';
 import Home from '../Home';
@@ -29,6 +30,25 @@ const useStyles = makeStyles({
   }
 });
 
+const demoProgresses = [
+  [0, 1, 2, 4],
+  [1, 2, 3],
+  [0, 1, 2, 3, 4, 5, 6],
+  [2],
+  [1, 3],
+  [0, 1, 2, 3, 5]
+];
+const demoTreeProgress = {};
+Object.values(activeTrees).forEach((tree, index) => {
+  const demoProgress = demoProgresses[index];
+  const trophiesObtained = demoProgress.map(leafIndex => tree.leaves[leafIndex].trophyName);
+  const progress = trophiesObtained.length / tree.leaves.length;
+  demoTreeProgress[tree.name] = {
+    trophiesObtained,
+    progress
+  };
+});
+
 const Landing = () => {
   const classes = useStyles();
 
@@ -51,13 +71,17 @@ const Landing = () => {
       <Home />
       <Features />
       <section className={classes.section} id="trees">
-        <Parallax small="/static/bg2_small.jpg" big="/static/bg2_big.jpg">
+        <Parallax
+          small="/static/bg2_small.jpg"
+          big="/static/bg2_big.jpg"
+          backgroundPosition="center 80px"
+        >
           <div className={classes.trees}>
             <Typography variant="h3" color="default">
               Monthly Trees
             </Typography>
             <TitleDivider />
-            <Trees />
+            <Trees treeProgress={demoTreeProgress} customTree="cassiopeia1" />
           </div>
         </Parallax>
       </section>
