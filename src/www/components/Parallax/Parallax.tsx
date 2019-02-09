@@ -18,7 +18,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    zIndex: 0
   },
   filter: (props: any) => ({
     position: 'absolute',

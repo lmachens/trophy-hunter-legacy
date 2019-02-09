@@ -1,4 +1,4 @@
-import { Button, Typography } from '@material-ui/core';
+import { Button, Hidden, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import React from 'react';
@@ -11,24 +11,34 @@ import Parallax from '../Parallax';
 import Screenshots from '../Screenshots/Screenshots';
 import TitleDivider from '../TitleDivider';
 import Trees from '../Trees';
+import Trophies from '../Trophies';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   container: {
     textAlign: 'center'
   },
+  hidden: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    }
+  },
   section: {
     textAlign: 'center',
+    margin: '0 auto',
+    backgroundImage: 'linear-gradient(to top left, #151515, #0a0a0c)'
+  },
+  padding: {
+    paddingTop: 40,
+    paddingBottom: 40
+  },
+  maxWidth: {
+    maxWidth: 1000,
     margin: '0 auto'
   },
-  trees: {
-    paddingTop: 40,
-    paddingBottom: 40
-  },
-  screenshots: {
-    paddingTop: 40,
-    paddingBottom: 40
+  alternative: {
+    backgroundImage: 'linear-gradient(to bottom right, #151515, #0a0a0c)'
   }
-});
+}));
 
 const demoProgresses = [
   [0, 1, 2, 4],
@@ -64,7 +74,10 @@ const Landing = () => {
         <Link href="#trees">
           <Button>Trees</Button>
         </Link>
-        <Link href="#screenshots">
+        <Link href="#trophies">
+          <Button>Trophies</Button>
+        </Link>
+        <Link href="#screenshots" className={classes.hidden}>
           <Button>Screenshots</Button>
         </Link>
       </Header>
@@ -76,7 +89,7 @@ const Landing = () => {
           big="/static/bg2_big.jpg"
           backgroundPosition="center 80px"
         >
-          <div className={classes.trees}>
+          <div className={classes.padding}>
             <Typography variant="h3" color="default">
               Monthly Trees
             </Typography>
@@ -85,7 +98,19 @@ const Landing = () => {
           </div>
         </Parallax>
       </section>
-      <section className={classNames(classes.section, classes.screenshots)} id="screenshots">
+      <section
+        className={classNames(classes.section, classes.padding, classes.alternative)}
+        id="trophies"
+      >
+        <div className={classes.maxWidth}>
+          <Typography variant="h3" color="default">
+            Trophies
+          </Typography>
+          <TitleDivider />
+          <Trophies />
+        </div>
+      </section>
+      <section className={classNames(classes.section, classes.padding)} id="screenshots">
         <Typography variant="h3" color="default">
           Screenshots
         </Typography>
