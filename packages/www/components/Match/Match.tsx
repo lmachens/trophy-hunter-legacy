@@ -15,19 +15,16 @@ const Match = ({ match, summonerName }) => {
   const [extendedMatch, setExtendedMatch] = useState<any>(null);
   const [trophies, setTrophies] = useState([]);
 
-  useEffect(
-    () => {
-      const extendedMatchResult = extendMatchResult({
-        matchResult: match,
-        summonerName
-      });
-      console.log(extendedMatchResult);
-      setExtendedMatch(extendedMatchResult);
-      const calculatedTrophies = calculateTrophies({ extendedMatchResult });
-      setTrophies(calculatedTrophies);
-    },
-    [match, summonerName]
-  );
+  useEffect(() => {
+    const extendedMatchResult = extendMatchResult({
+      matchResult: match,
+      summonerName
+    });
+    console.log(extendedMatchResult);
+    setExtendedMatch(extendedMatchResult);
+    const calculatedTrophies = calculateTrophies({ extendedMatchResult });
+    setTrophies(calculatedTrophies);
+  }, [match, summonerName]);
 
   if (!extendedMatch) {
     return null;
