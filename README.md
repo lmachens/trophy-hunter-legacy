@@ -51,9 +51,9 @@ Please follow the instructions on [Overwolf Developer](http://developers.overwol
 
 1. Install [MongoDB](https://www.mongodb.com/de/download-center) and run it on port 27017
 1. Install [Meteor](https://www.meteor.com/install)
-1. Install dependencies with `yarn && cd src/app && meteor npm install`
-1. Copy `src/app/template.settings.json` to `src/app/settings.json`.
-1. Start the dev server with `meteor npm start` from `src/app` or `yarn app` from top level. The app is available on http://localhost:3000.
+1. Install dependencies with `yarn && cd packages/app && meteor npm install`
+1. Copy `packages/app/template.settings.json` to `packages/app/settings.json`.
+1. Start the dev server with `meteor npm start` from `packages/app` or `yarn app` from top level. The app is available on http://localhost:3000.
 1. Download the [Developers version of Overwolf](https://download.overwolf.com/install/Download?Channel=Developers). You can skip this step if you already installed Overwolf.
 1. Start Overwolf and click on Settings (either the wrench icon on the dock, or the Settings button on the tray icon menu).
 1. Go to the Support tab, you will see a link labelled "Development Options". Click that.
