@@ -10,7 +10,6 @@ import { Meteor } from 'meteor/meteor';
 import SummonerStats from '/imports/api/summoner-stats/summonerStats';
 import TrophyHunters from '/imports/api/trophy-hunters/trophyHunters';
 import {
-  getPlatformIdByRegion,
   getChampionMastery,
   getMatch,
   getMatchList,
@@ -561,29 +560,6 @@ Meteor.methods({
       });
 
       return matches;
-    } catch (error) {
-      return null;
-    }
-  },
-  async getSummonerByLegacyAccountId({ region, accountId }) {
-    check(region, String);
-    check(accountId, Number);
-
-    try {
-      const platformId = getPlatformIdByRegion(region);
-      const summoner = await getSummoner({ platformId, accountId });
-      return summoner;
-    } catch (error) {
-      return null;
-    }
-  },
-  async getSummonerByLegacySummonerId({ platformId, summonerId }) {
-    check(platformId, String);
-    check(summonerId, Number);
-
-    try {
-      const summoner = await getSummoner({ platformId, summonerId });
-      return summoner;
     } catch (error) {
       return null;
     }

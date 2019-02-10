@@ -2,6 +2,8 @@
 
 ### Added
 - Connect feedback form to our Discord server.
+### Removed
+- Removed legacy access to old matches and summoner accounts.
 
 ## [3.3.0] - 2019-02-08
 ### Added
