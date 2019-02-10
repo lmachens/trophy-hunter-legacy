@@ -11,11 +11,13 @@ import {
 } from './boxes';
 import { Grid, Typography, withStyles } from '../generic';
 import React, { PureComponent } from 'react';
+import { bindActionCreators } from 'redux';
 
 import { CircularProgress } from '../generic/CircularProgress';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
 import { connect } from 'react-redux';
+import { fetchPlayedTogetherIfNeeded } from '../../../store/actions';
 
 const styles = {
   root: {
@@ -39,6 +41,21 @@ const styles = {
 };
 
 class LiveMatch extends PureComponent {
+  componentDidMount() {
+    const { playedTogetherIdentifier, fetchPlayedTogetherIfNeeded } = this.props;
+    if (playedTogetherIdentifier) fetchPlayedTogetherIfNeeded(playedTogetherIdentifier);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { playedTogetherIdentifier, fetchPlayedTogetherIfNeeded } = this.props;
+    if (
+      playedTogetherIdentifier !== prevProps.playedTogetherIdentifier &&
+      playedTogetherIdentifier
+    ) {
+      fetchPlayedTogetherIfNeeded(playedTogetherIdentifier);
+    }
+  }
+
   render() {
     const {
       classes,
@@ -125,16 +142,32 @@ LiveMatch.propTypes = {
   accountId: PropTypes.number,
   userId: PropTypes.string,
   loading: PropTypes.bool,
-  summonerName: PropTypes.string
+  summonerName: PropTypes.string,
+  playedTogetherIdentifier: PropTypes.string,
+  fetchPlayedTogetherIfNeeded: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ liveMatch: { firstTeam, secondTeam } }) => {
-  return { firstTeam, secondTeam };
+const mapStateToProps = ({ liveMatch: { firstTeam, secondTeam, platformId } }) => {
+  if (!firstTeam || !secondTeam) return {};
+  const participants = [...firstTeam, ...secondTeam];
+  const summonerNames = participants.map(participant => participant.summonerName);
+  const playedTogetherIdentifier = `${platformId}&${summonerNames.join('|th|')}`;
+
+  return { firstTeam, secondTeam, playedTogetherIdentifier };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPlayedTogetherIfNeeded: bindActionCreators(fetchPlayedTogetherIfNeeded, dispatch)
+  };
 };
 
 const enhanced = compose(
   withStyles(styles),
-  connect(mapStateToProps)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
 )(LiveMatch);
 
 export default enhanced;

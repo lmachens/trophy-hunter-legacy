@@ -33,7 +33,7 @@ const playedTogether = (
   }
 };
 
-export const playedTogetherBySummonerIds = (state = {}, action) => {
+export const playedTogetherBySummonerNames = (state = {}, action) => {
   const { type, data } = action;
   switch (type) {
     case RECEIVE_PLAYED_TOGETHER:

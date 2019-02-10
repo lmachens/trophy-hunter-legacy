@@ -6,7 +6,6 @@ import {
 
 import { Button } from '../../components/generic';
 import LoadingComponent from '../../components/loading/LoadingComponent';
-import { Meteor } from 'meteor/meteor';
 import { OpenInNewIcon } from '../../components/icons';
 import PropTypes from 'prop-types';
 import Timeline from '../../components/Timeline';
@@ -15,6 +14,7 @@ import champions from '/imports/shared/riot-api/champions.ts';
 import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
 import moment from 'moment';
 import universeTheme from '../../layouts/universeTheme';
+import { getMatchWithTimeline } from '/imports/shared/th-api/index.ts';
 
 const styles = {
   container: {
@@ -67,8 +67,8 @@ class Match extends Component {
   updateMatchWithTimeline({ matchId, platformId, summonerId, summonerName }) {
     matchId = parseInt(matchId);
     summonerId = parseInt(summonerId) || summonerId;
-    Meteor.call('getMatchWithTimeline', matchId, platformId, (error, result) => {
-      if (result) {
+    getMatchWithTimeline({ platformId, matchId })
+      .then(result => {
         const extendedMatchResult = extendMatchResult({
           matchResult: result,
           summonerId,
@@ -79,14 +79,14 @@ class Match extends Component {
           matchWithTimeline: result,
           extendedMatchResult: extendedMatchResult
         });
-      } else {
+      })
+      .catch(() => {
         this.setState({
           extendedMatchResult: null,
           matchWithTimeline: null,
           noData: true
         });
-      }
-    });
+      });
   }
 
   render() {

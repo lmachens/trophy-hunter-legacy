@@ -6,8 +6,7 @@ import {
   CLEAR_PLAYED_TOGETHER
 } from '../types';
 
-import { Meteor } from 'meteor/meteor';
-import safeParseInt from '../../api/utilities/safeParseInt';
+import { getPlayedTogether } from '/imports/shared/th-api/index.ts';
 
 export const clearPlayedTogether = () => {
   return {
@@ -50,20 +49,14 @@ export const fetchPlayedTogether = identifier => {
     return new Promise(resolve => {
       const params = identifier.split('&');
       const platformId = params[0];
-      const summonerIds = params[1].split('|').map(summonerId => safeParseInt(summonerId));
-      Meteor.call(
-        'getPlayedTogether',
-        {
-          platformId,
-          summonerIds
-        },
-        (error, result) => {
-          if (error) {
-            return resolve(dispatch(receivePlayedTogetherError(identifier, error)));
-          }
-          return resolve(dispatch(receivePlayedTogether(identifier, result)));
-        }
-      );
+      const summonerNames = params[1].split('|th|');
+      getPlayedTogether({ platformId, summonerNames })
+        .then(result => {
+          resolve(dispatch(receivePlayedTogether(identifier, result)));
+        })
+        .catch(error => {
+          resolve(dispatch(receivePlayedTogetherError(identifier, error)));
+        });
     });
   };
 };
@@ -71,6 +64,6 @@ export const fetchPlayedTogether = identifier => {
 const ttl = 1000 * 60 * 30;
 export const fetchPlayedTogetherIfNeeded = fetchIfNeeded(
   fetchPlayedTogether,
-  'playedTogetherBySummonerIds',
+  'playedTogetherBySummonerNames',
   ttl
 );

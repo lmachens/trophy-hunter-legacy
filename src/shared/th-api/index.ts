@@ -2,6 +2,7 @@ export { default as getActiveGame } from './getActiveGame';
 export { default as getChampionMastery } from './getChampionMastery';
 export { default as getLeaguePositions } from './getLeaguePositions';
 export { default as getPlatformIdByRegion } from './getPlatformIdByRegion';
+export { default as getPlayedTogether } from './getPlayedTogether';
 export { default as getMatch } from './getMatch';
 export { default as getMatchList } from './getMatchList';
 export { default as getMatchup } from './getMatchup';

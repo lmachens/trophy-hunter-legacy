@@ -2,6 +2,9 @@
 
 ### Added
 - Connect feedback form to our Discord server.
+### Changed
+- Optimize calculation of "Played together".
+- Optimize loading of recent match.
 ### Removed
 - Removed legacy access to old matches and summoner accounts.
 

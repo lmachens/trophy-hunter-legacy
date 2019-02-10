@@ -26,92 +26,6 @@ const numberOfMatches = {
 const past = new Date(Date.now() - 1000 * 60 * 60 * 24 * 30 * 6); // Last 5 months
 
 Meteor.methods({
-  getPlayedTogether(props) {
-    this.unblock();
-    check(props, {
-      platformId: String,
-      summonerIds: Array
-    });
-
-    try {
-      const { summonerIds, platformId } = props;
-
-      const futures = summonerIds.map(summonerId => {
-        const future = new Future();
-        Meteor.defer(async () => {
-          try {
-            let accountId;
-            const trophyHunter = TrophyHunters.findOne(
-              { summonerId },
-              { fields: { accountId: 1 } }
-            );
-
-            if (!trophyHunter) {
-              const summoner = await getSummoner({ platformId, summonerId });
-              if (!summoner) {
-                return future.return(null);
-              }
-              accountId = summoner.accountId;
-            } else {
-              accountId = trophyHunter.accountId;
-            }
-
-            let matchList;
-            try {
-              matchList = await getMatchList({ platformId, accountId });
-            } catch (error) {
-              matchList = {};
-            }
-            if (!matchList.matches) {
-              return future.return(null);
-            }
-            future.return({ summonerId, matchList });
-          } catch (error) {
-            future.return(null);
-          }
-        });
-        return future;
-      });
-
-      const games = {};
-      const playedTogether = {};
-      const playedTogeterBySummonerId = {};
-      futures.forEach(future => {
-        const result = future.wait();
-        if (result) {
-          const { summonerId, matchList } = result;
-          playedTogeterBySummonerId[summonerId] = {
-            matchesAnalysed: matchList.endIndex,
-            matchesSince: matchList.matches[matchList.matches.length - 1].timestamp,
-            with: {}
-          };
-          matchList.matches.forEach(match => {
-            if (!games[match.gameId]) {
-              games[match.gameId] = [summonerId];
-            } else {
-              games[match.gameId].push(summonerId);
-              playedTogether[match.gameId] = games[match.gameId];
-            }
-          });
-        }
-      });
-      Object.values(playedTogether).forEach(summonerIds => {
-        summonerIds.forEach(summonerId => {
-          const otherSummonerIds = summonerIds.filter(id => id !== summonerId);
-          otherSummonerIds.forEach(otherSummonerId => {
-            if (!playedTogeterBySummonerId[summonerId].with[otherSummonerId]) {
-              playedTogeterBySummonerId[summonerId].with[otherSummonerId] = 0;
-            }
-            playedTogeterBySummonerId[summonerId].with[otherSummonerId]++;
-          });
-        });
-      });
-
-      return playedTogeterBySummonerId;
-    } catch (error) {
-      return null;
-    }
-  },
   async getParticipantPerformance(props) {
     this.unblock();
     check(props, {
@@ -383,18 +297,6 @@ Meteor.methods({
       });
 
       return matches.sort((a, b) => b.gameCreation - a.gameCreation);
-    } catch (error) {
-      return null;
-    }
-  },
-  async getMatchWithTimeline(matchId, platformId) {
-    this.unblock();
-
-    check(matchId, Number);
-    check(platformId, String);
-
-    try {
-      return await getMatchWithTimeline({ platformId, matchId });
     } catch (error) {
       return null;
     }
