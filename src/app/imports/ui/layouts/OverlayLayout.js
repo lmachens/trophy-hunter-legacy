@@ -154,6 +154,7 @@ class OverlayLayout extends Component {
     this.busyRefresh = true;
     Meteor.call('startMatch', () => {
       this.busyRefresh = false;
+      location.reload();
     });
   };
 

@@ -2,7 +2,6 @@ import { IconButtonV2, Typography, withStyles } from '../../../generic';
 import React, { PureComponent } from 'react';
 import {
   fetchParticipantPerformanceIfNeeded,
-  fetchPlayedTogetherIfNeeded,
   selectFirstTeamTarget,
   selectMapTarget,
   selectRole,
@@ -145,32 +144,17 @@ class Participant extends PureComponent {
     const {
       fetchParticipantPerformanceIfNeeded,
       identifier,
-      playedTogetherIdentifier,
-      fetchPlayedTogetherIfNeeded,
       fetchChampionStatsIfNeeded,
       participant
     } = this.props;
     if (identifier) fetchParticipantPerformanceIfNeeded(identifier);
-    if (playedTogetherIdentifier) fetchPlayedTogetherIfNeeded(playedTogetherIdentifier);
     if (participant.championId) fetchChampionStatsIfNeeded(participant.championId);
   }
 
   componentDidUpdate(prevProps) {
-    const {
-      fetchParticipantPerformanceIfNeeded,
-      identifier,
-      playedTogetherIdentifier,
-      fetchPlayedTogetherIfNeeded,
-      participant
-    } = this.props;
+    const { fetchParticipantPerformanceIfNeeded, identifier, participant } = this.props;
     if (identifier !== prevProps.identifier && identifier) {
       fetchParticipantPerformanceIfNeeded(identifier);
-    }
-    if (
-      playedTogetherIdentifier !== prevProps.playedTogetherIdentifier &&
-      playedTogetherIdentifier
-    ) {
-      fetchPlayedTogetherIfNeeded(playedTogetherIdentifier);
     }
     if (participant.championId !== prevProps.championId)
       fetchChampionStatsIfNeeded(participant.championId);
@@ -328,8 +312,6 @@ Participant.propTypes = {
   platformId: PropTypes.string.isRequired,
   selectRole: PropTypes.func.isRequired,
   identifier: PropTypes.string.isRequired,
-  playedTogetherIdentifier: PropTypes.string,
-  fetchPlayedTogetherIfNeeded: PropTypes.func.isRequired,
   championMastery: PropTypes.object,
   summonerLevel: PropTypes.number,
   invertTeams: PropTypes.bool,
@@ -349,7 +331,7 @@ const mapStateToProps = (
       secondTeam,
       invertTeams
     },
-    playedTogetherBySummonerIds
+    playedTogetherBySummonerNames
   },
   { participant }
 ) => {
@@ -361,9 +343,9 @@ const mapStateToProps = (
   const summonerLevel = participantPerformance.summonerLevel;
 
   const participants = [...firstTeam, ...secondTeam];
-  const summonerIds = participants.map(participant => participant.summonerId);
-  const playedTogetherIdentifier = `${platformId}&${summonerIds.join('|')}`;
-  const playedTogether = playedTogetherBySummonerIds[playedTogetherIdentifier] || {};
+  const summonerNames = participants.map(participant => participant.summonerName);
+  const playedTogetherIdentifier = `${platformId}&${summonerNames.join('|th|')}`;
+  const playedTogether = playedTogetherBySummonerNames[playedTogetherIdentifier] || {};
   const badges = generateBadgesByParticipantPerformance({
     participantPerformance,
     participant,
@@ -397,7 +379,6 @@ const mapDispatchToProps = dispatch => {
       fetchParticipantPerformanceIfNeeded,
       dispatch
     ),
-    fetchPlayedTogetherIfNeeded: bindActionCreators(fetchPlayedTogetherIfNeeded, dispatch),
     selectRole: bindActionCreators(selectRole, dispatch),
     fetchChampionStatsIfNeeded: bindActionCreators(fetchChampionStatsIfNeeded, dispatch)
   };

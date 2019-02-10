@@ -15,21 +15,21 @@ export const generateBadgesByParticipantPerformance = ({
   if (trophyHunter) {
     result[badges.trophyHunter.name] = trophyHunter;
   }
-  if (playedTogether && playedTogether[participant.summonerId]) {
-    const premades = Object.entries(playedTogether[participant.summonerId].with).reduce(
-      (acc, [summonerId, times]) => {
+  if (playedTogether && playedTogether[participant.summonerName]) {
+    const premades = Object.entries(playedTogether[participant.summonerName].with).reduce(
+      (acc, [summonerName, times]) => {
         const playedWithParticipant = participants.find(
-          p => p.summonerId === safeParseInt(summonerId)
+          p => p.summonerName === safeParseInt(summonerName)
         );
         if (times > 1 && playedWithParticipant) {
           let matchesSince;
           if (
-            playedTogether[participant.summonerId].matchesSince >
-            playedTogether[summonerId].matchesSince
+            playedTogether[participant.summonerName].matchesSince >
+            playedTogether[summonerName].matchesSince
           ) {
-            matchesSince = playedTogether[participant.summonerId].matchesSince;
+            matchesSince = playedTogether[participant.summonerName].matchesSince;
           } else {
-            matchesSince = playedTogether[summonerId].matchesSince;
+            matchesSince = playedTogether[summonerName].matchesSince;
           }
           acc.push({
             summonerName: playedWithParticipant.summonerName,
