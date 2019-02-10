@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.4.0] - 2019-02-10
 ### Added
 - Connect feedback form to our Discord server.
 ### Changed
