@@ -58,8 +58,8 @@ export default (req: IncomingMessage, res: ServerResponse) => {
         });
       });
 
-      // Cache result https://zeit.co/docs/v2/routing/caching/#caching-lambda-responses
-      res.setHeader('Cache-Control', 's-maxage=31536000, maxage=0');
+      // Cache result for 30 minutes because data might change
+      res.setHeader('Cache-Control', 's-maxage=1800, maxage=0');
       res.end(JSON.stringify(playedTogeterBySummonerName));
     })
     .catch(error => {
