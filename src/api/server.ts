@@ -5,6 +5,7 @@ import leaguePositionsApi from './endpoints/league-positions';
 import matchApi from './endpoints/match';
 import matchlistApi from './endpoints/matchlist';
 import matchupApi from './endpoints/matchup';
+import playedTogetherApi from './endpoints/played-together';
 import summonerApi from './endpoints/summoner';
 import timelineApi from './endpoints/timeline';
 import trophiesApi from './endpoints/trophies';
@@ -90,4 +91,12 @@ if (!process.env.TROPHY_HUNTER_API_ENDPOINT) {
 
 http.createServer(trophyHunterApi).listen(5009, hostname, () => {
   console.log(`trophyHunterApi running at http://${hostname}:${5009}/`);
+});
+
+if (!process.env.PLAYED_TOGETHER_API_ENDPOINT) {
+  process.env.PLAYED_TOGETHER_API_ENDPOINT = `http://${hostname}:${5010}`;
+}
+
+http.createServer(playedTogetherApi).listen(5010, hostname, () => {
+  console.log(`playedTogetherApi running at http://${hostname}:${5010}/`);
 });
