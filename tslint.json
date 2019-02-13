@@ -19,6 +19,7 @@
     "no-empty": false,
     "prefer-conditional-expression": false,
     "prefer-for-of": false,
-    "radix": false
+    "radix": false,
+    "jsx-curly-spacing": false
   }
 }

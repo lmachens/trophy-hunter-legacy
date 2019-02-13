@@ -55,6 +55,7 @@ class JssDocument extends Document<{ registry: any }> {
                 }
                 body {
                   background: #0a0a0c;
+                  color: #fff;
                 }
 
                 #__next {
