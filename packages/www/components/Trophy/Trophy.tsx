@@ -5,6 +5,7 @@ import { defs } from '../../shared/trophies/scores';
 
 interface ITrophyProps {
   trophy: any;
+  obtained?: boolean;
 }
 
 const useStyles = makeStyles({
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
   }
 });
 
-const Trophy: FunctionComponent<ITrophyProps> = ({ trophy }) => {
+const Trophy: FunctionComponent<ITrophyProps> = ({ trophy, obtained = true }) => {
   const classes = useStyles();
   const { gradient, shadow, label } = defs[trophy.score];
 
@@ -50,7 +51,7 @@ const Trophy: FunctionComponent<ITrophyProps> = ({ trophy }) => {
         </defs>
         <path
           d={trophy.svgPath}
-          fill={`url(#gradient-${trophy.score})`}
+          fill={obtained ? `url(#gradient-${trophy.score})` : 'rgba(255, 255, 255, 0.298039)'}
           filter={shadow && `url(#shadow-${trophy.score})`}
         />
       </SvgIcon>

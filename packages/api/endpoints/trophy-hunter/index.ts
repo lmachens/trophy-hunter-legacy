@@ -30,7 +30,8 @@ const getTrophyHunter = async ({ region, summonerName }) => {
         s9Score: 1,
         playstyle: 1,
         customTree: 1,
-        features: 1
+        features: 1,
+        friends: 1
       }
     }
   );

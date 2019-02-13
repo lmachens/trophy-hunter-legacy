@@ -1,4 +1,5 @@
-import { Avatar, Typography } from '@material-ui/core';
+import { Avatar, Chip, Grid, Tooltip, Typography } from '@material-ui/core';
+import PeopleIcon from '@material-ui/icons/People';
 import { makeStyles } from '@material-ui/styles';
 import React, { FunctionComponent } from 'react';
 import { ILeaguePositions, ISummoner } from '../../shared/riot-api/typings';
@@ -8,6 +9,7 @@ import LeaguePositions from '../LeaguePositions';
 interface ISummonerProps extends ISummoner {
   region: string;
   leaguePositions: ILeaguePositions;
+  trophyHunter?: any;
 }
 
 const useStyles = makeStyles({
@@ -23,6 +25,12 @@ const useStyles = makeStyles({
   },
   grow: {
     flex: 1
+  },
+  adminBadge: {
+    backgroundColor: '#963333'
+  },
+  patreonBadge: {
+    backgroundColor: '#F96854'
   }
 });
 
@@ -34,21 +42,59 @@ const SummonerInfo: FunctionComponent<ISummonerProps> = ({
   name,
   region,
   summonerLevel,
+  trophyHunter,
   leaguePositions
 }) => {
   const classes = useStyles();
+
   return (
-    <div className={classes.container}>
-      <Avatar className={classes.profileIcon} src={getProfileIcon(profileIconId)} />
-      <div>
-        <Typography>
-          {name} ({region.toUpperCase()})
-        </Typography>
-        <Typography>Level {summonerLevel}</Typography>
-      </div>
+    <Grid container>
+      <Grid item className={classes.container}>
+        <Avatar className={classes.profileIcon} src={getProfileIcon(profileIconId)} />
+        <div>
+          <Typography color="primary">
+            {name} ({region.toUpperCase()})
+          </Typography>
+          <Typography>Level {summonerLevel}</Typography>
+          {trophyHunter && (
+            <Typography>
+              {trophyHunter.s9Rank ? `${trophyHunter.s9Rank}. Rank` : 'Unranked'} |{' '}
+              {trophyHunter.features.wins || 0}W{' '}
+              {trophyHunter.features.games - trophyHunter.features.wins || 0}L |{' '}
+              {trophyHunter.trophiesObtained.length || 0} Trophies
+            </Typography>
+          )}
+        </div>
+      </Grid>
       <div className={classes.grow} />
-      <LeaguePositions leaguePositions={leaguePositions} />
-    </div>
+      {trophyHunter && (
+        <Grid item>
+          {trophyHunter.items.admin && (
+            <Tooltip title="This user is an admin">
+              <Chip label="Admin" className={classes.adminBadge} />
+            </Tooltip>
+          )}
+          {trophyHunter.items.patreon && trophyHunter.items.patreon.badge && (
+            <Tooltip title="This user supports us via Patreon">
+              <Chip label="Patron" className={classes.patreonBadge} />
+            </Tooltip>
+          )}
+          <Chip
+            avatar={
+              <Avatar>
+                <PeopleIcon />
+              </Avatar>
+            }
+            label={`${
+              trophyHunter.friends.length > 99 ? '99+' : trophyHunter.friends.length
+            } Followers`}
+          />
+        </Grid>
+      )}
+      <Grid item>
+        <LeaguePositions leaguePositions={leaguePositions} />
+      </Grid>
+    </Grid>
   );
 };
 

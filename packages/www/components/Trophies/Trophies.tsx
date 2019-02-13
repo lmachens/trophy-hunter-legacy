@@ -4,7 +4,7 @@ import trophies from '../../shared/trophies';
 import Trophy from '../Trophy';
 
 interface ITrophiesProps {
-  trophiesObtained?: string[];
+  trophiesObtained?: any[];
 }
 
 const useStyles = makeStyles({
@@ -18,9 +18,12 @@ const Trophies: FunctionComponent<ITrophiesProps> = ({ trophiesObtained }) => {
     <div className={classes.container}>
       {Object.values(trophies)
         .sort((a, b) => a.score - b.score || a.title.localeCompare(b.title))
-        .map(trophy => (
-          <Trophy key={trophy.name} trophy={trophy} />
-        ))}
+        .map(trophy => {
+          const obtained = !!trophiesObtained.find(
+            trophyObtained => trophyObtained.name === trophy.name
+          );
+          return <Trophy key={trophy.name} trophy={trophy} obtained={obtained} />;
+        })}
     </div>
   );
 };
