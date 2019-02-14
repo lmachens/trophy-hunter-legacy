@@ -12,7 +12,6 @@ interface IParallaxProps {
 const useStyles = makeStyles(theme => ({
   parallax: {
     height: '100%',
-    maxHeight: '1000px',
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
