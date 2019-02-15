@@ -14,7 +14,8 @@ const useStyles = makeStyles({
   logo: {
     width: 170,
     height: 40,
-    verticalAlign: 'middle'
+    verticalAlign: 'middle',
+    pointerEvents: 'none'
   },
   grow: {
     flex: 1

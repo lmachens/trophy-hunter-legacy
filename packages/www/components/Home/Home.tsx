@@ -27,7 +27,8 @@ const useStyles = makeStyles(theme => ({
   image: {
     maxWidth: '90vw',
     userSelect: 'none',
-    marginBottom: 10
+    marginBottom: 10,
+    pointerEvents: 'none'
   },
   summonerSearch: {
     margin: '10px 0'
