@@ -1,14 +1,12 @@
 import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { activeTrees } from '../../shared/trees';
-import DownloadButton from '../DownloadButton';
 import Features from '../Features';
 import Header from '../Header';
 import Home from '../Home';
 import Link from '../Link';
-import Parallax from '../Parallax';
 import Screenshots from '../Screenshots/Screenshots';
 import TitleDivider from '../TitleDivider';
 import Trees from '../Trees';
@@ -29,6 +27,12 @@ const useStyles = makeStyles(theme => ({
   maxWidth: {
     maxWidth: 1000,
     margin: '0 auto'
+  },
+  trees: {
+    backgroundImage: 'url(/static/backgrounds/dark-mosaic.png)'
+  },
+  screenshots: {
+    backgroundImage: 'url(/static/backgrounds/cartographer.png)'
   }
 }));
 
@@ -51,7 +55,7 @@ Object.values(activeTrees).forEach((tree, index) => {
   };
 });
 
-const Landing = () => {
+const Landing: FunctionComponent = () => {
   const classes = useStyles();
 
   return (
@@ -72,22 +76,19 @@ const Landing = () => {
       </Header>
       <Home />
       <Features />
-      <section className={classes.section} id="trees">
-        <Parallax
-          small="/static/bg2_small.jpg"
-          big="/static/bg2_big.jpg"
-          backgroundPosition="center 80px"
-        >
-          <div className={classes.padding}>
-            <Typography variant="h3" color="default">
-              Monthly Trees
-            </Typography>
-            <TitleDivider />
-            <Trees treeProgress={demoTreeProgress} customTree="cassiopeia1" />
-          </div>
-        </Parallax>
+      <section className={classNames(classes.trees, classes.section)} id="trees">
+        <div className={classes.padding}>
+          <Typography variant="h3" color="default">
+            Monthly Trees
+          </Typography>
+          <TitleDivider />
+          <Trees treeProgress={demoTreeProgress} customTree="cassiopeia1" />
+        </div>
       </section>
-      <section className={classNames(classes.section, classes.padding)} id="screenshots">
+      <section
+        className={classNames(classes.screenshots, classes.section, classes.padding)}
+        id="screenshots"
+      >
         <Typography variant="h3" color="default">
           Screenshots
         </Typography>

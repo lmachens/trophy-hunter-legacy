@@ -23,7 +23,8 @@ const useStyles = makeStyles({
   feature: {
     height: 300,
     backgroundRepeat: 'no-repeat',
-    padding: 50
+    padding: 50,
+    color: '#000'
   },
   feature1: {
     backgroundImage: 'url(/static/draven.jpg)',

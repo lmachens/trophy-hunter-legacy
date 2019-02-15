@@ -31,7 +31,8 @@ const useStyles = makeStyles({
     zIndex: 1
   },
   svg: {
-    position: 'absolute'
+    position: 'absolute',
+    fill: 'none'
   },
   line: {
     stroke: '#be9820',
@@ -54,6 +55,16 @@ const useStyles = makeStyles({
   },
   tooltip: {
     textAlign: 'center'
+  },
+  readyToObtainBorder: {
+    position: 'absolute',
+    top: 0,
+    opacity: 1,
+    width: '100%',
+    height: '100%',
+    boxShadow: '#be9820 0px 0px 3px 3px',
+    borderRadius: '10px',
+    pointerEvents: 'none'
   }
 });
 
@@ -166,22 +177,9 @@ const TreeItem: FunctionComponent<ITreeItemProps> = ({
             viewBox="0 0 512 512"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d={trophy.svgPath} fillRule="evenodd" />
+            <path d={trophy.svgPath} />
           </svg>
-          {readyToObtain && (
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                opacity: 1,
-                width: '100%',
-                height: '100%',
-                boxShadow: '#be9820 0px 0px 3px 3px',
-                borderRadius: '10px',
-                pointerEvents: 'none'
-              }}
-            />
-          )}
+          {readyToObtain && <div className={classes.readyToObtainBorder} />}
         </div>
       </Tooltip>
     </div>
