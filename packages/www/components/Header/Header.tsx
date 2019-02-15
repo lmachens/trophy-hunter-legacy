@@ -1,22 +1,59 @@
+import { AppBar, Hidden, IconButton, Toolbar, Tooltip } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
+import Discord from '../../icons/Discord';
+import GitHub from '../../icons/GitHub';
+import Twitter from '../../icons/Twitter';
+import DownloadButton from '../DownloadButton';
+import Link from '../Link';
 
 const useStyles = makeStyles({
-  header: {
-    height: 36,
-    position: 'fixed',
-    top: 0,
-    width: '100%',
-    zIndex: 2,
-    backgroundColor: '#0a0a0c',
-    textAlign: 'center',
-    borderBottom: `1px solid #31271e`
+  appBar: {
+    backgroundImage: 'url(/static/backgrounds/gun-metal.png)'
+  },
+  logo: {
+    width: 170,
+    height: 40,
+    verticalAlign: 'middle'
+  },
+  grow: {
+    flex: 1
+  },
+  download: {
+    marginRight: 20
   }
 });
 
-const Header = ({ children }) => {
+const Header = () => {
   const classes = useStyles();
-  return <header className={classes.header}>{children}</header>;
+  return (
+    <AppBar className={classes.appBar}>
+      <Toolbar>
+        <Link href="/">
+          <img className={classes.logo} src="/static/text.png" />
+        </Link>
+        <div className={classes.grow} />
+        <Hidden xsDown implementation="css">
+          <DownloadButton className={classes.download} />
+        </Hidden>
+        <Tooltip title="GitHub">
+          <IconButton href="https://github.com/lmachens/trophy-hunter" target="_blank">
+            <GitHub />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Discord">
+          <IconButton color="inherit" href="https://discord.gg/6aYTkbA" target="_blank">
+            <Discord />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Twitter">
+          <IconButton color="inherit" href="https://twitter.com/LolTrophyHunter" target="_blank">
+            <Twitter />
+          </IconButton>
+        </Tooltip>
+      </Toolbar>
+    </AppBar>
+  );
 };
 
 export default Header;

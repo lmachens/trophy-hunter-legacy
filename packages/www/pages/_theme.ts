@@ -11,9 +11,20 @@ const theme = createMuiTheme({
     }
   },
   overrides: {
+    MuiAppBar: {
+      colorPrimary: {
+        color: '#fff',
+        backgroundColor: '#0a0a0c'
+      },
+      root: {
+        border: 'none',
+        borderBottom: `1px solid #4b4b4b`
+      }
+    },
     MuiPaper: {
       root: {
-        border: '1px solid rgba(255, 255, 255, 0.23)'
+        border: '1px solid rgba(255, 255, 255, 0.23)',
+        backgroundColor: '#1d1c1d'
       }
     },
     MuiTooltip: {

@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   filter: (props: any) => ({
     position: 'absolute',
+    top: 0,
     zIndex: -1,
     width: '100%',
     height: '100vh',
@@ -37,6 +38,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const calculateTransform = () => {
+  const windowScrollTop = window.pageYOffset / 3;
+  return 'translate3d(0,' + windowScrollTop + 'px,0)';
+};
+
 const Parallax: FunctionComponent<IParallaxProps> = ({
   backgroundSize = 'cover',
   backgroundPosition = 'center center',
@@ -51,7 +57,6 @@ const Parallax: FunctionComponent<IParallaxProps> = ({
     big
   });
   const [transform, setTransform] = useState('');
-  const ref = useRef(null);
 
   useEffect(() => {
     resetTransform();
@@ -63,14 +68,6 @@ const Parallax: FunctionComponent<IParallaxProps> = ({
     };
   }, []);
 
-  const calculateTransform = () => {
-    const offsetTop = ref.current.offsetTop;
-    const { pageYOffset, innerHeight } = window;
-    const isVisible = innerHeight - pageYOffset + offsetTop > 0;
-    const windowScrollTop = isVisible ? (pageYOffset - offsetTop) / 3 : 0;
-    return 'translate3d(0,' + windowScrollTop + 'px,0)';
-  };
-
   const resetTransform = () => {
     setTransform(calculateTransform());
   };
@@ -79,7 +76,7 @@ const Parallax: FunctionComponent<IParallaxProps> = ({
     [classes.parallax]: true
   });
   return (
-    <div className={parallaxClasses} ref={ref}>
+    <div className={parallaxClasses}>
       <div
         className={classes.filter}
         style={{

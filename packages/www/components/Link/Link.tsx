@@ -14,9 +14,11 @@ const Link = ({ children, href, ...other }) => {
   const classes = useStyles();
 
   return (
-    <MuiLink className={classes.link} {...other}>
-      <NextLink href={href}>{children}</NextLink>
-    </MuiLink>
+    <NextLink href={href}>
+      <MuiLink className={classes.link} {...other}>
+        {children}
+      </MuiLink>
+    </NextLink>
   );
 };
 

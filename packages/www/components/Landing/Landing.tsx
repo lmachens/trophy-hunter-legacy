@@ -1,12 +1,10 @@
-import { Button, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import React, { FunctionComponent } from 'react';
 import { activeTrees } from '../../shared/trees';
 import Features from '../Features';
-import Header from '../Header';
 import Home from '../Home';
-import Link from '../Link';
 import Screenshots from '../Screenshots/Screenshots';
 import TitleDivider from '../TitleDivider';
 import Trees from '../Trees';
@@ -60,20 +58,6 @@ const Landing: FunctionComponent = () => {
 
   return (
     <div className={classes.container}>
-      <Header>
-        <Link href="/">
-          <Button>Home</Button>
-        </Link>
-        <Link href="#features">
-          <Button>Features</Button>
-        </Link>
-        <Link href="#trees">
-          <Button>Trees</Button>
-        </Link>
-        <Link href="#screenshots">
-          <Button>Screenshots</Button>
-        </Link>
-      </Header>
       <Home />
       <Features />
       <section className={classNames(classes.trees, classes.section)} id="trees">
