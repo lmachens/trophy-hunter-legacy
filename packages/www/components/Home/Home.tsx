@@ -1,4 +1,4 @@
-import { IconButton, Link, Typography } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
@@ -6,9 +6,16 @@ import DownloadButton from '../DownloadButton';
 import Parallax from '../Parallax';
 // import SummonerSearch from '../SummonerSearch';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    height: '100vh'
+    height: 'calc(100vh - 56px)',
+    [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
+      height: 'calc(100vh - 48px)',
+      minHeight: 48
+    },
+    [theme.breakpoints.up('sm')]: {
+      height: 'calc(100vh - 64px)'
+    }
   },
   container: {
     textAlign: 'center',
@@ -37,27 +44,15 @@ const useStyles = makeStyles({
     '65%': {
       transform: 'translate(0, -15px)'
     }
-  },
-  community: {
-    position: 'absolute',
-    right: 10,
-    bottom: 10,
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'column',
-    '@media (min-width: 960px)': {
-      flexDirection: 'row',
-      width: 180
-    }
-  },
-  communityImage: {
-    height: 40
   }
-});
+}));
 
 const Home = () => {
   const classes = useStyles();
 
+  const handleMoreClick = () => {
+    window.scrollTo({ top: window.innerHeight - 50, left: 0, behavior: 'smooth' });
+  };
   return (
     <section id="home" className={classes.root}>
       <Parallax small="/static/bg_small.jpg" big="/static/bg_big.jpg">
@@ -66,27 +61,9 @@ const Home = () => {
           {/* <SummonerSearch className={classes.summonerSearch} /> */}
           <DownloadButton />
         </div>
-        <a href="#features" className={classes.more}>
-          <IconButton aria-label="More">
-            <KeyboardArrowDownIcon />
-          </IconButton>
-        </a>
-        <div className={classes.community}>
-          <Link href="https://github.com/lmachens/trophy-hunter" target="_blank">
-            <img src="/static/github.png" className={classes.communityImage} />
-            <Typography>GitHub</Typography>
-          </Link>
-
-          <Link href="https://discord.gg/6aYTkbA" target="_blank">
-            <img src="/static/discord.png" className={classes.communityImage} />
-            <Typography>Discord</Typography>
-          </Link>
-
-          <Link href="https://twitter.com/LolTrophyHunter" target="_blank">
-            <img src="/static/twitter.png" className={classes.communityImage} />
-            <Typography>Twitter</Typography>
-          </Link>
-        </div>
+        <IconButton className={classes.more} onClick={handleMoreClick} aria-label="More">
+          <KeyboardArrowDownIcon />
+        </IconButton>
       </Parallax>
     </section>
   );
