@@ -57,6 +57,7 @@ const Parallax: FunctionComponent<IParallaxProps> = ({
     big
   });
   const [transform, setTransform] = useState('');
+  const ticking = useRef(false);
 
   useEffect(() => {
     resetTransform();
@@ -69,7 +70,14 @@ const Parallax: FunctionComponent<IParallaxProps> = ({
   }, []);
 
   const resetTransform = () => {
-    setTransform(calculateTransform());
+    if (!ticking.current) {
+      window.requestAnimationFrame(() => {
+        setTransform(calculateTransform());
+        ticking.current = false;
+      });
+
+      ticking.current = true;
+    }
   };
 
   const parallaxClasses = classNames({
