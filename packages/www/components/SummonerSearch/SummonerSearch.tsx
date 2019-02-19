@@ -3,7 +3,13 @@ import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import Router from 'next/router';
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
+
+interface ISummonerSearchProps {
+  autoFocus?: boolean;
+  className?: string;
+  iconButtonClassName?: string;
+}
 
 const useStyles = makeStyles({
   root: {
@@ -25,7 +31,11 @@ const useStyles = makeStyles({
 
 const regions = ['BR', 'EUNE', 'EUW', 'JP', 'KR', 'LAN', 'LAS', 'NA', 'OCE', 'TR', 'RU'];
 
-const SummonerSearch = ({ className, iconButtonClassName }) => {
+const SummonerSearch: FunctionComponent<ISummonerSearchProps> = ({
+  autoFocus,
+  className,
+  iconButtonClassName
+}) => {
   const classes = useStyles();
   const [region, setRegion] = useState('EUW');
   const [summonerName, setSummonerName] = useState('');
@@ -61,7 +71,7 @@ const SummonerSearch = ({ className, iconButtonClassName }) => {
           ))}
         </Select>
         <InputBase
-          autoFocus
+          autoFocus={autoFocus}
           className={classes.input}
           placeholder="Summoner Name"
           value={summonerName}

@@ -59,7 +59,7 @@ const Home = () => {
       <Parallax small="/static/bg_small.jpg" big="/static/bg_big.jpg">
         <div className={classes.container}>
           <img src="/static/logo.png" className={classes.image} />
-          <SummonerSearch className={classes.summonerSearch} />
+          <SummonerSearch className={classes.summonerSearch} autoFocus />
           <DownloadButton variant="outlined" />
         </div>
         <IconButton className={classes.more} onClick={handleMoreClick} aria-label="More">
