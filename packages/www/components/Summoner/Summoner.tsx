@@ -2,6 +2,7 @@ import { Tab, Tabs, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React, { FunctionComponent, useState } from 'react';
 import { ILeaguePositions, ISummoner } from '../../shared/riot-api/typings';
+import Matches from '../Matches';
 import SummonerInfo from '../SummonerInfo';
 import Trees from '../Trees';
 import Trophies from '../Trophies';
@@ -23,8 +24,7 @@ const useStyles = makeStyles({
   content: {
     maxWidth: 1000,
     padding: 20,
-    margin: '0 auto',
-    width: '100%'
+    margin: '0 auto'
   },
   tabContent: {
     marginTop: 20,
@@ -58,17 +58,19 @@ const Summoner: FunctionComponent<ISummonerProps> = ({
           <Tabs value={value} onChange={handleChange}>
             <Tab label="Trees" />
             <Tab label="Trophies" />
+            <Tab label="Matches" />
           </Tabs>
           <div className={classes.tabContent}>
             {value === 0 && (
               <Trees
                 treeProgress={trophyHunter && trophyHunter.trees}
-                customTree={trophyHunter.customTree}
+                customTree={trophyHunter ? trophyHunter.customTree : 'placeholder'}
               />
             )}
             {value === 1 && (
               <Trophies trophiesObtained={trophyHunter && trophyHunter.trophiesObtained} />
             )}
+            {value === 2 && <Matches />}
           </div>
         </div>
       </div>

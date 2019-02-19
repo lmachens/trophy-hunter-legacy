@@ -6,6 +6,7 @@ import GitHub from '../../icons/GitHub';
 import Twitter from '../../icons/Twitter';
 import DownloadButton from '../DownloadButton';
 import Link from '../Link';
+import SummonerSearch from '../SummonerSearch';
 
 const useStyles = makeStyles({
   appBar: {
@@ -22,6 +23,13 @@ const useStyles = makeStyles({
   },
   download: {
     marginRight: 20
+  },
+  summonerSearch: {
+    width: 'auto',
+    background: '#161416'
+  },
+  summonerSearchIconButton: {
+    padding: 0
   }
 });
 
@@ -35,7 +43,13 @@ const Header = () => {
         </Link>
         <div className={classes.grow} />
         <Hidden xsDown implementation="css">
-          <DownloadButton className={classes.download} />
+          <DownloadButton className={classes.download} variant="outlined" />
+        </Hidden>
+        <Hidden smDown implementation="css">
+          <SummonerSearch
+            className={classes.summonerSearch}
+            iconButtonClassName={classes.summonerSearchIconButton}
+          />
         </Hidden>
         <Tooltip title="GitHub">
           <IconButton href="https://github.com/lmachens/trophy-hunter" target="_blank">

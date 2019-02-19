@@ -1,4 +1,4 @@
-import { Tooltip, Typography } from '@material-ui/core';
+import { Grid, Tooltip, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import React, { FunctionComponent } from 'react';
 import { ILeaguePositions } from '../../shared/riot-api/typings';
@@ -9,9 +9,6 @@ interface ILeaguePositionsProps {
 }
 
 const useStyles = makeStyles({
-  leaguePositions: {
-    display: 'flex'
-  },
   leaguePosition: {
     margin: 8,
     display: 'flex',
@@ -50,8 +47,8 @@ const LeaguePositions: FunctionComponent<ILeaguePositionsProps> = ({
 }) => {
   const classes = useStyles();
 
-  const seasonRank = (trophyHunter && trophyHunter.s9Rank) || 0;
-  const { wins = 0, games = 0 } = trophyHunter && trophyHunter.features;
+  const seasonRank = trophyHunter ? trophyHunter.s9Rank : 0;
+  const { wins = 0, games = 0 } = trophyHunter ? trophyHunter.features : {};
   const soloDuo =
     leaguePositions.find(league => league.queueType === 'RANKED_SOLO_5x5') || provisional;
   const flex5v5 =
@@ -60,7 +57,7 @@ const LeaguePositions: FunctionComponent<ILeaguePositionsProps> = ({
     leaguePositions.find(league => league.queueType === 'RANKED_FLEX_TT') || provisional;
 
   return (
-    <div className={classes.leaguePositions}>
+    <Grid container>
       <Tooltip title={`${wins}W ${games - wins}L`}>
         <div className={classes.leaguePosition}>
           <div className={classes.imgContainer}>
@@ -111,7 +108,7 @@ const LeaguePositions: FunctionComponent<ILeaguePositionsProps> = ({
           </Typography>
         </div>
       </Tooltip>
-    </div>
+    </Grid>
   );
 };
 

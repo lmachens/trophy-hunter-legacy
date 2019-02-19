@@ -40,6 +40,7 @@ class JssDocument extends Document<{ registry: any }> {
             content="League of Legends, LoL App, LoL Guide, Real-time In Game, Statistics, LoL Spectate, Overwolf, Champion Guide, Champion Build, LOLKing, Champion Counter"
           />
           <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+          <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
           <style
             dangerouslySetInnerHTML={{
               __html: `
@@ -50,7 +51,7 @@ class JssDocument extends Document<{ registry: any }> {
                 html,
                 body,
                 #__next {
-                  height: 100%;
+                  min-height: 100vh;
                   margin: 0;
                 }
                 body {

@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 import DownloadButton from '../DownloadButton';
 import Parallax from '../Parallax';
-// import SummonerSearch from '../SummonerSearch';
+import SummonerSearch from '../SummonerSearch';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -59,8 +59,8 @@ const Home = () => {
       <Parallax small="/static/bg_small.jpg" big="/static/bg_big.jpg">
         <div className={classes.container}>
           <img src="/static/logo.png" className={classes.image} />
-          {/* <SummonerSearch className={classes.summonerSearch} /> */}
-          <DownloadButton />
+          <SummonerSearch className={classes.summonerSearch} />
+          <DownloadButton variant="outlined" />
         </div>
         <IconButton className={classes.more} onClick={handleMoreClick} aria-label="More">
           <KeyboardArrowDownIcon />

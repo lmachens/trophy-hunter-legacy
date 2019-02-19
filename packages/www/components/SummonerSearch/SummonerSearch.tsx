@@ -2,6 +2,7 @@ import { IconButton, InputBase, MenuItem, Paper, Select, Tooltip } from '@materi
 import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
+import Router from 'next/router';
 import React, { useState } from 'react';
 
 const useStyles = makeStyles({
@@ -24,7 +25,7 @@ const useStyles = makeStyles({
 
 const regions = ['BR', 'EUNE', 'EUW', 'JP', 'KR', 'LAN', 'LAS', 'NA', 'OCE', 'TR', 'RU'];
 
-const SummonerSearch = ({ className }) => {
+const SummonerSearch = ({ className, iconButtonClassName }) => {
   const classes = useStyles();
   const [region, setRegion] = useState('EUW');
   const [summonerName, setSummonerName] = useState('');
@@ -34,11 +35,19 @@ const SummonerSearch = ({ className }) => {
   };
 
   const handleSummonerNameChange = event => {
-    setSummonerName(event.target.value);
+    setSummonerName(event.target.value.trim());
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (summonerName.length === 0) {
+      return;
+    }
+    Router.push(`/summoner?region=${region.toLowerCase()}&summonerName=${summonerName}`);
   };
 
   return (
-    <Tooltip title="Summoner Search Comming Soon!" placement="top">
+    <form onSubmit={handleSubmit}>
       <Paper className={classNames(classes.root, className)} elevation={1}>
         <Select
           value={region}
@@ -58,11 +67,16 @@ const SummonerSearch = ({ className }) => {
           value={summonerName}
           onChange={handleSummonerNameChange}
         />
-        <IconButton className={classes.iconButton} aria-label="Search" disabled>
+        <IconButton
+          className={classNames(classes.iconButton, iconButtonClassName)}
+          aria-label="Search"
+          disabled={summonerName.length === 0}
+          type="submit"
+        >
           <SearchIcon />
         </IconButton>
       </Paper>
-    </Tooltip>
+    </form>
   );
 };
 
