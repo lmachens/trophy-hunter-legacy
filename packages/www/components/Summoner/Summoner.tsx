@@ -16,9 +16,19 @@ interface ISummonerProps {
 
 const useStyles = makeStyles({
   container: {
+    background: '#000',
+    backgroundImage: 'url(/static/backgrounds/dark-mosaic.png)',
+    flex: 1
+  },
+  content: {
     maxWidth: 1000,
     padding: 20,
-    margin: '0 auto'
+    margin: '0 auto',
+    width: '100%'
+  },
+  tabContent: {
+    marginTop: 20,
+    textAlign: 'center'
   }
 });
 
@@ -36,25 +46,33 @@ const Summoner: FunctionComponent<ISummonerProps> = ({
   };
 
   return (
-    <div className={classes.container}>
-      <SummonerInfo
-        region={region}
-        leaguePositions={leaguePositions}
-        trophyHunter={trophyHunter}
-        {...summoner}
-      />
-      <Tabs value={value} onChange={handleChange}>
-        <Tab label="Trees" />
-        <Tab label="Trophies" />
-      </Tabs>
-      {value === 0 && (
-        <Trees
-          treeProgress={trophyHunter && trophyHunter.trees}
-          customTree={trophyHunter.customTree}
-        />
-      )}
-      {value === 1 && <Trophies trophiesObtained={trophyHunter && trophyHunter.trophiesObtained} />}
-    </div>
+    <>
+      <div className={classes.container}>
+        <div className={classes.content}>
+          <SummonerInfo
+            region={region}
+            leaguePositions={leaguePositions}
+            trophyHunter={trophyHunter}
+            {...summoner}
+          />
+          <Tabs value={value} onChange={handleChange}>
+            <Tab label="Trees" />
+            <Tab label="Trophies" />
+          </Tabs>
+          <div className={classes.tabContent}>
+            {value === 0 && (
+              <Trees
+                treeProgress={trophyHunter && trophyHunter.trees}
+                customTree={trophyHunter.customTree}
+              />
+            )}
+            {value === 1 && (
+              <Trophies trophiesObtained={trophyHunter && trophyHunter.trophiesObtained} />
+            )}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
