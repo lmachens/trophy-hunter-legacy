@@ -1,5 +1,4 @@
 import { Avatar, Chip, Grid, Tooltip, Typography } from '@material-ui/core';
-import PeopleIcon from '@material-ui/icons/People';
 import { makeStyles } from '@material-ui/styles';
 import React, { FunctionComponent } from 'react';
 import { ILeaguePositions, ISummoner } from '../../shared/riot-api/typings';
@@ -27,10 +26,12 @@ const useStyles = makeStyles({
     flex: 1
   },
   adminBadge: {
-    backgroundColor: '#963333'
+    backgroundColor: '#963333',
+    margin: 10
   },
   patreonBadge: {
-    backgroundColor: '#F96854'
+    backgroundColor: '#F96854',
+    margin: 10
   }
 });
 
@@ -48,7 +49,7 @@ const SummonerInfo: FunctionComponent<ISummonerProps> = ({
   const classes = useStyles();
 
   return (
-    <Grid container>
+    <Grid container alignItems="center">
       <Grid item className={classes.container}>
         <Avatar className={classes.profileIcon} src={getProfileIcon(profileIconId)} />
         <div>
@@ -56,17 +57,8 @@ const SummonerInfo: FunctionComponent<ISummonerProps> = ({
             {name} ({region.toUpperCase()})
           </Typography>
           <Typography>Level {summonerLevel}</Typography>
-          {trophyHunter && (
-            <Typography>
-              {trophyHunter.s9Rank ? `${trophyHunter.s9Rank}. Rank` : 'Unranked'} |{' '}
-              {trophyHunter.features.wins || 0}W{' '}
-              {trophyHunter.features.games - trophyHunter.features.wins || 0}L |{' '}
-              {trophyHunter.trophiesObtained.length || 0} Trophies
-            </Typography>
-          )}
         </div>
       </Grid>
-      <div className={classes.grow} />
       {trophyHunter && (
         <Grid item>
           {trophyHunter.items.admin && (
@@ -79,20 +71,11 @@ const SummonerInfo: FunctionComponent<ISummonerProps> = ({
               <Chip label="Patron" className={classes.patreonBadge} />
             </Tooltip>
           )}
-          <Chip
-            avatar={
-              <Avatar>
-                <PeopleIcon />
-              </Avatar>
-            }
-            label={`${
-              trophyHunter.friends.length > 99 ? '99+' : trophyHunter.friends.length
-            } Followers`}
-          />
         </Grid>
       )}
+      <div className={classes.grow} />
       <Grid item>
-        <LeaguePositions leaguePositions={leaguePositions} />
+        <LeaguePositions leaguePositions={leaguePositions} trophyHunter={trophyHunter} />
       </Grid>
     </Grid>
   );

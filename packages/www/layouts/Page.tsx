@@ -4,6 +4,11 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 const useStyles = makeStyles(theme => ({
+  main: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column'
+  },
   toolbar: {
     ...theme.mixins.toolbar
   }
@@ -15,7 +20,7 @@ const PageLayout: FunctionComponent = ({ children }) => {
   return (
     <>
       <Header />
-      <main>
+      <main className={classes.main}>
         <div className={classes.toolbar} />
         {children}
       </main>

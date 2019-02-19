@@ -13,7 +13,7 @@ import {
 
 const SummonerPage = props => (
   <Page {...props}>
-    <Summoner {...props} />
+    <Summoner {...props} />{' '}
   </Page>
 );
 
@@ -23,16 +23,29 @@ SummonerPage.getInitialProps = async ({ query }) => {
     throw new Error('invalid query');
   }
 
-  const platformId = getPlatformIdByRegion(region);
-  const summonerPromise = getSummoner({ platformId, summonerName });
+  try {
+    const platformId = getPlatformIdByRegion(region);
+    const summonerPromise = getSummoner({ platformId, summonerName });
 
-  const trophyHunterPromise = getTrophyHunter({ region, summonerName });
+    const trophyHunterPromise = getTrophyHunter({ region, summonerName });
 
-  const [summoner, trophyHunter] = await axios.all([summonerPromise, trophyHunterPromise]);
+    const [summoner, trophyHunter] = await axios.all([summonerPromise, trophyHunterPromise]);
 
-  const leaguePositions = await getLeaguePositions({ platformId, summonerId: summoner.id });
+    const leaguePositions = await getLeaguePositions({ platformId, summonerId: summoner.id });
 
-  return { region, summoner, summonerName, leaguePositions, trophyHunter };
+    return { region, summoner, summonerName, leaguePositions, trophyHunter };
+  } catch (error) {
+    return {
+      region,
+      summoner: {
+        profileIconId: 0,
+        name: summonerName,
+        summonerLevel: 0
+      },
+      summonerName,
+      leaguePositions: []
+    };
+  }
 };
 
 export default SummonerPage;
