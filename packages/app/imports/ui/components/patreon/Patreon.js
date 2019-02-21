@@ -47,7 +47,7 @@ class Patreon extends PureComponent {
           <h3>1. Become a Patreon</h3>
           <a
             data-patreon-widget-type="become-patron-button"
-            href="https://www.patreon.com/bePatron?u=9400097"
+            href="https://www.patreon.com/join/trophyhunter"
             rel="noopener noreferrer"
             target="_blank"
           >
