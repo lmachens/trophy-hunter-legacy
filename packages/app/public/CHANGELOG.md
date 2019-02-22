@@ -2,6 +2,7 @@
 
 ### Fixed
 - Fixed invalid Patreon link.
+- Remove not working "View on web" link.
 
 ## [3.4.0] - 2019-02-10
 ### Added
