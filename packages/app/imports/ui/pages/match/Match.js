@@ -32,12 +32,6 @@ const styles = {
     width: '100%',
     height: '100%',
     padding: '2px'
-  },
-  viewOnWeb: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    zIndex: 0
   }
 };
 
@@ -141,25 +135,12 @@ class Match extends Component {
   };
 
   renderMatch() {
-    const { summonerName } = this.props;
     const { extendedMatchResult, matchWithTimeline, noData } = this.state;
 
     return (
       <div>
         <div style={{ textAlign: 'center' }}>
           <h2>{this.renderOutcome()}</h2>
-          <Button
-            icon={<OpenInNewIcon />}
-            label="View on the web"
-            onClick={() =>
-              window.open(
-                `https://www.loltrophyhunter.com/match/${matchWithTimeline.platformId}/${
-                  matchWithTimeline.gameId
-                }/${summonerName}`
-              )
-            }
-            style={styles.viewOnWeb}
-          />
           {this.renderGameType()}
           <div style={{ marginTop: '5px', height: 62 }}>
             {this.isMatched() ? (
