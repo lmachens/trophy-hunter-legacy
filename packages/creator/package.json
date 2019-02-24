@@ -2,7 +2,7 @@
   "name": "trophy-hunter-creator",
   "description": "Trophy Hunter Creator",
   "version": "0.0.1",
-  "license": "GPL-3.0",
+  "license": "AGPL-3.0",
   "scripts": {
     "dev": "next"
   },

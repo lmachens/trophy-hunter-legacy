@@ -2,7 +2,7 @@
   "name": "trophy-hunter-api",
   "description": "Trophy Hunter Api",
   "version": "0.0.1",
-  "license": "GPL-3.0",
+  "license": "AGPL-3.0",
   "scripts": {
     "dev": "ts-node-dev server"
   },

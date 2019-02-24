@@ -2,7 +2,7 @@
   "name": "trophy-hunter-www",
   "description": "Trophy Hunter Website",
   "version": "0.0.1",
-  "license": "GPL-3.0",
+  "license": "AGPL-3.0",
   "scripts": {
     "dev": "next",
     "now-build": "next build"
