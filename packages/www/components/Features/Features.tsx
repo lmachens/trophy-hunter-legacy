@@ -126,7 +126,7 @@ const Features = () => {
               <li>
                 <Link
                   color="secondary"
-                  href="https://download.overwolf.com/install/Download?Channel=website2&PartnerId=3399"
+                  href="https://download.overwolf.com/install/Download?PartnerId=3707"
                   target="_blank"
                 >
                   <b>Install</b> Trophy Hunter

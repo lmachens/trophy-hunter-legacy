@@ -10,7 +10,7 @@ const DownloadButton: FunctionComponent<IDownloadButtonProps> = ({ className, ..
   return (
     <form
       method="get"
-      action="https://download.overwolf.com/install/Download?Channel=website2&PartnerId=3399"
+      action="https://download.overwolf.com/install/Download?PartnerId=3707"
       className={className}
     >
       <Button color="primary" type="submit" {...props}>
