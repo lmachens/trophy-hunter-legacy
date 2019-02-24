@@ -1,5 +1,8 @@
 # Change Log
 
+### Fixed
+- Fix wrong heal value in [trophy:guardianAngel] description (1500 instead of 15000).
+
 ## [3.4.1] - 2019-02-22
 ### Fixed
 - Fixed invalid Patreon link.
