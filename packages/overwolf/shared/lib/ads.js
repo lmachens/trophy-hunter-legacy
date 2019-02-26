@@ -235,11 +235,11 @@ window.avoidMoreAds = avoidMoreAds;
 // define the event handler
 const onWindowStateChanged = state => {
   if (state) {
-    // when state changes to minimized, call removeAd()
+    // when state changes to minimized, hide ads
     if (state.window_state === 'minimized') {
       hideAds();
     }
-    // when state changes from minimized to normal, call refreshAd()
+    // when state changes from minimized to normal, show ads
     else if (state.window_previous_state === 'minimized' && state.window_state === 'normal') {
       showAds();
     }
