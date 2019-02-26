@@ -231,3 +231,21 @@ export const avoidMoreAds = () => {
   showAdsInLoop = false;
 };
 window.avoidMoreAds = avoidMoreAds;
+
+// define the event handler
+const onWindowStateChanged = state => {
+  if (state) {
+    // when state changes to minimized, call removeAd()
+    if (state.window_state === 'minimized') {
+      hideAds();
+    }
+    // when state changes from minimized to normal, call refreshAd()
+    else if (state.window_previous_state === 'minimized' && state.window_state === 'normal') {
+      showAds();
+    }
+  }
+};
+
+// call the overwolf api
+overwolf.windows.onStateChanged.removeListener(onWindowStateChanged);
+overwolf.windows.onStateChanged.addListener(onWindowStateChanged);
