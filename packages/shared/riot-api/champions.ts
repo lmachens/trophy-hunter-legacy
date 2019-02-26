@@ -5548,7 +5548,7 @@ const champions = {
         image: {
           full: 'HecarimRamp.png'
         },
-        cooldownBurn: '24/22/20/18/16'
+        cooldownBurn: '20/19/18/17/16'
       },
       {
         name: 'Onslaught of Shadows',
@@ -6925,7 +6925,7 @@ const champions = {
         image: {
           full: 'ZedW.png'
         },
-        cooldownBurn: '22/20/18/16/14'
+        cooldownBurn: '20/18.5/17/15.5/14'
       },
       {
         name: 'Shadow Slash',
@@ -7306,7 +7306,7 @@ const champions = {
         image: {
           full: 'ThreshQ.png'
         },
-        cooldownBurn: '16/15/14/13/12'
+        cooldownBurn: '20/18/16/14/12'
       },
       {
         name: 'Dark Passage',
@@ -7955,7 +7955,7 @@ const champions = {
     },
     range: 'Melee'
   },
-  version: '9.3.1'
+  version: '9.4.1'
 };
 
 export default champions;

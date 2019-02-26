@@ -35,9 +35,9 @@ const perks = {
     icon: 'perk-images/Styles/Precision/Conqueror/Conqueror.png',
     name: 'Conqueror',
     shortDesc:
-      'After 4 seconds in combat, your first attack against an enemy champion grants you AD and converts some of your damage to true damage.',
+      'Attacks or spells that deal damage to an enemy champion grant 3-15 Adaptive Force (based on level) for 3s (8s for melee). Stacks up to 5 times. When fully stacked, 10% of your damage is converted to True Damage and you heal for that amount.',
     longDesc:
-      'After 4 seconds in combat, your first attack against an enemy champion grants you 6 - 35 AD, based on level, for 3 seconds and converts 20% of your damage to champions to true damage.Melee Only: Damaging enemy champions refreshes this buff.'
+      'Attacks or spells that deal damage to an enemy champion grant 3-15 Adaptive Force (based on level) for 3s (8s for melee). Stacks up to 5 times.When fully stacked, 10% of your damage is converted to True Damage and you heal for that amount.'
   },
   '8014': {
     id: 8014,

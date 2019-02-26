@@ -1,5 +1,7 @@
 # Change Log
 
+### Changed
+- Updated to Riot API version 9.4.1.
 ### Fixed
 - Fix wrong heal value in [trophy:guardianAngel] description (1500 instead of 15000).
 
