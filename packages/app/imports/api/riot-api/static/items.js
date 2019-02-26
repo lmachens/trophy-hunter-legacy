@@ -1620,7 +1620,7 @@ const items = {
       name: 'Essence Reaver',
       sanitizedDescription:
         'Grants Critical Strike Chance, Cooldown Reduction, Attack Damage and restores mana on hit.',
-      tags: ['Damage', 'CriticalStrike', 'AttackSpeed', 'Mana', 'ManaRegen', 'CooldownReduction']
+      tags: ['Damage', 'CriticalStrike', 'Mana', 'ManaRegen', 'CooldownReduction']
     },
     '3512': {
       id: 3512,
@@ -2064,7 +2064,7 @@ const items = {
     }
   },
   type: 'item',
-  version: '9.3.1'
+  version: '9.4.1'
 };
 
 const itemValues = Object.values(items.data);
