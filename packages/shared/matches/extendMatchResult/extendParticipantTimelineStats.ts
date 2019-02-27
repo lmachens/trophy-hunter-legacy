@@ -453,6 +453,11 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
     );
   }
 
+  // elder dragon kills
+  {
+    participant.stats.elderDragonKills = participant.team.events.elderDragons.length;
+  }
+
   participant.stats.loneWolfKills = zip(
     participant.events.soloKills,
     participant.events.soloKills.slice(1)

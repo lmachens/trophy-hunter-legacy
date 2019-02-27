@@ -30,6 +30,7 @@ import irelia1 from './definitions/irelia1';
 import ivern1 from './definitions/ivern1';
 import janna1 from './definitions/janna1';
 import jax1 from './definitions/jax1';
+import jayce1 from './definitions/jayce1';
 import jhin1 from './definitions/jhin1';
 import jinx1 from './definitions/jinx1';
 import kaisa1 from './definitions/kaisa1';
@@ -49,6 +50,7 @@ import leona1 from './definitions/leona1';
 import lissandra1 from './definitions/lissandra1';
 import lucian1 from './definitions/lucian1';
 import lulu1 from './definitions/lulu1';
+import lux1 from './definitions/lux1';
 import malphite1 from './definitions/malphite1';
 import maokai1 from './definitions/maokai1';
 import masterYi1 from './definitions/masterYi1';
@@ -70,7 +72,9 @@ import rakan1 from './definitions/rakan1';
 import rammus1 from './definitions/rammus1';
 import renekton1 from './definitions/renekton1';
 import rengar1 from './definitions/rengar1';
+import riven1 from './definitions/riven1';
 import rumble1 from './definitions/rumble1';
+import ryze1 from './definitions/ryze1';
 import sejuani1 from './definitions/sejuani1';
 import shaco1 from './definitions/shaco1';
 import shen1 from './definitions/shen1';
@@ -88,6 +92,7 @@ import taric1 from './definitions/taric1';
 import thresh1 from './definitions/thresh1';
 import tristana1 from './definitions/tristana1';
 import twitch1 from './definitions/twitch1';
+import udyr1 from './definitions/udyr1';
 import varus1 from './definitions/varus1';
 import vayne1 from './definitions/vayne1';
 import veigar1 from './definitions/veigar1';
@@ -104,14 +109,19 @@ import zoe1 from './definitions/zoe1';
 import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
+  riven1,
+  udyr1,
+  jayce1,
+  ryze1,
+  lux1
+};
+
+export const expiredTrees = {
   camille1,
   ivern1,
   leBlanc1,
   karthus1,
-  zyra1
-};
-
-export const expiredTrees = {
+  zyra1,
   gangplank1,
   masterYi1,
   ekko1,

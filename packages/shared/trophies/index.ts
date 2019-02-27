@@ -107,6 +107,7 @@ import overload from './definitions/overload';
 import pentaAssist from './definitions/pentaAssist';
 import pentaKill from './definitions/pentaKill';
 import pesticide from './definitions/pesticide';
+import phoenixStance from './definitions/phoenixStance';
 import plague from './definitions/plague';
 import precision from './definitions/precision';
 import preserver from './definitions/preserver';
@@ -331,6 +332,7 @@ const trophies: Trophies = {
   pentaAssist,
   pentaKill,
   pesticide,
+  phoenixStance,
   plague,
   precision,
   preserver,
