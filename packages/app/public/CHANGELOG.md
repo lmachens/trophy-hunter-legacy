@@ -1,4 +1,7 @@
 # Change Log
+### Added
+- New trees of Riven, Udyr, Jayce, Ryze and Lux.
+- New trophy [trophy:phoenixStance].
 
 ## [3.5.1] - 2019-02-26
 ### Changed
