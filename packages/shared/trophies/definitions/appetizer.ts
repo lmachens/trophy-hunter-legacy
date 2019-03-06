@@ -11,6 +11,7 @@ const appetizer = {
     if (participant.timeline.creepsPerMinDeltas) {
       return participant.timeline.creepsPerMinDeltas['0-10'] >= 8;
     }
+    return false;
   },
   context: 'matches',
   attribute: 'capability'

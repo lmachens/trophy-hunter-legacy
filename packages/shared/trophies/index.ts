@@ -208,7 +208,7 @@ import wormMasher from './definitions/wormMasher';
 import wujuStyle from './definitions/wujuStyle';
 import zenithBlade from './definitions/zenithBlade';
 
-interface Trophy {
+export interface Trophy {
   name: string;
   title: string;
   description: string;

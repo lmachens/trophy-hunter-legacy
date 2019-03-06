@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Tooltip } from '../generic/Tooltip';
 import { getPerkImage, getUnknown } from '../../../api/riot-api/staticData';
-import perkStyles from '../../../api/riot-api/static/perk-styles';
-import perks from '../../../api/riot-api/static/perks';
+import perkStyles from '/imports/shared/riot-api/perk-styles.ts';
+import perks from '/imports/shared/riot-api/perks.ts';
 import { TooltipTitle } from '../generic/TooltipTitle';
 
 const styles = {

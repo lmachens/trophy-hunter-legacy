@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { getSummonerSpellById } from '../../../../../api/riot-api/staticData';
 import { Tooltip } from '../../../generic/Tooltip';
 import { TooltipTitle } from '../../../generic/TooltipTitle';
-import summonerSpells from '../../../../../api/riot-api/static/summonerSpells';
+import summonerSpells from '/imports/shared/riot-api/summonerSpells.ts';
 
 const styles = {
   spell: {
@@ -18,7 +18,7 @@ class Spell extends PureComponent {
   render() {
     const { classes, spellId } = this.props;
 
-    const spell = summonerSpells.data[spellId] || {};
+    const spell = summonerSpells[spellId] || {};
 
     return (
       <Tooltip title={<TooltipTitle content={spell.description} title={spell.name} />}>

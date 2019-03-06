@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import { Tooltip } from '../../../generic/Tooltip';
 import { TooltipTitle } from '../../../generic/TooltipTitle';
 import classNames from 'classnames';
-import perkStyles from '../../../../../api/riot-api/static/perk-styles';
-import perks from '../../../../../api/riot-api/static/perks';
+import perkStyles from '/imports/shared/riot-api/perk-styles.ts';
+import perks from '/imports/shared/riot-api/perks.ts';
 import { withStyles } from '../../../generic';
 
 const styles = {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Tooltip } from '../../../generic/Tooltip';
 import { TooltipTitle } from '../../../generic/TooltipTitle';
 import { getItemById } from '../../../../../api/riot-api/staticData';
-import riotItems from '../../../../../api/riot-api/static/items';
+import riotItems from '/imports/shared/riot-api/items.ts';
 import { withStyles } from '../../../generic';
 
 const styles = {
@@ -19,7 +19,7 @@ class Item extends PureComponent {
   render() {
     const { classes, itemId } = this.props;
 
-    const riotItem = riotItems.data[itemId] || {};
+    const riotItem = riotItems[itemId] || {};
     return (
       <Tooltip
         title={

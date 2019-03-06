@@ -5,7 +5,7 @@ import {
   additionalItems,
   stackableItems,
   transformableItems
-} from '../../../api/riot-api/static/items';
+} from '/imports/shared/riot-api/items.ts';
 
 import ActionMap from '../ActionMap';
 import BannedChampions from '../BannedChampions';

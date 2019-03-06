@@ -1,5 +1,6 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
+import { IMatchList } from '../riot-api/typings';
 
 const apiEndpoint = process.env.MATCHLIST_API_ENDPOINT || 'https://api.th.gl/matchlist';
 
@@ -49,13 +50,13 @@ const getMatchList = ({
       url += `&queue=${queueId}`;
     });
   }
-  const data = cache.get(key);
+  const data = cache.get<IMatchList>(key);
   if (data) {
-    return new Promise(resolve => resolve(data));
+    return new Promise<IMatchList>(resolve => resolve(data));
   }
 
   return axios
-    .get(url)
+    .get<IMatchList>(url)
     .then(response => {
       if (response.data) {
         cache.set(key, response.data);

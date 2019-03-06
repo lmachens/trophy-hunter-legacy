@@ -1,4 +1,15 @@
-const perkStyles = {
+interface IPerkStyle {
+  id: number;
+  key: string;
+  icon: string;
+  name: string;
+}
+
+interface IPerkStyles {
+  [key: string]: IPerkStyle;
+}
+
+const perkStyles: IPerkStyles = {
   '8000': {
     name: 'Precision',
     id: 8000,

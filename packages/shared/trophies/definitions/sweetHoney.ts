@@ -15,6 +15,7 @@ const sweetHoney = {
         18
       );
     }
+    return false;
   },
   context: 'matches',
   attribute: 'capability'

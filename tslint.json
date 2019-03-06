@@ -20,6 +20,7 @@
     "prefer-conditional-expression": false,
     "prefer-for-of": false,
     "radix": false,
-    "jsx-curly-spacing": false
+    "jsx-curly-spacing": false,
+    "variable-name": false
   }
 }

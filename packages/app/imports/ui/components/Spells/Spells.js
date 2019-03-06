@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Tooltip } from '../generic/Tooltip';
 import { getSummonerSpell } from '../../../api/riot-api/staticData';
-import summonerSpells from '../../../api/riot-api/static/summonerSpells';
+import summonerSpells from '/imports/shared/riot-api/summonerSpells.ts';
 import { TooltipTitle } from '../generic/TooltipTitle';
 
 const styles = {
@@ -13,8 +13,8 @@ const styles = {
 };
 
 const Spells = ({ participant }) => {
-  const spell1 = summonerSpells.data[participant.spell1Id.toString()];
-  const spell2 = summonerSpells.data[participant.spell2Id.toString()];
+  const spell1 = summonerSpells[participant.spell1Id.toString()];
+  const spell2 = summonerSpells[participant.spell2Id.toString()];
   if (!spell1 || !spell2) {
     return;
   }
