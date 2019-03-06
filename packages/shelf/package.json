@@ -8,20 +8,20 @@
     "now-build": "next build"
   },
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
-    "@material-ui/styles": "^3.0.0-alpha.10",
-    "@zeit/next-typescript": "^1.1.1",
-    "axios": "^0.18.0",
-    "countup.js": "^1.9.3",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "^8.0.1",
-    "node-cache": "^4.2.0",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2"
+    "@material-ui/core": "3.9.2",
+    "@material-ui/styles": "3.0.0-alpha.10",
+    "@zeit/next-typescript": "1.1.1",
+    "axios": "0.18.0",
+    "countup.js": "2.0.3",
+    "isomorphic-unfetch": "3.0.0",
+    "next": "8.0.3",
+    "node-cache": "4.2.0",
+    "react": "16.8.4",
+    "react-dom": "16.8.4"
   },
   "devDependencies": {
-    "@types/next": "^8.0.1",
-    "@types/react": "^16.8.3",
-    "@types/react-dom": "^16.8.1"
+    "@types/next": "8.0.1",
+    "@types/react": "16.8.6",
+    "@types/react-dom": "16.8.2"
   }
 }
