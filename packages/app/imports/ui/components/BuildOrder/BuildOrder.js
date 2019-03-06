@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Tooltip } from '@material-ui/core';
 import get from 'lodash.get';
 import { getItem } from '../../../api/riot-api/staticData';
-import riotItems from '../../../api/riot-api/static/items';
+import riotItems from '/imports/shared/riot-api/items.ts';
 import { withChampionStats } from '../../hocs/withChampionStats';
 import { TooltipTitle } from '../generic/TooltipTitle';
 
@@ -118,8 +118,8 @@ export class BuildOrder extends Component {
             <Tooltip
               title={
                 <TooltipTitle
-                  content={riotItems.data[item] && riotItems.data[item].sanitizedDescription}
-                  title={riotItems.data[item] && riotItems.data[item].name}
+                  content={riotItems[item] && riotItems[item].sanitizedDescription}
+                  title={riotItems[item] && riotItems[item].name}
                 />
               }
             >
@@ -147,8 +147,8 @@ export class BuildOrder extends Component {
             <Tooltip
               title={
                 <TooltipTitle
-                  content={riotItems.data[item] && riotItems.data[item].sanitizedDescription}
-                  title={riotItems.data[item] && riotItems.data[item].name}
+                  content={riotItems[item] && riotItems[item].sanitizedDescription}
+                  title={riotItems[item] && riotItems[item].name}
                 />
               }
             >

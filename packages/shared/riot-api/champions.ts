@@ -1,4 +1,34 @@
-const champions = {
+export interface IChampion {
+  id: number;
+  key: string;
+  name: string;
+  title: string;
+  image: {
+    full: string;
+  };
+  spells: Array<{
+    name: string;
+    sanitizedDescription: string;
+    image: {
+      full: string;
+    };
+    cooldownBurn: string;
+  }>;
+  passive: {
+    image: {
+      full: string;
+    };
+    name: string;
+    sanitizedDescription: string;
+  };
+  range: string;
+}
+
+interface IChampions {
+  [key: string]: IChampion;
+}
+
+const champions: IChampions = {
   '1': {
     id: 1,
     key: 'Annie',
@@ -7954,8 +7984,7 @@ const champions = {
         'When Pyke is hidden from enemies, he regenerates damage that he has recently taken from champions. Pyke also cannot gain extra Maximum Health from any source, and instead gains Bonus AD.'
     },
     range: 'Melee'
-  },
-  version: '9.4.1'
+  }
 };
 
 export default champions;

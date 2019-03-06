@@ -15,7 +15,7 @@ const Link = ({ children, href, ...other }) => {
 
   return (
     <NextLink href={href}>
-      <MuiLink className={classes.link} {...other}>
+      <MuiLink color="inherit" className={classes.link} {...other}>
         {children}
       </MuiLink>
     </NextLink>

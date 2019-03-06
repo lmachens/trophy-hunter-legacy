@@ -6,11 +6,11 @@ import { Tooltip } from '../generic/Tooltip';
 import { Switch } from '../generic';
 import get from 'lodash.get';
 import { getPerkImage, getUnknown } from '../../../api/riot-api/staticData';
-import perkStyles from '../../../api/riot-api/static/perk-styles';
-import perks from '../../../api/riot-api/static/perks';
+import perkStyles from '/imports/shared/riot-api/perk-styles.ts';
+import perks from '/imports/shared/riot-api/perks.ts';
 import { withChampionStats } from '../../hocs/withChampionStats';
 import { TooltipTitle } from '../generic/TooltipTitle';
-import shards from '../../../api/riot-api/static/shards';
+import shards from '/imports/shared/riot-api/shards.ts';
 
 const styles = {
   container: {

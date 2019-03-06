@@ -18,6 +18,7 @@ module.exports = phase => {
 
   return withTypescript({
     webpack(config) {
+      config.resolve.modules.unshift(__dirname);
       config.resolve.symlinks = false;
       return config;
     },

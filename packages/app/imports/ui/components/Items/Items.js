@@ -1,4 +1,4 @@
-import riotItems, { stackableItems } from '../../../api/riot-api/static/items';
+import riotItems, { stackableItems } from '/imports/shared/riot-api/items.ts';
 
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -27,10 +27,8 @@ const Items = ({ stats }) => {
           <Tooltip
             title={
               <TooltipTitle
-                content={
-                  riotItems.data[stats[key]] && riotItems.data[stats[key]].sanitizedDescription
-                }
-                title={riotItems.data[stats[key]] && riotItems.data[stats[key]].name}
+                content={riotItems[stats[key]] && riotItems[stats[key]].sanitizedDescription}
+                title={riotItems[stats[key]] && riotItems[stats[key]].name}
               />
             }
           >

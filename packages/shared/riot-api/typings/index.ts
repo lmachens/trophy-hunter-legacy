@@ -26,4 +26,47 @@ export interface ILeaguePosition {
   summonerName: string;
 }
 
+export interface IMatchReference {
+  platformId: string;
+  gameId: number;
+  champion: number;
+  queue: number;
+  season: number;
+  timestamp: number;
+  role: string;
+  lane: string;
+}
+
+export interface IMatchList {
+  matches: IMatchReference[];
+  totalGames: number;
+  startIndex: number;
+  endIndex: number;
+}
+
+export interface IMatch {
+  platformId: string;
+  gameId: number;
+  gameCreation: number;
+  gameDuration: number;
+  queueId: number;
+  mapId: number;
+  seasonId: number;
+  gameVersion: string;
+  gameMode: string;
+  gameType: string;
+  teams: any[];
+  participants: any[];
+  participantIdentities: any[];
+}
+
+export interface ITimeline {
+  frames: any[];
+  frameInterval: number;
+}
+
+export interface IMatchWithTimeline extends IMatch {
+  timeline: ITimeline;
+}
+
 export type ILeaguePositions = ILeaguePosition[];

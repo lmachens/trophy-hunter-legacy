@@ -1,5 +1,5 @@
 import champions from '/imports/shared/riot-api/champions.ts';
-import summonerSpells from './static/summonerSpells';
+import summonerSpells from '/imports/shared/riot-api/summonerSpells.ts';
 import version from './version';
 
 const baseUrl = 'https://ddragon.leagueoflegends.com/cdn/';
@@ -46,7 +46,7 @@ export const getSummonerSpellById = id => {
   if (!id) {
     return getUnknown();
   }
-  return getSummonerSpell(summonerSpells.data[id.toString()].image.full);
+  return getSummonerSpell(summonerSpells[id.toString()].image.full);
 };
 // Items
 export const getItem = id => `${baseUrl}${version}/img/item/${id}`;

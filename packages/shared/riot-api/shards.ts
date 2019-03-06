@@ -1,4 +1,15 @@
-const shards = {
+interface IShard {
+  id: number;
+  icon: string;
+  name: string;
+  shortDesc: string;
+}
+
+interface IShards {
+  [key: string]: IShard;
+}
+
+const shards: IShards = {
   '5001': {
     name: 'Scaling Health',
     id: 5001,

@@ -1,4 +1,17 @@
-const perks = {
+interface IPerk {
+  id: number;
+  key: string;
+  icon: string;
+  name: string;
+  shortDesc: string;
+  longDesc: string;
+}
+
+interface IPerks {
+  [key: string]: IPerk;
+}
+
+const perks: IPerks = {
   '8005': {
     id: 8005,
     key: 'PressTheAttack',

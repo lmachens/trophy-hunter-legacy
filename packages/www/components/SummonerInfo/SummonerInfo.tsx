@@ -35,8 +35,12 @@ const useStyles = makeStyles({
   }
 });
 
-const getProfileIcon = profileIconId =>
-  `https://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${profileIconId}.png`;
+const getProfileIcon = (profileIconId: number) => {
+  if (!profileIconId) {
+    return 'https://avatar.leagueoflegends.com/NA/_unknown_th_champion_.png';
+  }
+  return `https://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${profileIconId}.png`;
+};
 
 const SummonerInfo: FunctionComponent<ISummonerProps> = ({
   profileIconId,

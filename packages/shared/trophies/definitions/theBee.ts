@@ -17,6 +17,7 @@ const theBee = {
           participant.stats.others.maxCsTwenty + 2
       );
     }
+    return false;
   },
   context: 'matches',
   attribute: 'capability'
