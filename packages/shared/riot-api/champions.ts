@@ -533,55 +533,54 @@ const champions: IChampions = {
     id: 10,
     key: 'Kayle',
     name: 'Kayle',
-    title: 'The Judicator',
+    title: 'the Righteous',
     image: {
       full: 'Kayle.png'
     },
     spells: [
       {
-        name: 'Reckoning',
+        name: 'Radiant Blast',
         sanitizedDescription:
-          'Blasts an enemy unit with angelic force, dealing damage, slowing Movement Speed, and applying Holy Fervor.',
+          'Kayle conjures a portal, summoning a celestial sword that pierces through enemies, slowing, damaging, and reducing the resistances of all hit.',
         image: {
-          full: 'JudicatorReckoning.png'
+          full: 'KayleQ.png'
         },
-        cooldownBurn: '8'
+        cooldownBurn: '12/11/10/9/8'
       },
       {
-        name: 'Divine Blessing',
+        name: 'Celestial Blessing',
         sanitizedDescription:
-          'Blesses a target friendly champion, granting them increased Movement Speed and healing them.',
+          'Blessed by the divine, Kayle heals and grants movement speed to herself and the nearest ally.',
         image: {
-          full: 'JudicatorDivineBlessing.png'
+          full: 'KayleW.png'
         },
         cooldownBurn: '15'
       },
       {
-        name: 'Righteous Fury',
+        name: 'Starfire Spellblade',
         sanitizedDescription:
-          "Passive: Grants Kayle on Hit magic Damage.  Activate: Ignite Kayle's sword with a holy flame, granting Kayle a ranged attack that damages multiple enemies and deals bonus magic damage.",
+          "Passive: Kayle's celestial sword, Virtue, deals bonus magic damage to enemies she attacks.Active: Kayle's next attack smites her target with celestial fire, dealing bonus damage proportionate to their missing health.",
         image: {
-          full: 'JudicatorRighteousFury.png'
+          full: 'KayleE.png'
         },
-        cooldownBurn: '18/17/16/15/14'
+        cooldownBurn: '8'
       },
       {
-        name: 'Intervention',
+        name: 'Divine Judgment',
         sanitizedDescription:
-          'Shields Kayle or an ally for a short time, causing them to be immune to damage.',
+          'Kayle makes an ally invulnerable and calls upon former Aspects of Justice to purify the area around her target with a holy rain of swords.',
         image: {
-          full: 'JudicatorIntervention.png'
+          full: 'KayleR.png'
         },
-        cooldownBurn: '100/90/80'
+        cooldownBurn: '160/120/80'
       }
     ],
     passive: {
       image: {
-        full: 'Kayle_Passive.png'
+        full: 'Kayle_P.png'
       },
-      name: 'Holy Fervor',
-      sanitizedDescription:
-        'When Kayle attacks a champion, the target loses 3% Armor and Magic Resist for 5 seconds. This effect stacks up to 5 times.'
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'ShapeShifter'
   },
@@ -1370,7 +1369,7 @@ const champions: IChampions = {
     id: 25,
     key: 'Morgana',
     name: 'Morgana',
-    title: 'Fallen Angel',
+    title: 'the Fallen',
     image: {
       full: 'Morgana.png'
     },
@@ -1378,36 +1377,36 @@ const champions: IChampions = {
       {
         name: 'Dark Binding',
         sanitizedDescription:
-          'Morgana releases a sphere of dark magic. Upon contact with an enemy unit, the sphere will deal magic damage and force the unit to the ground for a period of time.',
+          "Morgana binds an enemy in place with dark magic, forcing them to feel the pain they've caused and dealing magic damage. ",
         image: {
-          full: 'DarkBindingMissile.png'
+          full: 'MorganaQ.png'
         },
         cooldownBurn: '11'
       },
       {
-        name: 'Tormented Soil',
+        name: 'Tormented Shadow',
         sanitizedDescription:
-          'Infects an area with desecrated soil, causing enemy units who stand on the location to take continual damage.',
+          'Morgana casts a cursed shadow on an area, damaging enemies who dare stand in her dark circle. They receive magic damage over time, which increases the lower health they are.',
         image: {
-          full: 'TormentedSoil.png'
+          full: 'MorganaW.png'
         },
         cooldownBurn: '12'
       },
       {
         name: 'Black Shield',
         sanitizedDescription:
-          'Places a protective barrier around an allied champion, absorbing magical damage and disables until penetrated or the shield dissipates.',
+          'Morgana anoints an ally with a protective barrier of starfire, which absorbs magical damage and disabling effects until it is broken.',
         image: {
-          full: 'BlackShield.png'
+          full: 'MorganaE.png'
         },
         cooldownBurn: '23/21/19/17/15'
       },
       {
         name: 'Soul Shackles',
         sanitizedDescription:
-          'Latches chains of energy onto nearby enemy champions, dealing initial damage to them and slowing their Movement Speed, and then echoing the pain a few seconds later and stunning them if they remain close to Morgana.',
+          'Morgana unleashes the full force of her Celestial power as she unbinds her wings and hovers above the ground. She lashes chains of dark pain onto nearby enemy champions, gaining movement speed towards them. The chains slow and deal initial damage and, after a delay, stun those who are unable to break them.',
         image: {
-          full: 'SoulShackles.png'
+          full: 'MorganaR.png'
         },
         cooldownBurn: '120/110/100'
       }
@@ -1416,9 +1415,8 @@ const champions: IChampions = {
       image: {
         full: 'FallenAngel_Empathize.png'
       },
-      name: 'Soul Siphon',
-      sanitizedDescription:
-        'Morgana heals for the spell damage she deals to champions, large minions, and large monsters.'
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Ranged'
   },
@@ -4184,7 +4182,7 @@ const champions: IChampions = {
       {
         name: 'Shuriken Flip',
         sanitizedDescription:
-          'Flip backward and fire a shuriken forward, dealing physical damage. The first enemy or smoke cloud hit is marked. Re-cast to dash to the marked target, dealing the same damage.',
+          'Flip backward and fire a shuriken forward, dealing physical damage. The first enemy or smoke cloud hit is marked. Re-cast to dash to the marked target, dealing additional damage.',
         image: {
           full: 'AkaliE.png'
         },
@@ -4197,7 +4195,7 @@ const champions: IChampions = {
         image: {
           full: 'AkaliR.png'
         },
-        cooldownBurn: '120/100/80'
+        cooldownBurn: '100/85/70'
       }
     ],
     passive: {
@@ -7140,7 +7138,7 @@ const champions: IChampions = {
         image: {
           full: 'ViR.png'
         },
-        cooldownBurn: '110/85/60'
+        cooldownBurn: '120/100/80'
       }
     ],
     passive: {
@@ -7904,7 +7902,7 @@ const champions: IChampions = {
       {
         name: 'Tangle-Barbs',
         sanitizedDescription:
-          'Neeko slings a tangle that damage and root everything it passes through, rooting the last champion for a longer duration. If the tangle passes through 2 units it becomes larger, faster and roots for longer.',
+          'Neeko slings a tangle that damage and root everything it passes through. If the tangle kills an enemy or passes through a champion, it becomes larger, faster, and roots for longer.',
         image: {
           full: 'NeekoE.png'
         },

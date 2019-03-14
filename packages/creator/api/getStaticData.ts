@@ -11,24 +11,19 @@ const lang = 'en_US';
 const getStaticData = async version => {
   try {
     const itemsStaticData = await getItems({ version, lang });
-    const itemsData = {};
+    const items = {};
     Object.entries(itemsStaticData.data).forEach(([id, item]: any) => {
-      itemsData[id] = {
+      items[id] = {
         id: parseInt(id),
         name: item.name,
         sanitizedDescription: replaceHTMLTags(item.plaintext),
         tags: item.tags
       };
     });
-    const items = {
-      data: itemsData,
-      type: itemsStaticData.type,
-      version: itemsStaticData.version
-    };
     const summonerSpellsStaticData = await getSummonerSpells({ version, lang });
-    const summonerSpellsData = {};
+    const summonerSpells = {};
     Object.values(summonerSpellsStaticData.data).map((item: any) => {
-      summonerSpellsData[item.key] = {
+      summonerSpells[item.key] = {
         id: parseInt(item.key),
         name: item.name,
         description: replaceHTMLTags(item.description),
@@ -36,11 +31,6 @@ const getStaticData = async version => {
         key: item.id
       };
     });
-    const summonerSpells = {
-      data: summonerSpellsData,
-      type: summonerSpellsStaticData.type,
-      version: summonerSpellsStaticData.version
-    };
     const reforgedRunePathsStaticData = await getReforgedRunePaths({ version, lang });
     const runes = {};
     const perks = {};
@@ -65,7 +55,7 @@ const getStaticData = async version => {
       });
     });
 
-    const newChampions: any = {};
+    const champions: any = {};
     const championsStaticData = await getChampions({ version, lang });
     const promises = Object.values(championsStaticData.data)
       .sort((a: any, b: any) => {
@@ -107,17 +97,16 @@ const getStaticData = async version => {
             sanitizedDescription: replaceHTMLTags(championStaticData.passive.description)
           };
           champion.range = getRange(championStaticData);
-          newChampions[key] = champion;
+          champions[key] = champion;
           resolve();
         });
       });
     await Promise.all(promises);
-    newChampions.version = version;
 
     return {
       items,
       summonerSpells,
-      champions: newChampions,
+      champions,
       runes,
       perks
     };

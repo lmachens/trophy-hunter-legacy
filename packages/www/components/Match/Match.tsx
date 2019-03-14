@@ -91,7 +91,7 @@ const Match: FunctionComponent<MatchProps> = ({ match, summonerName }) => {
         justify="center"
       >
         <Grid item>
-          <Typography color="inherit">{participant.stats.win ? 'Win' : 'Loose'}!</Typography>
+          <Typography color="inherit">{participant.stats.win ? 'Won' : 'Lost'}!</Typography>
         </Grid>
         <Grid item>
           <Grid container>

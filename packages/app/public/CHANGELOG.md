@@ -1,5 +1,9 @@
 # Change Log
 
+## [3.7.0] - 2019-03-14
+### Changed
+- Updated to Riot API version 9.5.1.
+
 ## [3.6.0] - 2019-03-01
 ### Added
 - New trees of Riven, Udyr, Jayce, Ryze and Lux.
