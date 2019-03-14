@@ -9,7 +9,7 @@ const DynamicJSONEditor = dynamic<JSONEditorProps>(import('../components/JSONEdi
 });
 
 const StaticData = () => {
-  const [version, setVersion] = useState('9.2.1');
+  const [version, setVersion] = useState('9.5.1');
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 

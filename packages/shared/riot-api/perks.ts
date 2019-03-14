@@ -48,9 +48,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Precision/Conqueror/Conqueror.png',
     name: 'Conqueror',
     shortDesc:
-      'Attacks or spells that deal damage to an enemy champion grant 3-15 Adaptive Force (based on level) for 3s (8s for melee). Stacks up to 5 times. When fully stacked, 10% of your damage is converted to True Damage and you heal for that amount.',
+      'Attacks or spells that deal damage to an enemy champion grant 2-6 Adaptive Force (based on level) for 2s (8s for melee). Stacks up to 5 times. When fully stacked, 10% of your damage is converted to True Damage and you heal for that amount.',
     longDesc:
-      'Attacks or spells that deal damage to an enemy champion grant 3-15 Adaptive Force (based on level) for 3s (8s for melee). Stacks up to 5 times.When fully stacked, 10% of your damage is converted to True Damage and you heal for that amount.'
+      'Attacks or spells that deal damage to an enemy champion grant 2-6 Adaptive Force (based on level) for 2s (8s for melee). Stacks up to 5 times.When fully stacked, 10% of your damage is converted to True Damage and you heal for that amount.'
   },
   '8014': {
     id: 8014,
@@ -68,7 +68,7 @@ const perks: IPerks = {
     name: 'Cut Down',
     shortDesc: 'Deal more damage to champions with more max health than you.',
     longDesc:
-      'Deal 4% to 10% more damage to champions, based on how much more max health they have than you.Bonus damage scales up linearly against enemies with 10% to 100% more max health than you.'
+      'Deal 5% to 12% more damage to champions, based on how much more max health they have than you.Bonus damage scales up linearly against enemies with 10% to 100% more max health than you.'
   },
   '8021': {
     id: 8021,
