@@ -1,5 +1,9 @@
 # Change Log
 
+## [3.7.1] - 2019-03-18
+### Fixed
+- Fix win rate in overlay.
+
 ## [3.7.0] - 2019-03-14
 ### Changed
 - Updated to Riot API version 9.5.1.

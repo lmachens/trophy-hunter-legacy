@@ -25,7 +25,7 @@ const getMatchList = ({
   beginTime,
   endIndex,
   queueIds
-}: GetMatchListProps) => {
+}: GetMatchListProps): Promise<IMatchList> => {
   if (/^\d+$/.test(`${accountId}`)) {
     throw new Error(`getMatchList: deprecated accountId ${accountId} (${platformId})`);
   }
@@ -56,7 +56,7 @@ const getMatchList = ({
   }
 
   return axios
-    .get<IMatchList>(url)
+    .get(url)
     .then(response => {
       if (response.data) {
         cache.set(key, response.data);
