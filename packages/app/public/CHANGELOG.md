@@ -1,4 +1,6 @@
 # Change Log
+
+## [3.8.0] - 2019-03-22
 ### Changed
 - Changed [trophy:burningComet], [trophy:lifeAndDeath], [trophy:overload], [trophy:rejuvenation], [trophy:soulHarvest], [trophy:spinningBlades] and [trophy:theCompanion] to make them a little bit easier to achieve.
 
