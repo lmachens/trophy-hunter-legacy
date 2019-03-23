@@ -1,5 +1,9 @@
 # Change Log
 
+## [3.9.0] - 2019-03-23
+### Changed
+- Updated to Riot API version 9.6.1.
+
 ## [3.8.0] - 2019-03-22
 ### Changed
 - Changed [trophy:burningComet], [trophy:lifeAndDeath], [trophy:overload], [trophy:rejuvenation], [trophy:soulHarvest], [trophy:spinningBlades] and [trophy:theCompanion] to make them a little bit easier to achieve.
