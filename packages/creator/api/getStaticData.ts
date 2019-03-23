@@ -17,18 +17,20 @@ const getStaticData = async version => {
         id: parseInt(id),
         name: item.name,
         sanitizedDescription: replaceHTMLTags(item.plaintext),
-        tags: item.tags
+        tags: item.tags,
+        stacks: item.stacks,
+        specialRecipe: item.specialRecipe
       };
     });
     const summonerSpellsStaticData = await getSummonerSpells({ version, lang });
     const summonerSpells = {};
-    Object.values(summonerSpellsStaticData.data).map((item: any) => {
-      summonerSpells[item.key] = {
-        id: parseInt(item.key),
-        name: item.name,
-        description: replaceHTMLTags(item.description),
-        image: item.image,
-        key: item.id
+    Object.values(summonerSpellsStaticData.data).map((summonerSpell: any) => {
+      summonerSpells[summonerSpell.key] = {
+        id: parseInt(summonerSpell.key),
+        name: summonerSpell.name,
+        description: replaceHTMLTags(summonerSpell.description),
+        image: summonerSpell.image,
+        key: summonerSpell.id
       };
     });
     const reforgedRunePathsStaticData = await getReforgedRunePaths({ version, lang });

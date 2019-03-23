@@ -48,7 +48,7 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Precision/Conqueror/Conqueror.png',
     name: 'Conqueror',
     shortDesc:
-      'Attacks or spells that deal damage to an enemy champion grant 2-6 Adaptive Force (based on level) for 2s (8s for melee). Stacks up to 5 times. When fully stacked, 10% of your damage is converted to True Damage and you heal for that amount.',
+      'Gain stacks of adaptive force when attacking enemy champions. After reaching 5 stacks, convert a portion of your damage to true and heal for that amount.',
     longDesc:
       'Attacks or spells that deal damage to an enemy champion grant 2-6 Adaptive Force (based on level) for 2s (8s for melee). Stacks up to 5 times.When fully stacked, 10% of your damage is converted to True Damage and you heal for that amount.'
   },
@@ -369,9 +369,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Inspiration/MinionDematerializer/MinionDematerializer.png',
     name: 'Minion Dematerializer',
     shortDesc:
-      'Start the game with 6 Minion Dematerializers. Killing minions with the item gives permanent bonus damage vs. that minion type.',
+      'Start the game with 3 Minion Dematerializers. Killing minions with the item gives permanent bonus damage vs. that minion type.',
     longDesc:
-      'Start the game with 6 Minion Dematerializers that kill and absorb lane minions instantly. Minion Dematerializers are on cooldown for the first 240s of the game.Absorbing a minion increases your damage by +4% against that type of minion permanently, and an extra +1% for each additional minion of that type absorbed.'
+      'Start the game with 3 Minion Dematerializers that kill and absorb lane minions instantly. Minion Dematerializers are on cooldown for the first 180s of the game.Absorbing a minion increases your damage by +6% against that type of minion permanently, and an extra +3% for each additional minion of that type absorbed.'
   },
   '8321': {
     id: 8321,
@@ -565,7 +565,7 @@ const perks: IPerks = {
     name: 'Overheal',
     shortDesc: 'Excess healing on you becomes a shield.',
     longDesc:
-      'Excess healing on you becomes a shield, for up to 10 (+10% Max Health).Shield is built up from 40 to 100% of excess healing from yourself or any ally.'
+      'Excess healing on you becomes a shield, for up to 10 (+10% Max Health).Shield is built up from 20 to 100% of excess healing from yourself or any ally.'
   },
   '9103': {
     id: 9103,

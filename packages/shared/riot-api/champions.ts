@@ -151,7 +151,8 @@ const champions: IChampions = {
     spells: [
       {
         name: 'Winds of War',
-        sanitizedDescription: 'Galio fires two windblasts that converge into a large tornado.',
+        sanitizedDescription:
+          'Galio fires two windblasts that converge into a large tornado that deals damage over time.',
         image: {
           full: 'GalioQ.png'
         },
@@ -327,20 +328,20 @@ const champions: IChampions = {
       {
         name: 'Purge',
         sanitizedDescription:
-          'Urgot shields himself, slowing himself while he unloads his weapon on nearby enemies. Prioritizes enemy champions Urgot has recently struck with other abilities and triggers Echoing Flames.',
+          'Urgot slows himself while he unloads his weapon on nearby enemies. Prioritizes enemy champions Urgot has recently struck with other abilities and triggers Echoing Flames.',
         image: {
           full: 'UrgotW.png'
         },
-        cooldownBurn: '17/15/13/11/9'
+        cooldownBurn: '12/9/6/3/0'
       },
       {
         name: 'Disdain',
         sanitizedDescription:
-          'Urgot charges in a direction, trampling non-champion enemies. If he catches an enemy champion, he will stop and hurl them out of his way.',
+          'Urgot charges in a direction, shielding himself and trampling non-champion enemies. If he catches an enemy champion, he will stop and hurl them out of his way.',
         image: {
           full: 'UrgotE.png'
         },
-        cooldownBurn: '16/15/14/13/12'
+        cooldownBurn: '14'
       },
       {
         name: 'Fear Beyond Death',
@@ -6130,7 +6131,7 @@ const champions: IChampions = {
         image: {
           full: 'ZoeE.png'
         },
-        cooldownBurn: '16/15/14/13/12'
+        cooldownBurn: '20/18.5/17/15.5/14'
       },
       {
         name: 'Portal Jump',
@@ -6287,7 +6288,7 @@ const champions: IChampions = {
         image: {
           full: 'GnarW.png'
         },
-        cooldownBurn: '15/13/11/9/7'
+        cooldownBurn: '7'
       },
       {
         name: 'Hop / Crunch',
@@ -6894,7 +6895,7 @@ const champions: IChampions = {
       {
         name: 'Ardent Blaze',
         sanitizedDescription:
-          'Lucian shoots a missile that explodes in a star shape, marking enemies. Lucian gains Movement Speed for attacking marked enemies.',
+          'Lucian shoots a missile that explodes in a star shape, marking and briefly revealing enemies. Lucian gains Movement Speed for attacking marked enemies.',
         image: {
           full: 'LucianW.png'
         },
@@ -7471,7 +7472,7 @@ const champions: IChampions = {
         image: {
           full: 'RekSaiRWrapper.png'
         },
-        cooldownBurn: '100/80/60'
+        cooldownBurn: '100/90/80'
       }
     ],
     passive: {
@@ -7786,7 +7787,7 @@ const champions: IChampions = {
         image: {
           full: 'OrnnW.png'
         },
-        cooldownBurn: '12'
+        cooldownBurn: '12/11.5/11/10.5/10'
       },
       {
         name: 'Searing Charge',

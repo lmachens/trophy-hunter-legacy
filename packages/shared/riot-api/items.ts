@@ -3,6 +3,8 @@ export interface IItem {
   name: string;
   sanitizedDescription: string;
   tags: string[];
+  stacks?: number;
+  specialRecipe?: number;
 }
 
 interface IItems {
@@ -238,13 +240,15 @@ const items: IItems = {
     id: 2003,
     name: 'Health Potion',
     sanitizedDescription: 'Consume to restore Health over time',
-    tags: ['Consumable', 'Jungle', 'Lane']
+    tags: ['Consumable', 'Jungle', 'Lane'],
+    stacks: 5
   },
   '2004': {
     id: 2004,
     name: 'Mana Potion',
     sanitizedDescription: 'Consume to restore Mana over time',
-    tags: ['Consumable', 'Lane']
+    tags: ['Consumable', 'Lane'],
+    stacks: 5
   },
   '2009': {
     id: 2009,
@@ -256,19 +260,22 @@ const items: IItems = {
     id: 2010,
     name: 'Total Biscuit of Everlasting Will',
     sanitizedDescription: '',
-    tags: []
+    tags: [],
+    stacks: 10
   },
   '2011': {
     id: 2011,
     name: 'Elixir Of Skill',
     sanitizedDescription: '',
-    tags: ['Consumable', 'Lane', 'Jungle']
+    tags: ['Consumable', 'Lane', 'Jungle'],
+    stacks: 5
   },
   '2012': {
     id: 2012,
     name: 'Looted Biscuit of Rejuvenation',
     sanitizedDescription: '',
-    tags: []
+    tags: [],
+    stacks: 10
   },
   '2013': {
     id: 2013,
@@ -324,7 +331,8 @@ const items: IItems = {
     id: 2052,
     name: 'Poro-Snax',
     sanitizedDescription: '',
-    tags: []
+    tags: [],
+    stacks: 2
   },
   '2053': {
     id: 2053,
@@ -342,13 +350,15 @@ const items: IItems = {
     id: 2055,
     name: 'Control Ward',
     sanitizedDescription: 'Used to disable wards and invisible traps in an area.',
-    tags: ['Consumable', 'Lane', 'Stealth', 'Vision']
+    tags: ['Consumable', 'Lane', 'Stealth', 'Vision'],
+    stacks: 2
   },
   '2056': {
     id: 2056,
     name: 'Pilfered Stealth Ward',
     sanitizedDescription: 'Use to temporarily provide vision in an area',
-    tags: ['Consumable', 'Lane', 'Vision']
+    tags: ['Consumable', 'Lane', 'Vision'],
+    stacks: 3
   },
   '2057': {
     id: 2057,
@@ -380,13 +390,15 @@ const items: IItems = {
     id: 2061,
     name: 'Pilfered Health Potion',
     sanitizedDescription: 'Consume to restore Health over time',
-    tags: ['Consumable', 'Jungle', 'Lane']
+    tags: ['Consumable', 'Jungle', 'Lane'],
+    stacks: 5
   },
   '2062': {
     id: 2062,
     name: 'Pilfered Potion of Rouge',
     sanitizedDescription: 'Consume to gain a short window of power.',
-    tags: ['Consumable', 'Jungle', 'Lane']
+    tags: ['Consumable', 'Jungle', 'Lane'],
+    stacks: 5
   },
   '2065': {
     id: 2065,
@@ -419,13 +431,15 @@ const items: IItems = {
     id: 2319,
     name: 'Sly Sack of Gold',
     sanitizedDescription: 'Filled with gold',
-    tags: ['Consumable', 'GoldPer']
+    tags: ['Consumable', 'GoldPer'],
+    stacks: 50
   },
   '2403': {
     id: 2403,
     name: 'Minion Dematerializer',
     sanitizedDescription: '',
-    tags: []
+    tags: [],
+    stacks: 10
   },
   '2419': {
     id: 2419,
@@ -608,7 +622,8 @@ const items: IItems = {
     id: 3040,
     name: "Seraph's Embrace",
     sanitizedDescription: '',
-    tags: ['Active']
+    tags: ['Active'],
+    specialRecipe: 3003
   },
   '3041': {
     id: 3041,
@@ -620,13 +635,15 @@ const items: IItems = {
     id: 3042,
     name: 'Muramana',
     sanitizedDescription: '',
-    tags: ['OnHit']
+    tags: ['OnHit'],
+    specialRecipe: 3004
   },
   '3043': {
     id: 3043,
     name: 'Muramana',
     sanitizedDescription: '',
-    tags: ['OnHit']
+    tags: ['OnHit'],
+    specialRecipe: 3008
   },
   '3044': {
     id: 3044,
@@ -651,7 +668,8 @@ const items: IItems = {
     id: 3048,
     name: "Seraph's Embrace",
     sanitizedDescription: '',
-    tags: ['Active']
+    tags: ['Active'],
+    specialRecipe: 3007
   },
   '3050': {
     id: 3050,
@@ -1011,13 +1029,15 @@ const items: IItems = {
     id: 3133,
     name: "Caulfield's Warhammer",
     sanitizedDescription: 'Attack Damage and Cooldown Reduction',
-    tags: ['Damage', 'CooldownReduction']
+    tags: ['Damage', 'CooldownReduction'],
+    stacks: 0
   },
   '3134': {
     id: 3134,
     name: 'Serrated Dirk',
     sanitizedDescription: 'Increases Attack Damage and Lethality',
-    tags: ['Damage', 'ArmorPenetration']
+    tags: ['Damage', 'ArmorPenetration'],
+    stacks: 0
   },
   '3135': {
     id: 3135,
@@ -1029,7 +1049,8 @@ const items: IItems = {
     id: 3136,
     name: 'Haunting Guise',
     sanitizedDescription: 'Increases magic damage',
-    tags: ['Health', 'SpellDamage']
+    tags: ['Health', 'SpellDamage'],
+    stacks: 0
   },
   '3137': {
     id: 3137,
@@ -1104,7 +1125,8 @@ const items: IItems = {
     id: 3151,
     name: "Liandry's Torment",
     sanitizedDescription: 'Spell damage burns enemies for a portion of their Health',
-    tags: ['Health', 'SpellDamage']
+    tags: ['Health', 'SpellDamage'],
+    stacks: 0
   },
   '3152': {
     id: 3152,
@@ -1122,13 +1144,15 @@ const items: IItems = {
     id: 3155,
     name: 'Hexdrinker',
     sanitizedDescription: 'Increases Attack Damage and Magic Resist',
-    tags: ['Damage', 'SpellBlock']
+    tags: ['Damage', 'SpellBlock'],
+    stacks: 0
   },
   '3156': {
     id: 3156,
     name: 'Maw of Malmortius',
     sanitizedDescription: 'Grants bonus Attack Damage when Health is low',
-    tags: ['SpellBlock', 'Damage', 'LifeSteal', 'CooldownReduction', 'SpellVamp']
+    tags: ['SpellBlock', 'Damage', 'LifeSteal', 'CooldownReduction', 'SpellVamp'],
+    stacks: 0
   },
   '3157': {
     id: 3157,
@@ -1147,7 +1171,8 @@ const items: IItems = {
     name: 'Spear of Shojin',
     sanitizedDescription:
       'After casting your ultimate, your basic attacks reduces your remaining non-ultimate cooldowns.',
-    tags: ['Health', 'Damage', 'CooldownReduction']
+    tags: ['Health', 'Damage', 'CooldownReduction'],
+    stacks: 0
   },
   '3162': {
     id: 3162,
@@ -1159,7 +1184,8 @@ const items: IItems = {
     id: 3163,
     name: 'Space Maw of Malmortius',
     sanitizedDescription: 'Grants bonus Attack Damage when Health is low',
-    tags: ['SpellBlock', 'Damage', 'LifeSteal', 'CooldownReduction', 'SpellVamp']
+    tags: ['SpellBlock', 'Damage', 'LifeSteal', 'CooldownReduction', 'SpellVamp'],
+    stacks: 0
   },
   '3165': {
     id: 3165,
@@ -1195,7 +1221,8 @@ const items: IItems = {
     id: 3175,
     name: "Head of Kha'Zix",
     sanitizedDescription: '',
-    tags: ['Active', 'Trinket', 'Vision']
+    tags: ['Active', 'Trinket', 'Vision'],
+    specialRecipe: 3169
   },
   '3181': {
     id: 3181,
@@ -1541,25 +1568,29 @@ const items: IItems = {
     id: 3410,
     name: "Head of Kha'Zix",
     sanitizedDescription: '',
-    tags: ['Active', 'Trinket', 'Vision']
+    tags: ['Active', 'Trinket', 'Vision'],
+    specialRecipe: 3169
   },
   '3416': {
     id: 3416,
     name: "Head of Kha'Zix",
     sanitizedDescription: '',
-    tags: ['Active', 'Trinket', 'Vision']
+    tags: ['Active', 'Trinket', 'Vision'],
+    specialRecipe: 3169
   },
   '3422': {
     id: 3422,
     name: "Head of Kha'Zix",
     sanitizedDescription: '',
-    tags: ['Active', 'Trinket', 'Vision']
+    tags: ['Active', 'Trinket', 'Vision'],
+    specialRecipe: 3169
   },
   '3455': {
     id: 3455,
     name: "Head of Kha'Zix",
     sanitizedDescription: '',
-    tags: ['Active', 'Trinket', 'Vision']
+    tags: ['Active', 'Trinket', 'Vision'],
+    specialRecipe: 3169
   },
   '3460': {
     id: 3460,
@@ -1866,19 +1897,22 @@ const items: IItems = {
     id: 3812,
     name: "Death's Dance",
     sanitizedDescription: 'Trades incoming damage now for incoming damage later',
-    tags: ['Damage', 'LifeSteal', 'CooldownReduction']
+    tags: ['Damage', 'LifeSteal', 'CooldownReduction'],
+    stacks: 0
   },
   '3813': {
     id: 3813,
     name: "Space Death's Dance",
     sanitizedDescription: 'Trades incoming damage now for incoming damage later',
-    tags: ['Damage', 'LifeSteal', 'CooldownReduction']
+    tags: ['Damage', 'LifeSteal', 'CooldownReduction'],
+    stacks: 0
   },
   '3814': {
     id: 3814,
     name: 'Edge of Night',
     sanitizedDescription: 'Blocks an incoming enemy spell.',
-    tags: ['Health', 'Damage', 'Active', 'ArmorPenetration']
+    tags: ['Health', 'Damage', 'Active', 'ArmorPenetration'],
+    stacks: 0
   },
   '3901': {
     id: 3901,
@@ -1915,7 +1949,8 @@ const items: IItems = {
     id: 3916,
     name: 'Oblivion Orb',
     sanitizedDescription: 'Increases magic damage',
-    tags: ['Health', 'MagicPenetration', 'SpellDamage']
+    tags: ['Health', 'MagicPenetration', 'SpellDamage'],
+    stacks: 0
   },
   '4001': {
     id: 4001,
