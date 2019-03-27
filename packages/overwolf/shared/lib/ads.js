@@ -240,7 +240,11 @@ const onWindowStateChanged = state => {
       hideAds();
     }
     // when state changes from minimized to normal, show ads
-    else if (state.window_previous_state === 'minimized' && state.window_state === 'normal') {
+    else if (
+      state.window_previous_state === 'minimized' &&
+      state.window_state === 'normal' &&
+      showAdsInLoop
+    ) {
       showAds();
     }
   }
