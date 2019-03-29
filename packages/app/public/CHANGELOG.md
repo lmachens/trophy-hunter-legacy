@@ -1,5 +1,8 @@
 # Change Log
 
+### Added
+- New trees for Ahri, Amumu, Nasus, Nautilus and Ziggs
+
 ## [3.9.0] - 2019-03-23
 ### Changed
 - Updated to Riot API version 9.6.1.

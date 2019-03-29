@@ -1,6 +1,8 @@
 import aatrox1 from './definitions/aatrox1';
+import ahri1 from './definitions/ahri1';
 import akali1 from './definitions/akali1';
 import alistar1 from './definitions/alistar1';
+import amumu1 from './definitions/amumu1';
 import annie1 from './definitions/annie1';
 import ashe1 from './definitions/ashe1';
 import bard1 from './definitions/bard1';
@@ -58,6 +60,8 @@ import missFortune1 from './definitions/missFortune1';
 import mordekaiser1 from './definitions/mordekaiser1';
 import morgana1 from './definitions/morgana1';
 import nami1 from './definitions/nami1';
+import nasus1 from './definitions/nasus1';
+import nautilus1 from './definitions/nautilus1';
 import nidalee1 from './definitions/nidalee1';
 import nocturne1 from './definitions/nocturne1';
 import nunu1 from './definitions/nunu1';
@@ -104,19 +108,25 @@ import xayah1 from './definitions/xayah1';
 import xerath1 from './definitions/xerath1';
 import zac1 from './definitions/zac1';
 import zed1 from './definitions/zed1';
+import ziggs1 from './definitions/ziggs1';
 import zilean1 from './definitions/zilean1';
 import zoe1 from './definitions/zoe1';
 import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
+  ahri1,
+  amumu1,
+  nasus1,
+  nautilus1,
+  ziggs1
+};
+
+export const expiredTrees = {
   riven1,
   udyr1,
   jayce1,
   ryze1,
-  lux1
-};
-
-export const expiredTrees = {
+  lux1,
   camille1,
   ivern1,
   leBlanc1,
