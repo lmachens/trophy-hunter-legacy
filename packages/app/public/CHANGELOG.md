@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.10.0] - 2019-04-01
 ### Added
 - New trees for Ahri, Amumu, Nasus, Nautilus and Ziggs
 
