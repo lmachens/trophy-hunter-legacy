@@ -341,7 +341,7 @@ const champions: IChampions = {
         image: {
           full: 'UrgotE.png'
         },
-        cooldownBurn: '14'
+        cooldownBurn: '16/15.5/15/14.5/14'
       },
       {
         name: 'Fear Beyond Death',
@@ -1717,7 +1717,7 @@ const champions: IChampions = {
         image: {
           full: 'Rupture.png'
         },
-        cooldownBurn: '9'
+        cooldownBurn: '7'
       },
       {
         name: 'Feral Scream',
@@ -3475,7 +3475,7 @@ const champions: IChampions = {
         image: {
           full: 'RumbleCarpetBomb.png'
         },
-        cooldownBurn: '110/100/90'
+        cooldownBurn: '100/85/70'
       }
     ],
     passive: {
@@ -4290,7 +4290,7 @@ const champions: IChampions = {
         image: {
           full: 'GarenW.png'
         },
-        cooldownBurn: '24/23/22/21/20'
+        cooldownBurn: '23/21/19/17/15'
       },
       {
         name: 'Judgment',
@@ -4355,7 +4355,7 @@ const champions: IChampions = {
         image: {
           full: 'LeonaZenithBlade.png'
         },
-        cooldownBurn: '13/12/11/10/9'
+        cooldownBurn: '12/10.5/9/7.5/6'
       },
       {
         name: 'Solar Flare',
@@ -5783,7 +5783,7 @@ const champions: IChampions = {
         image: {
           full: 'LissandraQ.png'
         },
-        cooldownBurn: '6/5.25/4.5/3.75/3'
+        cooldownBurn: '10/8.5/7/5.5/4'
       },
       {
         name: 'Ring of Frost',
@@ -7852,7 +7852,7 @@ const champions: IChampions = {
         image: {
           full: 'SylasE.png'
         },
-        cooldownBurn: '12/11.5/11/10.5/10'
+        cooldownBurn: '18/16/14/12/10'
       },
       {
         name: 'Hijack',
@@ -7944,7 +7944,7 @@ const champions: IChampions = {
         image: {
           full: 'PykeQ.png'
         },
-        cooldownBurn: '16/14/12/10/8'
+        cooldownBurn: '14/12.5/11/9.5/8'
       },
       {
         name: 'Ghostwater Dive',

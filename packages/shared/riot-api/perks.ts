@@ -68,7 +68,7 @@ const perks: IPerks = {
     name: 'Cut Down',
     shortDesc: 'Deal more damage to champions with more max health than you.',
     longDesc:
-      'Deal 5% to 12% more damage to champions, based on how much more max health they have than you.Bonus damage scales up linearly against enemies with 10% to 100% more max health than you.'
+      'Deal 5% to 15% more damage to champions, based on how much more max health they have than you.Bonus damage scales up linearly against enemies with 10% to 100% more max health than you.'
   },
   '8021': {
     id: 8021,
@@ -96,7 +96,7 @@ const perks: IPerks = {
     name: 'Ultimate Hunter',
     shortDesc: 'Unique takedowns grant permanent cooldown reduction on your Ultimate. ',
     longDesc:
-      'Your ultimate gains 5% reduced cooldown, plus an additional 2% per Bounty Hunter stack.Bounty Hunter stacks are earned the first time you get a takedown on each enemy champion.'
+      'Your ultimate gains 5% reduced cooldown, plus an additional 3% per Bounty Hunter stack.Bounty Hunter stacks are earned the first time you get a takedown on each enemy champion.'
   },
   '8112': {
     id: 8112,
@@ -114,9 +114,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Domination/GhostPoro/GhostPoro.png',
     name: 'Ghost Poro',
     shortDesc:
-      'Entering brush swaps your current Trinket for a Ghost Poro. The Ghost Poro can be placed in brush and grants vision until discovered. While either you or your poro is in enemy territory, gain adaptive force.',
+      'When your wards expire, they leave behind a Ghost Poro. The Ghost Poro grants vision until discovered. Gain permanent AD or AP, adaptive for each Ghost Poro spawned plus bonus upon completion.',
     longDesc:
-      'Entering brush temporarily swaps your Trinket for a Ghost Poro, which grants vision for 300s when placed in brush. Nearby enemy champions scare the Ghost Poro away.While either you or your Ghost Poro is in enemy territory, gain 5-20 adaptive force (based on level).Cooldown: 60s if Poro is scared away.'
+      'When your wards expire, they leave behind a Ghost Poro, which grants vision for 60s. Nearby enemy champions scare the Ghost Poro away.Gain an adaptive bonus of 1.2 Attack Damage or 2 Ability Power for every Ghost Poro spawned, up to 10. After spawning 10 poros, additionally gain 10 adaptive force.'
   },
   '8124': {
     id: 8124,
@@ -171,9 +171,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Domination/ZombieWard/ZombieWard.png',
     name: 'Zombie Ward',
     shortDesc:
-      'Takedowns on enemy Wards cause friendly Zombie Wards to sprout from their corpses. In addition, damaging a Champion after destroying a Ward inflicts bonus magic damage.',
+      'Takedowns on enemy Wards cause friendly Zombie Wards to sprout from their corpses. Gain permanent AD or AP, adaptive for each Zombie Ward spawned plus bonus upon completion.',
     longDesc:
-      'Takedowns on enemy Wards cause friendly Zombie Wards to sprout from their corpses. In addition, damaging a Champion after destroying a Ward inflicts 30 - 90 bonus magic damage (based on level).Zombie Wards are visible, last for 120s and do not count towards your ward limit.'
+      'Takedowns on enemy Wards cause friendly Zombie Wards to sprout from their corpses.Gain an adaptive bonus of 1.2 Attack Damage or 2 Ability Power for every Zombie Ward spawned, up to 10. After spawning 10 Zombie Wards, additionally gain 10 adaptive force.Zombie Wards are visible, last for 120s and do not count towards your ward limit.'
   },
   '8138': {
     id: 8138,
@@ -181,9 +181,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Domination/EyeballCollection/EyeballCollection.png',
     name: 'Eyeball Collection',
     shortDesc:
-      'Collect eyeballs for champion and ward takedowns. Gain permanent AD or AP, adaptive for each eyeball plus bonus upon collection completion.',
+      'Collect eyeballs for champion takedowns. Gain permanent AD or AP, adaptive for each eyeball plus bonus upon collection completion.',
     longDesc:
-      'Collect eyeballs for champion and ward takedowns. Gain an adaptive bonus of 0.6 Attack Damage or 1 Ability Power, per eyeball collected. Upon completing your collection at 20 eyeballs, additionally gain an adaptive bonus of 6 Attack Damage, or 10 Ability Power.Collect 2 eyeballs per champion kill, 1 per assist, and 1 per ward takedown.'
+      'Collect eyeballs for champion takedowns. Gain an adaptive bonus of 1.2 Attack Damage or 2 Ability Power, per eyeball collected. Upon completing your collection at 10 eyeballs, additionally gain an adaptive bonus of 6 Attack Damage, or 10 Ability Power.Collect 1 eyeball per champion takedown.'
   },
   '8139': {
     id: 8139,
@@ -507,7 +507,7 @@ const perks: IPerks = {
     name: 'Demolish',
     shortDesc: 'Charge up a powerful attack against a tower while near it.',
     longDesc:
-      'Charge up a powerful attack against a tower over 3s, while within 600 range of it. The charged attack deals 100 (+30% of your max health) bonus physical damage. Cooldown: 45s'
+      'Charge up a powerful attack against a tower over 3s, while within 600 range of it. The charged attack deals 100 (+35% of your max health) bonus physical damage. Cooldown: 45s'
   },
   '8451': {
     id: 8451,
@@ -516,7 +516,7 @@ const perks: IPerks = {
     name: 'Overgrowth',
     shortDesc: 'Gain permanent max health when minions or monsters die near you.',
     longDesc:
-      "Absorb life essence from monsters or enemy minions that die near you, permanently gaining 3 maximum health for every 8.When you've absorbed 120 monsters or enemy minions, gain an additional 2.5% maximum health."
+      "Absorb life essence from monsters or enemy minions that die near you, permanently gaining 3 maximum health for every 8.When you've absorbed 120 monsters or enemy minions, gain an additional 3.5% maximum health."
   },
   '8453': {
     id: 8453,

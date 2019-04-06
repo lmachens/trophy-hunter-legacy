@@ -66,6 +66,22 @@ const summonerSpells: ISummonerSpells = {
     },
     key: 'SummonerFlash'
   },
+  '5': {
+    id: 5,
+    name: 'Backtrack',
+    description:
+      'Temporarily shields 75-330 (depending on champion level) damage from your champion. After 2.5 seconds the shield expires and your champion is teleported to safety. Melee champions travel extra distance.',
+    image: {
+      full: 'SummonerReturn.png',
+      sprite: 'spell0.png',
+      group: 'spell',
+      x: 240,
+      y: 48,
+      w: 48,
+      h: 48
+    },
+    key: 'SummonerReturn'
+  },
   '6': {
     id: 6,
     name: 'Ghost',
@@ -107,7 +123,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSmite.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 336,
+      x: 384,
       y: 48,
       w: 48,
       h: 48
@@ -123,7 +139,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerTeleport.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 0,
+      x: 48,
       y: 96,
       w: 48,
       h: 48
@@ -218,8 +234,8 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSnowball.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 432,
-      y: 48,
+      x: 0,
+      y: 96,
       w: 48,
       h: 48
     },
@@ -234,7 +250,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSiegeChampSelect1.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 240,
+      x: 288,
       y: 48,
       w: 48,
       h: 48
@@ -250,7 +266,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSiegeChampSelect2.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 288,
+      x: 336,
       y: 48,
       w: 48,
       h: 48
@@ -295,7 +311,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSnowURFSnowball_Mark.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 384,
+      x: 432,
       y: 48,
       w: 48,
       h: 48

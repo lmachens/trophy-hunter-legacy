@@ -46,8 +46,6 @@ export default async function refreshMatchForGameSessionWorker(job, cb) {
 }
 
 async function refreshMatchForGameSession(gameSessionId, job) {
-  //console.log('refreshMatchForGameSession', gameSessionId);
-
   const gameSession = GameSessions.findOne(gameSessionId);
   if (!gameSession) {
     console.log('refreshMatchForGameSession', 'gameSession not found');
@@ -225,7 +223,6 @@ async function refreshMatchForGameSession(gameSessionId, job) {
     };
 
     newInTrees.forEach(treeName => {
-      //console.log('found a trophy which is obtainable by a tree', treeName, trophy.name);
       if (!trophyHunter.trees[treeName]) {
         trophyHunter.trees[treeName] = {
           trophiesObtained: []
@@ -256,11 +253,6 @@ async function refreshMatchForGameSession(gameSessionId, job) {
           });
 
           additionalTrophyPoints += treeBonus[countTreesComplete] || 0;
-          console.log(
-            `${treeName} completed by ${
-              trophyHunter.userId
-            }. Count: ${countTreesComplete} Points: ${treeBonus[countTreesComplete]}`
-          );
         } else {
           Notifications.insert({
             userId: trophyHunter.userId,
@@ -270,7 +262,6 @@ async function refreshMatchForGameSession(gameSessionId, job) {
               name: treeName
             }
           });
-          console.log(`${treeName} (custom) completed by ${trophyHunter.userId}`);
         }
 
         const rawNotifications = Notifications.rawCollection();
@@ -431,15 +422,6 @@ async function refreshMatchForGameSession(gameSessionId, job) {
   // Update ChampionStats
   updateFirstBloodStats(matchResult);
   updateSnowballStats(matchResult);
-
-  //console.timeEnd('Add notifications');
-  console.log(
-    `Added ${trophiesForGameSession.length} trophies, ${
-      treeTrophyNamesObtained.length
-    } trees and ${earnedSeasonPoints} points to ${
-      trophyHunter.summonerName
-    }. Rank: ${trophyHunter.rank || 'unranked'} -> ${newRank || 'unranked'}`.green
-  );
 }
 
 const updateTrophyHunters = function({

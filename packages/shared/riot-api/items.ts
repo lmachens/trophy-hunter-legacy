@@ -853,8 +853,8 @@ const items: IItems = {
   '3091': {
     id: 3091,
     name: "Wit's End",
-    sanitizedDescription: 'Deals bonus magic damage on basic attacks',
-    tags: ['AttackSpeed', 'OnHit', 'SpellBlock']
+    sanitizedDescription: 'Resist magic damage and claw your way back to life.',
+    tags: ['SpellBlock', 'AttackSpeed', 'LifeSteal', 'NonbootsMovement']
   },
   '3092': {
     id: 3092,
@@ -1969,6 +1969,12 @@ const items: IItems = {
     name: 'Spectral Cutlass',
     sanitizedDescription: 'Marks the ground, and returns you there after a few moments',
     tags: ['Armor', 'Damage', 'NonbootsMovement', 'ArmorPenetration']
+  },
+  '4026': {
+    id: 4026,
+    name: "Mariner's Vengeance",
+    sanitizedDescription: 'Allows champion to linger a few seconds after death.',
+    tags: ['Armor', 'Damage']
   },
   '4101': {
     id: 4101,
