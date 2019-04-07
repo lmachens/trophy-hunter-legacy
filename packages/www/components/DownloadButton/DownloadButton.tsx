@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import { Button, Link } from '@material-ui/core';
 import { ButtonProps } from '@material-ui/core/Button';
 import React, { FunctionComponent } from 'react';
 
@@ -8,15 +8,15 @@ interface IDownloadButtonProps extends ButtonProps {
 
 const DownloadButton: FunctionComponent<IDownloadButtonProps> = ({ className, ...props }) => {
   return (
-    <form
-      method="get"
-      action="https://download.overwolf.com/install/Download?PartnerId=3707"
-      className={className}
+    <Link
+      color="secondary"
+      href="https://download.overwolf.com/install/Download?PartnerId=3707"
+      target="_blank"
     >
-      <Button color="primary" type="submit" {...props}>
+      <Button className={className} color="primary" type="submit" {...props}>
         Download App
       </Button>
-    </form>
+    </Link>
   );
 };
 
