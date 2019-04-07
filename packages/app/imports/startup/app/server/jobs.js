@@ -18,7 +18,7 @@ const processJobs = () => {
   Jobs.startJobServer();
 
   Jobs.remove({ type: 'cleanup' });
-  new Job.processJobs('Jobs', 'cleanup', { workTimeout: 5 * 60 * 60000 }, cleanup);
+  new Job.processJobs('Jobs', 'cleanup', cleanup);
 
   new Job(Jobs, 'cleanup', {})
     .repeat({
@@ -31,14 +31,14 @@ const processJobs = () => {
   new Job.processJobs(
     'Jobs',
     'refreshMatchForGameSession',
-    { workTimeout: 60 * 60000 },
+    { workTimeout: 120 * 60000 },
     refreshMatchForGameSession
   );
 
   new Job.processJobs(
     'Jobs',
     'drawLotteryWinners',
-    { workTimeout: 10 * 60 * 60000 },
+    { workTimeout: 10 * 120 * 60000 },
     drawLotteryWinners
   );
 
@@ -57,7 +57,7 @@ const processJobs = () => {
   new Job.processJobs(
     'Jobs',
     'updateChampionGGStats',
-    { workTimeout: 7200000 },
+    { workTimeout: 8200000 },
     updateChampionGGStatsJob
   );
 
