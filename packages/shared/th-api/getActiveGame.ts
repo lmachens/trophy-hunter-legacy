@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiEndpoint = process.env.ACTIVE_GAME_API_ENDPOINT || 'https://lol-lol-api.th.gl/active-game';
+const apiEndpoint = process.env.ACTIVE_GAME_API_ENDPOINT || 'https://lol-api.th.gl/active-game';
 
 const getActiveGame = ({ platformId, summonerId }) => {
   if (/^\d+$/.test(`${summonerId}`)) {
