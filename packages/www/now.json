@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "th-www",
+  "name": "lol-www",
   "alias": ["th.gl", "www.th.gl"],
   "env": {
     "LEAGUE_API_KEY": "@league_api_key",
