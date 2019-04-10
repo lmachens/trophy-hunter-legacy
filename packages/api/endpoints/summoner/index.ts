@@ -36,9 +36,9 @@ export default (req: IncomingMessage, res: ServerResponse) => {
       res.end(JSON.stringify(result));
     })
     .catch(({ response, message }) => {
+      res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
       if (response && response.status === 400) {
         console.log(message, platformId, summonerId, summonerName);
-        res.setHeader('Cache-Control', 's-maxage=86400, maxage=0');
       }
       res.writeHead(response ? response.status : 400);
       res.end(response ? response.statusText : message);

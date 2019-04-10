@@ -25,11 +25,11 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     res.writeHead(400);
     return res.end('Invalid query');
   }
+  // Do not cache results
+  res.setHeader('Cache-Control', 's-maxage=0, maxage=0');
 
   getActiveGame({ platformId, summonerId })
     .then(result => {
-      // Do not cache results
-      res.setHeader('Cache-Control', 's-maxage=0, maxage=0');
       res.end(JSON.stringify(result));
     })
     .catch(error => {

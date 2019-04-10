@@ -39,6 +39,7 @@ export default (req: IncomingMessage, res: ServerResponse) => {
       })
     )
     .catch(error => {
+      res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
       res.writeHead(error.response.status);
       res.end(error.response.statusText);
     });

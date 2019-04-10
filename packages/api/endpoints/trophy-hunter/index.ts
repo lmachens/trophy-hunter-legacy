@@ -54,6 +54,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     res.setHeader('Cache-Control', 's-maxage=120, maxage=0');
     res.end(JSON.stringify(trophyHunter));
   } catch (error) {
+    res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
     res.writeHead(400);
     res.end(error.message);
   }

@@ -104,6 +104,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         res.end(error.response.statusText);
       });
   } catch (error) {
+    res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
     res.writeHead(400);
     res.end(error.message);
   }
