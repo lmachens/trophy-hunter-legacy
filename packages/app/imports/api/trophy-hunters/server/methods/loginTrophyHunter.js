@@ -153,6 +153,7 @@ const loginTrophyHunter = async function({
     leaguePositions = await getLeaguePositions({ platformId, summonerId: summoner.id });
     $set.leaguePositions = leaguePositions;
   } catch (error) {}
+  console.log('login', region, targetSummonerName, summoner);
   TrophyHunters.update(
     { $or: [{ puuid }, { region, summonerName: targetSummonerName, puuid: { $exists: false } }] },
     {

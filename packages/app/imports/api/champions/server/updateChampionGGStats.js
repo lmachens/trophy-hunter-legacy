@@ -10,7 +10,9 @@ const updateChampionGGStats = () => {
   const matchupApiSteps = Math.ceil(championValues.length / matchupApiLimit);
   championValues.forEach(champion => {
     const championData = ChampionGGApi.getChampionData(champion.id);
-
+    if (!championData) {
+      return;
+    }
     const stats = {};
     championData.forEach(data => {
       console.log('get champion stats for', champion.name, data.role);
