@@ -8,14 +8,7 @@ const cache = new NodeCache({
   stdTTL: 100 // seconds
 });
 
-interface GetSummonerProps {
-  platformId: string;
-  summonerId?: string | number;
-  accountId?: string | number;
-  summonerName?: string;
-}
-
-const getSummoner = ({ platformId, summonerId, accountId, summonerName }: GetSummonerProps) => {
+const getSummoner = ({ platformId, summonerId, summonerName }) => {
   let key;
   let url;
   if (summonerId) {
@@ -24,12 +17,6 @@ const getSummoner = ({ platformId, summonerId, accountId, summonerName }: GetSum
     }
     key = `${platformId}&s&${summonerId}`;
     url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}`;
-  } else if (accountId) {
-    if (/^\d+$/.test(`${accountId}`)) {
-      throw new Error(`getSummoner: deprecated accountId ${accountId} (${platformId})`);
-    }
-    key = `${platformId}&a&${accountId}`;
-    url = `${apiEndpoint}?platformId=${platformId}&accountId=${accountId}`;
   } else {
     key = `${platformId}&n&${summonerName}`;
     url = `${apiEndpoint}?platformId=${platformId}&summonerName=${encodeURI(summonerName)}`;
