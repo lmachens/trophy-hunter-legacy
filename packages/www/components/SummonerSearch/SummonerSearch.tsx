@@ -1,4 +1,4 @@
-import { IconButton, InputBase, MenuItem, Paper, Select, Tooltip } from '@material-ui/core';
+import { IconButton, InputBase, MenuItem, Paper, Select } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';

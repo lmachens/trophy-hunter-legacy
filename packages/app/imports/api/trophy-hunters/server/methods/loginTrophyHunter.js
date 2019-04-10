@@ -154,17 +154,14 @@ const loginTrophyHunter = async function({
     $set.leaguePositions = leaguePositions;
   } catch (error) {}
   TrophyHunters.update(
-    { $or: [{ puuid }, { region, summonerName: targetSummonerName }] },
+    { $or: [{ puuid }, { region, summonerName: targetSummonerName, puuid: { $exists: false } }] },
     {
       $set
     }
   );
 
   let userId;
-  const trophyHunter = TrophyHunters.findOne(
-    { $or: [{ puuid }, { region, summonerName: targetSummonerName }] },
-    { fields: { userId: 1 } }
-  );
+  const trophyHunter = TrophyHunters.findOne({ puuid }, { fields: { userId: 1 } });
   if (trophyHunter) {
     userId = trophyHunter.userId;
   } else {
