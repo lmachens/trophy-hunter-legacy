@@ -52,6 +52,10 @@ const Match = () => {
   const handleValidate = json => {
     try {
       const result = json.participantIdentities.reduce((result, participantIdentity) => {
+        if (json.gameMode === 'TUTORIAL_MODULE_2') {
+          throw new Error('invalid game mode');
+        }
+
         const extendedMatchResult = extendMatchResult({
           matchResult: json,
           summonerName: participantIdentity.player.summonerName

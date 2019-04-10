@@ -94,6 +94,9 @@ Meteor.methods({
 
           getMatch({ platformId, matchId: match.gameId })
             .then(matchDetails => {
+              if (matchDetails.gameMode === 'TUTORIAL_MODULE_2') {
+                return future.return(null);
+              }
               matchDetails.participantIdentity = getParticipantIdentity({
                 participantIdentities: matchDetails.participantIdentities,
                 summonerId,
@@ -108,8 +111,7 @@ Meteor.methods({
                   match.gameId,
                   summonerId
                 );
-                future.return(null);
-                return;
+                return future.return(null);
               }
 
               // Extend partitioned participants (participant, others, opponents, ...)
