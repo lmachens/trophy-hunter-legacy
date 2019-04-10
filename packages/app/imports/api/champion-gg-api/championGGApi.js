@@ -17,7 +17,7 @@ class ChampionGGApi {
       const content = JSON.parse(result.content);
       return content;
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   }
 

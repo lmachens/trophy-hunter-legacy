@@ -1,14 +1,20 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
 
-const apiEndpoint = process.env.SUMMONER_API_ENDPOINT || 'https://api.th.gl/summoner';
+const apiEndpoint = process.env.SUMMONER_API_ENDPOINT || 'https://lol-api.th.gl/summoner';
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
   stdTTL: 100 // seconds
 });
 
-const getSummoner = ({ platformId, summonerId, summonerName }) => {
+interface GetSummonerProps {
+  platformId: string;
+  summonerId?: string | number;
+  summonerName?: string;
+}
+
+const getSummoner = ({ platformId, summonerId, summonerName }: GetSummonerProps) => {
   let key;
   let url;
   if (summonerId) {
@@ -32,6 +38,7 @@ const getSummoner = ({ platformId, summonerId, summonerName }) => {
       if (response.data) {
         cache.set(key, response.data);
       }
+      console.log('getSummoner', url, response.data);
       return response.data;
     })
     .catch(error => {

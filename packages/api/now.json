@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "name": "th-api",
-  "alias": ["api.th.gl"],
+  "name": "lol-api",
+  "alias": ["lol-api.th.gl"],
   "env": {
     "LEAGUE_API_KEY": "@league_api_key",
     "MONGODB_URI": "@mongodb_uri"

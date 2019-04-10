@@ -2,7 +2,7 @@ import axios from 'axios';
 import NodeCache from 'node-cache';
 
 const apiEndpoint =
-  process.env.CHAMPION_MASTERY_API_ENDPOINT || 'https://api.th.gl/champion-mastery';
+  process.env.CHAMPION_MASTERY_API_ENDPOINT || 'https://lol-api.th.gl/champion-mastery';
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds

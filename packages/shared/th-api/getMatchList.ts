@@ -2,7 +2,7 @@ import axios from 'axios';
 import NodeCache from 'node-cache';
 import { IMatchList } from '../riot-api/typings';
 
-const apiEndpoint = process.env.MATCHLIST_API_ENDPOINT || 'https://api.th.gl/matchlist';
+const apiEndpoint = process.env.MATCHLIST_API_ENDPOINT || 'https://lol-api.th.gl/matchlist';
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
