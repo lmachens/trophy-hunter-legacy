@@ -119,9 +119,16 @@ const loginTrophyHunter = async function({
   let summoner;
   try {
     summoner = await getSummoner({ platformId, summonerName: targetSummonerName });
+    if (summoner.name !== targetSummonerName) {
+      console.log('Different Summoner Name', summoner.name, targetSummonerName);
+      delete summoner;
+    }
   } catch (error) {}
   if (!summoner) {
-    throw `loginTrophyHunter: can not find summoner for ${platformId} ${targetSummonerName}`;
+    console.log('Login issue', platformId, targetSummonerName);
+    throw new Error(
+      `loginTrophyHunter: can not find summoner for ${platformId} ${targetSummonerName}`
+    );
   }
 
   const {
@@ -153,7 +160,6 @@ const loginTrophyHunter = async function({
     leaguePositions = await getLeaguePositions({ platformId, summonerId: summoner.id });
     $set.leaguePositions = leaguePositions;
   } catch (error) {}
-  console.log('login', region, targetSummonerName, summoner);
   TrophyHunters.update(
     { $or: [{ puuid }, { region, summonerName: targetSummonerName, puuid: { $exists: false } }] },
     {

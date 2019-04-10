@@ -38,7 +38,6 @@ const getSummoner = ({ platformId, summonerId, summonerName }: GetSummonerProps)
       if (response.data) {
         cache.set(key, response.data);
       }
-      console.log('getSummoner', url, response.data);
       return response.data;
     })
     .catch(error => {
