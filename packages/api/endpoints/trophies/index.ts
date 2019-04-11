@@ -11,6 +11,7 @@ export default (req: IncomingMessage, res: ServerResponse) => {
 
   const { platformId, matchId, summonerName, championId }: any = parse(req.url, true).query;
   if (!platformId || !matchId || (!summonerName && !championId)) {
+    res.setHeader('Cache-Control', 's-maxage=31536000, max-age=31536000');
     res.writeHead(400);
     return res.end('Invalid query');
   }
@@ -34,12 +35,12 @@ export default (req: IncomingMessage, res: ServerResponse) => {
           count: trophiesObtained.length
         };
         // Cache result https://zeit.co/docs/v2/routing/caching/#caching-lambda-responses
-        res.setHeader('Cache-Control', 's-maxage=31536000, maxage=0');
+        res.setHeader('Cache-Control', 's-maxage=31536000, max-age=31536000');
         res.end(JSON.stringify(result));
       })
     )
     .catch(error => {
-      res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
+      res.setHeader('Cache-Control', 's-maxage=60, max-age=60');
       res.writeHead(error.response.status);
       res.end(error.response.statusText);
     });

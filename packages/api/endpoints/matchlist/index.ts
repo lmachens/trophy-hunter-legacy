@@ -36,18 +36,18 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     true
   ).query;
   if (!platformId || !accountId) {
+    res.setHeader('Cache-Control', 's-maxage=31536000, max-age=31536000');
     res.writeHead(400);
     return res.end('Invalid query');
   }
   const queueIds = queueId && typeof queueId === 'string' ? [queueId] : queueId;
   getMatchList({ platformId, accountId, championId, beginTime, endIndex, queueIds })
     .then(result => {
-      // Cache result for 20 minutes because data might change
-      res.setHeader('Cache-Control', 's-maxage=1200, maxage=0');
+      res.setHeader('Cache-Control', 's-maxage=1200, max-age=1200');
       res.end(JSON.stringify(result));
     })
     .catch(error => {
-      res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
+      res.setHeader('Cache-Control', 's-maxage=60, maxage=60');
       res.writeHead(error.response.status);
       res.end(error.response.statusText);
     });

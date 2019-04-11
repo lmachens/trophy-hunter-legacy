@@ -9,8 +9,9 @@ export default (req: IncomingMessage, res: ServerResponse) => {
   const { platformId, summonerName }: any = parse(req.url, true).query;
 
   if (!platformId || !Array.isArray(summonerName)) {
+    res.setHeader('Cache-Control', 's-maxage=31536000, max-age=31536000');
     res.writeHead(400);
-    return res.end('Invalname query');
+    return res.end('Invalid query');
   }
   const summonerNames: string[] = summonerName;
 
@@ -57,13 +58,11 @@ export default (req: IncomingMessage, res: ServerResponse) => {
           });
         });
       });
-
-      // Cache result for 30 minutes because data might change
-      res.setHeader('Cache-Control', 's-maxage=1800, maxage=0');
+      res.setHeader('Cache-Control', 's-maxage=86400, max-age=86400');
       res.end(JSON.stringify(playedTogeterBySummonerName));
     })
     .catch(error => {
-      res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
+      res.setHeader('Cache-Control', 's-maxage=60, max-age=60');
       res.writeHead(error.response.status);
       res.end(error.response.statusText);
     });

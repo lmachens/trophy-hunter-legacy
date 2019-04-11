@@ -26,17 +26,17 @@ export default (req: IncomingMessage, res: ServerResponse) => {
 
   const { platformId, summonerId, summonerName }: any = parse(req.url, true).query;
   if (!platformId || (!summonerId && !summonerName)) {
+    res.setHeader('Cache-Control', 's-maxage=31536000, max-age=31536000');
     res.writeHead(400);
     return res.end('Invalid query');
   }
   getSummoner({ platformId, summonerId, summonerName })
     .then(result => {
-      // Cache result for one day because data might change
-      res.setHeader('Cache-Control', 's-maxage=86400, maxage=0');
+      res.setHeader('Cache-Control', 's-maxage=86400, max-age=86400');
       res.end(JSON.stringify(result));
     })
     .catch(({ response, message }) => {
-      res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
+      res.setHeader('Cache-Control', 's-maxage=60, max-age=60');
       if (response && response.status === 400) {
         console.log(message, platformId, summonerId, summonerName);
       }

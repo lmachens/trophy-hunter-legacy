@@ -47,6 +47,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     true
   ).query;
   if (!champ1IdString || !champ2IdString || !mapIdString) {
+    res.setHeader('Cache-Control', 's-maxage=31536000, max-age=31536000');
     res.writeHead(400);
     return res.end('Invalid query');
   }
@@ -88,8 +89,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
             participant2
           };
         });
-        // Cache result for one day because data might change
-        res.setHeader('Cache-Control', 's-maxage=86400, maxage=0');
+        res.setHeader('Cache-Control', 's-maxage=86400, max-age=86400');
         res.end(JSON.stringify(result));
       })
       .catch(error => {
@@ -104,7 +104,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         res.end(error.response.statusText);
       });
   } catch (error) {
-    res.setHeader('Cache-Control', 's-maxage=60, maxage=0');
+    res.setHeader('Cache-Control', 's-maxage=60, max-age=60');
     res.writeHead(400);
     res.end(error.message);
   }

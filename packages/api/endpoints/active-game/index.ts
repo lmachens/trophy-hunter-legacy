@@ -22,11 +22,11 @@ export default (req: IncomingMessage, res: ServerResponse) => {
 
   const { platformId, summonerId }: any = parse(req.url, true).query;
   if (!platformId || !summonerId) {
+    res.setHeader('Cache-Control', 's-maxage=31536000, max-age=31536000');
     res.writeHead(400);
     return res.end('Invalid query');
   }
-  // Do not cache results
-  res.setHeader('Cache-Control', 's-maxage=0, maxage=0');
+  res.setHeader('Cache-Control', 's-maxage=10, max-age=10');
 
   getActiveGame({ platformId, summonerId })
     .then(result => {
