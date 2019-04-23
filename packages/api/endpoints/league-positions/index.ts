@@ -9,7 +9,7 @@ if (!process.env.LEAGUE_API_KEY) {
 const getLeaguePositions = ({ platformId, summonerId }) => {
   return axios
     .get(
-      `https://${platformId}.api.riotgames.com/lol/league/v4/positions/by-summoner/${summonerId}?api_key=${
+      `https://${platformId}.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${
         process.env.LEAGUE_API_KEY
       }`
     )
@@ -30,7 +30,12 @@ export default (req: IncomingMessage, res: ServerResponse) => {
   getLeaguePositions({ platformId, summonerId })
     .then(result => {
       res.setHeader('Cache-Control', 's-maxage=86400, max-age=86400');
-      res.end(JSON.stringify(result));
+      const leaguePositions = result.map(position => ({
+        queueType: position.queueType,
+        tier: position.tier,
+        rank: position.rank
+      }));
+      res.end(JSON.stringify(leaguePositions));
     })
     .catch(error => {
       res.setHeader('Cache-Control', 's-maxage=3600, max-age=3600');
