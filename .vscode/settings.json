@@ -5,7 +5,7 @@
   "search.exclude": {
     "**/node_modules": true,
     "**/.meteor/local": true,
-    "src/**/shared": true,
+    "packages/**/shared": true,
     "dist": true,
     "**/.next": true
   },
