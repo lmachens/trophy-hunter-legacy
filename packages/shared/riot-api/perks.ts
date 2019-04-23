@@ -58,8 +58,7 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Precision/CoupDeGrace/CoupDeGrace.png',
     name: 'Coup de Grace',
     shortDesc: 'Deal more damage to low health enemy champions.',
-    longDesc:
-      'Deal 7% more damage to champions who have less than 40% health.Additionally, takedowns on champions grant an adaptive bonus of 9 Attack Damage or 15 Ability Power for 10s.'
+    longDesc: 'Deal 8% more damage to champions who have less than 40% health.'
   },
   '8017': {
     id: 8017,

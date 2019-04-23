@@ -1773,7 +1773,7 @@ const champions: IChampions = {
         image: {
           full: 'BandageToss.png'
         },
-        cooldownBurn: '16/14/12/10/8'
+        cooldownBurn: '12/11/10/9/8'
       },
       {
         name: 'Despair',
@@ -2579,7 +2579,7 @@ const champions: IChampions = {
         image: {
           full: 'TrundlePain.png'
         },
-        cooldownBurn: '110/90/70'
+        cooldownBurn: '100/80/60'
       }
     ],
     passive: {
@@ -6306,7 +6306,7 @@ const champions: IChampions = {
         image: {
           full: 'GnarR.png'
         },
-        cooldownBurn: '120/100/80'
+        cooldownBurn: '90/60/30'
       }
     ],
     passive: {
@@ -6954,7 +6954,7 @@ const champions: IChampions = {
         image: {
           full: 'ZedW.png'
         },
-        cooldownBurn: '20/18.5/17/15.5/14'
+        cooldownBurn: '22/20/18/16/14'
       },
       {
         name: 'Shadow Slash',
@@ -7923,8 +7923,9 @@ const champions: IChampions = {
       image: {
         full: 'Neeko_Passive.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'Inherent Glamour',
+      sanitizedDescription:
+        'Neeko can look like an ally champion. Champion combat or casting damaging spells breaks the disguise.'
     },
     range: 'Ranged'
   },

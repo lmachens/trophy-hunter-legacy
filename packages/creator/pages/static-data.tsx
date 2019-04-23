@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import getStaticData from '../api/getStaticData';
 import Page from '../layouts/Page';
+import riotApiVersion from '../shared/riot-api/version';
 import { JSONEditorProps } from '../types';
 
 const DynamicJSONEditor = dynamic<JSONEditorProps>(import('../components/JSONEditor') as any, {
@@ -9,7 +10,7 @@ const DynamicJSONEditor = dynamic<JSONEditorProps>(import('../components/JSONEdi
 });
 
 const StaticData = () => {
-  const [version, setVersion] = useState('9.6.1');
+  const [version, setVersion] = useState(riotApiVersion);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 

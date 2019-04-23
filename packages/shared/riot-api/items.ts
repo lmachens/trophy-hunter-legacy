@@ -1952,12 +1952,6 @@ const items: IItems = {
     tags: ['Health', 'MagicPenetration', 'SpellDamage'],
     stacks: 0
   },
-  '4001': {
-    id: 4001,
-    name: 'Ghostwalkers (Melee Only)',
-    sanitizedDescription: 'Enhances Movement Speed and grants temporary wall walking.',
-    tags: ['Boots']
-  },
   '4003': {
     id: 4003,
     name: 'Lifeline',
@@ -1969,12 +1963,6 @@ const items: IItems = {
     name: 'Spectral Cutlass',
     sanitizedDescription: 'Marks the ground, and returns you there after a few moments',
     tags: ['Armor', 'Damage', 'NonbootsMovement', 'ArmorPenetration']
-  },
-  '4026': {
-    id: 4026,
-    name: "Mariner's Vengeance",
-    sanitizedDescription: 'Allows champion to linger a few seconds after death.',
-    tags: ['Armor', 'Damage']
   },
   '4101': {
     id: 4101,
