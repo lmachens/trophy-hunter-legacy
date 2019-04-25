@@ -1,5 +1,9 @@
 # Change Log
 
+## [3.12.1] - 2019-04-25
+### Fixed
+- [trophy:theCougar] is obtainable on Twisted Treeline
+
 ## [3.12.0] - 2019-04-23
 ### Changed
 - Updated to Riot API version 9.8.1.

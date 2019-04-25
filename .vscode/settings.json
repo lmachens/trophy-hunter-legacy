@@ -5,7 +5,12 @@
   "search.exclude": {
     "**/node_modules": true,
     "**/.meteor/local": true,
-    "packages/**/shared": true,
+    "packages/api/shared": true,
+    "packages/app/shared": true,
+    "packages/creator/shared": true,
+    "packages/overwolf/shared": true,
+    "packages/shelf/shared": true,
+    "packages/www/shared": true,
     "dist": true,
     "**/.next": true
   },

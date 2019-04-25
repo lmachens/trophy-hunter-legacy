@@ -8,6 +8,14 @@ import champions from '../../riot-api/champions';
 const turretRange = 500;
 
 export default function extendParticipantTimelineStats(extendedMatchResult, participant) {
+  // Check if lane is unknown and the participant has smite (11)
+  if (
+    participant.timeline.lane === 'NONE' &&
+    (participant.spell1Id === 11 || participant.spell2Id === 11)
+  ) {
+    participant.timeline.lane = 'JUNGLE';
+  }
+
   const events = extendedMatchResult.events;
 
   const championIdsByParticipantId = {};
@@ -216,11 +224,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
   }
 
   // test for the cougar
-  if (
-    extendedMatchResult.isSummonersRift &&
-    participant.timeline.lane === 'JUNGLE' &&
-    participant.timeline.goldPerMinDeltas
-  ) {
+  if (participant.timeline.lane === 'JUNGLE' && participant.timeline.goldPerMinDeltas) {
     const goldAt10 = participant.timeline.goldPerMinDeltas['0-10'] * 10;
     const otherJungler = participant.opponentTeam.participants.find(
       player => player.timeline.lane === 'JUNGLE'

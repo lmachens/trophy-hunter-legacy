@@ -18,7 +18,7 @@ Earn trophies while playing League of Legends, view information about your teamm
 
 ## Download
 
-You can download the app from in the [Overwolf App Store](https://www.overwolf.com/app/trophy_hunter-trophy_hunter).
+You can download the app from the [Overwolf App Store](https://www.overwolf.com/app/trophy_hunter-trophy_hunter).
 
 ## Features
 
