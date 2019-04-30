@@ -1,7 +1,7 @@
 import { Button, Link } from '@material-ui/core';
 import { ButtonProps } from '@material-ui/core/Button';
 import React, { FunctionComponent } from 'react';
-import matomo from 'utilities/matomo';
+import { track } from 'utilities/matomo';
 
 interface IDownloadButtonProps extends ButtonProps {
   className?: string;
@@ -9,7 +9,7 @@ interface IDownloadButtonProps extends ButtonProps {
 
 const DownloadButton: FunctionComponent<IDownloadButtonProps> = ({ className, ...props }) => {
   const handleClick = () => {
-    matomo.track({
+    track({
       url: location.href,
       action_name: 'Download/App',
       download: 'https://download.overwolf.com/install/Download?PartnerId=3707'

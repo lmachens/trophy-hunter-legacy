@@ -1,5 +1,20 @@
-import MatomoTracker from 'matomo-tracker';
+import https from 'https';
+import querystring from 'querystring';
 
-const matomo = new MatomoTracker(process.env.MATOMO_ID, process.env.MATOMO_URL);
+export const track = (options: string | any) => {
+  if (typeof options === 'string') {
+    options = {
+      url: options
+    };
+  }
 
-export default matomo;
+  // Set mandatory options
+  options = options || {};
+  options.idsite = process.env.MATOMO_ID;
+  options.rec = 1;
+
+  const requestUrl = process.env.MATOMO_URL + '?' + querystring.stringify(options);
+
+  const req = https.get(requestUrl);
+  req.end();
+};

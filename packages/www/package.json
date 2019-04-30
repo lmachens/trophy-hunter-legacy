@@ -17,7 +17,6 @@
     "isomorphic-unfetch": "3.0.0",
     "lodash.groupby": "4.6.0",
     "lodash.zip": "4.2.0",
-    "matomo-tracker": "^2.2.1",
     "next": "8.0.3",
     "node-cache": "4.2.0",
     "nprogress": "0.2.0",

@@ -3167,11 +3167,6 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-matomo-tracker@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/matomo-tracker/-/matomo-tracker-2.2.1.tgz#bd61c32e8b9e8b4825e9dc9dc784cb598ef2169c"
-  integrity sha512-l81WwBbZX09WGhh4yMOmknO8vFJVWtI6hDFrowoqQIoINrKKn11RVfJYVpLHEdA/EUbXcqLsRRNCKeLAag7Q6w==
-
 maximatch@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/maximatch/-/maximatch-0.1.0.tgz#86cd8d6b04c9f307c05a6b9419906d0360fb13a2"
