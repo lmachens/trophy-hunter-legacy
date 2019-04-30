@@ -1,7 +1,7 @@
 const twistedFate1 = {
   title: 'Path Of The Card Master',
   name: 'twistedFate1',
-  championId: 157,
+  championId: 4,
   leaves: [
     {
       trophyName: 'flail',
