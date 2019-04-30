@@ -1,5 +1,8 @@
 # Change Log
 
+### Added
+- New trees for Neeko, Twisted Fate, Xin Zhao, Yasuo and Yorick
+
 ## [3.12.1] - 2019-04-25
 ### Fixed
 - [trophy:theCougar] is obtainable on Twisted Treeline
