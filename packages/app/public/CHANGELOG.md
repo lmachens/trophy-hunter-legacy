@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.12.1] - 2019-05-01
 ### Added
 - New trees for Neeko, Twisted Fate, Xin Zhao, Yasuo and Yorick
 
