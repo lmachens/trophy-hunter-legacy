@@ -1,4 +1,5 @@
 import { features } from '/imports/api/features';
+import calculateLastMatches from './calculateLastMatches.ts';
 
 const calculateFeatures = (extendedMatch, trophyHunter) => {
   const obtainedFeatures = {};
@@ -50,6 +51,13 @@ const calculateFeatures = (extendedMatch, trophyHunter) => {
         break;
     }
   });
+
+  const lastMatches = calculateLastMatches({
+    participant: extendedMatch.participant,
+    lastMatches: trophyHunter.features.lastMatches
+  });
+  obtainedFeatures.lastMatches = lastMatches;
+  trophyHunter.features.lastMatches = lastMatches;
 
   return obtainedFeatures;
 };

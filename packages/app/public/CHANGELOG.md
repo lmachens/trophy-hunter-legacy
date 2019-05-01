@@ -1,5 +1,12 @@
 # Change Log
 
+### Added
+- New trophies [trophy:roleMaster] and [trophy:oneTrickPony].
+### Changed
+- Reduce difficulty of [trophy:uncleScrooge] (required gold from 30000 to 28000).
+- Reduce difficulty of [trophy:thePirate] (two instead of three teammates).
+- Reduce difficulty of [trophy:theSheriff] (six instead of seven shutdown kills).
+
 ## [3.12.1] - 2019-05-01
 ### Added
 - New trees for Neeko, Twisted Fate, Xin Zhao, Yasuo and Yorick
