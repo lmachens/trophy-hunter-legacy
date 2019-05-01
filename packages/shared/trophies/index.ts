@@ -102,6 +102,7 @@ import noxianWarfare from './definitions/noxianWarfare';
 import nurturing from './definitions/nurturing';
 import octopus from './definitions/octopus';
 import omnipresent from './definitions/omnipresent';
+import oneTrickPony from './definitions/oneTrickPony';
 import overfed from './definitions/overfed';
 import overload from './definitions/overload';
 import pentaAssist from './definitions/pentaAssist';
@@ -125,6 +126,7 @@ import revenge from './definitions/revenge';
 import rivalry from './definitions/rivalry';
 import rockSolid from './definitions/rockSolid';
 import rockSurfing from './definitions/rockSurfing';
+import roleMaster from './definitions/roleMaster';
 import sai from './definitions/sai';
 import sandsOfTime from './definitions/sandsOfTime';
 import sasquatch from './definitions/sasquatch';
@@ -327,6 +329,7 @@ const trophies: Trophies = {
   nurturing,
   octopus,
   omnipresent,
+  oneTrickPony,
   overfed,
   overload,
   pentaAssist,
@@ -349,6 +352,7 @@ const trophies: Trophies = {
   rivalry,
   rockSolid,
   rockSurfing,
+  roleMaster,
   sai,
   sandsOfTime,
   sasquatch,
