@@ -295,13 +295,6 @@ const items: IItems = {
     sanitizedDescription: 'Restores Health over time. Refills at shop.',
     tags: ['HealthRegen', 'Consumable', 'Active', 'Lane', 'Jungle']
   },
-  '2032': {
-    id: 2032,
-    name: "Hunter's Potion",
-    sanitizedDescription:
-      'Restores Health and Mana over time - Refills at shop and has increased capacity',
-    tags: ['HealthRegen', 'ManaRegen', 'Consumable', 'Active', 'Jungle']
-  },
   '2033': {
     id: 2033,
     name: 'Corrupting Potion',

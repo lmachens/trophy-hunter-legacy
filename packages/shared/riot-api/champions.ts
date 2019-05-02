@@ -580,8 +580,9 @@ const champions: IChampions = {
       image: {
         full: 'Kayle_P.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'Divine Ascent',
+      sanitizedDescription:
+        "Kayle's attacks are empowered by the heavens as she levels up and spends skill points. Her wings are lit aflame as she progressively gains Attack Speed, Movement Speed towards enemies, waves of fire on her attacks, Attack Range, and True Damage."
     },
     range: 'ShapeShifter'
   },
@@ -876,11 +877,11 @@ const champions: IChampions = {
       {
         name: 'Starcall',
         sanitizedDescription:
-          'A star falls from the sky at the target location dealing magic damage and slowing enemies. If an enemy champion is hit by Starcall, Soraka recovers health and gains movement speed when moving away from enemy champions.',
+          'A star falls from the sky at the target location dealing magic damage and slowing enemies. If an enemy champion is hit by Starcall, Soraka recovers health.',
         image: {
           full: 'SorakaQ.png'
         },
-        cooldownBurn: '5'
+        cooldownBurn: '8/7/6/5/4'
       },
       {
         name: 'Astral Infusion',
@@ -898,7 +899,7 @@ const champions: IChampions = {
         image: {
           full: 'SorakaE.png'
         },
-        cooldownBurn: '24/22/20/18/16'
+        cooldownBurn: '20/19/18/17/16'
       },
       {
         name: 'Wish',
@@ -1400,7 +1401,7 @@ const champions: IChampions = {
         image: {
           full: 'MorganaE.png'
         },
-        cooldownBurn: '23/21/19/17/15'
+        cooldownBurn: '26/24/22/20/18'
       },
       {
         name: 'Soul Shackles',
@@ -1416,8 +1417,9 @@ const champions: IChampions = {
       image: {
         full: 'FallenAngel_Empathize.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'Soul Siphon',
+      sanitizedDescription:
+        'Morgana drains spirit from her enemies, healing as she deals damage to champions, large minions, and large monsters.'
     },
     range: 'Ranged'
   },
@@ -2743,7 +2745,7 @@ const champions: IChampions = {
       {
         name: 'Static Field',
         sanitizedDescription:
-          'Passively causes lightning bolts to damage a nearby enemy. Additionally, Blitzcrank can activate this ability to damage nearby enemies and silence them for 0.5 seconds, but doing so removes the passive lightning until Static Field becomes available again.',
+          'Enemies attacked by Blitzcrank are marked and take lightning damage after 3 seconds. Additionally, Blitzcrank can activate this ability to damage nearby enemies and silence them for 0.5 seconds.',
         image: {
           full: 'StaticField.png'
         },
@@ -2754,9 +2756,9 @@ const champions: IChampions = {
       image: {
         full: 'Blitzcrank_ManaBarrier.png'
       },
-      name: 'Mana Barrier',
+      name: '',
       sanitizedDescription:
-        "When Blitzcrank's life is brought below 20% health, he activates Mana Barrier. This creates a mana shield equal to 50% of his mana for 10 seconds. Mana Barrier can only occur once every 90 seconds."
+        "When Blitzcrank's life is brought below 20% health, he activates Mana Barrier. This creates a mana shield equal to 30% of his mana for 10 seconds. Mana Barrier can only occur once every 90 seconds."
     },
     range: 'Melee'
   },
@@ -3074,7 +3076,7 @@ const champions: IChampions = {
         image: {
           full: 'JarvanIVDemacianStandard.png'
         },
-        cooldownBurn: '11'
+        cooldownBurn: '12'
       },
       {
         name: 'Cataclysm',
@@ -4178,7 +4180,7 @@ const champions: IChampions = {
         image: {
           full: 'AkaliW.png'
         },
-        cooldownBurn: '21/19/17/15/13'
+        cooldownBurn: '25/22/19/16/13'
       },
       {
         name: 'Shuriken Flip',
@@ -4239,7 +4241,7 @@ const champions: IChampions = {
       {
         name: 'Lightning Rush',
         sanitizedDescription:
-          'Kennen morphs into a lightning form, enabling him to pass through units and apply a Mark of the Storm. Kennen gains defense and movement speed when entering this form, and attack speed when leaving it.',
+          'Kennen morphs into a lightning form, enabling him to pass through units and apply a Mark of the Storm. Kennen gains movement speed when entering this form, and attack speed when leaving it.',
         image: {
           full: 'KennenLightningRush.png'
         },
@@ -6835,7 +6837,7 @@ const champions: IChampions = {
         image: {
           full: 'TahmKenchQ.png'
         },
-        cooldownBurn: '5'
+        cooldownBurn: '8/7/6/5/4'
       },
       {
         name: 'Devour',
@@ -6844,7 +6846,7 @@ const champions: IChampions = {
         image: {
           full: 'TahmKenchW.png'
         },
-        cooldownBurn: '28/25/22/19/16'
+        cooldownBurn: '20'
       },
       {
         name: 'Thick Skin',
@@ -6862,7 +6864,7 @@ const champions: IChampions = {
         image: {
           full: 'TahmKenchNewR.png'
         },
-        cooldownBurn: '120/110/100'
+        cooldownBurn: '140/130/120'
       }
     ],
     passive: {
@@ -7168,7 +7170,7 @@ const champions: IChampions = {
         image: {
           full: 'AatroxQ.png'
         },
-        cooldownBurn: '16/15/14/13/12'
+        cooldownBurn: '14/12/10/8/6'
       },
       {
         name: 'Infernal Chains',
@@ -7177,11 +7179,12 @@ const champions: IChampions = {
         image: {
           full: 'AatroxW.png'
         },
-        cooldownBurn: '18/17/16/15/14'
+        cooldownBurn: '26/23/20/17/14'
       },
       {
         name: 'Umbral Dash',
-        sanitizedDescription: 'Aatrox lunges, gaining attack damage.',
+        sanitizedDescription:
+          'Passively, Aatrox heals when damaging enemy champions. On activation, he dashes in a direction.',
         image: {
           full: 'AatroxE.png'
         },
@@ -7190,11 +7193,11 @@ const champions: IChampions = {
       {
         name: 'World Ender',
         sanitizedDescription:
-          'Aatrox unleashes his demonic form, gaining attack damage and movement speed. Upon taking lethal damage, Aatrox will revive instead of dying, healing for a percentage of his maximum health.',
+          'Aatrox unleashes his demonic form, fearing nearby enemy minions and gaining attack damage, increased healing, and movement speed. If he gets a takedown, this effect is extended, and he revives upon taking lethal damage.',
         image: {
           full: 'AatroxR.png'
         },
-        cooldownBurn: '160/140/120'
+        cooldownBurn: '140/120/100'
       }
     ],
     passive: {
@@ -7203,7 +7206,7 @@ const champions: IChampions = {
       },
       name: 'Deathbringer Stance',
       sanitizedDescription:
-        'Aatrox deals bonus damage on his next attack and reduces heals and shields on the target.'
+        'Aatrox deals bonus damage on his next attack, healing for the damage dealt.'
     },
     range: 'Melee'
   },
@@ -7921,7 +7924,7 @@ const champions: IChampions = {
     ],
     passive: {
       image: {
-        full: 'Neeko_Passive.png'
+        full: 'Neeko_P.png'
       },
       name: 'Inherent Glamour',
       sanitizedDescription:

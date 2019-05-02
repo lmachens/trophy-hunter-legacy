@@ -44,7 +44,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerExhaust.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 240,
+      x: 144,
       y: 0,
       w: 48,
       h: 48
@@ -59,28 +59,12 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerFlash.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 288,
+      x: 192,
       y: 0,
       w: 48,
       h: 48
     },
     key: 'SummonerFlash'
-  },
-  '5': {
-    id: 5,
-    name: 'Backtrack',
-    description:
-      'Temporarily shields 75-330 (depending on champion level) damage from your champion. After 2.5 seconds the shield expires and your champion is teleported to safety. Melee champions travel extra distance.',
-    image: {
-      full: 'SummonerReturn.png',
-      sprite: 'spell0.png',
-      group: 'spell',
-      x: 240,
-      y: 48,
-      w: 48,
-      h: 48
-    },
-    key: 'SummonerReturn'
   },
   '6': {
     id: 6,
@@ -91,7 +75,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerHaste.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 336,
+      x: 240,
       y: 0,
       w: 48,
       h: 48
@@ -107,7 +91,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerHeal.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 384,
+      x: 288,
       y: 0,
       w: 48,
       h: 48
@@ -123,7 +107,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSmite.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 384,
+      x: 96,
       y: 48,
       w: 48,
       h: 48
@@ -139,8 +123,8 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerTeleport.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 48,
-      y: 96,
+      x: 240,
+      y: 48,
       w: 48,
       h: 48
     },
@@ -155,7 +139,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerMana.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 432,
+      x: 336,
       y: 0,
       w: 48,
       h: 48
@@ -171,7 +155,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerDot.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 192,
+      x: 96,
       y: 0,
       w: 48,
       h: 48
@@ -202,7 +186,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerPoroRecall.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 144,
+      x: 0,
       y: 48,
       w: 48,
       h: 48
@@ -218,7 +202,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerPoroThrow.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 192,
+      x: 48,
       y: 48,
       w: 48,
       h: 48
@@ -234,74 +218,12 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSnowball.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 0,
-      y: 96,
+      x: 192,
+      y: 48,
       w: 48,
       h: 48
     },
     key: 'SummonerSnowball'
-  },
-  '33': {
-    id: 33,
-    name: 'Nexus Siege: Siege Weapon Slot',
-    description:
-      'In Nexus Siege, Summoner Spells are replaced with Siege Weapon Slots. Spend Crystal Shards to buy single-use Siege Weapons from the item shop, then use your Summoner Spell keys to activate them!',
-    image: {
-      full: 'SummonerSiegeChampSelect1.png',
-      sprite: 'spell0.png',
-      group: 'spell',
-      x: 288,
-      y: 48,
-      w: 48,
-      h: 48
-    },
-    key: 'SummonerSiegeChampSelect1'
-  },
-  '34': {
-    id: 34,
-    name: 'Nexus Siege: Siege Weapon Slot',
-    description:
-      'In Nexus Siege, Summoner Spells are replaced with Siege Weapon Slots. Spend Crystal Shards to buy single-use Siege Weapons from the item shop, then use your Summoner Spell keys to activate them!',
-    image: {
-      full: 'SummonerSiegeChampSelect2.png',
-      sprite: 'spell0.png',
-      group: 'spell',
-      x: 336,
-      y: 48,
-      w: 48,
-      h: 48
-    },
-    key: 'SummonerSiegeChampSelect2'
-  },
-  '35': {
-    id: 35,
-    name: 'Disabled Summoner Spells',
-    description: 'Summoner spells are disabled in this mode.',
-    image: {
-      full: 'SummonerDarkStarChampSelect1.png',
-      sprite: 'spell0.png',
-      group: 'spell',
-      x: 96,
-      y: 0,
-      w: 48,
-      h: 48
-    },
-    key: 'SummonerDarkStarChampSelect1'
-  },
-  '36': {
-    id: 36,
-    name: 'Disabled Summoner Spells',
-    description: 'Summoner spells are disabled in this mode.',
-    image: {
-      full: 'SummonerDarkStarChampSelect2.png',
-      sprite: 'spell0.png',
-      group: 'spell',
-      x: 144,
-      y: 0,
-      w: 48,
-      h: 48
-    },
-    key: 'SummonerDarkStarChampSelect2'
   },
   '39': {
     id: 39,
@@ -311,7 +233,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSnowURFSnowball_Mark.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 432,
+      x: 144,
       y: 48,
       w: 48,
       h: 48
@@ -327,28 +249,12 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerOdysseyRevive.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 96,
-      y: 48,
+      x: 432,
+      y: 0,
       w: 48,
       h: 48
     },
     key: 'SummonerOdysseyRevive'
-  },
-  '51': {
-    id: 51,
-    name: 'Ghost',
-    description:
-      'Your champion gains increased Movement Speed and can move through units for 10 seconds. Grants a maximum of 28-45% (depending on champion level) Movement Speed after accelerating for 2 seconds.',
-    image: {
-      full: 'SummonerOdysseyGhost.png',
-      sprite: 'spell0.png',
-      group: 'spell',
-      x: 48,
-      y: 48,
-      w: 48,
-      h: 48
-    },
-    key: 'SummonerOdysseyGhost'
   },
   '52': {
     id: 52,
@@ -359,8 +265,8 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerOdysseyFlash.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 0,
-      y: 48,
+      x: 384,
+      y: 0,
       w: 48,
       h: 48
     },
