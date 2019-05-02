@@ -4,9 +4,8 @@ import {
   matchedMatchModes
 } from '/imports/shared/riot-api/gameConstants.ts';
 
-import { Button } from '../../components/generic';
 import LoadingComponent from '../../components/loading/LoadingComponent';
-import { OpenInNewIcon } from '../../components/icons';
+import Role from '../../components/Role';
 import PropTypes from 'prop-types';
 import Timeline from '../../components/Timeline';
 import TrophiesObtained from '../../components/TrophiesObtained';
@@ -179,6 +178,10 @@ class Match extends Component {
         <span style={{ color: universeTheme.palette[win ? 'win' : 'loss'] }}>
           {win ? 'won' : 'lost'}!
         </span>
+        <Role
+          role={extendedMatchResult.participant.timeline.role}
+          lane={extendedMatchResult.participant.timeline.lane}
+        />
       </span>
     );
   }

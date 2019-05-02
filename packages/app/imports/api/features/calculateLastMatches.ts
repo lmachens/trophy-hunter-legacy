@@ -1,3 +1,5 @@
+import normalizeRole from '../../shared/matches/normalizeRole';
+
 const calculateRoleMasterStreak = lastMatches => {
   const wonAsTop = lastMatches.find(
     lastMatch => lastMatch.role === 'TOP' && lastMatch.win && !lastMatch.roleMasterStreak
@@ -32,7 +34,7 @@ const calculateLastMatches = ({ participant, lastMatches = [] }) => {
     : 0;
   const match = {
     championId: participant.championId,
-    role: lane === 'BOTTOM' ? role : lane,
+    role: normalizeRole({ role, lane }),
     win,
     winningStreak,
     roleMasterStreak: false

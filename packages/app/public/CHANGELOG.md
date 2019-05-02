@@ -2,6 +2,7 @@
 
 ### Added
 - New trophies [trophy:roleMaster] and [trophy:oneTrickPony].
+- Show role in match details.
 ### Changed
 - Reduce difficulty of [trophy:uncleScrooge] (required gold from 30000 to 28000).
 - Reduce difficulty of [trophy:thePirate] (two instead of three teammates).
