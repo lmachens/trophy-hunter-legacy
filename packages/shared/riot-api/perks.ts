@@ -86,7 +86,7 @@ const perks: IPerks = {
     name: 'Relentless Hunter',
     shortDesc: 'Unique takedowns grant permanent out of combat MS. ',
     longDesc:
-      'Gain 8 out of combat Movement Speed plus 8 per Bounty Hunter stack.Bounty Hunter stacks are earned the first time you get a takedown on each enemy champion.'
+      'Gain 10 out of combat Movement Speed plus 9 per Bounty Hunter stack.Bounty Hunter stacks are earned the first time you get a takedown on each enemy champion.'
   },
   '8106': {
     id: 8106,
@@ -95,7 +95,7 @@ const perks: IPerks = {
     name: 'Ultimate Hunter',
     shortDesc: 'Unique takedowns grant permanent cooldown reduction on your Ultimate. ',
     longDesc:
-      'Your ultimate gains 5% reduced cooldown, plus an additional 3% per Bounty Hunter stack.Bounty Hunter stacks are earned the first time you get a takedown on each enemy champion.'
+      'Your ultimate gains 5% reduced cooldown, plus an additional 4% per Bounty Hunter stack.Bounty Hunter stacks are earned the first time you get a takedown on each enemy champion.'
   },
   '8112': {
     id: 8112,
@@ -113,9 +113,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Domination/GhostPoro/GhostPoro.png',
     name: 'Ghost Poro',
     shortDesc:
-      'When your wards expire, they leave behind a Ghost Poro. The Ghost Poro grants vision until discovered. Gain permanent AD or AP, adaptive for each Ghost Poro spawned plus bonus upon completion.',
+      'When your wards expire, they leave behind a Ghost Poro. The Ghost Poro grants vision until discovered. Gain permanent AD or AP, adaptive for each Ghost Poro and when your Ghost Poro spots an enemy champion, plus bonus upon completion.',
     longDesc:
-      'When your wards expire, they leave behind a Ghost Poro, which grants vision for 60s. Nearby enemy champions scare the Ghost Poro away.Gain an adaptive bonus of 1.2 Attack Damage or 2 Ability Power for every Ghost Poro spawned, up to 10. After spawning 10 poros, additionally gain 10 adaptive force.'
+      'When your wards expire, they leave behind a Ghost Poro, which grants vision for 60s. Nearby enemy champions scare the Ghost Poro away.Gain an adaptive bonus of 1.2 Attack Damage or 2 Ability Power for every Ghost Poro spawned and when your Ghost Poro spots an enemy champion up to 10 stacks. After gaining 10 stacks, additionally gain 10 adaptive force.'
   },
   '8124': {
     id: 8124,
@@ -134,7 +134,7 @@ const perks: IPerks = {
     name: 'Cheap Shot',
     shortDesc: 'Deal bonus true damage to enemy champions with impaired movement or actions. ',
     longDesc:
-      'Damaging champions with impaired movement or actions deals 8 - 40 bonus true damage (based on level).Cooldown: 4sActivates on damage occurring after the impairment.'
+      'Damaging champions with impaired movement or actions deals 10 - 45 bonus true damage (based on level).Cooldown: 4sActivates on damage occurring after the impairment.'
   },
   '8128': {
     id: 8128,
@@ -283,8 +283,9 @@ const perks: IPerks = {
     key: 'Celerity',
     icon: 'perk-images/Styles/Sorcery/Celerity/CelerityTemp.png',
     name: 'Celerity',
-    shortDesc: 'All movement speed bonuses are 10% more effective on you.',
-    longDesc: 'All movement bonuses are 10% more effective on you.'
+    shortDesc:
+      'All movement speed bonuses are 7% more effective on you and gain 1% Movement Speed.',
+    longDesc: 'All movement bonuses are 7% more effective on you and gain 1% Movement Speed.'
   },
   '8236': {
     id: 8236,
@@ -302,7 +303,7 @@ const perks: IPerks = {
     name: 'Scorch',
     shortDesc: 'Your first damaging ability hit every 10s burns champions.',
     longDesc:
-      'Your next damaging ability hit sets champions on fire dealing 10 - 30 bonus magic damage based on level after 1s.Cooldown: 10s'
+      'Your next damaging ability hit sets champions on fire dealing 15 - 35 bonus magic damage based on level after 1s.Cooldown: 10s'
   },
   '8242': {
     id: 8242,
@@ -339,9 +340,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Inspiration/MagicalFootwear/MagicalFootwear.png',
     name: 'Magical Footwear',
     shortDesc:
-      'You get free boots at 10 min but you cannot buy boots before then. Each takedown you get makes your boots come 30s sooner.',
+      'You get free boots at 12 min but you cannot buy boots before then. Each takedown you get makes your boots come 45s sooner.',
     longDesc:
-      'You get free Slightly Magical Boots at 10 min, but you cannot buy boots before then. For each takedown you acquire the boots 30s sooner.Slightly Magical Boots give you an additional +10 Movement Speed.'
+      'You get free Slightly Magical Boots at 12 min, but you cannot buy boots before then. For each takedown you acquire the boots 45s sooner.Slightly Magical Boots give you an additional +10 Movement Speed.'
   },
   '8306': {
     id: 8306,
@@ -465,9 +466,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Resolve/Conditioning/Conditioning.png',
     name: 'Conditioning',
     shortDesc:
-      'After 10 min gain +8 Armor and +8 Magic Resist and increase your Armor and Magic Resist by 5%.',
+      'After 10 min gain +9 Armor and +9 Magic Resist and increase your Armor and Magic Resist by 5%.',
     longDesc:
-      'After 10 min gain +8 Armor and +8 Magic Resist and increase your Armor and Magic Resist by 5%.'
+      'After 10 min gain +9 Armor and +9 Magic Resist and increase your Armor and Magic Resist by 5%.'
   },
   '8437': {
     id: 8437,
@@ -487,7 +488,7 @@ const perks: IPerks = {
     shortDesc:
       'After immobilizing an enemy champion gain defenses and later deal a burst of magic damage around you.',
     longDesc:
-      'After immobilizing an enemy champion, increase your Armor and Magic Resist by 70 - 120 for 2.5s. Then explode, dealing magic damage to nearby enemies.Damage: 10 - 120 (+3% of your maximum health) (+15% of your bonus attack damage) (+10% of your ability power)Cooldown: 35s'
+      'After immobilizing an enemy champion, increase your Armor and Magic Resist by 70 + 50% of your Bonus Resists for 2.5s. Then explode, dealing magic damage to nearby enemies.Damage: 10 - 120 (+4% of your maximum health)Cooldown: 35sResistance bonus from Aftershock capped at: 80-150 (based on level)'
   },
   '8444': {
     id: 8444,
@@ -553,9 +554,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Resolve/BonePlating/BonePlating.png',
     name: 'Bone Plating',
     shortDesc:
-      'After taking damage from an enemy champion, the next 3 spells or attacks you receive from them deal 25-50 less damage.Duration: 1.5sCooldown: 45s',
+      'After taking damage from an enemy champion, the next 3 spells or attacks you receive from them deal 30-60 less damage.Duration: 1.5sCooldown: 45s',
     longDesc:
-      'After taking damage from an enemy champion, the next 3 spells or attacks you receive from them deal 25-50 less damage.Duration: 1.5sCooldown: 45s'
+      'After taking damage from an enemy champion, the next 3 spells or attacks you receive from them deal 30-60 less damage.Duration: 1.5sCooldown: 45s'
   },
   '9101': {
     id: 9101,

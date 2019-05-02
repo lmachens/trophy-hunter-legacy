@@ -6,6 +6,7 @@
 - Reduce difficulty of [trophy:uncleScrooge] (required gold from 30000 to 28000).
 - Reduce difficulty of [trophy:thePirate] (two instead of three teammates).
 - Reduce difficulty of [trophy:theSheriff] (six instead of seven shutdown kills).
+- Updated to Riot API version 9.9.1.
 
 ## [3.12.1] - 2019-05-01
 ### Added
