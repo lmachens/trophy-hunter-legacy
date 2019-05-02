@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.13.0] - 2019-05-02
 ### Added
 - New trophies [trophy:roleMaster] and [trophy:oneTrickPony].
 - Show role in match details.
@@ -12,8 +13,6 @@
 ## [3.12.1] - 2019-05-01
 ### Added
 - New trees for Neeko, Twisted Fate, Xin Zhao, Yasuo and Yorick
-
-## [3.12.1] - 2019-04-25
 ### Fixed
 - [trophy:theCougar] is obtainable on Twisted Treeline
 
