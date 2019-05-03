@@ -15,11 +15,13 @@ const oneTrickPony = {
     }
     const lastMatch = lastMatches[0];
     // Do not obtain this trophy on a winning streak of 6,7,8,9
-    if (lastMatch.win && lastMatch.winningStreak % 5 !== 0) {
+    if (lastMatch.winningStreak % 5 !== 0) {
       return false;
     }
 
-    const wonAll = lastMatches.every(match => match.championId === lastMatch.championId);
+    const wonAll = lastMatches.every(
+      match => match.championId === lastMatch.championId && lastMatch.win
+    );
 
     return wonAll;
   },
