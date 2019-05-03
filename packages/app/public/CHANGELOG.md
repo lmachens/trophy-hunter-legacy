@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.14.0] - 2019-05-03
 ### Changed
 - Updated core modules for better server stability
 ### Fixed
