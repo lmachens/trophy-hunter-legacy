@@ -2,6 +2,8 @@
 
 ### Changed
 - Updated core modules for better server stability
+### Fixed
+- Fallback to Carry if it is not possible to detect Bottom Carry or Support.
 
 ## [3.13.0] - 2019-05-02
 ### Added

@@ -11,6 +11,7 @@ const normalizeRole = ({ role, lane }) => {
         return JUNGLE;
       }
       break;
+    case 'DUO':
     case 'DUO_CARRY':
       if (lane === 'BOTTOM') {
         return DUO_CARRY;
@@ -28,8 +29,6 @@ const normalizeRole = ({ role, lane }) => {
       if (lane === 'MIDDLE') {
         return MIDDLE;
       }
-      break;
-    case 'DUO':
       break;
   }
   return null;
