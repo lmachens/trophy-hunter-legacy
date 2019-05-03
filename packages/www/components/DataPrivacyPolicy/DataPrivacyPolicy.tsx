@@ -16,7 +16,7 @@ const DataPrivacyPolicy = () => {
   return (
     <Paper className={classes.container}>
       <Typography variant="h4">Privacy Policy</Typography>
-      <Typography>
+      <Typography paragraph>
         Personal data (usually referred to just as "data" below) will only be processed by us to the
         extent necessary and for the purpose of providing a functional and user-friendly website,
         including its contents, and the services offered there.
@@ -40,13 +40,13 @@ const DataPrivacyPolicy = () => {
         subjects III. Information about the data processing
       </Typography>
       <Typography variant="h4">I. Information about us as controllers of your data</Typography>
-      <Typography>
+      <Typography paragraph>
         The party responsible for this website (the "controller") for purposes of data protection
         law is:
         <br />
         <br />
       </Typography>
-      <Typography>
+      <Typography paragraph>
         Leon Machens
         <br />
         Bismarckstr. 38
@@ -56,13 +56,13 @@ const DataPrivacyPolicy = () => {
         Germany
       </Typography>
       <Typography variant="h5">Contact</Typography>
-      <Typography>
+      <Typography paragraph>
         Tel.: +49 176 6477 7468
         <br />
-        E-Mail: leon@loltrophyhunter.com
+        E-Mail: leon.machens@gmail.com
       </Typography>
       <Typography variant="h4">II. The rights of users and data subjects</Typography>
-      <Typography component="div">
+      <Typography paragraph component="div">
         With regard to the data processing to be described in more detail below, users and data
         subjects have the right
         <ul>
@@ -101,6 +101,81 @@ const DataPrivacyPolicy = () => {
         Your data processed when using our website will be deleted or blocked as soon as the purpose
         for its storage ceases to apply, provided the deletion of the same is not in breach of any
         statutory storage obligations or unless otherwise stipulated below.
+      </Typography>
+      <Typography variant="h5">Cookies</Typography>
+      <Typography paragraph>
+        a) Session cookies
+        <br />
+        We use cookies on our website. Cookies are small text files or other storage technologies
+        stored on your computer by your browser. These cookies process certain specific information
+        about you, such as your browser, location data, or IP address.
+        <br />
+        This processing makes our website more user-friendly, efficient, and secure, allowing us,
+        for example, to display our website in different languages or to offer a shopping cart
+        function.
+        <br />
+        The legal basis for such processing is Art. 6 Para. 1 lit. b) GDPR, insofar as these cookies
+        are used to collect data to initiate or process contractual relationships.
+        <br />
+        If the processing does not serve to initiate or process a contract, our legitimate interest
+        lies in improving the functionality of our website. The legal basis is then Art. 6 Para. 1
+        lit. f) GDPR.
+        <br />
+        When you close your browser, these session cookies are deleted.
+        <br />
+        b) Third-party cookies
+        <br />
+        If necessary, our website may also use cookies from companies with whom we cooperate for the
+        purpose of advertising, analyzing, or improving the features of our website.
+        <br />
+        Please refer to the following information for details, in particular for the legal basis and
+        purpose of such third-party collection and processing of data collected through cookies.
+        <br />
+        c) Disabling cookies
+        <br />
+        You can refuse the use of cookies by changing the settings on your browser. Likewise, you
+        can use the browser to delete cookies that have already been stored. However, the steps and
+        measures required vary, depending on the browser you use. If you have any questions, please
+        use the help function or consult the documentation for your browser or contact its maker for
+        support. Browser settings cannot prevent so-called flash cookies from being set. Instead,
+        you will need to change the setting of your Flash player. The steps and measures required
+        for this also depend on the Flash player you are using. If you have any questions, please
+        use the help function or consult the documentation for your Flash player or contact its
+        maker for support.
+        <br />
+        If you prevent or restrict the installation of cookies, not all of the functions on our site
+        may be fully usable.
+      </Typography>
+      <Typography variant="h5">Matomo (formerly: PIWIK)</Typography>
+      <Typography paragraph>
+        Our website uses Matomo (formerly: PIWIK). This is open-source software with which we can
+        analyze the use of our site. Data such as your IP address, the pages you visit, the website
+        from which you came (referrer URL), the duration of your visit, and the frequency of your
+        visits is processed.
+        <br />
+        Matomo stores a cookie on your device via your browser in order to collect this data. This
+        cookie is valid for one week.
+        <br />
+        The legal basis is Art. 6 Para. 1 lit. f) GDPR. Our legitimate interest lies in the analysis
+        and optimization of our website.
+        <br />
+        We use Matomo with the &quot;Automatically Anonymize Visitor IPs&quot; function. This
+        anonymization function truncates your IP address by two bytes so that it is impossible to
+        assign it to you or to the internet connection you are using.
+        <br />
+        If you do not agree to this processing, you have the option of preventing the installation
+        of cookies by making the appropriate settings in your browser. Further details can be found
+        in the section about cookies above.
+        <br />
+        In addition, you have the option of terminating the analysis of your usage behavior by
+        opting out. By confirming the link
+        <iframe
+          style={{ display: 'block', border: 0, height: 200, width: 600 }}
+          src="https://matomo.machens.cloud/index.php?module=CoreAdminHome&action=optOut&language=de&backgroundColor=&fontColor=ffffff&fontSize=1rem&fontFamily=%22Roboto%22%2C%20%22Helvetica%22%2C%20%22Arial%22%2C%20sans-serif"
+        />
+        a cookie is stored on your device via your browser to prevent any further analysis. Please
+        note, however, that you must click the above link again if you delete the cookies stored on
+        your end device.
       </Typography>
     </Paper>
   );

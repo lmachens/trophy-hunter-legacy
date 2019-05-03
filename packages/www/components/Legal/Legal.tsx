@@ -30,7 +30,7 @@ const Legal = () => {
       <Typography>
         Tel.: +49 176 6477 7468
         <br />
-        E-Mail: leon@loltrophyhunter.com
+        E-Mail: leon.machens@gmail.com
       </Typography>
       <Typography variant="h4">Disclaimer</Typography>
       <Typography variant="h5">Liability for content</Typography>
@@ -59,15 +59,15 @@ const Legal = () => {
       </Typography>
       <Typography variant="h5">Copyright</Typography>
       <Typography>
-        The operator of this site makes every effort to respect the copyrights of outside parties
-        and to employ his own material and material in the public domain. All content and material
-        on this site created by the site operator is governed by German copyright law. Downloads and
-        copies of this site may be made for private, non-commercial use only. Reproduction,
-        processing, distribution and any form of exploitation beyond that permitted by copyright law
-        requires the written consent of the author or creator concerned. Contributions by third
-        parties are identified as such. Should anyone become aware of a possible copyright
-        infringement, I kindly request that you inform me of such. Upon becoming aware of such a
-        violation I shall remove the respective content immediately.
+        I make every effort to respect the copyrights of outside parties and to employ my own
+        material and material in the public domain. All content and material on this site created by
+        me is governed by German copyright law. Downloads and copies of this site may be made for
+        private, non-commercial use only. Reproduction, processing, distribution and any form of
+        exploitation beyond that permitted by copyright law requires the written consent of the
+        author or creator concerned. Contributions by third parties are identified as such. Should
+        anyone become aware of a possible copyright infringement, I kindly request that you inform
+        me of such. Upon becoming aware of such a violation I shall remove the respective content
+        immediately.
       </Typography>
     </Paper>
   );
