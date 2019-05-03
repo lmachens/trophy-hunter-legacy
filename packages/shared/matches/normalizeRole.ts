@@ -5,23 +5,22 @@ const JUNGLE = 'JUNGLE';
 const TOP = 'TOP';
 
 const normalizeRole = ({ role, lane }) => {
+  if (lane === 'JUNGLE') {
+    return JUNGLE;
+  }
+
   switch (role) {
-    case 'NONE':
-      if (lane === 'JUNGLE') {
-        return JUNGLE;
-      }
-      break;
     case 'DUO':
     case 'DUO_CARRY':
-      if (lane === 'BOTTOM') {
-        return DUO_CARRY;
+      if (lane === 'MIDDLE') {
+        return MIDDLE;
       }
-      break;
+      if (lane === 'TOP') {
+        return TOP;
+      }
+      return DUO_CARRY;
     case 'DUO_SUPPORT':
-      if (lane === 'BOTTOM') {
-        return DUO_SUPPORT;
-      }
-      break;
+      return DUO_SUPPORT;
     case 'SOLO':
       if (lane === 'TOP') {
         return TOP;
@@ -29,9 +28,8 @@ const normalizeRole = ({ role, lane }) => {
       if (lane === 'MIDDLE') {
         return MIDDLE;
       }
-      break;
   }
-  return null;
+  return TOP;
 };
 
 export default normalizeRole;
