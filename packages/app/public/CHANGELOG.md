@@ -1,5 +1,8 @@
 # Change Log
 
+### Changed
+- Updated core modules for better server stability
+
 ## [3.13.0] - 2019-05-02
 ### Added
 - New trophies [trophy:roleMaster] and [trophy:oneTrickPony].
