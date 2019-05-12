@@ -307,6 +307,12 @@ async function refreshMatchForGameSession(gameSessionId, job) {
       // no -> only add it to gameSession
       trophyForGameSession.isNew = false;
       trophiesForGameSession.push(trophyForGameSession);
+      const trophyObtained = trophyHunter.trophiesObtained.find(
+        trophyObtained => trophyObtained.name === trophy.name
+      );
+      if (trophyObtained) {
+        trophyObtained.count++;
+      }
     } else {
       // yes -> add it to trophy hunter and mark it at new for the gameSession
       trophyHunter.trophiesObtained.push({

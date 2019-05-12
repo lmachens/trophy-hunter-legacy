@@ -1,5 +1,8 @@
 # Change Log
 
+### Fixed
+- Fixed stucked trophies counter.
+
 ## [3.14.0] - 2019-05-03
 ### Changed
 - Updated core modules for better server stability
