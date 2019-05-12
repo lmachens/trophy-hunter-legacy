@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.14.1] - 2019-05-12
 ### Fixed
 - Fixed stucked trophies counter.
 
