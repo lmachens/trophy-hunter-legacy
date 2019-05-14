@@ -273,13 +273,13 @@ class LauncherListener {
     }, 1000);
   };
 
-  listenOnLeagueClientChange = (fileId, status) => {
+  listenOnLeagueClientChange = (fileId, status, error) => {
     console.log('listenOnLeagueClientChange');
     if (fileId !== this.leagueClientLogFileIdentifier) {
       return;
     }
     if (!status) {
-      return console.log('something bad happened with: ' + fileId);
+      return console.log(`something bad happened with ${fileId}: ${error}`);
     }
   };
 
