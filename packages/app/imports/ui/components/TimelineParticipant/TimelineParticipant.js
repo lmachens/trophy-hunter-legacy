@@ -128,7 +128,7 @@ class TimelineParticipant extends Component {
 
     return (
       <div>
-        <span style={styles.championName}>{champion.name}</span>
+        <span style={styles.championName}>{champion ? champion.name : 'Unknown'}</span>
         <span style={summonerNameStyle}>{participantIdentity.player.summonerName}</span>
       </div>
     );

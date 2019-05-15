@@ -268,7 +268,7 @@ const champions: IChampions = {
         image: {
           full: 'XinZhaoQ.png'
         },
-        cooldownBurn: '9/8/7/6/5'
+        cooldownBurn: '7/6.5/6/5.5/5'
       },
       {
         name: 'Wind Becomes Lightning',
@@ -615,8 +615,7 @@ const champions: IChampions = {
       },
       {
         name: 'Wuju Style',
-        sanitizedDescription:
-          'Master Yi becomes skilled in the art of Wuju, passively increasing his Attack Damage. Activating Wuju Style grants bonus true damage on basic attacks, but the passive bonus is then lost while on cooldown.',
+        sanitizedDescription: 'Grants bonus true damage on basic attacks.',
         image: {
           full: 'WujuStyle.png'
         },
@@ -1289,7 +1288,7 @@ const champions: IChampions = {
         image: {
           full: 'TryndamereE.png'
         },
-        cooldownBurn: '13/12/11/10/9'
+        cooldownBurn: '12/11/10/9/8'
       },
       {
         name: 'Undying Rage',
@@ -4506,7 +4505,7 @@ const champions: IChampions = {
         image: {
           full: 'RivenTriCleave.png'
         },
-        cooldownBurn: '13'
+        cooldownBurn: '12/11.5/11/10.5/10'
       },
       {
         name: 'Ki Burst',
@@ -4522,7 +4521,7 @@ const champions: IChampions = {
         image: {
           full: 'RivenFeint.png'
         },
-        cooldownBurn: '10/9/8/7/6'
+        cooldownBurn: '14/13/12/11/10'
       },
       {
         name: 'Blade of the Exile',
@@ -7319,6 +7318,61 @@ const champions: IChampions = {
       name: "Shurima's Legacy",
       sanitizedDescription:
         'Azir can summon the Disc of the Sun from the ruins of allied or enemy turrets.'
+    },
+    range: 'Ranged'
+  },
+  '350': {
+    id: 350,
+    key: 'Yuumi',
+    name: 'Yuumi',
+    title: 'the Magical Cat',
+    image: {
+      full: 'Yuumi.png'
+    },
+    spells: [
+      {
+        name: 'Prowling Projectile',
+        sanitizedDescription:
+          'Yuumi fires a missile, dealing damge to the first target hit. It deals bonus damage and slows if it takes at least 1 second to get to its target.While Attached, the missile can be controlled with your cursor.',
+        image: {
+          full: 'YuumiQ.png'
+        },
+        cooldownBurn: '11/10/9/8/7/6'
+      },
+      {
+        name: 'You and Me!',
+        sanitizedDescription:
+          "Passively, Yuumi and her attached ally share some of each other's Adaptive Force. Actively, Yuumi dashes to a target ally, becoming untargetable from everything except turrets.",
+        image: {
+          full: 'YuumiW.png'
+        },
+        cooldownBurn: '0'
+      },
+      {
+        name: 'Zoomies',
+        sanitizedDescription:
+          "Heals Yuumi and gives a Movement Speed boost. If she's attached, she passes it to her ally instead.",
+        image: {
+          full: 'YuumiE.png'
+        },
+        cooldownBurn: '0.5'
+      },
+      {
+        name: 'Final Chapter',
+        sanitizedDescription:
+          'Yuumi channels seven waves of damage, rooting anyone hit by three or more. Yuumi can move, attach, and cast Zoomies! while channeling.',
+        image: {
+          full: 'YuumiR.png'
+        },
+        cooldownBurn: '130/110/90'
+      }
+    ],
+    passive: {
+      image: {
+        full: 'YuumiP.png'
+      },
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Ranged'
   },

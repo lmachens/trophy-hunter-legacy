@@ -50,7 +50,7 @@ const perks: IPerks = {
     shortDesc:
       'Gain stacks of adaptive force when attacking enemy champions. After reaching 5 stacks, convert a portion of your damage to true and heal for that amount.',
     longDesc:
-      'Attacks or spells that deal damage to an enemy champion grant 2-6 Adaptive Force (based on level) for 2s (8s for melee). Stacks up to 5 times.When fully stacked, 10% of your damage is converted to True Damage and you heal for that amount.'
+      'Attacks or spells that deal damage to an enemy champion grant 2-6 Adaptive Force (based on level) for 2s (8s for melee). Stacks up to 5 times.When fully stacked, 8% of your damage is converted to True Damage and you heal for that amount.'
   },
   '8014': {
     id: 8014,

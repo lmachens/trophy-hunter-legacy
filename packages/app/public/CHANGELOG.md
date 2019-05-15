@@ -1,8 +1,11 @@
 # Change Log
 
 ## [3.14.1] - 2019-05-12
+### Changed
+- Updated to Riot API version 9.10.1 with new champion Yuumi.
 ### Fixed
 - Fixed stucked trophies counter.
+- Crash when a new champion is released.
 
 ## [3.14.0] - 2019-05-03
 ### Changed
