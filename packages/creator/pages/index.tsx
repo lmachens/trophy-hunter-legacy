@@ -62,6 +62,7 @@ const Match = () => {
         });
 
         const stats = extendedMatchResult.participant.stats;
+        console.log(extendedMatchResult.team);
         const trophies = calculateTrophies({ extendedMatchResult });
         result[participantIdentity.player.summonerName] = {
           stats,

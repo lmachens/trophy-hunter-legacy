@@ -1,5 +1,9 @@
 # Change Log
 
+## [3.14.2] - 2019-05-12
+### Fixed
+- [trophy:theBlackFlag] and [trophy:chaliceOfRecovery] couldn't be achieved
+
 ## [3.14.1] - 2019-05-12
 ### Changed
 - Updated to Riot API version 9.10.1 with new champion Yuumi.

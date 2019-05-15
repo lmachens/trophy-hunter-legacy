@@ -11,7 +11,6 @@ export default function extendFeaturesParticipant(match, participant) {
   result.earliestElderDragon = participant.team.events.elderDragons
     ? Math.min(...participant.team.events.elderDragons.map(kill => kill.timestamp))
     : Infinity;
-  result.goldDeficitComeback = participant.stats.win ? participant.team.events.maxGoldDown : 0.0;
 
   // participant events
   result.earliestFirstTurret = participant.events.turretKills

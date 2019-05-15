@@ -8,7 +8,6 @@ export * from './_sr_maxDamageToChampions';
 export * from './_sr_maxDamageToChampionsPerMinute';
 export * from './_sr_maxGameDuration';
 export * from './_sr_maxGold';
-export * from './_sr_maxGoldDeficitComeback';
 export * from './_sr_maxGoldPerMin';
 export * from './_sr_maxKillParticipations';
 export * from './_sr_maxKillParticipationsPerMin';
