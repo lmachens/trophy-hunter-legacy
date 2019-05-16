@@ -1,4 +1,7 @@
 # Change Log
+## [3.14.3] - 2019-05-16
+### Added
+- New trees for Urgot, Trundle, Malzahar, Yuumi and Teemo
 
 ## [3.14.2] - 2019-05-12
 ### Fixed
