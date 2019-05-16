@@ -95,11 +95,14 @@ import syndra1 from './definitions/syndra1';
 import tahmKench1 from './definitions/tahmKench1';
 import taliyah1 from './definitions/taliyah1';
 import taric1 from './definitions/taric1';
+import teemo1 from './definitions/teemo1';
 import thresh1 from './definitions/thresh1';
 import tristana1 from './definitions/tristana1';
+import trundle1 from './definitions/trundle1';
 import twistedFate1 from './definitions/twistedFate1';
 import twitch1 from './definitions/twitch1';
 import udyr1 from './definitions/udyr1';
+import urgot1 from './definitions/urgot1';
 import varus1 from './definitions/varus1';
 import vayne1 from './definitions/vayne1';
 import veigar1 from './definitions/veigar1';
@@ -112,6 +115,7 @@ import xerath1 from './definitions/xerath1';
 import xinZhao1 from './definitions/xinZhao1';
 import yasuo1 from './definitions/yasuo1';
 import yorick1 from './definitions/yorick1';
+import yuumi1 from './definitions/yuumi1';
 import zac1 from './definitions/zac1';
 import zed1 from './definitions/zed1';
 import ziggs1 from './definitions/ziggs1';
@@ -121,10 +125,10 @@ import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
   urgot1,
-  Jungler1,
+  trundle1,
   malzahar1,
-  nSupport,
-  ADC1
+  yuumi1,
+  teemo1
 };
 
 export const expiredTrees = {
