@@ -53,6 +53,7 @@ import lissandra1 from './definitions/lissandra1';
 import lucian1 from './definitions/lucian1';
 import lulu1 from './definitions/lulu1';
 import lux1 from './definitions/lux1';
+import malzahar1 from './definitions/malzahar1';
 import malphite1 from './definitions/malphite1';
 import maokai1 from './definitions/maokai1';
 import masterYi1 from './definitions/masterYi1';
@@ -119,11 +120,11 @@ import zoe1 from './definitions/zoe1';
 import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
-  yorick1,
-  xinZhao1,
-  yasuo1,
-  neeko1,
-  twistedFate1
+  urgot1,
+  Jungler1,
+  malzahar1,
+  nSupport,
+  ADC1
 };
 
 export const expiredTrees = {
@@ -239,7 +240,12 @@ export const expiredTrees = {
   olaf1,
   velKoz1,
   vayne1,
-  zilean1
+  zilean1,
+  yorick1,
+  xinZhao1,
+  yasuo1,
+  neeko1,
+  twistedFate1
 };
 
 export const treeBonus = {
