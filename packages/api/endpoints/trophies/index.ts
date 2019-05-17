@@ -2,8 +2,9 @@ import axios from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
 import extendMatchResult from '../../shared/matches/extendMatchResult';
-import { getMatch, getTimeline } from '../../shared/th-api';
 import calculateTrophies from '../../shared/trophies/calculateTrophies';
+import { getMatch } from '../match';
+import { getTimeline } from '../timeline';
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,8 +20,7 @@ export default (req: IncomingMessage, res: ServerResponse) => {
   const matchPromise = getMatch({ platformId, matchId });
   const timelinePromise = getTimeline({ platformId, matchId });
 
-  axios
-    .all([matchPromise, timelinePromise])
+  Promise.all([matchPromise, timelinePromise])
     .then(
       axios.spread((match, timeline) => {
         match.timeline = timeline;

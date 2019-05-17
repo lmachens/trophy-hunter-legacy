@@ -1,14 +1,15 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
-import { getMatchList, getSummoner } from '../../shared/th-api';
+import { getMatchList } from '../matchlist';
+import { getSummoner } from '../summoner';
 
 export default (req: IncomingMessage, res: ServerResponse) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
-  const { platformId, summonerName }: any = parse(req.url, true).query;
+  const { platformId, summonerName } = parse(req.url, true).query;
 
-  if (!platformId || !Array.isArray(summonerName)) {
+  if (typeof platformId !== 'string' || typeof summonerName === 'string') {
     res.setHeader('Cache-Control', 's-maxage=31536000, max-age=31536000');
     res.writeHead(400);
     return res.end('Invalid query');

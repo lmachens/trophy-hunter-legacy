@@ -1,8 +1,12 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
-import mongo from '../../shared/mongo';
+import mongo from '../../utilities/mongo';
 
-const getTrophyHunter = async ({ region, summonerName }) => {
+interface GetTrophyHunterProps {
+  region: string;
+  summonerName: string;
+}
+export const getTrophyHunter = async ({ region, summonerName }: GetTrophyHunterProps) => {
   const db = await mongo('production');
 
   const collection = db.collection('TrophyHunters');

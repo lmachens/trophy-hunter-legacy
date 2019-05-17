@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { setup } from 'axios-cache-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
 
@@ -6,7 +6,19 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getSummoner = ({ platformId, summonerId, summonerName }) => {
+interface GetSummonerProps {
+  platformId: string;
+  summonerId?: string;
+  summonerName?: string;
+}
+
+const api = setup({
+  cache: {
+    maxAge: 3600 * 1000
+  }
+});
+
+export const getSummoner = ({ platformId, summonerId, summonerName }: GetSummonerProps) => {
   let url;
   if (summonerId) {
     url = `https://${platformId}.api.riotgames.com/lol/summoner/v4/summoners/${summonerId}?api_key=${
@@ -17,7 +29,7 @@ const getSummoner = ({ platformId, summonerId, summonerName }) => {
       summonerName
     )}?api_key=${process.env.LEAGUE_API_KEY}`;
   }
-  return axios.get(url).then(response => response.data);
+  return api.get(url).then(response => response.data);
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {

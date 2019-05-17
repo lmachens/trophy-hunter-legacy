@@ -25,7 +25,7 @@ const endpoints: Endpoints = {
   'champion-mastery': championMastery,
   'league-positions': leaguePositions,
   match,
-  'match-list': matchlist,
+  matchlist,
   matchup,
   'played-together': playedTogether,
   summoner,

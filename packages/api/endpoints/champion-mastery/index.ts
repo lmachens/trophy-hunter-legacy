@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { setup } from 'axios-cache-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
 
@@ -6,8 +6,24 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getChampionMastery = ({ platformId, summonerId, championId }) => {
-  return axios
+interface GetChampionMasteryProps {
+  platformId: string;
+  summonerId: string;
+  championId: string;
+}
+
+const api = setup({
+  cache: {
+    maxAge: 3600 * 1000
+  }
+});
+
+export const getChampionMastery = ({
+  platformId,
+  summonerId,
+  championId
+}: GetChampionMasteryProps) => {
+  return api
     .get(
       `https://${platformId}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${summonerId}/by-champion/${championId}?api_key=${
         process.env.LEAGUE_API_KEY

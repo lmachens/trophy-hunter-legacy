@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { setup } from 'axios-cache-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
 
@@ -6,7 +6,29 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getMatchList = ({ platformId, accountId, championId, beginTime, endIndex, queueIds }) => {
+interface GetMatchListProps {
+  platformId: string;
+  accountId: string;
+  championId?: string;
+  beginTime?: string;
+  endIndex?: string;
+  queueIds?: string[];
+}
+
+const api = setup({
+  cache: {
+    maxAge: 1200 * 1000
+  }
+});
+
+export const getMatchList = ({
+  platformId,
+  accountId,
+  championId,
+  beginTime,
+  endIndex,
+  queueIds
+}: GetMatchListProps) => {
   let url = `https://${platformId}.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?api_key=${
     process.env.LEAGUE_API_KEY
   }`;
@@ -24,7 +46,7 @@ const getMatchList = ({ platformId, accountId, championId, beginTime, endIndex, 
       url += `&queue=${queueId}`;
     });
   }
-  return axios.get(url).then(response => response.data);
+  return api.get(url).then(response => response.data);
 };
 
 export default (req: IncomingMessage, res: ServerResponse) => {

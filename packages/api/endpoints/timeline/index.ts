@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { setup } from 'axios-cache-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
 
@@ -6,8 +6,19 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getTimeline = ({ platformId, matchId }) => {
-  return axios
+interface GetTimelineProps {
+  platformId: string;
+  matchId: string;
+}
+
+const api = setup({
+  cache: {
+    maxAge: 3600 * 1000
+  }
+});
+
+export const getTimeline = ({ platformId, matchId }: GetTimelineProps) => {
+  return api
     .get(
       `https://${platformId}.api.riotgames.com/lol/match/v4/timelines/by-match/${matchId}?api_key=${
         process.env.LEAGUE_API_KEY

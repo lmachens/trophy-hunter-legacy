@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { setup } from 'axios-cache-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
 
@@ -6,8 +6,19 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getMatch = ({ platformId, matchId }) => {
-  return axios
+interface GetMatchProps {
+  platformId: string;
+  matchId: string;
+}
+
+const api = setup({
+  cache: {
+    maxAge: 3600 * 1000
+  }
+});
+
+export const getMatch = ({ platformId, matchId }: GetMatchProps) => {
+  return api
     .get(
       `https://${platformId}.api.riotgames.com/lol/match/v4/matches/${matchId}?api_key=${
         process.env.LEAGUE_API_KEY

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { setup } from 'axios-cache-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
 
@@ -6,8 +6,19 @@ if (!process.env.LEAGUE_API_KEY) {
   throw new Error('Missing env LEAGUE_API_KEY');
 }
 
-const getLeaguePositions = ({ platformId, summonerId }) => {
-  return axios
+interface GetLeaguePositionsProps {
+  platformId: string;
+  summonerId: string;
+}
+
+const api = setup({
+  cache: {
+    maxAge: 3600 * 1000
+  }
+});
+
+export const getLeaguePositions = ({ platformId, summonerId }: GetLeaguePositionsProps) => {
+  return api
     .get(
       `https://${platformId}.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${
         process.env.LEAGUE_API_KEY

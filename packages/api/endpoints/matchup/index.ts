@@ -1,10 +1,15 @@
-import axios from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
-import mongo from '../../shared/mongo';
-import { getMatch } from '../../shared/th-api';
+import mongo from '../../utilities/mongo';
+import { getMatch } from '../match';
 
-const getGameSessions = async ({ mapId, champ1Id, champ2Id }) => {
+interface GetGameSessionsProps {
+  mapId: number;
+  champ1Id: number;
+  champ2Id: number;
+}
+
+export const getGameSessions = async ({ mapId, champ1Id, champ2Id }: GetGameSessionsProps) => {
   const db = await mongo('production');
 
   const collection = db.collection('GameSessions');
@@ -63,8 +68,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         matchId: gameSession.game.gameId
       })
     );
-    axios
-      .all(matchPromises)
+    Promise.all(matchPromises)
       .then(matches => {
         const result = matches.map(({ gameId, participants }) => {
           let participant1 = participants.find(participant => participant.championId === champ1Id);
