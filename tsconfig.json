@@ -9,5 +9,6 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react"
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
