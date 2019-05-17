@@ -1,7 +1,7 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
 
-const apiEndpoint = process.env.MATCH_API_ENDPOINT || 'https://lol-api.th.gl/match';
+const apiEndpoint = process.env.MATCH_API_ENDPOINT || 'https://api-lol.th.gl/match';
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
 
-const apiEndpoint = process.env.TROPHY_HUNTER_API_ENDPOINT || 'https://lol-api.th.gl/trophy-hunter';
+const apiEndpoint = process.env.TROPHY_HUNTER_API_ENDPOINT || 'https://api-lol.th.gl/trophy-hunter';
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds

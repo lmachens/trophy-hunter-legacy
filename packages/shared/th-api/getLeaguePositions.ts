@@ -2,7 +2,7 @@ import axios from 'axios';
 import NodeCache from 'node-cache';
 
 const apiEndpoint =
-  process.env.LEAGUE_POSITIONS_API_ENDPOINT || 'https://lol-api.th.gl/league-positions';
+  process.env.LEAGUE_POSITIONS_API_ENDPOINT || 'https://api-lol.th.gl/league-positions';
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
