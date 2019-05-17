@@ -1,5 +1,5 @@
-import http from 'http';
-import { parse } from 'url';
+import compression from 'compression';
+import express from 'express';
 import activeGame from './endpoints/active-game';
 import championMastery from './endpoints/champion-mastery';
 import leaguePositions from './endpoints/league-positions';
@@ -34,30 +34,25 @@ const endpoints: Endpoints = {
   'trophy-hunter': trophyHunter
 };
 
-const hostname = '127.0.0.1';
 const port = 5000;
-http
-  .createServer((req, res) => {
-    if (req.url === '/favicon.ico') {
-      res.writeHead(204);
-      return res.end();
-    }
-    console.log(new Date(), req.url);
-    const { pathname = '' } = parse(req.url!);
-    const endpointName = pathname.substr(1);
-    const endpoint = endpoints[endpointName];
-    if (!endpoint) {
-      res.writeHead(400);
-      res.end(`Unknown endpoint ${req.url}`);
-      return;
-    }
+const app = express();
+app.use(compression());
 
-    return endpoint(req, res);
-  })
-  .listen(port, hostname, () => {
-    console.log('Trophy Hunter LoL API is running!');
+app.get('/', (_req, res) => {
+  res.send('Trophy Hunter LoL API');
+});
 
-    Object.keys(endpoints).forEach(endpoint => {
-      console.log(`http://${hostname}:${port}/${endpoint}`);
-    });
-  });
+Object.entries(endpoints).forEach(([route, handle]) => {
+  app.get(`/${route}`, handle);
+  console.log(`http://127.0.0.1:${port}/${route}`);
+});
+
+app.get('/favicon.ico', (_req, res) => {
+  res.writeHead(204);
+  return res.end();
+});
+
+app.listen(port, () => {
+  console.log('Trophy Hunter LoL API is running!');
+  console.log('NODE_ENV:', process.env.NODE_ENV);
+});

@@ -6,7 +6,6 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "preserveConstEnums": true,
@@ -14,7 +13,8 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": false,
-    "target": "esnext"
+    "target": "esnext",
+    "outDir": "./dist"
   },
   "exclude": ["node_modules"]
 }

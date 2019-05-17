@@ -4,19 +4,27 @@
   "version": "0.0.1",
   "license": "AGPL-3.0",
   "scripts": {
-    "dev": "ts-node-dev --preserve-symlinks -- server.ts"
+    "build": "rimraf dist && tsc -p tsconfig.json",
+    "dockerize": "docker build -t lmachens/th-lol-api .",
+    "dev": "ts-node-dev --preserve-symlinks -- server.ts",
+    "push": "docker push lmachens/th-lol-api",
+    "start": "cross-env NODE_ENV=production node dist/server.js"
   },
   "dependencies": {
     "axios": "0.18.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.0",
     "lodash.groupby": "4.6.0",
     "lodash.zip": "4.2.0",
     "mongodb": "3.2.4",
-    "node-cache": "4.2.0",
+    "node-cache": "^4.2.0",
     "request": "2.88.0"
   },
   "devDependencies": {
     "@types/mongodb": "3.1.27",
     "@types/node": "12.0.2",
+    "cross-env": "^5.2.0",
+    "rimraf": "^2.6.3",
     "ts-node-dev": "1.0.0-pre.39",
     "typescript": "3.4.5"
   }
