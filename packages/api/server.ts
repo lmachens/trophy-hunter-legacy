@@ -39,7 +39,8 @@ const app = express();
 app.use(compression());
 
 app.get('/', (_req, res) => {
-  res.send('Trophy Hunter LoL API');
+  res.writeHead(200);
+  res.end('Trophy Hunter LoL API');
 });
 
 Object.entries(endpoints).forEach(([route, handle]) => {

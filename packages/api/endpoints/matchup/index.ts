@@ -33,7 +33,7 @@ export const getGameSessions = async ({ mapId, champ1Id, champ2Id }: GetGameSess
         ]
       },
       {
-        fields: {
+        projection: {
           'game.gameId': 1,
           'game.platformId': 1
         }
