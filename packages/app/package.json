@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build": "meteor build dist --architecture os.linux.x86_64 --server-only",
     "start": "meteor run --settings settings.json --port 3000",
     "storybook": "start-storybook -p 6006"
   },

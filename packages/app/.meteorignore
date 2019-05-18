@@ -1,1 +1,3 @@
 *.stories.js
+.deploy
+dist
