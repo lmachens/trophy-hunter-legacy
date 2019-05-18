@@ -1,9 +1,12 @@
-import axios from 'axios';
+import { setup } from 'axios-cache-adapter';
 import https from 'https';
 
 const apiEndpoint = `${process.env.TH_LOL_API || 'https://api-lol.th.gl'}/active-game`;
-const instance = axios.create({
-  httpsAgent: new https.Agent({ ecdhCurve: 'auto' })
+const instance = setup({
+  httpsAgent: new https.Agent({ ecdhCurve: 'auto', rejectUnauthorized: false }),
+  cache: {
+    maxAge: 10 * 1000
+  }
 });
 
 const getActiveGame = ({ platformId, summonerId }) => {

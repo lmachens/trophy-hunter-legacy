@@ -131,8 +131,7 @@ Meteor.methods({
                 'matchDetails error',
                 platformId,
                 match.gameId,
-                error.message,
-                error.status
+                error.message
               );
               future.return(null);
             });
