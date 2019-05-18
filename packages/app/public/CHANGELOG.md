@@ -1,5 +1,9 @@
 # Change Log
 
+## [3.15.0] - 2019-05-12
+### Changed
+- Updated core packages for better stability.
+
 ## [3.14.2] - 2019-05-12
 ### Fixed
 - [trophy:theBlackFlag] and [trophy:chaliceOfRecovery] couldn't be achieved
