@@ -1,7 +1,11 @@
 import axios from 'axios';
+import https from 'https';
 import NodeCache from 'node-cache';
 
-const apiEndpoint = process.env.TROPHY_HUNTER_API_ENDPOINT || 'https://lol-api.th.gl/trophy-hunter';
+const apiEndpoint = `${process.env.TH_LOL_API || 'https://api-lol.th.gl'}/trophy-hunter`;
+const instance = axios.create({
+  httpsAgent: new https.Agent({ ecdhCurve: 'auto' })
+});
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
@@ -16,7 +20,7 @@ const getTrophyHunter = ({ region, summonerName }) => {
   }
   const url = `${apiEndpoint}?region=${region}&summonerName=${summonerName}`;
 
-  return axios
+  return instance
     .get(url)
     .then(response => {
       if (response.data) {

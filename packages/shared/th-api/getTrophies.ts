@@ -1,7 +1,11 @@
 import axios from 'axios';
+import https from 'https';
 import NodeCache from 'node-cache';
 
-const apiEndpoint = process.env.TROPHIES_API_ENDPOINT || 'https://lol-api.th.gl/trophies';
+const apiEndpoint = `${process.env.TH_LOL_API || 'https://api-lol.th.gl'}/trophies`;
+const instance = axios.create({
+  httpsAgent: new https.Agent({ ecdhCurve: 'auto' })
+});
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
@@ -14,7 +18,7 @@ const getTrophies = ({ platformId, matchId, summonerName, championId }) => {
   if (data) {
     return new Promise(resolve => resolve(data));
   }
-  return axios
+  return instance
     .get(
       `${apiEndpoint}?platformId=${platformId}&matchId=${matchId}&summonerName=${summonerName}&championId=${championId}`
     )

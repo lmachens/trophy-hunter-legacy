@@ -1,8 +1,11 @@
 import axios from 'axios';
+import https from 'https';
 import NodeCache from 'node-cache';
 
-const apiEndpoint =
-  process.env.LEAGUE_POSITIONS_API_ENDPOINT || 'https://lol-api.th.gl/league-positions';
+const apiEndpoint = `${process.env.TH_LOL_API || 'https://api-lol.th.gl'}/league-positions`;
+const instance = axios.create({
+  httpsAgent: new https.Agent({ ecdhCurve: 'auto' })
+});
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
@@ -21,7 +24,7 @@ const getLeaguePositions = ({ platformId, summonerId }) => {
   }
   const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}`;
 
-  return axios
+  return instance
     .get(url)
     .then(response => {
       if (response.data) {

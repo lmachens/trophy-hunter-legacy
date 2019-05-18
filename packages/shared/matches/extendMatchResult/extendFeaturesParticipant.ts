@@ -1,4 +1,4 @@
-export default function extendFeaturesParticipant(match, participant) {
+export default function extendFeaturesParticipant(_match, participant) {
   const result: any = {};
 
   // team events
