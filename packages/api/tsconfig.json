@@ -4,6 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "esModuleInterop": true,
+    "noEmit": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "noUnusedLocals": true,

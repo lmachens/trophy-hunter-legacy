@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "license": "AGPL-3.0",
   "scripts": {
-    "build": "rimraf dist && tsc -p tsconfig.json",
+    "build": "rimraf dist && tsc --noEmit false -p tsconfig.json",
     "dockerize": "docker build -t lmachens/th-lol-api .",
     "dev": "ts-node-dev --preserve-symlinks -- server.ts",
     "push": "docker push lmachens/th-lol-api",

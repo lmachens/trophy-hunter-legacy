@@ -56,4 +56,5 @@ app.get('/favicon.ico', (_req, res) => {
 app.listen(port, () => {
   console.log('Trophy Hunter LoL API is running!');
   console.log('NODE_ENV:', process.env.NODE_ENV);
+  console.log('Version:', process.version);
 });

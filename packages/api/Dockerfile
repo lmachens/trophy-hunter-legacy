@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:lts-alpine
 LABEL maintainer="leon.machens@gmail.com"
 
 EXPOSE 5000
