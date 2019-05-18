@@ -1,13 +1,22 @@
 {
   "compilerOptions": {
     "rootDir": "./",
-    "module": "commonjs",
-    "target": "esnext",
-    "moduleResolution": "node",
-    "strict": false,
-    "esModuleInterop": true,
+    "jsx": "react",
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react"
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "noEmit": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "skipLibCheck": true,
+    "strict": false,
+    "target": "esnext",
+    "outDir": "./dist"
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

@@ -18,7 +18,6 @@
     "lodash.groupby": "4.6.0",
     "lodash.zip": "4.2.0",
     "next": "8.0.3",
-    "node-cache": "4.2.0",
     "nprogress": "0.2.0",
     "react": "16.8.4",
     "react-dom": "16.8.4",
