@@ -1,7 +1,11 @@
 import axios from 'axios';
+import https from 'https';
 import NodeCache from 'node-cache';
 
-const apiEndpoint = process.env.TIMELINE_API_ENDPOINT || 'https://api-lol.th.gl/timeline';
+const apiEndpoint = `${process.env.TH_LOL_API || 'https://api-lol.th.gl'}/timeline`;
+const instance = axios.create({
+  httpsAgent: new https.Agent({ ecdhCurve: 'auto' })
+});
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
@@ -16,7 +20,7 @@ const getTimeline = ({ platformId, matchId }) => {
   }
   const url = `${apiEndpoint}?platformId=${platformId}&matchId=${matchId}`;
 
-  return axios
+  return instance
     .get(url)
     .then(response => {
       if (response.data) {

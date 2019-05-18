@@ -1,8 +1,11 @@
 import axios from 'axios';
+import https from 'https';
 import NodeCache from 'node-cache';
 
-const apiEndpoint =
-  process.env.CHAMPION_MASTERY_API_ENDPOINT || 'https://api-lol.th.gl/champion-mastery';
+const apiEndpoint = `${process.env.TH_LOL_API || 'https://api-lol.th.gl'}/champion-mastery`;
+const instance = axios.create({
+  httpsAgent: new https.Agent({ ecdhCurve: 'auto' })
+});
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
@@ -21,7 +24,7 @@ const getChampionMastery = ({ platformId, summonerId, championId }) => {
   }
   const url = `${apiEndpoint}?platformId=${platformId}&summonerId=${summonerId}&championId=${championId}`;
 
-  return axios
+  return instance
     .get(url)
     .then(response => {
       if (response.data) {

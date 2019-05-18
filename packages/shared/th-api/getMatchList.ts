@@ -1,8 +1,12 @@
 import axios from 'axios';
+import https from 'https';
 import NodeCache from 'node-cache';
 import { IMatchList } from '../riot-api/typings';
 
-const apiEndpoint = process.env.MATCHLIST_API_ENDPOINT || 'https://api-lol.th.gl/matchlist';
+const apiEndpoint = `${process.env.TH_LOL_API || 'https://api-lol.th.gl'}/matchlist`;
+const instance = axios.create({
+  httpsAgent: new https.Agent({ ecdhCurve: 'auto' })
+});
 
 const cache = new NodeCache({
   checkperiod: 120, // seconds
@@ -55,7 +59,7 @@ const getMatchList = ({
     return new Promise<IMatchList>(resolve => resolve(data));
   }
 
-  return axios
+  return instance
     .get(url)
     .then(response => {
       if (response.data) {
