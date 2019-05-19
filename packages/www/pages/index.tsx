@@ -1,5 +1,3 @@
-import './_bootstrap';
-
 import React from 'react';
 import Landing from '../components/Landing';
 import Page from '../layouts/Page';

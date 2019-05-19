@@ -1,5 +1,3 @@
-import './_bootstrap';
-
 import React from 'react';
 import Match from '../components/Match';
 import Page from '../layouts/Page';

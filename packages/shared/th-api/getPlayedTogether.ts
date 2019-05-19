@@ -10,7 +10,6 @@ const instance = setup({
 });
 
 const getPlayedTogether = ({ platformId, summonerNames }) => {
-  const data = cache.get(key);
   const encodedSummonerNames = summonerNames.map(
     summonerName => `&summonerName=${encodeURI(summonerName)}`
   );

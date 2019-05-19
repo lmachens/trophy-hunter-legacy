@@ -1,5 +1,3 @@
-import './_bootstrap';
-
 import axios from 'axios';
 import Summoner, { ISummonerProps } from 'components/Summoner';
 import Page from 'layouts/Page';

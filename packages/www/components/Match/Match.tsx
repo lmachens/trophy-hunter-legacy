@@ -20,7 +20,6 @@ interface MatchProps {
 
 const useStyles = makeStyles({
   container: {
-    padding: 12,
     marginBottom: 5
   },
   win: {
