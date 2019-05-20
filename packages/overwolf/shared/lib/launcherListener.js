@@ -148,10 +148,9 @@ class LauncherListener {
     }
     this.activeListening = true;
     console.log(`initializeListening ${launcher.path}`);
-    const installPath = launcher.path.substr(
-      0,
-      launcher.path.lastIndexOf('/League of Legends/') + 19
-    );
+    const rads = launcher.path.lastIndexOf('/RADS/');
+    const index = rads === -1 ? launcher.path.lastIndexOf('/LeagueClientUx') + 1 : rads + 1;
+    const installPath = launcher.path.substr(0, index);
     console.log(`install path: ${installPath}`);
     this.simpleIO.onFileListenerChanged.addListener(this.handleLeagueClientChange);
 
