@@ -1,6 +1,0 @@
-{
-  "version": 2,
-  "name": "th-shelf",
-  "alias": ["shelf.th.gl"],
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
-}
