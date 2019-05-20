@@ -9,7 +9,7 @@ import Screenshots from '../Screenshots/Screenshots';
 import TitleDivider from '../TitleDivider';
 import Trees from '../Trees';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   container: {
     textAlign: 'center'
   },
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   screenshots: {
     backgroundImage: 'url(/static/backgrounds/cartographer.png)'
   }
-}));
+});
 
 const demoProgresses = [
   [0, 1, 2, 4],
@@ -62,9 +62,7 @@ const Landing: FunctionComponent = () => {
       <Features />
       <section className={classNames(classes.trees, classes.section)} id="trees">
         <div className={classes.padding}>
-          <Typography variant="h3" color="default">
-            Monthly Trees
-          </Typography>
+          <Typography variant="h3">Monthly Trees</Typography>
           <TitleDivider />
           <Trees treeProgress={demoTreeProgress} customTree="cassiopeia1" />
         </div>
@@ -73,9 +71,7 @@ const Landing: FunctionComponent = () => {
         className={classNames(classes.screenshots, classes.section, classes.padding)}
         id="screenshots"
       >
-        <Typography variant="h3" color="default">
-          Screenshots
-        </Typography>
+        <Typography variant="h3">Screenshots</Typography>
         <TitleDivider />
         <Screenshots />
       </section>

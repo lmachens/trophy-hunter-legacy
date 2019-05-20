@@ -10,7 +10,6 @@ const instance = setup({
 });
 
 const getMatchup = ({ champ1Id, champ2Id, mapId }) => {
-  const key = `${champ1Id}&${champ2Id}&${mapId}`;
   const url = `${apiEndpoint}?champ1Id=${champ1Id}&champ2Id=${champ2Id}&mapId=${mapId}`;
 
   return instance

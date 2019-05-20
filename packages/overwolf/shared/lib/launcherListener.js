@@ -147,9 +147,11 @@ class LauncherListener {
       return;
     }
     this.activeListening = true;
-    console.log('initializeListening', launcher);
-    const installPath = launcher.path.substr(0, launcher.path.lastIndexOf('/RADS/') + 1);
-
+    console.log(`initializeListening ${launcher.path}`);
+    const rads = launcher.path.lastIndexOf('/RADS/');
+    const index = rads === -1 ? launcher.path.lastIndexOf('/LeagueClientUx') + 1 : rads + 1;
+    const installPath = launcher.path.substr(0, index);
+    console.log(`install path: ${installPath}`);
     this.simpleIO.onFileListenerChanged.addListener(this.handleLeagueClientChange);
 
     const leagueClientLogDirectory = `${installPath}Logs/LeagueClient Logs/`;
@@ -162,7 +164,7 @@ class LauncherListener {
             this.logFilename = filename;
             resolve(filename);
           } else {
-            console.log('No file found');
+            console.log(`No file found in ${leagueClientLogDirectory}`);
             resolve();
           }
         }

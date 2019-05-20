@@ -7,13 +7,6 @@ const { PHASE_PRODUCTION_SERVER } =
     : require('next-server/constants'); // Get values from `next-server` package when building on now v2
 
 module.exports = phase => {
-  if (phase === PHASE_PRODUCTION_SERVER) {
-    // Config used to run in production.
-    return {
-      target: 'serverless'
-    };
-  }
-
   const withTypescript = require('@zeit/next-typescript');
 
   return withTypescript({
@@ -26,6 +19,7 @@ module.exports = phase => {
       config.resolve.symlinks = false;
       return config;
     },
-    target: 'serverless'
+    target: 'server',
+    distDir: 'dist'
   });
 };

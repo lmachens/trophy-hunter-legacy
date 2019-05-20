@@ -1,5 +1,3 @@
-import './_bootstrap';
-
 import React from 'react';
 import DataPrivacyPolicy from '../components/DataPrivacyPolicy';
 import Page from '../layouts/Page';

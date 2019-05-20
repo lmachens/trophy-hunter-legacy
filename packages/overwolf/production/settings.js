@@ -1,7 +1,7 @@
 const settings = {
   name: 'Production',
-  domain: 'https://lol-app.th.gl',
-  overlayDomain: 'https://lol-app.th.gl/live',
+  domain: 'https://app.loltrophyhunter.com',
+  overlayDomain: 'https://app.loltrophyhunter.com/live',
   overlayHotkey: 'trophy_hunter_overlay'
 };
 

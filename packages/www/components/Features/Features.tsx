@@ -41,13 +41,15 @@ const useStyles = makeStyles({
     backgroundImage: 'url(/static/howling.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'left',
-    textAlign: 'left'
+    textAlign: 'left',
+    color: '#fff'
   },
   feature3: {
     backgroundImage: 'url(/static/freljord.jpg)',
     backgroundSize: 'cover',
     textAlign: 'right',
-    direction: 'rtl'
+    direction: 'rtl',
+    color: '#fff'
   },
   feature4: {
     backgroundImage: 'url(/static/garen.jpg)',
