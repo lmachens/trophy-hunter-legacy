@@ -36,6 +36,7 @@ import disruptor from './definitions/disruptor';
 import dominating from './definitions/dominating';
 import dominus from './definitions/dominus';
 import doubleKill from './definitions/doubleKill';
+import dracula from './definitions/dracula';
 import dragonSlayer from './definitions/dragonSlayer';
 import duelist from './definitions/duelist';
 import dusk from './definitions/dusk';
@@ -262,6 +263,7 @@ const trophies: Trophies = {
   dominating,
   dominus,
   doubleKill,
+  dracula,
   dragonSlayer,
   duelist,
   dusk,

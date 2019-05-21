@@ -3,6 +3,10 @@
 ### Added
 - New trees for Urgot, Trundle, Malzahar, Yuumi and Teemo
 
+## [3.16.0] - 2019-05-21
+### Added
+- New trophy [trophy:dracula].
+
 ## [3.15.0] - 2019-05-12
 ### Changed
 - Updated core packages for better stability.
