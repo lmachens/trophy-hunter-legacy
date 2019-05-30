@@ -546,7 +546,7 @@ const perks: IPerks = {
     shortDesc:
       "Guard allies you cast spells on and those that are very nearby. If you or a guarded ally would take damage, you're both hasted and granted a shield.",
     longDesc:
-      'Guard allies within 175 units of you, and allies you target with spells for 2.5s. While Guarding, if you or the ally take damage, both of you gain a shield and are hasted for 1.5s.Cooldown: 70 - 40 secondsShield: 70 - 150 + 0.25% of your ability power + 12% of your bonus health.Haste: +20% Movement Speed.'
+      'Guard allies within 175 units of you, and allies you target with spells for 2.5s. While Guarding, if you or the ally take damage, both of you gain a shield and are hasted for 1.5s.Cooldown: 70 - 40 secondsShield: 70 - 150 + 25% of your ability power + 12% of your bonus health.Haste: +20% Movement Speed.'
   },
   '8473': {
     id: 8473,

@@ -2228,7 +2228,7 @@ const champions: IChampions = {
         image: {
           full: 'SowTheWind.png'
         },
-        cooldownBurn: '8'
+        cooldownBurn: '8/7.5/7/6.5/6'
       },
       {
         name: 'Eye Of The Storm',
@@ -2237,7 +2237,7 @@ const champions: IChampions = {
         image: {
           full: 'EyeOfTheStorm.png'
         },
-        cooldownBurn: '18/16/14/12/10'
+        cooldownBurn: '16/15/14/13/12'
       },
       {
         name: 'Monsoon',
@@ -3398,11 +3398,11 @@ const champions: IChampions = {
       {
         name: 'Silver Bolts',
         sanitizedDescription:
-          "Vayne tips her bolts with a rare metal, toxic to evil things. The third consecutive attack or ability against the same target deals a percentage of the target's maximum Health as bonus true damage. (Max: 200 damage vs. Monsters)",
+          "Vayne tips her bolts with a rare metal, toxic to evil things. The third consecutive attack or ability against the same target deals a percentage of the target's max health as bonus true damage.",
         image: {
           full: 'VayneSilveredBolts.png'
         },
-        cooldownBurn: '6'
+        cooldownBurn: '0'
       },
       {
         name: 'Condemn',
@@ -3416,7 +3416,7 @@ const champions: IChampions = {
       {
         name: 'Final Hour',
         sanitizedDescription:
-          'Readying herself for an epic confrontation, Vayne gains increased Attack Damage, Invisibility during Tumble, reduced Tumble cooldown, and triple the bonus Movement Speed from Night Hunter.',
+          'Readying herself for an epic confrontation, Vayne gains increased Attack Damage, Invisibility during Tumble, reduced Tumble cooldown, and more bonus Movement Speed from Night Hunter',
         image: {
           full: 'VayneInquisition.png'
         },
@@ -6336,7 +6336,7 @@ const champions: IChampions = {
         image: {
           full: 'ZacQ.png'
         },
-        cooldownBurn: '13/12/11/10/9'
+        cooldownBurn: '15/13.5/12/10.5/9'
       },
       {
         name: 'Unstable Matter',
@@ -6357,12 +6357,11 @@ const champions: IChampions = {
       },
       {
         name: "Let's Bounce!",
-        sanitizedDescription:
-          'Zac flattens himself, making him immune to crowd control while slowing enemies standing on top of him. When he decides to bounce away, he will suck up any enemies standing on top of him, taking them for a ride.',
+        sanitizedDescription: 'Zac bounces four times, knocking up enemies hit and slowing them.',
         image: {
           full: 'ZacR.png'
         },
-        cooldownBurn: '130/115/100'
+        cooldownBurn: '120/115/100'
       }
     ],
     passive: {

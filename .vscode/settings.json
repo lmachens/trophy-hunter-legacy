@@ -11,7 +11,7 @@
     "packages/overwolf/shared": true,
     "packages/shelf/shared": true,
     "packages/www/shared": true,
-    "dist": true,
+    "**/dist": true,
     "**/.next": true
   },
   "files.watcherExclude": {
