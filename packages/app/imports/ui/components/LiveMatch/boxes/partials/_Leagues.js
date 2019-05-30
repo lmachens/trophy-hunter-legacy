@@ -71,6 +71,7 @@ class Leagues extends PureComponent {
             {soloDuo.tier.toUpperCase()}
             {soloDuo.rank && <span> {soloDuo.rank}</span>}
           </Typography>
+          <Typography color="secondary">{soloDuo.leaguePoints || 0} LP</Typography>
           <div className={classes.imgContainer}>
             <img className={classes.tooltipLeagueImage} src={getLeagueImage(soloDuo)} />
           </div>
@@ -81,6 +82,7 @@ class Leagues extends PureComponent {
             {flex5v5.tier.toUpperCase()}
             {flex5v5.rank && <span> {flex5v5.rank}</span>}
           </Typography>
+          <Typography color="secondary">{flex5v5.leaguePoints || 0} LP</Typography>
           <div className={classes.imgContainer}>
             <img className={classes.tooltipLeagueImage} src={getLeagueImage(flex5v5)} />
           </div>
@@ -91,6 +93,7 @@ class Leagues extends PureComponent {
             {flex3v3.tier.toUpperCase()}
             {flex3v3.rank && <span> {flex3v3.rank}</span>}
           </Typography>
+          <Typography color="secondary">{flex3v3.leaguePoints || 0} LP</Typography>
           <div className={classes.imgContainer}>
             <img className={classes.tooltipLeagueImage} src={getLeagueImage(flex3v3)} />
           </div>

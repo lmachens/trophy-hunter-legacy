@@ -12,19 +12,19 @@
   },
   "dependencies": {
     "axios": "0.18.0",
-    "axios-cache-adapter": "^2.3.0",
+    "axios-cache-adapter": "^2.3.2",
     "compression": "^1.7.4",
-    "express": "^4.17.0",
+    "express": "^4.17.1",
     "lodash.groupby": "4.6.0",
     "lodash.zip": "4.2.0",
-    "mongodb": "3.2.5"
+    "mongodb": "3.2.6"
   },
   "devDependencies": {
     "@types/mongodb": "3.1.27",
-    "@types/node": "12.0.2",
+    "@types/node": "12.0.3",
     "cross-env": "^5.2.0",
     "rimraf": "^2.6.3",
     "ts-node-dev": "1.0.0-pre.39",
-    "typescript": "3.4.5"
+    "typescript": "3.5.1"
   }
 }

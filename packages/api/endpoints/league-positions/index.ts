@@ -44,7 +44,8 @@ export default (req: IncomingMessage, res: ServerResponse) => {
       const leaguePositions = result.map(position => ({
         queueType: position.queueType,
         tier: position.tier,
-        rank: position.rank
+        rank: position.rank,
+        leaguePoints: position.leaguePoints
       }));
       res.end(JSON.stringify(leaguePositions));
     })

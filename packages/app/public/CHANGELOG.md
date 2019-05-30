@@ -1,8 +1,10 @@
 # Change Log
 
+## [3.17.0] - 2019-06-01
 ### Added
 - New trees for Urgot, Trundle, Malzahar, Yuumi and Teemo
 - New trophies [trophy:damageDealer], [trophy:hardHitter], [trophy:dominatingDamage]
+- Show league points in overlay.
 ### Changed
 - Updated to Riot API version 9.11.1.
 
