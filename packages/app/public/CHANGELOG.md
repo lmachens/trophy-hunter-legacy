@@ -1,4 +1,7 @@
 # Change Log
+### Added
+- New trees for Urgot, Trundle, Malzahar, Yuumi and Teemo
+- New trophies [trophy:damageDealer], [trophy:hardHitter], [trophy:dominatingDamage]
 
 ## [3.16.0] - 2019-05-21
 ### Added

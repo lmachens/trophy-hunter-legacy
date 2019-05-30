@@ -22,6 +22,7 @@ import controller from './definitions/controller';
 import curse from './definitions/curse';
 import cursedGrounds from './definitions/cursedGrounds';
 import curtainCall from './definitions/curtainCall';
+import damageDealer from './definitions/damageDealer';
 import darkBinding from './definitions/darkBinding';
 import darkinBlade from './definitions/darkinBlade';
 import darkness from './definitions/darkness';
@@ -34,6 +35,7 @@ import deepSea from './definitions/deepSea';
 import demolitionPear from './definitions/demolitionPear';
 import disruptor from './definitions/disruptor';
 import dominating from './definitions/dominating';
+import dominatingDamage from './definitions/dominatingDamage';
 import dominus from './definitions/dominus';
 import doubleKill from './definitions/doubleKill';
 import dracula from './definitions/dracula';
@@ -66,6 +68,7 @@ import greenhorn from './definitions/greenhorn';
 import greyEminence from './definitions/greyEminence';
 import grimReaper from './definitions/grimReaper';
 import guardianAngel from './definitions/guardianAngel';
+import hardHitter from './definitions/hardHitter';
 import healer from './definitions/healer';
 import hextechLord from './definitions/hextechLord';
 import highSociety from './definitions/highSociety';
@@ -210,7 +213,6 @@ import wolfPack from './definitions/wolfPack';
 import wormMasher from './definitions/wormMasher';
 import wujuStyle from './definitions/wujuStyle';
 import zenithBlade from './definitions/zenithBlade';
-
 export interface Trophy {
   name: string;
   title: string;
@@ -249,6 +251,7 @@ const trophies: Trophies = {
   curse,
   cursedGrounds,
   curtainCall,
+  damageDealer,
   darkBinding,
   darkinBlade,
   darkness,
@@ -261,6 +264,7 @@ const trophies: Trophies = {
   demolitionPear,
   disruptor,
   dominating,
+  dominatingDamage,
   dominus,
   doubleKill,
   dracula,
@@ -293,6 +297,7 @@ const trophies: Trophies = {
   greyEminence,
   grimReaper,
   guardianAngel,
+  hardHitter,
   healer,
   hextechLord,
   intruder,

@@ -53,6 +53,7 @@ import lissandra1 from './definitions/lissandra1';
 import lucian1 from './definitions/lucian1';
 import lulu1 from './definitions/lulu1';
 import lux1 from './definitions/lux1';
+import malzahar1 from './definitions/malzahar1';
 import malphite1 from './definitions/malphite1';
 import maokai1 from './definitions/maokai1';
 import masterYi1 from './definitions/masterYi1';
@@ -94,11 +95,14 @@ import syndra1 from './definitions/syndra1';
 import tahmKench1 from './definitions/tahmKench1';
 import taliyah1 from './definitions/taliyah1';
 import taric1 from './definitions/taric1';
+import teemo1 from './definitions/teemo1';
 import thresh1 from './definitions/thresh1';
 import tristana1 from './definitions/tristana1';
+import trundle1 from './definitions/trundle1';
 import twistedFate1 from './definitions/twistedFate1';
 import twitch1 from './definitions/twitch1';
 import udyr1 from './definitions/udyr1';
+import urgot1 from './definitions/urgot1';
 import varus1 from './definitions/varus1';
 import vayne1 from './definitions/vayne1';
 import veigar1 from './definitions/veigar1';
@@ -111,6 +115,7 @@ import xerath1 from './definitions/xerath1';
 import xinZhao1 from './definitions/xinZhao1';
 import yasuo1 from './definitions/yasuo1';
 import yorick1 from './definitions/yorick1';
+import yuumi1 from './definitions/yuumi1';
 import zac1 from './definitions/zac1';
 import zed1 from './definitions/zed1';
 import ziggs1 from './definitions/ziggs1';
@@ -119,11 +124,11 @@ import zoe1 from './definitions/zoe1';
 import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
-  yorick1,
-  xinZhao1,
-  yasuo1,
-  neeko1,
-  twistedFate1
+  urgot1,
+  trundle1,
+  malzahar1,
+  yuumi1,
+  teemo1
 };
 
 export const expiredTrees = {
@@ -239,7 +244,12 @@ export const expiredTrees = {
   olaf1,
   velKoz1,
   vayne1,
-  zilean1
+  zilean1,
+  yorick1,
+  xinZhao1,
+  yasuo1,
+  neeko1,
+  twistedFate1
 };
 
 export const treeBonus = {
