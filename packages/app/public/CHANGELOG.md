@@ -1,5 +1,8 @@
 # Change Log
 
+### Fixed
+- Show highest league in overlay if the player is Iron or Grandmaster.
+
 ## [3.17.0] - 2019-06-01
 ### Added
 - New trees for Urgot, Trundle, Malzahar, Yuumi and Teemo

@@ -9,12 +9,14 @@ import { getLeagueImage } from '/imports/api/riot-api/staticData';
 
 const leaguesOrdered = [
   'CHALLENGER',
+  'GRANDMASTER',
   'MASTER',
   'DIAMOND',
   'PLATINUM',
   'GOLD',
   'SILVER',
   'BRONZE',
+  'IRON',
   'PROVISIONAL'
 ];
 
