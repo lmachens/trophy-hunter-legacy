@@ -184,7 +184,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
       domains[extendedMatchResult.mapId].buffPositions.forEach(buffPosition => {
         const distanceToBuff = Math.sqrt(
           (kill.position.x - buffPosition[0]) * (kill.position.x - buffPosition[0]) +
-          (kill.position.y - buffPosition[1]) * (kill.position.y - buffPosition[1])
+            (kill.position.y - buffPosition[1]) * (kill.position.y - buffPosition[1])
         );
         if (distanceToBuff <= 1250 && earlyEnough) {
           cursedGroundKills++;
@@ -673,7 +673,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
       const sufficientClose =
         Math.sqrt(
           (kill.position.x - otherKill.position.x) * (kill.position.x - otherKill.position.x) +
-          (kill.position.y - otherKill.position.y) * (kill.position.y - otherKill.position.y)
+            (kill.position.y - otherKill.position.y) * (kill.position.y - otherKill.position.y)
         ) <= 350;
       return in1SecFromEachOther && sufficientClose;
     }
@@ -699,7 +699,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
         const midLane =
           Math.sqrt(
             (kill.position.x - middleX) * (kill.position.x - middleX) +
-            (kill.position.y - middleY) * (kill.position.y - middleY)
+              (kill.position.y - middleY) * (kill.position.y - middleY)
           ) <= 2000;
         // adc didnt die +- 10 sec of that roaming kill
         const noADCDeath20Sec = !adcDeaths.some(
@@ -746,19 +746,19 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
       const kill1InRange =
         Math.sqrt(
           (kill1.position.x - kill2.position.x) * (kill1.position.x - kill2.position.x) +
-          (kill1.position.y - kill2.position.y) * (kill1.position.y - kill2.position.y)
+            (kill1.position.y - kill2.position.y) * (kill1.position.y - kill2.position.y)
         ) < teamFightRange;
       const kill1CloseInTime = kill2.timestamp - kill1.timestamp < teamFightTimeRange;
       const kill2InRange =
         Math.sqrt(
           (kill2.position.x - kill3.position.x) * (kill2.position.x - kill3.position.x) +
-          (kill2.position.y - kill3.position.y) * (kill2.position.y - kill3.position.y)
+            (kill2.position.y - kill3.position.y) * (kill2.position.y - kill3.position.y)
         ) < teamFightRange;
       const kill2CloseInTime = kill3.timestamp - kill2.timestamp < teamFightTimeRange;
       const kill3InRange =
         Math.sqrt(
           (kill3.position.x - kill.position.x) * (kill3.position.x - kill.position.x) +
-          (kill3.position.y - kill.position.y) * (kill3.position.y - kill.position.y)
+            (kill3.position.y - kill.position.y) * (kill3.position.y - kill.position.y)
         ) < teamFightRange;
       const kill3CloseInTime = kill.timestamp - kill3.timestamp < teamFightTimeRange;
       let noAfterKill = true;
@@ -766,7 +766,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
         const killAfterInRange =
           Math.sqrt(
             (killAfter.position.x - kill.position.x) * (killAfter.position.x - kill.position.x) +
-            (killAfter.position.y - kill.position.y) * (killAfter.position.y - kill.position.y)
+              (killAfter.position.y - kill.position.y) * (killAfter.position.y - kill.position.y)
           ) < teamFightRange;
         const killAfterCloseInTime = killAfter.timestamp - kill.timestamp < teamFightTimeRange;
         noAfterKill = !(killAfterInRange && killAfterCloseInTime);
@@ -863,7 +863,7 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
       teammate.participantId !== participant.participantId &&
       (teammate.stats.kills >= extendedMatchResult.maxKills &&
         teammate.stats.totalDamageDealtToChampions >=
-        participant.stats.others.maxTotalDamageDealtToChampions)
+          participant.stats.others.maxTotalDamageDealtToChampions)
   );
   participant.stats.fedTeamMateAssistsPre10 = participant.events.assists.filter(
     assist =>
@@ -886,21 +886,15 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
   } else {
     participant.stats.earliestTrophyHunt = 6000000;
   } // 100 minuts. just a very big number. If this is set to 0, it will not work when checking for the minimal earliest trophy hunt  (for summoner features).
-  //Test for blitzkreig
+
+  // Test for blitzkrieg
   if (
     events.participantsLevelUps[participant.participantId - 1] &&
     events.participantsLevelUps[participant.participantId - 1].length > 5
   ) {
     const levelThreeTime = events.participantsLevelUps[participant.participantId - 1][2].timestamp;
-
-    const hasKillPreLv3 = participant.events.kills.some(
+    participant.stats.blitzkrieg = participant.events.kills.some(
       kill => kill.timestamp < levelThreeTime
     );
-    if (hasKillPreLv3) {
-      participant.stats.blitzkrieg = true;
-    }
-    else {
-      participant.stats.blitzkrieg = false;
-    }
   }
 }
