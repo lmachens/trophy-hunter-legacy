@@ -7,6 +7,7 @@ import baronNashor from './definitions/baronNashor';
 import battery from './definitions/battery';
 import bigBrother from './definitions/bigBrother';
 import billGates from './definitions/billGates';
+import blitzkrieg from './definitions/blitzkrieg';
 import bloodBrothers from './definitions/bloodBrothers';
 import bloodthirst from './definitions/bloodthirst';
 import bombardment from './definitions/bombardment';
@@ -237,6 +238,7 @@ const trophies: Trophies = {
   battery,
   bigBrother,
   billGates,
+  blitzkrieg,
   bloodBrothers,
   bloodthirst,
   bombardment,
