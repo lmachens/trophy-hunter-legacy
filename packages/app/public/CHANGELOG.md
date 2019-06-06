@@ -1,6 +1,6 @@
 # Change Log
 ### Added
-- New Trophy [trophy:blitzkrieg]
+- New Trophies [trophy:blitzkrieg], [trophy:immortal]
 
 ### Fixed
 - Show highest league in overlay if the player is Iron or Grandmaster.

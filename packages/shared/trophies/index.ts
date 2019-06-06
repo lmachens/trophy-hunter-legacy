@@ -73,6 +73,7 @@ import hardHitter from './definitions/hardHitter';
 import healer from './definitions/healer';
 import hextechLord from './definitions/hextechLord';
 import highSociety from './definitions/highSociety';
+import immortal from './definitions/immortal';
 import intruder from './definitions/intruder';
 import invade from './definitions/invade';
 import jungleOfTraps from './definitions/jungleOfTraps';
@@ -302,6 +303,7 @@ const trophies: Trophies = {
   hardHitter,
   healer,
   hextechLord,
+  immortal,
   intruder,
   invade,
   highSociety,
