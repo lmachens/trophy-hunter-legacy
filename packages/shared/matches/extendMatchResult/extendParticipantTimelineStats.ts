@@ -886,4 +886,15 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
   } else {
     participant.stats.earliestTrophyHunt = 6000000;
   } // 100 minuts. just a very big number. If this is set to 0, it will not work when checking for the minimal earliest trophy hunt  (for summoner features).
+
+  // Test for blitzkrieg
+  if (
+    events.participantsLevelUps[participant.participantId - 1] &&
+    events.participantsLevelUps[participant.participantId - 1].length > 5
+  ) {
+    const levelThreeTime = events.participantsLevelUps[participant.participantId - 1][2].timestamp;
+    participant.stats.blitzkrieg = participant.events.kills.some(
+      kill => kill.timestamp < levelThreeTime
+    );
+  }
 }

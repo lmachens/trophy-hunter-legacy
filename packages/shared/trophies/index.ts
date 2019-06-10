@@ -7,6 +7,7 @@ import baronNashor from './definitions/baronNashor';
 import battery from './definitions/battery';
 import bigBrother from './definitions/bigBrother';
 import billGates from './definitions/billGates';
+import blitzkrieg from './definitions/blitzkrieg';
 import bloodBrothers from './definitions/bloodBrothers';
 import bloodthirst from './definitions/bloodthirst';
 import bombardment from './definitions/bombardment';
@@ -72,6 +73,7 @@ import hardHitter from './definitions/hardHitter';
 import healer from './definitions/healer';
 import hextechLord from './definitions/hextechLord';
 import highSociety from './definitions/highSociety';
+import immortal from './definitions/immortal';
 import intruder from './definitions/intruder';
 import invade from './definitions/invade';
 import jungleOfTraps from './definitions/jungleOfTraps';
@@ -237,6 +239,7 @@ const trophies: Trophies = {
   battery,
   bigBrother,
   billGates,
+  blitzkrieg,
   bloodBrothers,
   bloodthirst,
   bombardment,
@@ -300,6 +303,7 @@ const trophies: Trophies = {
   hardHitter,
   healer,
   hextechLord,
+  immortal,
   intruder,
   invade,
   highSociety,
