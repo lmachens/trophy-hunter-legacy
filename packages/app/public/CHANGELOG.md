@@ -1,5 +1,8 @@
 # Change Log
 
+### Fixed
+- Fix [trophy:revenge] on ARAM (death timer was not calculated correctly).
+
 ## [3.18.0] - 2019-06-10
 ### Added
 - New Trophies [trophy:blitzkrieg] and [trophy:immortal]

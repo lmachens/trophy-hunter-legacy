@@ -8,7 +8,9 @@
     "build-overwolf": "yarn --cwd \"packages/overwolf\" build",
     "shelf": "yarn --cwd \"packages/shelf\" dev",
     "www": "yarn --cwd \"packages/www\" dev",
-    "app-storybook": "cd packages/app && npm run storybook"
+    "app-storybook": "cd packages/app && npm run storybook",
+    "lint-fix": "tslint --project ./tsconfig.json --fix",
+    "test":  "npm run lint-fix"
   },
   "devDependencies": {
     "husky": "2.3.0",
@@ -27,11 +29,6 @@
   },
   "lint-staged": {
     "*.{js,jsx,json,ts,tsx,css}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{ts,tsx}": [
-      "tslint --project ./tsconfig.json --fix",
       "prettier --write",
       "git add"
     ]
