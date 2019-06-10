@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.18.1] - 2019-06-10
 ### Fixed
 - Fix [trophy:revenge] on ARAM (death timer was not calculated correctly).
 
