@@ -155,35 +155,21 @@ class LauncherListener {
     this.simpleIO.onFileListenerChanged.addListener(this.handleLeagueClientChange);
 
     const leagueClientLogDirectory = `${installPath}Logs/LeagueClient Logs/`;
-    const filename = await new Promise(resolve => {
-      this.simpleIO.getLatestFileInDirectory(
-        `${leagueClientLogDirectory}*LeagueClient.log`,
-        (status, filename) => {
-          if (status) {
-            console.log('The most update file in this folder is: ' + filename);
-            this.logFilename = filename;
-            resolve(filename);
-          } else {
-            console.log(`No file found in ${leagueClientLogDirectory}`);
-            resolve();
-          }
+
+    this.simpleIO.getLatestFileInDirectory(
+      `${leagueClientLogDirectory}*LeagueClient.log`,
+      (status, filename) => {
+        if (status) {
+          console.log('The most update file in this folder is: ' + filename);
+          this.logFilename = filename;
+          this.handleNewLogFile(leagueClientLogDirectory);
+        } else {
+          console.log(`No file found in ${leagueClientLogDirectory}`);
         }
-      );
-    });
-    this.listenToNewLogFile(leagueClientLogDirectory);
-    const leagueClientLogPath = `${leagueClientLogDirectory}${filename}`;
-
-    if (this.listeners.has('loggedIn') || this.listeners.has('summonerInfo')) {
-      this.simpleIO.getTextFile(leagueClientLogPath, false, this.handleLeagueClientLog);
-    }
-
-    console.log('start listen on file');
-    this.simpleIO.listenOnFile(
-      this.leagueClientLogFileIdentifier,
-      leagueClientLogPath,
-      true,
-      this.listenOnLeagueClientChange
+      }
     );
+
+    this.listenToNewLogFile(leagueClientLogDirectory);
 
     // LCU
     const args = {};
@@ -201,6 +187,22 @@ class LauncherListener {
       Accept: 'application/json',
       Authorization: `Basic ${btoa(`riot:${password}`)}`
     };
+  };
+
+  handleNewLogFile = leagueClientLogDirectory => {
+    const leagueClientLogPath = `${leagueClientLogDirectory}${this.logFilename}`;
+
+    if (this.listeners.has('loggedIn') || this.listeners.has('summonerInfo')) {
+      this.simpleIO.getTextFile(leagueClientLogPath, false, this.handleLeagueClientLog);
+    }
+
+    console.log('start listen on file');
+    this.simpleIO.listenOnFile(
+      this.leagueClientLogFileIdentifier,
+      leagueClientLogPath,
+      true,
+      this.listenOnLeagueClientChange
+    );
   };
 
   handleLeagueClientLog = (status, data) => {
@@ -267,8 +269,9 @@ class LauncherListener {
         `${leagueClientLogDirectory}*LeagueClient.log`,
         (status, filename) => {
           if (status && this.logFilename !== filename) {
-            console.log('The most update file in this folder is: ' + filename);
+            console.log('listenToNewLogFile: The most update file in this folder is: ' + filename);
             this.logFilename = filename;
+            this.handleNewLogFile(leagueClientLogDirectory);
           }
         }
       );
@@ -329,7 +332,7 @@ class LauncherListener {
   setState = nextState => {
     this.listeners.forEach((value, key) => {
       if (JSON.stringify(this.state[key]) !== JSON.stringify(nextState[key])) {
-        console.log('setState - emit change', key, nextState[key]);
+        console.log(`setState - emit change ${key} ${JSON.stringify(nextState[key])}`);
         this.emit(key, nextState[key]);
       }
     });
