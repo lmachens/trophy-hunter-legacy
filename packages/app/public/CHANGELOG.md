@@ -1,5 +1,8 @@
 # Change Log
 
+### Fixed
+ - Fix [trophy:blitzkrieg]. Was awarding if anyone got a kill before level 3 rather than just the person getting the kill.
+
 ## [3.18.1] - 2019-06-10
 ### Fixed
 - Fix [trophy:revenge] on ARAM (death timer was not calculated correctly).
