@@ -1,5 +1,7 @@
 # Change Log
 
+### Changed
+- Updated to Riot API version 9.12.1.
 ### Fixed
  - Fix [trophy:blitzkrieg]. Was awarding if anyone got a kill before level 3 rather than just the person getting the kill.
 

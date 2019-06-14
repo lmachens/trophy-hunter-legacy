@@ -708,7 +708,7 @@ const champions: IChampions = {
       {
         name: 'Overload',
         sanitizedDescription:
-          "Passively, Ryze's other damaging spells reset Overload and begin to charge a Rune that can be used to empower Overload.On cast, Ryze throws a charge of pure energy in a line, dealing damage to the first enemy struck. If a Rune is fully charged, Ryze also gains a shield and Movement Speed.",
+          "Passively, Ryze's other basic abilities reset the cooldown of Overload and charge a rune. When Ryze casts Overload with 2 runes charged, he gains a brief burst of Movement Speed.On cast, Ryze throws a charge of pure energy in a line, dealing damage to the first enemy struck. If the target has Flux on it, Overload deals extra damage and bounces to nearby enemies with Flux.",
         image: {
           full: 'RyzeQWrapper.png'
         },
@@ -717,7 +717,7 @@ const champions: IChampions = {
       {
         name: 'Rune Prison',
         sanitizedDescription:
-          'Ryze traps a target enemy unit in a cage of runes, damaging them and preventing them from moving.',
+          'Ryze traps a target in a cage of runes, damaging them and slowing their movement. If the target has Flux on it, they are instead rooted.',
         image: {
           full: 'RyzeW.png'
         },
@@ -726,7 +726,7 @@ const champions: IChampions = {
       {
         name: 'Spell Flux',
         sanitizedDescription:
-          "Ryze releases an orb of pure magical power that damages an enemy and debuffs them. Ryze's spells have additional effects against the debuffed enemy.",
+          "Ryze releases an orb of pure magical power that damages an enemy and debuffs all nearby enemies. Ryze's spells have additional effects against the debuffed enemy.",
         image: {
           full: 'RyzeE.png'
         },
@@ -735,11 +735,11 @@ const champions: IChampions = {
       {
         name: 'Realm Warp',
         sanitizedDescription:
-          'Ryze creates a portal to a nearby location. After a few seconds, allies standing near the portal are teleported to the target location.',
+          'Passively, Overload deals even more damage against targets with Flux.On cast, Ryze creates a portal to a nearby location. After a few seconds, allies standing near the portal are teleported to the target location.',
         image: {
           full: 'RyzeR.png'
         },
-        cooldownBurn: '180'
+        cooldownBurn: '210/180/150'
       }
     ],
     passive: {
@@ -1223,7 +1223,7 @@ const champions: IChampions = {
         image: {
           full: 'Volley.png'
         },
-        cooldownBurn: '15/12.5/10/7.5/5'
+        cooldownBurn: '14/11.5/9/6.5/4'
       },
       {
         name: 'Hawkshot',
@@ -2181,7 +2181,7 @@ const champions: IChampions = {
         image: {
           full: 'IreliaE.png'
         },
-        cooldownBurn: '14/13/12/11/10'
+        cooldownBurn: '18/16.5/15/13.5/12'
       },
       {
         name: "Vanguard's Edge",
@@ -4053,48 +4053,47 @@ const champions: IChampions = {
     },
     spells: [
       {
-        name: 'Mace of Spades',
-        sanitizedDescription: "Mordekaiser's next three attacks deal escalating bonus damage.",
+        name: 'Obliterate',
+        sanitizedDescription:
+          'Mordekaiser smashes the ground with his mace dealing damage to each enemy struck. Damage is increased when hitting a single enemy.',
         image: {
-          full: 'MordekaiserMaceOfSpades.png'
+          full: 'MordekaiserQ.png'
         },
-        cooldownBurn: '10/8.5/7/5.5/4'
+        cooldownBurn: '9/7.75/6.5/5.25/4'
       },
       {
-        name: 'Harvesters of Sorrow',
+        name: 'Indestructible',
         sanitizedDescription:
-          "Coats an ally in magnetic metal, increasing each unit's movement speed toward one another. While near one another, the metal swirls violently dealing damage per second to enemies.",
+          'Mordekaiser stores damage he deals and takes to create a shield. He may consume the shield to heal.',
         image: {
-          full: 'MordekaiserCreepingDeathCast.png'
+          full: 'MordekaiserW.png'
         },
-        cooldownBurn: '12/11/10/9/8'
+        cooldownBurn: '14/13/12/11/10'
       },
       {
-        name: 'Siphon of Destruction',
-        sanitizedDescription:
-          "Mordekaiser deals damage to enemies in a cone in front of him. For each unit hit, Mordekaiser's shield absorbs energy.",
+        name: "Death's Grasp",
+        sanitizedDescription: 'Mordekaiser pulls all enemies in an area.',
         image: {
-          full: 'MordekaiserSyphonOfDestruction.png'
+          full: 'MordekaiserE.png'
         },
-        cooldownBurn: '6/5.75/5.5/5.25/5'
+        cooldownBurn: '24/21/18/15/12'
       },
       {
-        name: 'Children of the Grave',
+        name: 'Realm of Death',
         sanitizedDescription:
-          'Mordekaiser curses an enemy champion or the Dragon, stealing a percent of their life initially and each second. If the target dies while the spell is active, their soul is enslaved and will follow Mordekaiser as a ghost.',
+          'Mordekaiser drags his victim to a different dimention with him and steals a portion of their stats. If he kills them, he keeps the stats until the victim respawns.',
         image: {
-          full: 'MordekaiserChildrenOfTheGrave.png'
+          full: 'MordekaiserR.png'
         },
-        cooldownBurn: '120/105/90'
+        cooldownBurn: '140/120/100'
       }
     ],
     passive: {
       image: {
-        full: 'MordekaiserPassive.png'
+        full: 'MordekaiserPassive.MordeVGU.png'
       },
       name: 'Iron Man',
-      sanitizedDescription:
-        'A percent of the damage dealt from abilities is converted into a temporary shield, absorbing incoming damage.'
+      sanitizedDescription: ''
     },
     range: 'Melee'
   },
@@ -6340,7 +6339,8 @@ const champions: IChampions = {
       },
       {
         name: 'Unstable Matter',
-        sanitizedDescription: "Zac's body erupts, damaging nearby enemies.",
+        sanitizedDescription:
+          'Zac explodes outward towards nearby enemies, dealing a percentage of their maximum health as magic damage.',
         image: {
           full: 'ZacW.png'
         },
@@ -7904,11 +7904,11 @@ const champions: IChampions = {
       {
         name: 'Abscond / Abduct',
         sanitizedDescription:
-          'Sylas dashes and gains a shield. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits.',
+          'Sylas dashes to a location. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits. If he hits an enemy champion or monster, he gains a shield.',
         image: {
           full: 'SylasE.png'
         },
-        cooldownBurn: '18/16/14/12/10'
+        cooldownBurn: '18/17/16/15/14'
       },
       {
         name: 'Hijack',
@@ -7959,7 +7959,7 @@ const champions: IChampions = {
       {
         name: 'Tangle-Barbs',
         sanitizedDescription:
-          'Neeko slings a tangle that damage and root everything it passes through. If the tangle kills an enemy or passes through a champion, it becomes larger, faster, and roots for longer.',
+          'Neeko slings a tangle that damage and root everything it passes through. If the tangle hits an enemy, it becomes larger, faster, and roots for longer.',
         image: {
           full: 'NeekoE.png'
         },
