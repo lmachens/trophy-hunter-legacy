@@ -1,5 +1,9 @@
 # Change Log
 
+### Changed
+- Update [trophy:immortal] to make it possible to win during ARAM.
+- Added Master and Grandmaster trophy difficulties.
+
 ## [3.19.1] - 2019-06-14
 ### Changed
 - Updated to Riot API version 9.12.1.
