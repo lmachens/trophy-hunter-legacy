@@ -4,7 +4,9 @@ const SCORES = {
   MEDIUM: 4,
   HARD: 8,
   VERY_HARD: 16,
-  EPIC: 32
+  EPIC: 32,
+  MASTER: 64,
+  GRANDMASTER: 128
 };
 
 export default SCORES;
@@ -37,5 +39,15 @@ export const defs = {
     shadow: '#9f0013',
     gradient: ['#ff3d3c', '#9e0120'],
     label: 'Epic'
+  },
+  [SCORES.MASTER]: {
+    shadow: '#E38C81',
+    gradient: ['#BF58BC', '#C249BE'],
+    label: 'Master'
+  },
+  [SCORES.GRANDMASTER]: {
+    shadow: '#E78FCA',
+    gradient: ['#CA5BA5', '#C21187'],
+    label: 'Grandmaster'
   }
 };
