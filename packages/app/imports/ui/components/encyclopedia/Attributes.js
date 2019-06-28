@@ -107,9 +107,6 @@ export class Attributes extends Component {
               <Trophy forceColors={true} key={trophy.name} trophy={trophy} />
             ))}
         </div>
-        <p>
-          <i>Note: This page is under construction.</i>
-        </p>
       </div>
     );
   }

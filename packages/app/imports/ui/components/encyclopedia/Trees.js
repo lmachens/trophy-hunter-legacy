@@ -116,9 +116,6 @@ export class Trees extends Component {
         </h2>
         <h3 style={styles.subtitle}>{tree.title}</h3>
         <Tree style={styles.tree} tree={tree} />
-        <p>
-          <i>Note: This page is under construction.</i>
-        </p>
       </div>
     );
   }

@@ -111,9 +111,6 @@ export class Trophies extends Component {
         {trophy.attribute && <Attribute attribute={trophy.attribute} />}
         <br />
         <TrophyStats trophy={trophy} />
-        <p>
-          <i>Note: This page is under construction.</i>
-        </p>
       </div>
     );
   }

@@ -119,9 +119,6 @@ export class Playstyles extends Component {
             />
           ))}
         </div>
-        <p>
-          <i>Note: This page is under construction.</i>
-        </p>
       </div>
     );
   }
