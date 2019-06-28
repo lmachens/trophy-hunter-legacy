@@ -113,7 +113,7 @@ class AvatarWithStatus extends Component {
   renderTooltipContent = () => {
     const { trophyHunter } = this.props;
 
-    if (!trophyHunter) return null;
+    if (!trophyHunter) return <div />;
     return (
       <div>
         <span>Status: </span>

@@ -360,7 +360,7 @@ class NotificationsComponent extends Component {
           const selector = notification.data.name || notification.data.path;
           const tree = trees[selector] || expiredTrees[selector];
           if (!tree) {
-            break;
+            return <div key={notification._id} />;
           }
           if (userId === notification.data.userId) {
             message = <span style={styles.message}>Completed tree</span>;
@@ -418,7 +418,7 @@ class NotificationsComponent extends Component {
       { color: universeTheme.palette.secondaryTextColor },
       styles.date
     );
-
+    console.log(notification.type);
     return (
       <MenuItem
         key={notification._id}

@@ -4,6 +4,8 @@
 - Updated to Riot API version 9.13.1
 - Update [trophy:immortal] to make it possible to win during ARAM.
 - Added Master and Grandmaster trophy difficulties.
+### Fixed
+- Notifications didn't load sometimes.
 
 ## [3.19.1] - 2019-06-14
 ### Changed
