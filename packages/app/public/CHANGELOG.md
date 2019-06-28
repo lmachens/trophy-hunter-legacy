@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.20.0] - 2019-06-28
 ### Changed
 - Updated to Riot API version 9.13.1
 - Update [trophy:immortal] to make it possible to win during ARAM.
