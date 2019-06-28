@@ -804,7 +804,7 @@ const champions: IChampions = {
       },
       name: 'Glory in Death',
       sanitizedDescription:
-        "After being killed, Sion will reanimate with rapidly decaying Health. His attacks become very rapid, gain 100% Lifesteal and deal bonus damage equal to 10% of his target's maximum Health (max 75 to monsters).All his abilities are replaced with Death Surge, which grants a burst of Movement Speed."
+        "After being killed Sion will reanimate himself, but his Health rapidly decays while he is reanimated.He can move and attack during this time. He gains @Lifesteal*100@% Lifesteal, attacks extremely fast and will deal an additional @PercentMaxHP*100@% of his target's maximum Health as physical damage on hit. Max @NonChampCap@ bonus damage against non-champions.All of his abilities are replaced with Death Surge, which grants him a burst of Movement Speed."
     },
     range: 'Melee'
   },
@@ -1138,7 +1138,7 @@ const champions: IChampions = {
       },
       name: 'Call of the Freljord',
       sanitizedDescription:
-        'Nunu increases the attack speed and movement speed of Willump and a nearby ally.'
+        "Nunu increases the attack speed and movement speed of Willump and a nearby ally, and causes Willump's basic attacks to damage enemies around the target."
     },
     range: 'Melee'
   },
@@ -3315,9 +3315,8 @@ const champions: IChampions = {
       image: {
         full: 'BrandP.png'
       },
-      name: 'Blaze',
-      sanitizedDescription:
-        "Brand's spells light his targets ablaze, dealing 2% of their maximum Health in magic damage over 4 seconds, stacking up to 3 times. If Brand kills an enemy while it is ablaze he regains mana. When Blaze reaches max stacks on a Champion or large monster, it becomes unstable. It detonates in 2 seconds, applying spell effects and dealing massive damage in an area around the victim."
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Ranged'
   },
@@ -4081,7 +4080,7 @@ const champions: IChampions = {
       {
         name: 'Realm of Death',
         sanitizedDescription:
-          'Mordekaiser drags his victim to a different dimention with him and steals a portion of their stats. If he kills them, he keeps the stats until the victim respawns.',
+          'Mordekaiser drags his victim to a different dimension with him and steals a portion of their stats. If he kills them, he keeps the stats until the victim respawns.',
         image: {
           full: 'MordekaiserR.png'
         },
@@ -4703,7 +4702,7 @@ const champions: IChampions = {
       image: {
         full: 'LuxIlluminatingFraulein.png'
       },
-      name: 'Illumination',
+      name: '',
       sanitizedDescription:
         "Lux's damaging spells charge the target with energy for 6 seconds. Lux's next attack ignites the energy, dealing bonus magic damage (depending on Lux's level) to the target."
     },
@@ -5835,9 +5834,9 @@ const champions: IChampions = {
       {
         name: 'Crescent Strike',
         sanitizedDescription:
-          'Diana swings her blade to unleash a bolt of lunar energy that deals damage in an arc before exploding. Afflicts enemies struck with the Moonlight debuff, revealing them if they are not stealthed. ',
+          'Unleashes a bolt of lunar energy in an arc dealing magic damage.Afflicts enemies struck with Moonlight, revealing them if they are not stealthed for 3 seconds.',
         image: {
-          full: 'DianaArc.png'
+          full: 'DianaQ.png'
         },
         cooldownBurn: '8/7.5/7/6.5/6'
       },
@@ -5853,7 +5852,7 @@ const champions: IChampions = {
       {
         name: 'Moonfall',
         sanitizedDescription:
-          'Diana draws in and slows all nearby enemies. Passively grants Diana attack speed after spell casts.',
+          'Passive: Increases the attack speed gained from Moonsilver BladeActive: Reveals and draws in all nearby enemies and then slows them for 2 seconds.',
         image: {
           full: 'DianaVortex.png'
         },
@@ -5862,7 +5861,7 @@ const champions: IChampions = {
       {
         name: 'Lunar Rush',
         sanitizedDescription:
-          'Diana dashes to an enemy and deals magic damage. Lunar Rush has no cooldown when used to teleport to a target afflicted with Moonlight.',
+          'Becomes the living embodiment of the vengeful moon, dashing to an enemy and dealing magic damage.Lunar Rush has no cooldown when used to dash to an enemy afflicted with Moonlight. All other enemies will have the Moonlight debuff removed regardless of whether they were the target of Lunar Rush.',
         image: {
           full: 'DianaTeleport.png'
         },
@@ -6093,7 +6092,7 @@ const champions: IChampions = {
       },
       name: 'The Darkin Scythe',
       sanitizedDescription:
-        'At one point in the game, Kayn will permanently transform into either a Shadow Assassin or a Darkin.'
+        'Kayn wields an ancient weapon and fights Rhaast, the darkin within it, for control. Either the Darkin will triumph, or Kayn will master Rhaast and become the Shadow Assassin.Darkin: Heal for a percentage of spell damage dealt to champions.Shadow Assassin: For the first few seconds in combat with enemy champions, deal bonus damage.'
     },
     range: 'Melee'
   },
@@ -6980,7 +6979,7 @@ const champions: IChampions = {
       },
       name: 'Contempt for the Weak',
       sanitizedDescription:
-        "Zed's basic attacks against targets below 50% Health deal 6-10% of the target's maximum Health as bonus Magic Damage. This effect can only occur once every 10 seconds on the same target."
+        "Zed's basic attacks against low health targets deals bonus Magic Damage. This effect can only occur once every few seconds on the same target."
     },
     range: 'Melee'
   },
@@ -7093,6 +7092,61 @@ const champions: IChampions = {
       name: 'Z-Drive Resonance',
       sanitizedDescription:
         "Ekko's Zero-Drive charges his spells and attacks with temporal energy. The third hit deals bonus damage and, if the target is a champion, Ekko gains accelerated movement speed."
+    },
+    range: 'Melee'
+  },
+  '246': {
+    id: 246,
+    key: 'Qiyana',
+    name: 'Qiyana',
+    title: 'Empress of the Elements',
+    image: {
+      full: 'Qiyana.png'
+    },
+    spells: [
+      {
+        name: 'Elemental Wrath / Edge of Ixtal',
+        sanitizedDescription:
+          'Qiyana swings her weapon, dealing damage with a bonus effect based on her element.',
+        image: {
+          full: 'QiyanaQ.png'
+        },
+        cooldownBurn: '7'
+      },
+      {
+        name: 'Terrashape',
+        sanitizedDescription:
+          'Qiyana dashes to a location and enchants her weapon with an element. Her attacks and abilities deal bonus damage while her weapon is enchanted. ',
+        image: {
+          full: 'QiyanaW.png'
+        },
+        cooldownBurn: '7'
+      },
+      {
+        name: 'Audacity',
+        sanitizedDescription: 'Qiyana dashes to an enemy, damaging them.',
+        image: {
+          full: 'QiyanaE.png'
+        },
+        cooldownBurn: '12/11/10/9/8'
+      },
+      {
+        name: 'Supreme Display of Talent',
+        sanitizedDescription:
+          'Qiyana sends out a shockwave that detonates whatever elements she hits with it, stunning and damaging nearby enemies.',
+        image: {
+          full: 'QiyanaR.png'
+        },
+        cooldownBurn: '100'
+      }
+    ],
+    passive: {
+      image: {
+        full: 'Qiyana_Passive.png'
+      },
+      name: 'Royal Privilege',
+      sanitizedDescription:
+        "Qiyana's first basic attack or ability against each enemy deals bonus damage."
     },
     range: 'Melee'
   },
@@ -7370,8 +7424,9 @@ const champions: IChampions = {
       image: {
         full: 'YuumiP.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: "Bop 'n' Block",
+      sanitizedDescription:
+        "Periodically, when Yuumi attacks a champion, she restores mana and gains a shield that follows her, protecting her and the ally she's attached to."
     },
     range: 'Ranged'
   },
@@ -8001,7 +8056,7 @@ const champions: IChampions = {
         image: {
           full: 'PykeQ.png'
         },
-        cooldownBurn: '14/12.5/11/9.5/8'
+        cooldownBurn: '12/11/10/9/8'
       },
       {
         name: 'Ghostwater Dive',
