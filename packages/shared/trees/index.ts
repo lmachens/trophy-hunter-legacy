@@ -3,8 +3,11 @@ import ahri1 from './definitions/ahri1';
 import akali1 from './definitions/akali1';
 import alistar1 from './definitions/alistar1';
 import amumu1 from './definitions/amumu1';
+import anivia1 from './definitions/anivia1';
 import annie1 from './definitions/annie1';
 import ashe1 from './definitions/ashe1';
+import aurelionSol1 from './definitions/aurelionSol1';
+import azir1 from './definitions/azir1';
 import bard1 from './definitions/bard1';
 import blitzcrank1 from './definitions/blitzcrank1';
 import brand1 from './definitions/brand1';
@@ -15,10 +18,12 @@ import cassiopeia1 from './definitions/cassiopeia1';
 import choGath1 from './definitions/choGath1';
 import corki1 from './definitions/corki1';
 import darius1 from './definitions/darius1';
+import diana1 from './definitions/diana1';
 import draven1 from './definitions/draven1';
 import drMundo1 from './definitions/drMundo1';
 import ekko1 from './definitions/ekko1';
 import elise1 from './definitions/elise1';
+import evelynn1 from './definitions/evelynn1';
 import ezreal1 from './definitions/ezreal1';
 import fiora1 from './definitions/fiora1';
 import galio1 from './definitions/galio1';
@@ -124,14 +129,19 @@ import zoe1 from './definitions/zoe1';
 import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
+  anivia1,
+  aurelionSol1,
+  azir1,
+  diana1,
+  evelynn1
+};
+
+export const expiredTrees = {
   urgot1,
   trundle1,
   malzahar1,
   yuumi1,
-  teemo1
-};
-
-export const expiredTrees = {
+  teemo1,
   ahri1,
   amumu1,
   nasus1,

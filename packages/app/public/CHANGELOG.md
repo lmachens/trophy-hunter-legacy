@@ -1,5 +1,9 @@
 # Change Log
 
+### Added
+- New trees for Anivia, Aurelion Sol, Azir, Diana and Evelynn 
+### Updated
+- Change difficulty for [trophy:explosive] (Medium -> Hard)
 ### Removed
 - Removed under construction messages.
 
