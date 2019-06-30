@@ -1,5 +1,6 @@
 # Change Log
 
+## [3.21.0] - 2019-07-01
 ### Added
 - New trees for Anivia, Aurelion Sol, Azir, Diana and Evelynn 
 ### Updated
