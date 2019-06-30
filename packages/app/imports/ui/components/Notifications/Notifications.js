@@ -418,7 +418,6 @@ class NotificationsComponent extends Component {
       { color: universeTheme.palette.secondaryTextColor },
       styles.date
     );
-    console.log(notification.type);
     return (
       <MenuItem
         key={notification._id}
