@@ -6,7 +6,6 @@
     "api": "yarn --cwd \"packages/api\" dev",
     "creator": "yarn --cwd \"packages/creator\" dev",
     "build-overwolf": "yarn --cwd \"packages/overwolf\" build",
-    "shelf": "yarn --cwd \"packages/shelf\" dev",
     "www": "yarn --cwd \"packages/www\" dev",
     "app-storybook": "cd packages/app && npm run storybook",
     "lint-fix": "tslint --project ./tsconfig.json --fix",
