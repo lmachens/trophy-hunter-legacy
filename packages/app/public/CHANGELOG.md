@@ -1,5 +1,8 @@
 # Change Log
 
+### Changed
+- Updated to Riot API version 9.14.1
+
 ## [3.21.0] - 2019-07-01
 ### Added
 - New trees for Anivia, Aurelion Sol, Azir, Diana and Evelynn 
