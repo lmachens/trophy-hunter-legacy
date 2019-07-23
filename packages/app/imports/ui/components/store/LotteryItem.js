@@ -138,8 +138,8 @@ const LotteryStats = ({ lastLotteries }) => {
 
   return (
     <div>
-      We already giveaway <b>${totalPrice}</b>
-      !!! RP codes are payed from our ads revenue.
+      We already gave away <b>${totalPrice}</b>
+      !!! RP codes are paid from our ads revenue.
     </div>
   );
 };
