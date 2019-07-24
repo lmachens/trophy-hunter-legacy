@@ -15,6 +15,7 @@ import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.t
 import updateAttributes from '/imports/api/attributes/updateAttributes';
 import { calculateSeasonPoints } from '../../ranking/server';
 import { getMatchWithTimeline } from '/imports/shared/th-api/index.ts';
+import axios from 'axios';
 
 export default async function refreshMatchForGameSessionWorker(job, cb) {
   // This will only be called if a
@@ -344,7 +345,7 @@ async function refreshMatchForGameSession(gameSessionId, job) {
 
   const earnedSeasonPoints = calculateSeasonPoints(trophiesObtained);
 
-  const newRank = updateTrophyHunters({
+  updateTrophyHunters({
     trophyHunter,
     earnedTrophyPoints: earnedSeasonPoints + additionalTrophyPoints,
     treeTrophyNamesObtained
@@ -428,6 +429,16 @@ async function refreshMatchForGameSession(gameSessionId, job) {
   // Update ChampionStats
   updateFirstBloodStats(matchResult);
   updateSnowballStats(matchResult);
+
+  // Analyze match https://github.com/lmachens/trophy-hunter-api
+  axios
+    .post('https://champs.th.gl/matches', null, {
+      params: {
+        matchId: gameSession.game.gameId,
+        platformId: gameSession.game.platformId
+      }
+    })
+    .catch(console.error);
 }
 
 const updateTrophyHunters = function({
@@ -517,5 +528,4 @@ const updateTrophyHunters = function({
     },
     update
   );
-  return newRank;
 };
