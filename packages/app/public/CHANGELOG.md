@@ -1,5 +1,9 @@
 # Change Log
 
+## [3.22.1] - 2019-07-24
+### Fixed
+- Fixed typo in RP lottery
+
 ## [3.22.0] - 2019-07-21
 ### Changed
 - Updated to Riot API version 9.14.1
