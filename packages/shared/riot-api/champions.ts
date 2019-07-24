@@ -156,7 +156,7 @@ const champions: IChampions = {
         image: {
           full: 'GalioQ.png'
         },
-        cooldownBurn: '10/9.5/9/8.5/8'
+        cooldownBurn: '14/13/12/11/10'
       },
       {
         name: 'Shield of Durand',
@@ -192,7 +192,7 @@ const champions: IChampions = {
       },
       name: 'Colossal Smash',
       sanitizedDescription:
-        "Every few seconds, Galio's next basic attack deals bonus magic damage in an area. Colossal Smash's cooldown is reduced when Galio hits champions with his spells."
+        "Every few seconds, Galio's next basic attack deals bonus magic damage in an area."
     },
     range: 'Melee'
   },
@@ -635,8 +635,8 @@ const champions: IChampions = {
       image: {
         full: 'MasterYi_Passive1.png'
       },
-      name: 'Double Strike',
-      sanitizedDescription: 'Every few strikes, Master Yi strikes twice.'
+      name: '',
+      sanitizedDescription: 'Every few consecutive basic attack, Master Yi strikes twice.'
     },
     range: 'Melee'
   },
@@ -1194,7 +1194,7 @@ const champions: IChampions = {
       },
       name: 'Love Tap',
       sanitizedDescription:
-        'Miss Fortune deals bonus physical damage whenever she attacks a new target.'
+        'Miss Fortune deals bonus physical damage whenever she basic attacks a new target.'
     },
     range: 'Ranged'
   },
@@ -1808,9 +1808,8 @@ const champions: IChampions = {
       image: {
         full: 'Amumu_Passive.png'
       },
-      name: 'Cursed Touch',
-      sanitizedDescription:
-        "Amumu's basic attacks Curse enemies for 3 seconds, causing them to take 10% bonus true damage from any magic damage dealt to them."
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Melee'
   },
@@ -1975,9 +1974,8 @@ const champions: IChampions = {
       image: {
         full: 'Jester_CarefulStrikes.png'
       },
-      name: 'Backstab',
-      sanitizedDescription:
-        "Shaco's basic attack critically strikes for extra damage when striking a unit from behind. Units can't be Backstabbed more than once every few seconds, modified by Shaco's cooldown reduction."
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Melee'
   },
@@ -2605,11 +2603,11 @@ const champions: IChampions = {
       {
         name: "Death's Hand",
         sanitizedDescription:
-          'Swain unleashes several bolts of eldritch power that pierce through targets killed. Enemies hit take more damage for each bolt they are struck by.',
+          'Swain unleashes several bolts of eldritch power that pierce through enemies hit and stop on impact with enemy champions. Enemies hit take more damage for each bolt they are struck by.',
         image: {
           full: 'SwainQ.png'
         },
-        cooldownBurn: '7.5/6.25/5/3.75/2.5'
+        cooldownBurn: '10/8.5/7/5.5/4'
       },
       {
         name: 'Vision of Empire',
@@ -2632,7 +2630,7 @@ const champions: IChampions = {
       {
         name: 'Demonic Ascension',
         sanitizedDescription:
-          'Swain transforms into a demon and drains health from the 3 closest enemy champions. After draining enough health, Swain can cast Demonflare to end his transformation and decimate nearby enemies with a nova of soulfire.',
+          'Swain transforms into a demon and drains health from nearby enemy champions, minions, and neutral monsters. Swain can cast Demonflare to deal damage equal to the amount of health he drained, ending his transformation to decimate nearby enemies with a nova of soulfire.',
         image: {
           full: 'SwainR.png'
         },
@@ -2645,7 +2643,7 @@ const champions: IChampions = {
       },
       name: 'Ravenous Flock',
       sanitizedDescription:
-        "Swain's ravens collect Soul Fragments that heal him. Swain can right-click an immobilized enemy champions to pull them closer to him, dealing damage and ripping out a Soul Fragment."
+        "Swain's ravens collect Soul Fragments that heal him and restore his mana. Swain can right-click an immobilized enemy champions to pull them closer to him, dealing damage and ripping out a Soul Fragment."
     },
     range: 'Ranged'
   },
@@ -2699,9 +2697,8 @@ const champions: IChampions = {
       image: {
         full: 'Caitlyn_Headshot.png'
       },
-      name: 'Headshot',
-      sanitizedDescription:
-        "Every few basic attacks, or against a target she has trapped or netted, Caitlyn will fire a headshot dealing bonus damage that scales with her critical strike chance. On trapped or netted targets, Caitlyn's Headshot attack range is doubled."
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Ranged'
   },
@@ -2744,7 +2741,7 @@ const champions: IChampions = {
       {
         name: 'Static Field',
         sanitizedDescription:
-          'Enemies attacked by Blitzcrank are marked and take lightning damage after 3 seconds. Additionally, Blitzcrank can activate this ability to damage nearby enemies and silence them for 0.5 seconds.',
+          "Enemies attacked by Blitzcrank are marked and take lightning damage after 1 second. Additionally, Blitzcrank can activate this ability to remove nearby enemies' shields, damage them, and silence them briefly.",
         image: {
           full: 'StaticField.png'
         },
@@ -2773,16 +2770,16 @@ const champions: IChampions = {
       {
         name: 'Seismic Shard',
         sanitizedDescription:
-          'Using his primal elemental magic, Malphite sends a shard of the earth through the ground at his foe, dealing damage upon impact and stealing Movement Speed for 4 seconds.',
+          'Using his primal elemental magic, Malphite sends a shard of the earth through the ground at his foe, dealing damage upon impact and stealing Movement Speed for 3 seconds.',
         image: {
           full: 'SeismicShard.png'
         },
         cooldownBurn: '8'
       },
       {
-        name: 'Brutal Strikes',
+        name: 'Thunderclap',
         sanitizedDescription:
-          'Malphite starts to hit with such force that his attacks deal damage to all units in front of him. Passively increases his Armor (this amount is tripled while Granite Shield is active).',
+          'Malphite attacks with such force that it creates a sonic boom. For the next few seconds, his attacks create aftershocks in front of him.',
         image: {
           full: 'Obduracy.png'
         },
@@ -2869,7 +2866,7 @@ const champions: IChampions = {
       },
       name: 'Voracity',
       sanitizedDescription:
-        'Whenever an enemy champion dies that Katarina has damaged in the last 3 seconds, her ability cooldowns are reduced by 15 seconds.If Katarina picks up a Dagger, she uses it to slash through all nearby enemies, dealing magic damage.'
+        'Whenever an enemy champion dies that Katarina has damaged in the last @ResetWindow@ seconds, her ability cooldowns are reduced by @ResetCDR@ seconds.If Katarina picks up a Dagger, she uses it to slash through all nearby enemies, dealing @TotalDamage@ magic damage.'
     },
     range: 'Melee'
   },
@@ -2925,7 +2922,7 @@ const champions: IChampions = {
       },
       name: 'Umbra Blades',
       sanitizedDescription:
-        "Every 10 seconds, Nocturne's next attack strikes surrounding enemies for 120% physical damage and heals himself. Nocturne's basic attacks reduce this cooldown by 1 second (2 against champions)."
+        "Every few seconds, Nocturne's next attack strikes surrounding enemies for bonus physical damage and heals himself. Nocturne's basic attacks reduce this cooldown."
     },
     range: 'Melee'
   },
@@ -3006,7 +3003,7 @@ const champions: IChampions = {
       {
         name: 'Ruthless Predator',
         sanitizedDescription:
-          'Renekton slashes his target twice, dealing moderate physical damage and stuns them for 0.75 seconds. If Renekton has more than 50 Fury, he slashes his target three times, dealing high physical damage and stuns them for 1.5 seconds.',
+          'Renekton slashes his target twice, dealing moderate physical damage and stuns them for 0.75 seconds. If Renekton has more than 50 Fury, he slashes his target three times, destroying damage shields on the target, dealing high physical damage, and stunning them for 1.5 seconds.',
         image: {
           full: 'RenektonPreExecute.png'
         },
@@ -3093,7 +3090,7 @@ const champions: IChampions = {
       },
       name: 'Martial Cadence',
       sanitizedDescription:
-        "Jarvan IV's initial basic attack on a target deals bonus physical damage. This effect cannot occur again on the same target for a short duration."
+        "Jarvan's first basic attack on an enemy deals bonus physical damage based on their current Health. This effect cannot occur again on the same enemy for a few seconds."
     },
     range: 'Melee'
   },
@@ -3315,8 +3312,9 @@ const champions: IChampions = {
       image: {
         full: 'BrandP.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'Blaze',
+      sanitizedDescription:
+        "Brand's spells light his targets ablaze, dealing damage over 4 seconds, stacking up to 3 times. If Brand kills an enemy while it is ablaze he regains mana. When Blaze reaches max stacks on a Champion or large monster, it becomes unstable. It detonates in 2 seconds, applying spell effects and dealing massive damage in an area around the victim."
     },
     range: 'Ranged'
   },
@@ -3484,7 +3482,7 @@ const champions: IChampions = {
       },
       name: 'Junkyard Titan',
       sanitizedDescription:
-        'Every spell Rumble casts gives him Heat. When he reaches 50% Heat he reaches Danger Zone, granting all his basic abilities bonus effects. When he reaches 100% Heat, he starts Overheating, granting his basic attacks bonus damage, but making him unable to cast spells for a few seconds. '
+        'Every spell Rumble casts gives him Heat. When he reaches 50% Heat he reaches Danger Zone, granting all his basic abilities bonus effects. When he reaches 100% Heat, he starts Overheating, granting his basic attacks bonus damage, but making him unable to cast spells for a few seconds.'
     },
     range: 'Melee'
   },
@@ -3513,7 +3511,7 @@ const champions: IChampions = {
         image: {
           full: 'CassiopeiaW.png'
         },
-        cooldownBurn: '18/17.5/17/16.5/16'
+        cooldownBurn: '24/21/18/15/12'
       },
       {
         name: 'Twin Fang',
@@ -3841,7 +3839,7 @@ const champions: IChampions = {
       {
         name: 'Steadfast Presence',
         sanitizedDescription:
-          'Poppy passively gains Armor and Magic Resist. This bonus increases when she is low on Health. Poppy can activate Steadfast Presence to stop enemy dashes around her and gain movement speed.',
+          'Poppy passively gains Armor and Magic Resist. This bonus increases when she is low on Health. Poppy can activate Steadfast Presence to gain movement speed and stop enemy dashes around her. If a dash is stopped, the enemy is slowed and grounded.',
         image: {
           full: 'PoppyW.png'
         },
@@ -3871,7 +3869,7 @@ const champions: IChampions = {
       },
       name: 'Iron Ambassador',
       sanitizedDescription:
-        'Poppy throws her buckler, gaining range and bonus magic damage.The buckler lands at a nearby location and Poppy can pick it up to gain a shield. Enemies can step on the buckler to destroy it.'
+        'Poppy throws her buckler that bounces off the target. Poppy can pick it up to gain a temporary shield.'
     },
     range: 'Melee'
   },
@@ -4177,7 +4175,7 @@ const champions: IChampions = {
         image: {
           full: 'AkaliW.png'
         },
-        cooldownBurn: '25/22/19/16/13'
+        cooldownBurn: '20'
       },
       {
         name: 'Shuriken Flip',
@@ -4195,7 +4193,7 @@ const champions: IChampions = {
         image: {
           full: 'AkaliR.png'
         },
-        cooldownBurn: '100/85/70'
+        cooldownBurn: '120/110/100'
       }
     ],
     passive: {
@@ -4341,7 +4339,7 @@ const champions: IChampions = {
       {
         name: 'Eclipse',
         sanitizedDescription:
-          'Leona raises her shield to gain Armor and Magic Resist. When the duration first ends, if there are nearby enemies, she will deal magic damage to them and prolong the duration of the effect.',
+          'Leona raises her shield to gain Damage Reduction, Armor, and Magic Resist. When the duration first ends, if there are nearby enemies, she will deal magic damage to them and prolong the duration of the effect.',
         image: {
           full: 'LeonaSolarBarrier.png'
         },
@@ -4359,7 +4357,7 @@ const champions: IChampions = {
       {
         name: 'Solar Flare',
         sanitizedDescription:
-          "Leona calls down a beam of solar energy, dealing damage to enemies in an area. Enemies in the center of the area are stunned, while enemies on the outside are slowed. Afterward, Leona's sword is charged with the power of the sun and deals bonus magic damage for a few attacks.",
+          'Leona calls down a beam of solar energy, dealing damage to enemies in an area. Enemies in the center of the area are stunned, while enemies on the outside are slowed.',
         image: {
           full: 'LeonaSolarFlare.png'
         },
@@ -4668,7 +4666,7 @@ const champions: IChampions = {
         image: {
           full: 'LuxLightBinding.png'
         },
-        cooldownBurn: '10'
+        cooldownBurn: '13/12/11/10/9'
       },
       {
         name: 'Prismatic Barrier',
@@ -4691,11 +4689,11 @@ const champions: IChampions = {
       {
         name: 'Final Spark',
         sanitizedDescription:
-          "After gathering energy, Lux fires a beam of light that deals damage to all targets in the area. If Final Spark helps take down a champion, part of its cooldown is refunded. In addition, triggers Lux's passive ability and refreshes the Illumination debuff duration.",
+          "After gathering energy, Lux fires a beam of light that deals damage to all targets in the area. In addition, triggers Lux's passive ability and refreshes the Illumination debuff duration.",
         image: {
           full: 'LuxMaliceCannon.png'
         },
-        cooldownBurn: '80/65/50'
+        cooldownBurn: '80/60/40'
       }
     ],
     passive: {
@@ -4847,7 +4845,7 @@ const champions: IChampions = {
       {
         name: 'Charm',
         sanitizedDescription:
-          'Ahri blows a kiss that damages and charms an enemy it encounters, causing them to walk harmlessly towards her and take more damage from her abilities.',
+          'Ahri blows a kiss that damages and charms an enemy it encounters, instantly stopping movement abilities and causing them to walk harmlessly towards her. The target temporarily takes increased damage from Ahri.',
         image: {
           full: 'AhriSeduce.png'
         },
@@ -5205,7 +5203,7 @@ const champions: IChampions = {
       },
       name: 'Staggering Blow',
       sanitizedDescription:
-        "Nautilus' basic attacks deal bonus physical damage and immobilize his targets. This effect cannot happen more than once every few seconds on the same target."
+        "Nautilus' basic attacks deal increased physical damage and roots his target briefly. Staggering blow cannot trigger more than once every few seconds on the same target."
     },
     range: 'Melee'
   },
@@ -5428,7 +5426,7 @@ const champions: IChampions = {
       },
       name: 'Short Fuse',
       sanitizedDescription:
-        "Every 12 seconds, Ziggs' next basic attack deals bonus magic damage. This cooldown is reduced whenever Ziggs uses an ability."
+        "Periodically, Ziggs' next basic attack deals bonus magic damage. This cooldown is reduced whenever Ziggs uses an ability."
     },
     range: 'Ranged'
   },
@@ -5484,7 +5482,7 @@ const champions: IChampions = {
       },
       name: 'Pix, Faerie Companion',
       sanitizedDescription:
-        'Pix is a wild Faerie that accompanies Lulu. Pix will fire a barrage of magical energy at targets that Lulu attacks.'
+        "Pix fires magical bolts of energy whenever the champion he's following attacks another enemy unit. These bolts are homing, but can be intercepted by other units."
     },
     range: 'Ranged'
   },
@@ -5650,7 +5648,7 @@ const champions: IChampions = {
       },
       name: 'Unseen Threat',
       sanitizedDescription:
-        "When Kha'Zix is not visible to the enemy team, he gains Unseen Threat, causing his next basic attack against an enemy Champion to deal bonus magic damage and slow."
+        "Nearby enemies that are Isolated from their allies are marked. Kha'Zix's abilities have interactions with Isolated targets.When Kha'Zix is not visible to the enemy team, he gains Unseen Threat, causing his next basic attack against an enemy champion to deal bonus magic damage and slow them for a few seconds."
     },
     range: 'Melee'
   },
@@ -5702,11 +5700,11 @@ const champions: IChampions = {
     ],
     passive: {
       image: {
-        full: 'Darius_PassiveBuff.png'
+        full: 'Darius_Icon_Hemorrhage.png'
       },
       name: 'Hemorrhage',
       sanitizedDescription:
-        'Darius aims his attacks strategically, causing his target to bleed. This effect stacks up to five times. Enemies that reach max Hemorrhage cause Darius to gain Noxian Might, greatly increasing his damage.'
+        "Darius's attacks and damaging abilities cause enemies to bleed for physical damage over 5 seconds, stacking up to 5 times."
     },
     range: 'Melee'
   },
@@ -5818,7 +5816,7 @@ const champions: IChampions = {
       },
       name: 'Iceborn Subjugation',
       sanitizedDescription:
-        'When an enemy champion dies near Lissandra they become a Frozen Thrall. Frozen Thralls slow nearby enemies and then, after 4 seconds, shatter from the intense cold, dealing magic damage to nearby targets.'
+        'When an enemy champion dies near Lissandra they become a Frozen Thrall. Frozen Thralls slow nearby enemies and then, after a delay, shatter from the intense cold, dealing magic damage to nearby targets.'
     },
     range: 'Ranged'
   },
@@ -6038,8 +6036,8 @@ const champions: IChampions = {
       image: {
         full: 'AurelionSol_Passive.png'
       },
-      name: 'Center of the Universe',
-      sanitizedDescription: 'Stars orbit Aurelion Sol, dealing magic damage when they hit an enemy.'
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Ranged'
   },
@@ -6676,7 +6674,7 @@ const champions: IChampions = {
         image: {
           full: 'JhinW.png'
         },
-        cooldownBurn: '14'
+        cooldownBurn: '12'
       },
       {
         name: 'Captive Audience',
@@ -6834,7 +6832,7 @@ const champions: IChampions = {
         image: {
           full: 'TahmKenchQ.png'
         },
-        cooldownBurn: '8/7/6/5/4'
+        cooldownBurn: '8/7.5/7/6.5/6'
       },
       {
         name: 'Devour',
@@ -6852,7 +6850,7 @@ const champions: IChampions = {
         image: {
           full: 'TahmKenchE.png'
         },
-        cooldownBurn: '6'
+        cooldownBurn: '3'
       },
       {
         name: 'Abyssal Voyage',
@@ -7060,7 +7058,7 @@ const champions: IChampions = {
       {
         name: 'Parallel Convergence',
         sanitizedDescription:
-          'Ekko splits the timeline, creating an anomaly after a few seconds that slows enemies caught inside. If Ekko enters the anomaly, he gains shielding and triggers a detonation, stunning enemies by suspending them in time.',
+          "Ekko's basic attacks deal bonus magic damage to low health enemies. He can cast Parallel Convergence to split the timeline, creating an anomaly after a few seconds that slows enemies caught inside. If Ekko enters the anomaly, he gains shielding and stuns enemies by suspending them in time.",
         image: {
           full: 'EkkoW.png'
         },
@@ -7245,11 +7243,11 @@ const champions: IChampions = {
       {
         name: 'World Ender',
         sanitizedDescription:
-          'Aatrox unleashes his demonic form, fearing nearby enemy minions and gaining attack damage, increased healing, and movement speed. If he gets a takedown, this effect is extended, and he revives upon taking lethal damage.',
+          'Aatrox unleashes his demonic form, fearing nearby enemy minions and gaining attack damage, increased healing, and movement speed. If he gets a takedown, this effect is extended.',
         image: {
           full: 'AatroxR.png'
         },
-        cooldownBurn: '140/120/100'
+        cooldownBurn: '120/100/80'
       }
     ],
     passive: {
@@ -7368,9 +7366,8 @@ const champions: IChampions = {
       image: {
         full: 'Azir_Passive.png'
       },
-      name: "Shurima's Legacy",
-      sanitizedDescription:
-        'Azir can summon the Disc of the Sun from the ruins of allied or enemy turrets.'
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Ranged'
   },
@@ -7386,7 +7383,7 @@ const champions: IChampions = {
       {
         name: 'Prowling Projectile',
         sanitizedDescription:
-          'Yuumi fires a missile, dealing damge to the first target hit. It deals bonus damage and slows if it takes at least 1 second to get to its target.While Attached, the missile can be controlled with your cursor.',
+          'Yuumi fires a missile, dealing damage to the first target hit. It deals bonus damage and slows if it takes at least 1 second to get to its target.While Attached, the missile can be controlled with your cursor.',
         image: {
           full: 'YuumiQ.png'
         },
@@ -7426,7 +7423,7 @@ const champions: IChampions = {
       },
       name: "Bop 'n' Block",
       sanitizedDescription:
-        "Periodically, when Yuumi attacks a champion, she restores mana and gains a shield that follows her, protecting her and the ally she's attached to."
+        "Periodically, when Yuumi attacks a champion, she gains a shield that follows her, protecting her and the ally she's attached to."
     },
     range: 'Ranged'
   },
@@ -7963,7 +7960,7 @@ const champions: IChampions = {
         image: {
           full: 'SylasE.png'
         },
-        cooldownBurn: '18/17/16/15/14'
+        cooldownBurn: '14'
       },
       {
         name: 'Hijack',
@@ -7971,7 +7968,7 @@ const champions: IChampions = {
         image: {
           full: 'SylasR.png'
         },
-        cooldownBurn: '85/50/15'
+        cooldownBurn: '100/80/60'
       }
     ],
     passive: {
@@ -8036,7 +8033,7 @@ const champions: IChampions = {
       },
       name: 'Inherent Glamour',
       sanitizedDescription:
-        'Neeko can look like an ally champion. Champion combat or casting damaging spells breaks the disguise.'
+        'Neeko can look like an ally champion. Taking damage from enemy Champions or casting damaging spells breaks the disguise.'
     },
     range: 'Ranged'
   },
@@ -8052,7 +8049,7 @@ const champions: IChampions = {
       {
         name: 'Bone Skewer',
         sanitizedDescription:
-          'Pyke either stabs enemies in front of him or pulls an enemy towards him.',
+          'Pyke either stabs an enemy in front of him or pulls an enemy towards him.',
         image: {
           full: 'PykeQ.png'
         },
@@ -8070,7 +8067,7 @@ const champions: IChampions = {
       {
         name: 'Phantom Undertow',
         sanitizedDescription:
-          'Pyke dashes and leaves behind a phantom that will return to him, stunning enemies along its path.',
+          'Pyke dashes and leaves behind a phantom that will return to him, stunning enemy champions along its path.',
         image: {
           full: 'PykeE.png'
         },
