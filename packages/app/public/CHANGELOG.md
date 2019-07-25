@@ -1,4 +1,6 @@
 # Change Log
+### Fixed
+- Fixed [trophy:immortal] - Now works properly on ARAM
 
 ## [3.22.1] - 2019-07-24
 ### Fixed
