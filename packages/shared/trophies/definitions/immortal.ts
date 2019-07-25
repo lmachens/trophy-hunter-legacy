@@ -13,8 +13,8 @@ const immortal = {
     if (trophiesCategory === ARAM) {
       return (
         match.participant.stats.deaths < 2 &&
-        match.gameduration >= 900 &&
-        match.participation.stats.win
+        match.gameDuration >= 900 &&
+        match.participant.stats.win
       );
     } else {
       return (
