@@ -56,9 +56,6 @@ export class BuildOrder extends Component {
                     <br />
                     Winrate:{' '}
                     {firstItemsStats ? `${(firstItemsStats.winRate * 100).toFixed(2)}%` : '-'}
-                    <br />
-                    <br />
-                    Thx to Champion.gg!
                   </span>
                 }
                 title={
@@ -81,9 +78,6 @@ export class BuildOrder extends Component {
                     <br />
                     Winrate:{' '}
                     {finalItemsStats ? `${(finalItemsStats.winRate * 100).toFixed(2)}%` : '-'}
-                    <br />
-                    <br />
-                    Thx to Champion.gg!
                   </span>
                 }
                 title={

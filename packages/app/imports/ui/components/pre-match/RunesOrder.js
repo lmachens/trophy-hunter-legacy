@@ -159,9 +159,6 @@ class RunesOrder extends Component {
                       <br />
                       Winrate:{' '}
                       {runesOrderStats ? `${(runesOrderStats.winRate * 100).toFixed(2)}%` : '-'}
-                      <br />
-                      <br />
-                      Thx to Champion.gg!
                     </span>
                   }
                   title={set === 'highestCount' ? 'Most Frequent Runes' : 'Most Winning Runes'}

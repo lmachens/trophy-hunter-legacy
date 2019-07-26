@@ -83,9 +83,7 @@ class SkillOrder extends Component {
 
     const backgroundStyle = Object.assign(
       {
-        backgroundImage: `url(//ddragon.leagueoflegends.com/cdn/img/champion/splash/${
-          champion.key
-        }_2.jpg)`,
+        backgroundImage: `url(//ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.key}_2.jpg)`,
         filter: universeTheme.boxBackground.filter,
         opacity: universeTheme.boxBackground.opacity
       },
@@ -105,9 +103,6 @@ class SkillOrder extends Component {
                     <br />
                     Winrate:{' '}
                     {skillOrderStats ? `${(skillOrderStats.winRate * 100).toFixed(2)}%` : '-'}
-                    <br />
-                    <br />
-                    Thx to Champion.gg!
                   </span>
                 }
                 title={

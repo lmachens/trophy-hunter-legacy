@@ -9,7 +9,7 @@
     "www": "yarn --cwd \"packages/www\" dev",
     "app-storybook": "cd packages/app && npm run storybook",
     "lint-fix": "tslint --project ./tsconfig.json --fix",
-    "test":  "npm run lint-fix"
+    "test": "npm run lint-fix"
   },
   "devDependencies": {
     "husky": "3.0.1",

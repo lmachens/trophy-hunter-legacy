@@ -109,9 +109,7 @@ class ChampionGuide extends Component {
     const backgroundStyle = champion
       ? Object.assign(
           {
-            backgroundImage: `url(//ddragon.leagueoflegends.com/cdn/img/champion/splash/${
-              champion.key
-            }_0.jpg)`,
+            backgroundImage: `url(//ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.key}_0.jpg)`,
             filter: universeTheme.boxBackground.filter,
             opacity: universeTheme.boxBackground.opacity
           },
@@ -154,11 +152,6 @@ class ChampionGuide extends Component {
           {!champion && <h3 style={styles.selectChampion}>Please select a champion in LoL</h3>}
           {champion && (
             <div style={styles.credits}>
-              Data from{' '}
-              <a href="http://champion.gg/" rel="noopener noreferrer" target="_blank">
-                Champion.gg
-              </a>
-              <br />
               <small>Updated {lastUpdated && moment(lastUpdated).calendar()}</small>
               <Refresh
                 error={error}

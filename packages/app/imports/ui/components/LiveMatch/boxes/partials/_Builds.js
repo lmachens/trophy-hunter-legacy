@@ -61,12 +61,6 @@ class Builds extends PureComponent {
     return (
       <div className={classes.items}>
         <div className={classes.top}>
-          <Typography variant="caption">
-            Stats from{' '}
-            <a href="https://champion.gg" rel="noopener noreferrer" target="_blank">
-              Champion.gg
-            </a>
-          </Typography>
           <Select name="build" onChange={this.handleChange} value={build}>
             <MenuItem value={builds[0]}>Most Frequent</MenuItem>
             <MenuItem value={builds[1]}>Highest Win Rate</MenuItem>
