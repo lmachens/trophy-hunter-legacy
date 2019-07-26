@@ -36,7 +36,11 @@ const styles = {
     left: 'calc(50% - 20px)'
   },
   main: {
-    width: 626
+    width: 626,
+    padding: '3px !important'
+  },
+  item: {
+    padding: '3px !important'
   }
 };
 
@@ -77,13 +81,13 @@ class LiveMatch extends PureComponent {
     }
     if (!firstTeam) return <CircularProgress className={classes.loading} color="primary" />;
     return (
-      <Grid alignItems="stretch" className={classes.root} container justify="center" spacing={8}>
-        <Grid container direction="column" item md={3} spacing={8}>
-          <Grid item>
+      <Grid alignItems="stretch" className={classes.root} container justify="center" spacing={1}>
+        <Grid container direction="column" item md={3} spacing={1} className={classes.item}>
+          <Grid item className={classes.item}>
             <DamageCompositionBox teamId={100} />
           </Grid>
           {[0, 1, 2, 3, 4].map(participantIndex => (
-            <Grid item key={participantIndex}>
+            <Grid item key={participantIndex} className={classes.item}>
               <ParticipantBox
                 className={classes.participantBox}
                 participant={firstTeam[participantIndex]}
@@ -91,23 +95,23 @@ class LiveMatch extends PureComponent {
             </Grid>
           ))}
         </Grid>
-        <Grid className={classes.main} container direction="column" item md spacing={8}>
-          <Grid item>
+        <Grid className={classes.main} container direction="column" item md spacing={1}>
+          <Grid item className={classes.item}>
             <GeneralBox />
           </Grid>
-          <Grid item>
+          <Grid item className={classes.item}>
             <MatchupBox />
           </Grid>
-          <Grid item>
+          <Grid item className={classes.item}>
             <MatchesBox />
           </Grid>
         </Grid>
-        <Grid container direction="column" item md={3} spacing={8}>
-          <Grid item>
+        <Grid container direction="column" item md={3} spacing={1} className={classes.item}>
+          <Grid item className={classes.item}>
             <DamageCompositionBox teamId={200} />
           </Grid>
           {[0, 1, 2, 3, 4].map(participantIndex => (
-            <Grid item key={participantIndex}>
+            <Grid item key={participantIndex} className={classes.item}>
               <ParticipantBox
                 className={classes.participantBox}
                 participant={secondTeam[participantIndex]}
@@ -115,16 +119,16 @@ class LiveMatch extends PureComponent {
             </Grid>
           ))}
         </Grid>
-        <Grid item md={2}>
+        <Grid item md={2} className={classes.item}>
           <QuestsBox className={classes.bottomBox} />
         </Grid>
-        <Grid item md={4}>
+        <Grid item md={4} className={classes.item}>
           <BuildsBox className={classes.bottomBox} />
         </Grid>
-        <Grid item md={4}>
+        <Grid item md={4} className={classes.item}>
           <SkillsBox className={classes.bottomBox} />
         </Grid>
-        <Grid item md={2}>
+        <Grid item md={2} className={classes.item}>
           <HeatmapBox className={classes.bottomBox} />
         </Grid>
       </Grid>

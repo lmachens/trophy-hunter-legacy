@@ -85,7 +85,7 @@ const Match: FunctionComponent<MatchProps> = ({ match, summonerName }) => {
       <Grid
         container
         className={classNames(participant.stats.win ? classes.win : classes.loss)}
-        spacing={24}
+        spacing={3}
         alignItems="center"
         justify="center"
       >

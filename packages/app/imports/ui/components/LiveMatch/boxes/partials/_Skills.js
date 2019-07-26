@@ -38,6 +38,9 @@ const styles = {
   },
   winRate: {
     color: '#89f5a2'
+  },
+  small: {
+    fontSize: '0.7rem'
   }
 };
 
@@ -90,7 +93,7 @@ class Skills extends PureComponent {
               <th>{champion.passive && <Skill isPassive={true} skill={champion.passive} />}</th>
               {[...Array(18)].map((x, i) => (
                 <th className={classes.col} key={i + 1}>
-                  {i + 1}
+                  <Typography className={classes.small}>{i + 1}</Typography>
                 </th>
               ))}
             </tr>
@@ -103,7 +106,9 @@ class Skills extends PureComponent {
                 </td>
                 {[...Array(18)].map((x, i) => (
                   <td className={classes.col} key={`${char}${i + 1}`}>
-                    {skillOrderStats.order[i] === char ? char : ''}
+                    <Typography className={classes.small}>
+                      {skillOrderStats.order[i] === char ? char : ''}
+                    </Typography>
                   </td>
                 ))}
               </tr>

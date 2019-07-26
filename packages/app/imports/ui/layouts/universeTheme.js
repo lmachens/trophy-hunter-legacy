@@ -60,7 +60,8 @@ export const theme = createMuiTheme({
   },
   typography: {
     body1: {
-      color: '#c4b998'
+      color: '#c4b998',
+      fontSize: '0.8rem'
     },
     body2: {
       color: '#c4b998'
