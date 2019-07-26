@@ -25,6 +25,9 @@ const styles = {
     alignItems: 'center',
     margin: '0 2px',
     height: 16
+  },
+  flex: {
+    flex: 1
   }
 };
 
@@ -61,13 +64,14 @@ class Builds extends PureComponent {
     return (
       <div className={classes.items}>
         <div className={classes.top}>
+          <div className={classes.flex}></div>
           <Select name="build" onChange={this.handleChange} value={build}>
             <MenuItem value={builds[0]}>Most Frequent</MenuItem>
             <MenuItem value={builds[1]}>Highest Win Rate</MenuItem>
           </Select>
         </div>
         <div>
-          <Typography variant="caption">
+          <Typography variant="caption" component="div">
             Starters Build:
             <span className={classes.winRate}> {(firstItemsStats.winRate * 100).toFixed(2)}% </span>
             Win Rate | <span className={classes.winRate}>{firstItemsStats.count} </span>
@@ -83,7 +87,7 @@ class Builds extends PureComponent {
           })}
         </div>
         <div>
-          <Typography variant="caption">
+          <Typography variant="caption" component="div">
             Completed Build:
             <span className={classes.winRate}> {(finalItemsStats.winRate * 100).toFixed(2)}% </span>
             Win Rate | <span className={classes.winRate}>{finalItemsStats.count} </span>
