@@ -40,11 +40,11 @@ const receiveChampionStatsError = (championId, error) => {
 };
 
 function sortHighestCount(a, b) {
-  return a.count - b.count;
+  return b.count - a.count;
 }
 
 function sortHighestWinrate(a, b) {
-  return a.winRate - b.winRate;
+  return b.winRate - a.winRate;
 }
 
 const roles = {
