@@ -321,11 +321,17 @@ Meteor.methods({
       if (trophyHunter) {
         accountId = trophyHunter.accountId;
       } else {
-        const summoner = await getSummoner({ platformId, summonerId });
-        if (!summoner) {
-          throw new Meteor.Error('getParticipantHeatmap', 'summoner not found');
+        try {
+          const summoner = await getSummoner({ platformId, summonerId });
+          accountId = summoner.accountId;
+        } catch (error) {
+          throw new Meteor.Error(
+            'getParticipantHeatmap',
+            'summoner not found',
+            platformId,
+            summonerId
+          );
         }
-        accountId = summoner.accountId;
       }
       const queueIds = queuesByMatchId[mapId];
       if (!queueIds) {

@@ -111,7 +111,7 @@ export default class Overwolf {
       }
       Meteor.call('UserPresence:setDefaultStatus', 'ingame');
       const showOverlay = result && result.showOverlay;
-      console.log('show overlay?', showOverlay);
+      console.log(`show overlay? ${showOverlay}`);
       if (showOverlay) {
         parent.window.postMessage(
           {
