@@ -1,9 +1,11 @@
 # Change Log
 
+## [4.0.0] - 2019-07-30
 ### Changed
 - We calculate our own champion stats now 🎉 (no more champion.gg)! These stats are more up to date and are based on Trophy Hunter matches.
 - Instead of the final build, we show recommended items for different time ranges (2-12, 12-22, 22-32, 32-42, 42-52).
 - Skill order is shown for level 1-10. We get better data when we do not limit our calculation to matches where champions reached level 18.
+- It will take a few days to have enough matches analyzed for good stats.
 
 ## [3.22.2] - 2019-07-25
 ### Fixed
