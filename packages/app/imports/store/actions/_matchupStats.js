@@ -5,8 +5,7 @@ import {
   REQUEST_MATCHUP_STATS,
   CLEAR_MATCHUP_STATS
 } from '../types';
-
-import { Meteor } from 'meteor/meteor';
+import axios from 'axios';
 
 export const clearMatchupStats = () => {
   return {
@@ -52,18 +51,27 @@ export const fetchMatchupStats = identifier => {
       const params = identifier.split('&');
       const champ1Id = parseInt(params[0]);
       const champ2Id = parseInt(params[1]);
-      const role = params[2];
-      Meteor.call('getMatchupStats', { champ1Id, champ2Id, role }, (error, stats) => {
-        if (error) {
-          return resolve(dispatch(receiveMatchupStatsError({ identifier, error })));
-        }
-        return resolve(dispatch(receiveMatchupStats({ identifier, stats })));
-      });
+      const mapId = parseInt(params[2]);
+
+      axios
+        .get(
+          `https://champs.th.gl/matchups?champ1Id=${champ1Id}&champ2Id=${champ2Id}&mapId=${mapId}`
+        )
+        .then(result => result.data)
+        .then(matchup => {
+          return resolve(dispatch(receiveMatchupStats({ identifier, stats: matchup })));
+        })
+        .catch(error => {
+          console.error(error);
+          return resolve(
+            dispatch(receiveMatchupStatsError({ identifier, error: 'Can not fetch' }))
+          );
+        });
     });
   };
 };
 
-const ttl = 1000 * 60 * 60 * 24;
+const ttl = 1000 * 60 * 3;
 export const fetchMatchupStatsIfNeeded = fetchIfNeeded(
   fetchMatchupStats,
   'trophyStatsByTrophyName',

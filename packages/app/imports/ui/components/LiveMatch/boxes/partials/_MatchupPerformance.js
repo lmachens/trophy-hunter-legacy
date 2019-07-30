@@ -5,7 +5,6 @@ import PolarGrid from 'recharts/lib/polar/PolarGrid';
 import PropTypes from 'prop-types';
 import Radar from 'recharts/lib/polar/Radar';
 import RadarChart from 'recharts/lib/chart/RadarChart';
-import { Typography } from '../../../generic';
 
 const normalizeGold = gold => (gold / 20000) * 100;
 const normalizeKills = kills => (kills / 10) * 100;
@@ -18,7 +17,6 @@ class MatchupPerformance extends PureComponent {
     const { firstStats = {}, secondStats = {} } = this.props;
     return (
       <Fragment>
-        <Typography variant="caption">Matchup Performance</Typography>
         <RadarChart
           data={[
             {

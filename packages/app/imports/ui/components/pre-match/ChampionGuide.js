@@ -74,13 +74,11 @@ class ChampionGuide extends Component {
   updateState({ championId, championStatsByChampionId }) {
     const champion = champions[championId];
     const championStats = get(championStatsByChampionId, `${championId}.stats`) || {};
-    const mapStats = get(championStatsByChampionId, `${championId}.byMap`) || {};
     const championStatsState = championStatsByChampionId[championId];
     const role = getRole(championStats);
     this.setState({
       champion,
       championStats,
-      mapStats,
       role,
       championStatsState
     });
@@ -103,7 +101,7 @@ class ChampionGuide extends Component {
   };
 
   render() {
-    const { champion, championStats, role, mapStats, championStatsState } = this.state;
+    const { champion, championStats, role, championStatsState } = this.state;
     const height = champion ? 610 : 180;
 
     const backgroundStyle = champion
@@ -125,14 +123,7 @@ class ChampionGuide extends Component {
         <div style={backgroundStyle} />
         <div style={styles.foreground}>
           <h2 style={styles.header}>
-            {champion && role && (
-              <ChampionStats
-                champion={champion}
-                map={'SUMMONERS_RIFT'}
-                mapStats={mapStats}
-                role={role}
-              />
-            )}
+            {champion && role && <ChampionStats champion={champion} role={role} />}
             {champion && (
               <Avatar
                 size={40}

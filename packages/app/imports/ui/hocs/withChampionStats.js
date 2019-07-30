@@ -61,7 +61,11 @@ export const withChampionStats = WrappedComponent => {
       } else if (team) {
         fetchChampionIds = team.map(participant => participant.championId);
       }
-      fetchChampionIds.forEach(championId => fetchChampionStatsIfNeeded(championId));
+      fetchChampionIds.forEach(championId => {
+        if (championId) {
+          fetchChampionStatsIfNeeded(championId);
+        }
+      });
     }
 
     render() {

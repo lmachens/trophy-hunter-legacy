@@ -158,11 +158,12 @@ class SkillOrder extends Component {
                 </Tooltip>
               )}
             </th>
-            {[...Array(18)].map((x, i) => (
+            {[...Array(10)].map((x, i) => (
               <th key={i + 1} style={styles.col}>
                 {i + 1}
               </th>
             ))}
+            <th style={styles.col}>...</th>
           </tr>
         </thead>
         <tbody>
@@ -195,7 +196,7 @@ class SkillOrder extends Component {
                   />
                 </Tooltip>
               </td>
-              {[...Array(18)].map((x, i) => (
+              {[...Array(10)].map((x, i) => (
                 <td key={`${char}${i + 1}`} style={styles.col}>
                   {roleStats.skillOrder[set].order[i] === char ? char : ''}
                 </td>

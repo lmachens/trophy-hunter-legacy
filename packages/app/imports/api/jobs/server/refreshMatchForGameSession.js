@@ -1,6 +1,5 @@
 import Notifications, { notificationTypes } from '/imports/api/notifications/notifications';
 import trees, { activeTrees, treeBonus } from '/imports/shared/trees/index.ts';
-import { updateFirstBloodStats, updateSnowballStats } from '../../champions/server';
 
 import GameSessions from '/imports/api/game-sessions/gameSessions';
 import { Meteor } from 'meteor/meteor';
@@ -426,9 +425,6 @@ async function refreshMatchForGameSession(gameSessionId, job) {
 
     bulk.execute().catch(console.error);
   }
-  // Update ChampionStats
-  updateFirstBloodStats(matchResult);
-  updateSnowballStats(matchResult);
 
   // Analyze match https://github.com/lmachens/trophy-hunter-api
   axios

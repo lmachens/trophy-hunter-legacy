@@ -91,11 +91,14 @@ class Skills extends PureComponent {
           <thead>
             <tr>
               <th>{champion.passive && <Skill isPassive={true} skill={champion.passive} />}</th>
-              {[...Array(18)].map((x, i) => (
+              {[...Array(10)].map((x, i) => (
                 <th className={classes.col} key={i + 1}>
                   <Typography className={classes.small}>{i + 1}</Typography>
                 </th>
               ))}
+              <th className={classes.col}>
+                <Typography className={classes.small}>...</Typography>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -104,7 +107,7 @@ class Skills extends PureComponent {
                 <td>
                   <Skill skill={champion.spells[index]} />
                 </td>
-                {[...Array(18)].map((x, i) => (
+                {[...Array(10)].map((x, i) => (
                   <td className={classes.col} key={`${char}${i + 1}`}>
                     <Typography className={classes.small}>
                       {skillOrderStats.order[i] === char ? char : ''}

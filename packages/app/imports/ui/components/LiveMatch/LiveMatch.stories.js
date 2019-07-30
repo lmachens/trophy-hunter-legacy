@@ -139,66 +139,6 @@ storiesOf('Components', module).add('LiveMatch', () => {
 
   store.dispatch(
     receiveChampionStats(69, {
-      byMap: {
-        SUMMONERS_RIFT: {
-          MIDDLE: {
-            firstBlood: {
-              analysedMatches: 22,
-              count: 8,
-              chance: 0.545454545454546,
-              winCountOnFirstBlood: 0,
-              winChanceOnFirstBlood: 0
-            },
-            snowball: {
-              analysedMatches: 34,
-              avgSnowballKills: 1.58823529411765,
-              snowballingCount: 0,
-              snowballingChance: 0,
-              winCountOnSnowballing: 0,
-              winChanceOnSnowballing: 0
-            }
-          },
-          TOP: {
-            snowball: {
-              analysedMatches: 3,
-              avgSnowballKills: 2,
-              snowballingCount: 0,
-              snowballingChance: 0,
-              winCountOnSnowballing: 0,
-              winChanceOnSnowballing: 0
-            },
-            firstBlood: {
-              analysedMatches: 1,
-              count: 0,
-              chance: 0,
-              winCountOnFirstBlood: 0,
-              winChanceOnFirstBlood: 0
-            }
-          },
-          JUNGLE: {
-            snowball: {
-              analysedMatches: 3,
-              avgSnowballKills: 3.33333333333333,
-              snowballingCount: 0,
-              snowballingChance: 0,
-              winCountOnSnowballing: 0,
-              winChanceOnSnowballing: 0
-            }
-          }
-        },
-        TWISTED_TREELINE: {
-          JUNGLE: {
-            snowball: {
-              analysedMatches: 1,
-              avgSnowballKills: 1,
-              snowballingCount: 0,
-              snowballingChance: 0,
-              winCountOnSnowballing: 0,
-              winChanceOnSnowballing: 0
-            }
-          }
-        }
-      },
       stats: {
         MIDDLE: {
           gamesPlayed: 3948,
@@ -228,19 +168,116 @@ storiesOf('Components', module).add('LiveMatch', () => {
               items: ['2033']
             }
           },
-          finalItems: {
-            highestCount: {
-              count: 684,
-              wins: 247,
-              winRate: 0.361111111111111,
-              items: ['3003', '3116', '3151', '3157', '3089', '3165']
-            },
-            highestWinrate: {
-              count: 183,
-              wins: 79,
-              winRate: 0.431693989071038,
-              items: ['3027', '3003', '3116', '3151', '3157', '3102']
-            }
+          items: {
+            '2-12': [
+              {
+                matches: 2,
+                winRate: 1,
+                itemId: 1028
+              },
+              {
+                matches: 11,
+                winRate: 0.7272727272727273,
+                itemId: 3802
+              },
+              {
+                matches: 14,
+                winRate: 0.6428571428571429,
+                itemId: 2003
+              },
+              {
+                matches: 19,
+                winRate: 0.631578947368421,
+                itemId: 3070
+              },
+              {
+                matches: 16,
+                winRate: 0.5625,
+                itemId: 1052
+              }
+            ],
+            '12-22': [
+              {
+                matches: 7,
+                winRate: 0.8571428571428571,
+                itemId: 3116
+              },
+              {
+                matches: 15,
+                winRate: 0.7333333333333333,
+                itemId: 1052
+              },
+              {
+                matches: 14,
+                winRate: 0.7142857142857143,
+                itemId: 1026
+              },
+              {
+                matches: 17,
+                winRate: 0.6470588235294118,
+                itemId: 3003
+              },
+              {
+                matches: 5,
+                winRate: 0.6,
+                itemId: 2003
+              }
+            ],
+            '22-32': [
+              {
+                matches: 2,
+                winRate: 1,
+                itemId: 3165
+              },
+              {
+                matches: 6,
+                winRate: 0.6666666666666666,
+                itemId: 1052
+              },
+              {
+                matches: 3,
+                winRate: 0.6666666666666666,
+                itemId: 3136
+              },
+              {
+                matches: 2,
+                winRate: 0.5,
+                itemId: 1058
+              },
+              {
+                matches: 6,
+                winRate: 0.3333333333333333,
+                itemId: 1026
+              }
+            ],
+            '32-42': [
+              {
+                matches: 1,
+                winRate: 1,
+                itemId: 2139
+              },
+              {
+                matches: 1,
+                winRate: 1,
+                itemId: 1026
+              },
+              {
+                matches: 1,
+                winRate: 1,
+                itemId: 1052
+              },
+              {
+                matches: 1,
+                winRate: 1,
+                itemId: 1058
+              },
+              {
+                matches: 1,
+                winRate: 1,
+                itemId: 2055
+              }
+            ],
+            '42-52': []
           },
           skillOrder: {
             highestCount: {
@@ -596,17 +633,13 @@ storiesOf('Components', module).add('LiveMatch', () => {
 
   store.dispatch(
     receiveMatchupStats({
-      identifier: `${liveMatch.firstTeamTarget.championId}&${
-        liveMatch.secondTeamTarget.championId
-      }&${liveMatch.firstTeamTarget.role}`,
+      identifier: `${liveMatch.firstTeamTarget.championId}&${liveMatch.secondTeamTarget.championId}&${liveMatch.firstTeamTarget.role}`,
       stats: {
         champ1Id: 69,
         champ2Id: 266,
         role: 'MIDDLE',
         champ1: {
-          thirtyToEnd: 0,
           goldEarned: 11949.6666666667,
-          zeroToTen: 0,
           minionsKilled: 190.666666666667,
           winrate: 0.666666666666667,
           assists: 5.91666666666667,
@@ -615,14 +648,11 @@ storiesOf('Components', module).add('LiveMatch', () => {
           kills: 6.5,
           wins: 8,
           totalDamageDealtToChampions: 23522.8333333333,
-          twentyToThirty: 0,
-          tenToTwenty: 0,
           neutralMinionsKilledTeamJungle: 12,
           killingSprees: 1.41666666666667,
           weighedScore: 56648.6
         },
         champ2: {
-          twentyToThirty: 0,
           wins: 4,
           winrate: 0.333333333333333,
           kills: 6.75,
@@ -630,9 +660,6 @@ storiesOf('Components', module).add('LiveMatch', () => {
           totalDamageDealtToChampions: 15716.4166666667,
           role: 'MIDDLE',
           assists: 5,
-          tenToTwenty: 0,
-          thirtyToEnd: 0,
-          zeroToTen: 0,
           goldEarned: 11348.3333333333,
           killingSprees: 1.75,
           minionsKilled: 174.5,
@@ -647,9 +674,7 @@ storiesOf('Components', module).add('LiveMatch', () => {
 
   store.dispatch(
     receiveMatchupMatches({
-      identifier: `${liveMatch.firstTeamTarget.championId}&${
-        liveMatch.secondTeamTarget.championId
-      }&${liveMatch.mapId}`,
+      identifier: `${liveMatch.firstTeamTarget.championId}&${liveMatch.secondTeamTarget.championId}&${liveMatch.mapId}`,
       matches: [
         {
           participant1: {

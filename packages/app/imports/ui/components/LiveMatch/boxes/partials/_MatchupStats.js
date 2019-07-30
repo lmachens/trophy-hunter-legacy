@@ -1,5 +1,5 @@
 import React, { Fragment, PureComponent } from 'react';
-import { Typography, withStyles } from '../../../generic';
+import { withStyles } from '../../../generic';
 
 import PropTypes from 'prop-types';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
@@ -37,7 +37,6 @@ class MatchupStats extends PureComponent {
     } = this.props;
     return (
       <Fragment>
-        <Typography variant="caption">Champion Stats</Typography>
         <Table padding="none">
           <TableHead>
             <TableRow className={classes.row}>
@@ -50,10 +49,10 @@ class MatchupStats extends PureComponent {
             <TableRow className={classes.row}>
               <TableCell className={classes.cell}>Win Rate</TableCell>
               <TableCell className={classNames(classes.cell, classes.playerOne)}>
-                {(firstStats.winrate * 100).toFixed(2)}%
+                {(firstStats.winRate * 100).toFixed(2)}%
               </TableCell>
               <TableCell className={classNames(classes.cell, classes.playerTwo)}>
-                {(secondStats.winrate * 100).toFixed(2)}%
+                {(secondStats.winRate * 100).toFixed(2)}%
               </TableCell>
             </TableRow>
             <TableRow className={classes.row}>
@@ -113,10 +112,10 @@ class MatchupStats extends PureComponent {
             <TableRow className={classes.row}>
               <TableCell className={classes.cell}>Minions Killed</TableCell>
               <TableCell className={classNames(classes.cell, classes.playerOne)}>
-                {firstStats.minionsKilled.toFixed(2)}
+                {firstStats.totalMinionsKilled.toFixed(2)}
               </TableCell>
               <TableCell className={classNames(classes.cell, classes.playerTwo)}>
-                {secondStats.minionsKilled.toFixed(2)}
+                {secondStats.totalMinionsKilled.toFixed(2)}
               </TableCell>
             </TableRow>
           </TableBody>

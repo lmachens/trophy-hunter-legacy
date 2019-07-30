@@ -38,16 +38,9 @@ class ChampionStats extends Component {
   };
 
   render() {
-    const { champion, mapStats, map, championStatsByChampionId, role } = this.props;
+    const { champion, championStatsByChampionId, role } = this.props;
     const championStats = get(championStatsByChampionId, `${champion.id}.stats`) || {};
     const roleStats = championStats[role];
-
-    const { chance: firstBloodChance } = get(mapStats, `${map}.${role}.firstBlood`) || {
-      chance: 0
-    };
-    const { snowballingChance } = get(mapStats, `${map}.${role}.snowball`) || {
-      snowballingChance: 0
-    };
 
     return (
       <div style={styles.root}>
@@ -82,7 +75,7 @@ class ChampionStats extends Component {
             <div style={styles.rate}>
               <div>First Blood</div>
               <div style={{ color: universeTheme.palette.primary1Color }}>
-                {toPercent(firstBloodChance)}
+                {roleStats && toPercent(roleStats.firstBloodKill)}
               </div>
             </div>
           </Tooltip>
@@ -90,7 +83,7 @@ class ChampionStats extends Component {
             <div style={styles.rate}>
               <div>Snowballing</div>
               <div style={{ color: universeTheme.palette.primary1Color }}>
-                {toPercent(snowballingChance)}
+                {roleStats && toPercent(roleStats.snowballKills)}
               </div>
             </div>
           </Tooltip>
@@ -103,9 +96,7 @@ class ChampionStats extends Component {
 ChampionStats.propTypes = {
   champion: PropTypes.object.isRequired,
   role: PropTypes.string.isRequired,
-  championStatsByChampionId: PropTypes.object.isRequired,
-  mapStats: PropTypes.object.isRequired,
-  map: PropTypes.string.isRequired
+  championStatsByChampionId: PropTypes.object.isRequired
 };
 
 export default withChampionStats(ChampionStats);

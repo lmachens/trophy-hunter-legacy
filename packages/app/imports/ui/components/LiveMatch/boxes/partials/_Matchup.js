@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import champions from '/imports/shared/riot-api/champions.ts';
 import compose from 'recompose/compose';
 import { connect } from 'react-redux';
-import { createMatchupStatsIdentifier } from '../../../../../api/matchup/helpers';
+import { createMatchupMatchesIdentifier } from '../../../../../api/matchup/helpers';
 import { fetchMatchupStatsIfNeeded } from '../../../../../store/actions';
 
 const styles = {
@@ -67,18 +67,14 @@ const styles = {
 };
 
 const defaultStats = {
-  winrate: 0.5,
+  winRate: 0.5,
   goldEarned: 0,
   kills: 0,
   deaths: 0,
   assists: 0,
   totalDamageDealtToChampions: 0,
-  zeroToTen: 0,
-  tenToTwenty: 0,
-  twentyToThirty: 0,
-  thirtyToEnd: 0,
   killingSprees: 0,
-  minionsKilled: 0
+  totalMinionsKilled: 0
 };
 
 class Matchup extends PureComponent {
@@ -101,7 +97,7 @@ class Matchup extends PureComponent {
     const secondChampion = secondTeamTarget && champions[secondTeamTarget.championId];
 
     const stats = matchupStats.stats || {
-      count: 0,
+      matches: 0,
       champ1: defaultStats,
       champ2: defaultStats
     };
@@ -126,9 +122,7 @@ class Matchup extends PureComponent {
             left: 0,
             backgroundImage:
               firstChampion &&
-              `url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${
-                firstChampion.key
-              }_0.jpg)`
+              `url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${firstChampion.key}_0.jpg)`
           }}
         />
         <div
@@ -137,9 +131,7 @@ class Matchup extends PureComponent {
             right: 0,
             backgroundImage:
               secondChampion &&
-              `url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${
-                secondChampion.key
-              }_0.jpg)`
+              `url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${secondChampion.key}_0.jpg)`
           }}
         />
         <Grid className={classes.content} container direction="column">
@@ -149,22 +141,22 @@ class Matchup extends PureComponent {
               <Typography>vs</Typography>
               <Typography className={classes.playerTwo}>{secondChampionName}</Typography>
             </div>
-            <Typography>{stats.count} analyzed matches</Typography>
+            <Typography>{stats.matches} analyzed matches</Typography>
             <Typography variant="caption">Win Rate</Typography>
             <div className={classes.winRate}>
-              <Tooltip title={`${(firstStats.winrate * 100).toFixed(2)}% winrate`}>
+              <Tooltip title={`${(firstStats.winRate * 100).toFixed(2)}% winrate`}>
                 <div
                   className={classes.playerOneWinRate}
                   style={{
-                    width: `${firstStats.winrate * 100}%`
+                    width: `${firstStats.winRate * 100}%`
                   }}
                 />
               </Tooltip>
-              <Tooltip title={`${(secondStats.winrate * 100).toFixed(2)}% winrate`}>
+              <Tooltip title={`${(secondStats.winRate * 100).toFixed(2)}% winrate`}>
                 <div
                   className={classes.playerTwoWinRate}
                   style={{
-                    width: `${secondStats.winrate * 100}%`
+                    width: `${secondStats.winRate * 100}%`
                   }}
                 />
               </Tooltip>
@@ -200,13 +192,16 @@ Matchup.propTypes = {
   fetchMatchupStatsIfNeeded: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ liveMatch: { firstTeamTarget, secondTeamTarget }, statsByMatchup }) => {
+const mapStateToProps = ({
+  liveMatch: { mapId, firstTeamTarget, secondTeamTarget },
+  statsByMatchup
+}) => {
   if (!firstTeamTarget || !firstTeamTarget.role || !secondTeamTarget)
     return { firstTeamTarget, secondTeamTarget };
-  const identifier = createMatchupStatsIdentifier({
+  const identifier = createMatchupMatchesIdentifier({
     champ1Id: firstTeamTarget.championId,
     champ2Id: secondTeamTarget.championId,
-    role: firstTeamTarget.role
+    mapId
   });
   const matchupStats = statsByMatchup[identifier] || {
     isFetching: true

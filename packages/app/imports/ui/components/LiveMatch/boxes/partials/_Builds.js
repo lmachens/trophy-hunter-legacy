@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Typography, withStyles } from '../../../generic';
-
-import { HardwareKeyboardArrowRightIcon } from '../../../icons';
+import { IconButton } from '@material-ui/core';
+import { HardwareKeyboardArrowLeftIcon, HardwareKeyboardArrowRightIcon } from '../../../icons';
 import { Item } from './_Item';
 import { MenuItem } from '../../../generic/MenuItem';
 import PropTypes from 'prop-types';
@@ -11,6 +11,7 @@ import compose from 'recompose/compose';
 import { connect } from 'react-redux';
 import { fetchChampionStatsIfNeeded, setUIState } from '../../../../../store/actions';
 import get from 'lodash.get';
+import universeTheme from '../../../../layouts/universeTheme';
 
 const styles = {
   items: {
@@ -28,6 +29,24 @@ const styles = {
   },
   flex: {
     flex: 1
+  },
+  leftArrow: {
+    position: 'absolute',
+    bottom: 10,
+    left: 0,
+    padding: 0,
+    height: 24,
+    width: 24,
+    color: universeTheme.palette.textColor
+  },
+  rightArrow: {
+    position: 'absolute',
+    bottom: 10,
+    right: 0,
+    padding: 0,
+    height: 24,
+    width: 24,
+    color: universeTheme.palette.textColor
   }
 };
 
@@ -37,8 +56,13 @@ const defaultStats = {
   winRate: 0,
   items: []
 };
+const ranges = ['2-12', '12-22', '22-32', '32-42', '42-52'];
 const builds = ['highestCount', 'highestWinrate'];
 class Builds extends PureComponent {
+  state = {
+    range: ranges[0]
+  };
+
   componentDidMount() {
     const { championId, fetchChampionStatsIfNeeded } = this.props;
     if (championId) fetchChampionStatsIfNeeded(championId);
@@ -58,8 +82,13 @@ class Builds extends PureComponent {
     const roleStats = championStats[role];
     const firstItemsStats =
       (roleStats && roleStats.firstItems && roleStats.firstItems[build]) || defaultStats;
-    const finalItemsStats =
-      (roleStats && roleStats.finalItems && roleStats.finalItems[build]) || defaultStats;
+    const itemsStats = (roleStats && roleStats.items && roleStats.items[build]) || {
+      '2-12': [],
+      '12-22': [],
+      '22-32': [],
+      '32-42': [],
+      '42-52': []
+    };
 
     return (
       <div className={classes.items}>
@@ -78,29 +107,42 @@ class Builds extends PureComponent {
             Games
           </Typography>
           {firstItemsStats.items.map((item, index) => {
-            return (
-              <span key={index}>
-                {index > 0 && <HardwareKeyboardArrowRightIcon />}
-                <Item itemId={item} />
-              </span>
-            );
+            return <Item key={index} itemId={item} />;
           })}
         </div>
         <div>
           <Typography variant="caption" component="div">
-            Completed Build:
-            <span className={classes.winRate}> {(finalItemsStats.winRate * 100).toFixed(2)}% </span>
-            Win Rate | <span className={classes.winRate}>{finalItemsStats.count} </span>
-            Games
+            Good Items between {this.state.range} minutes:
           </Typography>
-          {finalItemsStats.items.map((item, index) => {
-            return (
-              <span key={index}>
-                {index > 0 && <HardwareKeyboardArrowRightIcon />}
-                <Item itemId={item} />
-              </span>
-            );
+          <IconButton
+            onClick={() => {
+              this.setState({
+                range:
+                  ranges.indexOf(this.state.range) === 0
+                    ? ranges[ranges.length - 1]
+                    : ranges[ranges.indexOf(this.state.range) - 1]
+              });
+            }}
+            style={styles.leftArrow}
+          >
+            <HardwareKeyboardArrowLeftIcon />
+          </IconButton>
+          {itemsStats[this.state.range].map((item, index) => {
+            return <Item key={index} itemId={item.itemId} />;
           })}
+          <IconButton
+            onClick={() => {
+              this.setState({
+                range:
+                  ranges.indexOf(this.state.range) >= ranges.length - 1
+                    ? ranges[0]
+                    : ranges[ranges.indexOf(this.state.range) + 1]
+              });
+            }}
+            style={styles.rightArrow}
+          >
+            <HardwareKeyboardArrowRightIcon />
+          </IconButton>
         </div>
       </div>
     );

@@ -10,7 +10,6 @@ const championStats = (
   state = {
     isFetching: false,
     stats: null,
-    byMap: null,
     error: null
   },
   action
@@ -25,7 +24,6 @@ const championStats = (
         isFetching: false,
         error: null,
         stats: data.stats,
-        byMap: data.byMap,
         lastUpdated: data.receivedAt
       };
     case RECEIVE_CHAMPION_STATS_ERROR:
