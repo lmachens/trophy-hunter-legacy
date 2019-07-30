@@ -57,6 +57,7 @@ const LiveMatchContainer = withTracker(
 
         const championStats =
           get(championStatsByChampionId, `${participant.championId}.stats`) || {};
+
         const role = existingParticipant.role || getRole(championStats);
         return {
           ...participant,
@@ -77,11 +78,24 @@ const LiveMatchContainer = withTracker(
         liveMatch.firstTeamTarget ||
         firstTeam.find(participant => participant.championId === gameSession.championId) ||
         firstTeam[0];
+
+      if (firstTeamTarget && !firstTeamTarget.role) {
+        const championStats =
+          get(championStatsByChampionId, `${firstTeamTarget.championId}.stats`) || {};
+        firstTeamTarget.role = getRole(championStats);
+      }
       const secondTeamTarget =
         liveMatch.secondTeamTarget ||
         (firstTeamTarget &&
           secondTeam.find(participant => participant.role === firstTeamTarget.role)) ||
         secondTeam[0];
+
+      if (secondTeamTarget && !secondTeamTarget.role) {
+        const championStats =
+          get(championStatsByChampionId, `${secondTeamTarget.championId}.stats`) || {};
+        secondTeamTarget.role = getRole(championStats);
+      }
+
       const newLiveMatch = {
         gameId: gameSession.game.gameId,
         platformId: gameSession.game.platformId,

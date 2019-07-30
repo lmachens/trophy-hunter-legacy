@@ -12,7 +12,7 @@ export const liveMatch = (state = {}, action) => {
     case SELECT_MAP_TARGET:
       return { ...state, mapTarget: data.mapTarget };
     case SET_LIVE_MATCH:
-      return { ...data.liveMatch };
+      return { ...data.liveMatch, updatedAt: Date.now() };
     case SELECT_FIRST_TEAM_TARGET:
       return { ...state, firstTeamTarget: data.firstTeamTarget };
     case SELECT_SECOND_TEAM_TARGET:
