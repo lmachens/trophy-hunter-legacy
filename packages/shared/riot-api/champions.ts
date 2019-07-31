@@ -3511,7 +3511,7 @@ const champions: IChampions = {
         image: {
           full: 'CassiopeiaW.png'
         },
-        cooldownBurn: '24/21/18/15/12'
+        cooldownBurn: '24/22/20/18/16'
       },
       {
         name: 'Twin Fang',
@@ -5928,7 +5928,7 @@ const champions: IChampions = {
       },
       name: 'Harrier',
       sanitizedDescription:
-        "Valor periodically marks enemies as Vulnerable. Quinn's first basic attack against Vulnerable targets will deal bonus physical damage."
+        "Valor, Quinn's Demacian eagle, periodically marks enemies as Vulnerable. Quinn's first basic attack against Vulnerable targets will deal bonus physical damage."
     },
     range: 'Ranged'
   },
@@ -6832,7 +6832,7 @@ const champions: IChampions = {
         image: {
           full: 'TahmKenchQ.png'
         },
-        cooldownBurn: '8/7.5/7/6.5/6'
+        cooldownBurn: '5'
       },
       {
         name: 'Devour',
@@ -7135,7 +7135,7 @@ const champions: IChampions = {
         image: {
           full: 'QiyanaR.png'
         },
-        cooldownBurn: '100'
+        cooldownBurn: '120/100/80'
       }
     ],
     passive: {

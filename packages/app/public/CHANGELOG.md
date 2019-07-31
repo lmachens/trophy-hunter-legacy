@@ -1,5 +1,8 @@
 # Change Log
 
+### Changed
+- Updated to Riot API version 9.15.1
+
 ## [4.0.0] - 2019-07-30
 ### Changed
 - We calculate our own champion stats now 🎉 (no more champion.gg)! These stats are more up to date and are based on Trophy Hunter matches.
