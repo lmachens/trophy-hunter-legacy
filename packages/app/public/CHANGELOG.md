@@ -1,5 +1,6 @@
 # Change Log
 
+## [4.1.0] - 2019-08-01
 ### Added
 - New trees for Fiddlesticks, Graves, Qiyana, Kennen and Wukong
 ### Changed
