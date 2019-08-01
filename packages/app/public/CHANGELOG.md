@@ -1,5 +1,7 @@
 # Change Log
 
+### Added
+- New trees for Fiddlesticks, Graves, Qiyana, Kennen and Wukong
 ### Changed
 - Updated to Riot API version 9.15.1
 
