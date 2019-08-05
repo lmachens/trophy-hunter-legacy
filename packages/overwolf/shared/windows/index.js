@@ -124,7 +124,7 @@ function handleChampSelectChange(champSelect) {
 }
 
 function handleGameLaunched(gameLaunched) {
-  console.log('handleGameLaunched', gameLaunched);
+  console.log(`handleGameLaunched ${gameLaunched}`);
   if (gameLaunched) {
     source.postMessage(
       {

@@ -3,7 +3,7 @@
   "type": "WebApp",
   "meta": {
     "name": "Trophy Hunter",
-    "version": "3.18.0",
+    "version": "4.1.0",
     "minimum-overwolf-version": "0.108.209.0",
     "author": "Trophy Hunter",
     "icon": "src/assets/IconMouseOver.png",

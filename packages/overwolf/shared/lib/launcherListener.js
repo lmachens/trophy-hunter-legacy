@@ -34,6 +34,7 @@ class LauncherListener {
     this.state = {};
 
     this.trackGameInfo();
+    console.log('LauncherListener initialized');
   }
 
   trackGameInfo = () => {
@@ -106,6 +107,7 @@ class LauncherListener {
   };
 
   handleRunningLaunchersInfo = ({ launchers }) => {
+    console.log(`handleRunningLaunchersInfo ${JSON.stringify(launchers)}`);
     const launcher = launchers.find(launcher => launcher.id === lolLauncherId);
     if (!launcher) {
       return;
@@ -114,21 +116,21 @@ class LauncherListener {
       console.error('PBE is not supported');
       return;
     }
-    console.log('getRunningLaunchersInfo');
     this.initializeListening(launcher);
   };
 
   handleLaunched = launcher => {
+    console.log(`handleLaunched ${launcher.id}`);
+
     if (launcher.id !== lolLauncherId) {
       return;
     }
-    console.log('handleLaunched');
 
     this.initializeListening(launcher);
   };
 
   handleUpdated = launcher => {
-    console.log('handleUpdated', launcher);
+    console.log(`handleUpdated ${JSON.stringify(launcher)}`);
   };
 
   handleTerminated = launcher => {
@@ -139,7 +141,7 @@ class LauncherListener {
     this.simpleIO.onFileListenerChanged.removeListener(this.handleLeagueClientChange);
 
     clearInterval(this.listenToNewLogFileInterval);
-    console.log('handleTerminated', launcher);
+    console.log(`handleTerminated ${JSON.stringify(launcher)}`);
   };
 
   initializeListening = async launcher => {
@@ -207,11 +209,10 @@ class LauncherListener {
 
   handleLeagueClientLog = (status, data) => {
     if (!status) {
-      return console.log(
-        'handleLeagueClientLog',
-        'failed to get LeagueClient.txt contents',
-        status
+      console.log(
+        `handleLeagueClientLog failed to get LeagueClient.txt contents ${JSON.stringify(status)}`
       );
+      return;
     }
     if (/LOGIN_HIDE_EVENT/.test(data) || /riot__rclient__remove_unneeded_releases/.test(data)) {
       this.getSummonerInfo();
@@ -269,7 +270,7 @@ class LauncherListener {
         `${leagueClientLogDirectory}*LeagueClient.log`,
         (status, filename) => {
           if (status && this.logFilename !== filename) {
-            console.log('listenToNewLogFile: The most update file in this folder is: ' + filename);
+            console.log(`listenToNewLogFile: The most update file in this folder is: ${filename}`);
             this.logFilename = filename;
             this.handleNewLogFile(leagueClientLogDirectory);
           }
@@ -284,7 +285,7 @@ class LauncherListener {
       return;
     }
     if (!status) {
-      return console.log(`something bad happened with ${fileId}: ${error}`);
+      return console.log(`something bad happened with ${fileId}: ${JSON.stringify(error)}`);
     }
   };
 

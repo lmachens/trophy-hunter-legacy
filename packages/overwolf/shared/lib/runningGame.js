@@ -1,7 +1,7 @@
 const lolId = 5426;
 
 const gameRunning = function(gameInfo) {
-  console.log('gameRunning', gameInfo);
+  console.log(`gameRunning ${gameInfo && gameInfo.id}`);
 
   if (!gameInfo || !gameInfo.isRunning) {
     return false;
