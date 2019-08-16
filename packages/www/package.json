@@ -15,7 +15,7 @@
     "@material-ui/icons": "3.0.2",
     "@material-ui/styles": "^4.0.0-beta.2",
     "@zeit/next-typescript": "1.1.1",
-    "axios": "0.18.0",
+    "axios": "0.18.1",
     "axios-cache-adapter": "^2.3.0",
     "classnames": "2.2.6",
     "isomorphic-unfetch": "3.0.0",
