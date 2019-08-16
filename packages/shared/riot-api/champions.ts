@@ -1326,7 +1326,7 @@ const champions: IChampions = {
         image: {
           full: 'JaxLeapStrike.png'
         },
-        cooldownBurn: '10/9/8/7/6'
+        cooldownBurn: '8/7.5/7/6.5/6'
       },
       {
         name: 'Empower',
@@ -2013,7 +2013,7 @@ const champions: IChampions = {
         image: {
           full: 'Masochism.png'
         },
-        cooldownBurn: '6'
+        cooldownBurn: '6/5.5/5/4.5/4'
       },
       {
         name: 'Sadism',
@@ -3933,54 +3933,53 @@ const champions: IChampions = {
     id: 80,
     key: 'Pantheon',
     name: 'Pantheon',
-    title: 'the Artisan of War',
+    title: 'the Unbreakable Spear',
     image: {
       full: 'Pantheon.png'
     },
     spells: [
       {
-        name: 'Spear Shot',
-        sanitizedDescription: 'Pantheon hurls his spear at an opponent, dealing damage.',
+        name: 'Comet Spear',
+        sanitizedDescription:
+          'Pantheon either thrusts his spear or throws his spear in the chosen direction.',
         image: {
           full: 'PantheonQ.png'
         },
-        cooldownBurn: '4'
+        cooldownBurn: '10/9.5/9/8.5/8'
       },
       {
-        name: 'Aegis of Zeonia',
-        sanitizedDescription:
-          'Pantheon leaps at an enemy and bashes them with his shield, stunning them. After finishing the attack, Pantheon readies himself to block the next attack.',
+        name: 'Shield Vault',
+        sanitizedDescription: 'Pantheon dashes to a target, damaging and stunning them.',
         image: {
           full: 'PantheonW.png'
         },
         cooldownBurn: '13/12/11/10/9'
       },
       {
-        name: 'Heartseeker Strike',
+        name: 'Aegis Assault',
         sanitizedDescription:
-          "Pantheon focuses and unleashes 3 swift strikes to the area in front of him dealing damage to all enemies. Pantheon also becomes more aware of his enemy's vital spots, allowing him to always crit enemies below 15% Health.",
+          'Pantheon sets his shield, becoming invulnerable to damage from the front and striking repeatedly with his spear.',
         image: {
           full: 'PantheonE.png'
         },
-        cooldownBurn: '10/9/8/7/6'
+        cooldownBurn: '22/20.5/19/17.5/16'
       },
       {
-        name: 'Grand Skyfall',
+        name: 'Grand Starfall',
         sanitizedDescription:
-          'Pantheon composes himself then leaps into the air to a target, striking all enemy units in an area. Enemies closer to the impact point take more damage.',
+          'Pantheon composes himself and then leaps into the air, landing at a chosen location as a comet.',
         image: {
-          full: 'PantheonRJump.png'
+          full: 'PantheonR.png'
         },
-        cooldownBurn: '150/135/120'
+        cooldownBurn: '180/165/150'
       }
     ],
     passive: {
       image: {
-        full: 'Pantheon_AOZ.png'
+        full: 'Pantheon_Passive.PantheonVGU.png'
       },
-      name: 'Aegis Protection',
-      sanitizedDescription:
-        'After attacking or casting spells 4 times, Pantheon will block the next incoming basic attack or turret attack.'
+      name: '',
+      sanitizedDescription: ''
     },
     range: 'Melee'
   },
@@ -4018,7 +4017,7 @@ const champions: IChampions = {
         image: {
           full: 'EzrealE.png'
         },
-        cooldownBurn: '19/17.5/16/14.5/13'
+        cooldownBurn: '25/22/19/16/13'
       },
       {
         name: 'Trueshot Barrage',
@@ -4501,7 +4500,7 @@ const champions: IChampions = {
         image: {
           full: 'RivenTriCleave.png'
         },
-        cooldownBurn: '12/11.5/11/10.5/10'
+        cooldownBurn: '12'
       },
       {
         name: 'Ki Burst',
@@ -5279,7 +5278,7 @@ const champions: IChampions = {
         image: {
           full: 'SejuaniQ.png'
         },
-        cooldownBurn: '17/15.5/14/12.5/11'
+        cooldownBurn: '20/18/16/14/12'
       },
       {
         name: "Winter's Wrath",
@@ -5353,7 +5352,7 @@ const champions: IChampions = {
         image: {
           full: 'FioraE.png'
         },
-        cooldownBurn: '13/11/9/7/5'
+        cooldownBurn: '11/9.5/8/6.5/5'
       },
       {
         name: 'Grand Challenge',
@@ -5399,7 +5398,7 @@ const champions: IChampions = {
         image: {
           full: 'ZiggsW.png'
         },
-        cooldownBurn: '24/21/18/15/12'
+        cooldownBurn: '20/18/16/14/12'
       },
       {
         name: 'Hexplosive Minefield',
@@ -5417,7 +5416,7 @@ const champions: IChampions = {
         image: {
           full: 'ZiggsR.png'
         },
-        cooldownBurn: '120/105/90'
+        cooldownBurn: '120/95/70'
       }
     ],
     passive: {
@@ -5983,7 +5982,7 @@ const champions: IChampions = {
       },
       name: 'Transcendent',
       sanitizedDescription:
-        'Spells gain extra effects at max rank.Dark Sphere: Deals 15% more damage against champions.Force of Will: Deals 20% bonus true damage.Scatter the Weak: Spell width increased by 50%.Unleashed Power: Range increased by 75.'
+        'Spells gain extra effects at max rank.Dark Sphere: Deals 25% more damage against champions.Force of Will: Deals 20% bonus true damage.Scatter the Weak: Spell width increased by 50%.Unleashed Power: Range increased by 75.'
     },
     range: 'Ranged'
   },
@@ -7080,7 +7079,7 @@ const champions: IChampions = {
         image: {
           full: 'EkkoR.png'
         },
-        cooldownBurn: '110/90/70'
+        cooldownBurn: '110/80/50'
       }
     ],
     passive: {
@@ -7332,7 +7331,7 @@ const champions: IChampions = {
         image: {
           full: 'AzirQWrapper.png'
         },
-        cooldownBurn: '15/12.5/10/7.5/5'
+        cooldownBurn: '15/13/11/9/7'
       },
       {
         name: 'Arise!',
@@ -7387,7 +7386,7 @@ const champions: IChampions = {
         image: {
           full: 'YuumiQ.png'
         },
-        cooldownBurn: '11/10/9/8/7/6'
+        cooldownBurn: '13.5/12/10.5/9/7.5/6'
       },
       {
         name: 'You and Me!',

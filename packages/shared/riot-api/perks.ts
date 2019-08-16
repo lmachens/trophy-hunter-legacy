@@ -388,9 +388,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Inspiration/BiscuitDelivery/BiscuitDelivery.png',
     name: 'Biscuit Delivery',
     shortDesc:
-      'Gain a free Biscuit every 3 min, until 12 min. Consuming or selling a Biscuit permanently increases your max mana and restores health and mana.',
+      'Gain a free Biscuit every 2 min, until 6 min. Consuming or selling a Biscuit permanently increases your max mana and restores health and mana.',
     longDesc:
-      'Biscuit Delivery: Gain a Total Biscuit of Everlasting Will every 3 mins, until 12 min.Biscuits restore 15% of your missing health and mana. Consuming or selling a Biscuit permanently increases your mana cap by 40. Manaless: Champions without mana restore 20% missing health instead.'
+      'Biscuit Delivery: Gain a Total Biscuit of Everlasting Will every 2 mins, until 6 min.Biscuits restore 10% of your missing health and mana. Consuming or selling a Biscuit permanently increases your mana cap by 50. Manaless: Champions without mana restore 12% missing health instead.'
   },
   '8347': {
     id: 8347,
