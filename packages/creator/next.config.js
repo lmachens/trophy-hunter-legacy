@@ -12,18 +12,15 @@ module.exports = phase => {
     return {};
   }
 
-  const withTypescript = require('@zeit/next-typescript');
   const withCSS = require('@zeit/next-css');
   const withImages = require('next-images');
 
-  return withTypescript(
-    withImages(
-      withCSS({
-        webpack(config) {
-          config.resolve.symlinks = false;
-          return config;
-        }
-      })
-    )
+  return withImages(
+    withCSS({
+      webpack(config) {
+        config.resolve.symlinks = false;
+        return config;
+      }
+    })
   );
 };
