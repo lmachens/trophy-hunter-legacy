@@ -33,13 +33,13 @@ import garen1 from './definitions/garen1';
 import gnar1 from './definitions/gnar1';
 import gragas1 from './definitions/gragas1';
 import graves1 from './definitions/graves1';
-// import hecarim1 from './definitions/hecarim1'; // jungle
+import hecarim1 from './definitions/hecarim1';
 import heimerdinger1 from './definitions/heimerdinger1';
 import illaoi1 from './definitions/illaoi1';
 import irelia1 from './definitions/irelia1';
 import ivern1 from './definitions/ivern1';
 import janna1 from './definitions/janna1';
-// import jarvanIV1 from './definitions/jarvanIV1'; // jungle
+import jarvanIV1 from './definitions/jarvanIV1';
 import jax1 from './definitions/jax1';
 import jayce1 from './definitions/jayce1';
 import jhin1 from './definitions/jhin1';
@@ -82,7 +82,7 @@ import olaf1 from './definitions/olaf1';
 import orianna1 from './definitions/orianna1';
 import ornn1 from './definitions/ornn1';
 import pantheon1 from './definitions/pantheon1';
-// import poppy1 from './definitions/poppy1' // top
+import poppy1 from './definitions/poppy1';
 import placeholder from './definitions/placeholder';
 import pyke1 from './definitions/pyke1';
 import qiyana1 from './definitions/qiyana1';
@@ -106,7 +106,7 @@ import skarner1 from './definitions/skarner1';
 import sona1 from './definitions/sona1';
 import soraka1 from './definitions/soraka1';
 import swain1 from './definitions/swain1';
-// import sylas1 from './definitions/sylas1'; // middle
+import sylas1 from './definitions/sylas1';
 import syndra1 from './definitions/syndra1';
 import tahmKench1 from './definitions/tahmKench1';
 import taliyah1 from './definitions/taliyah1';
@@ -127,7 +127,7 @@ import veigar1 from './definitions/veigar1';
 import velKoz1 from './definitions/velKoz1';
 // import vi1 from './definitions/vi1'; // jungle
 import viktor1 from './definitions/viktor1';
-// import vladimir1 from './definitions/vladimir1'; // middle
+import vladimir1 from './definitions/vladimir1';
 import volibear1 from './definitions/volibear1';
 import warwick1 from './definitions/warwick1';
 import wukong1 from './definitions/wukong1';
@@ -145,14 +145,19 @@ import zoe1 from './definitions/zoe1';
 import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
+  hecarim1,
+  jarvanIV1,
+  poppy1,
+  sylas1,
+  vladimir1
+};
+
+export const expiredTrees = {
   fiddlesticks1,
   graves1,
   qiyana1,
   kennen1,
-  wukong1
-};
-
-export const expiredTrees = {
+  wukong1,
   anivia1,
   aurelionSol1,
   azir1,

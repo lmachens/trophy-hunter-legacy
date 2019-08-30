@@ -1,5 +1,7 @@
 # Change Log
 
+### Added
+- New trees for Hecarim, JarvanIV, Poppy, Sylas, Vladimir
 ### Changed
 - Updated to Riot API version 9.17.1
 
