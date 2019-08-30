@@ -1,7 +1,5 @@
 module.exports = phase => {
-  const withTypescript = require('@zeit/next-typescript');
-
-  return withTypescript({
+  return {
     env: {
       MATOMO_ID: '2',
       MATOMO_URL: 'https://matomo.machens.cloud/matomo.php'
@@ -13,5 +11,5 @@ module.exports = phase => {
     },
     target: 'server',
     distDir: 'dist'
-  });
+  };
 };

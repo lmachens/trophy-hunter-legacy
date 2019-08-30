@@ -156,7 +156,7 @@ const champions: IChampions = {
         image: {
           full: 'GalioQ.png'
         },
-        cooldownBurn: '14/13/12/11/10'
+        cooldownBurn: '12/11.5/11/10.5/10'
       },
       {
         name: 'Shield of Durand',
@@ -582,7 +582,7 @@ const champions: IChampions = {
       },
       name: 'Divine Ascent',
       sanitizedDescription:
-        "Kayle's attacks are empowered by the heavens as she levels up and spends skill points. Her wings are lit aflame as she progressively gains Attack Speed, Movement Speed towards enemies, waves of fire on her attacks, Attack Range, and True Damage."
+        "Kayle's attacks are empowered by the heavens as she levels up and spends skill points. Her wings are lit aflame as she progressively gains Attack Speed, Movement Speed, Attack Range, and waves of fire on her attacks."
     },
     range: 'ShapeShifter'
   },
@@ -3978,8 +3978,9 @@ const champions: IChampions = {
       image: {
         full: 'Pantheon_Passive.PantheonVGU.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'Mortal Will',
+      sanitizedDescription:
+        "Mortal WillAfter @ActionsToEmpower@ spells or attacks, Pantheon's next basic spell is empowered."
     },
     range: 'Melee'
   },
@@ -4333,7 +4334,7 @@ const champions: IChampions = {
         image: {
           full: 'LeonaShieldOfDaybreak.png'
         },
-        cooldownBurn: '6'
+        cooldownBurn: '5'
       },
       {
         name: 'Eclipse',
@@ -6002,24 +6003,24 @@ const champions: IChampions = {
         image: {
           full: 'AurelionSolQ.png'
         },
-        cooldownBurn: '10'
+        cooldownBurn: '11/10/9/8/7'
       },
       {
         name: 'Celestial Expansion',
-        sanitizedDescription: 'Aurelion Sol pushes his stars farther out, magnifying their damage.',
+        sanitizedDescription:
+          'Aurelion Sol pushes his stars farther out, increasing their damage and speed.',
         image: {
           full: 'AurelionSolW.png'
         },
-        cooldownBurn: '6/5.5/5/4.5/4'
+        cooldownBurn: '8/6.5/5/3.5/2'
       },
       {
         name: 'Comet of Legend',
-        sanitizedDescription:
-          'Aurelion Sol gains speed while moving in one continuous direction, and can take off flying for a long distance.',
+        sanitizedDescription: 'Aurelion Sol takes off flying for a long distance.',
         image: {
           full: 'AurelionSolE.png'
         },
-        cooldownBurn: '60/55/50/45/40'
+        cooldownBurn: '80/75/70/65/60'
       },
       {
         name: 'Voice of Light',
@@ -6191,7 +6192,7 @@ const champions: IChampions = {
         image: {
           full: 'ZyraR.png'
         },
-        cooldownBurn: '130/120/110'
+        cooldownBurn: '110/100/90'
       }
     ],
     passive: {
@@ -7134,7 +7135,7 @@ const champions: IChampions = {
         image: {
           full: 'QiyanaR.png'
         },
-        cooldownBurn: '120/100/80'
+        cooldownBurn: '120'
       }
     ],
     passive: {
@@ -7575,7 +7576,8 @@ const champions: IChampions = {
       },
       {
         name: 'Void Rush',
-        sanitizedDescription: '',
+        sanitizedDescription:
+          'Reksai passively marks targets by damaging them. She can activate this ability to become briefly untargetable and lunge at a marked target for heavy damage based on their missing health.',
         image: {
           full: 'RekSaiRWrapper.png'
         },
@@ -7955,7 +7957,7 @@ const champions: IChampions = {
       {
         name: 'Abscond / Abduct',
         sanitizedDescription:
-          'Sylas dashes to a location. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits. If he hits an enemy champion or monster, he gains a shield.',
+          'Sylas dashes to a location. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits. If he hits an enemy champion or monster, he gains a shield against magic damage.',
         image: {
           full: 'SylasE.png'
         },
