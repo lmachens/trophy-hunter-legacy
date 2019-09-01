@@ -50,5 +50,7 @@ export default function(trophyHunter) {
       }
     });
   });
-  return uniq(questTrophyNames).map(questTrophyName => trophies[questTrophyName]);
+  return uniq(questTrophyNames).map(
+    questTrophyName => trophies[questTrophyName] || console.log(questTrophyName)
+  );
 }
