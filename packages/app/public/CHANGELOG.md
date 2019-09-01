@@ -1,5 +1,6 @@
 # Change Log
 
+## [4.3.0] - 2019-09-01
 ### Added
 - New trees for Hecarim, JarvanIV, Poppy, Sylas, Vladimir
 ### Changed
