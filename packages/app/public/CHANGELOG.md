@@ -1,5 +1,6 @@
 # Change Log
 
+## [4.4.0] - 2019-09-07
 ### Added
 - Show "frequently obtained by summoner and champion" in trophy tooltips.
 ### Fixed
