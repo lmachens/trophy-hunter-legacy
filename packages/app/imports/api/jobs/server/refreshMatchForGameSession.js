@@ -325,12 +325,21 @@ async function refreshMatchForGameSession(gameSessionId, job) {
 
       incTrophyStats.distinctTrophyHunters = 1;
     }
+
     TrophyStats.update(
       {
         trophyName: trophy.name
       },
       {
-        $inc: incTrophyStats
+        $inc: incTrophyStats,
+        $set: {
+          lastMatch: {
+            summonerName: trophyHunter.summonerName,
+            championId: gameSession.championId,
+            region: gameSession.region,
+            gameId: gameSession.game.gameId
+          }
+        }
       }
     );
   });

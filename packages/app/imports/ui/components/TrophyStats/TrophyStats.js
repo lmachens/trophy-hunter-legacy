@@ -6,6 +6,7 @@ import { Refresh } from '../generic';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { mapIdLabels } from '/imports/shared/riot-api/gameConstants.ts';
+import champions from '/imports/shared/riot-api/champions.ts';
 
 const styles = {
   stats: {
@@ -64,6 +65,12 @@ class TrophyStats extends Component {
                 {(((frequency.count || 0) / frequency.checks) * 100).toFixed(2)} %
               </div>
             ))}
+          {stats && stats.lastMatch && (
+            <p>
+              Recently obtained by {stats.lastMatch.summonerName} with{' '}
+              {champions[stats.lastMatch.championId].name}.
+            </p>
+          )}
         </div>
       </div>
     );

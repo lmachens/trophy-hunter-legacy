@@ -21,6 +21,11 @@ TrophyStats.schema = new SimpleSchema({
   distinctTrophyHunters: { type: Number },
   totalCount: { type: Number },
   frequencyByMapId: { type: Object, blackbox: true, optional: true },
+  lastMatch: {
+    type: Object,
+    blackbox: true,
+    optional: true
+  },
   createdAt: { type: Date },
   updatedAt: { type: Date }
 });

@@ -51,7 +51,7 @@ export const fetchTrophyStats = trophyName => {
   };
 };
 
-const ttl = 1000 * 60 * 60 * 24;
+const ttl = 1000 * 60;
 export const fetchTrophyStatsIfNeeded = fetchIfNeeded(
   fetchTrophyStats,
   'trophyStatsByTrophyName',

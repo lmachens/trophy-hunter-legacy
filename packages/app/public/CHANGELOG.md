@@ -1,5 +1,7 @@
 # Change Log
 
+### Added
+- Show "frequently obtained by summoner and champion" in trophy tooltips.
 ### Fixed
 - TFT has no effect on the highest league rank in the overlay anymore.
 

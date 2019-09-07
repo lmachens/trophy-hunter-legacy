@@ -7,7 +7,8 @@ const trophyStatsFields = {
   trophyName: 1,
   distinctTrophyHunters: 1,
   totalCount: 1,
-  frequencyByMapId: 1
+  frequencyByMapId: 1,
+  lastMatch: 1
 };
 
 Meteor.methods({
