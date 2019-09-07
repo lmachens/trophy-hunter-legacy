@@ -57,9 +57,9 @@ class Leagues extends PureComponent {
   render() {
     const { classes, className, leagues = [] } = this.props;
 
-    const sortedLeagues = leagues.sort(
-      (a, b) => leaguesOrdered.indexOf(a.tier) - leaguesOrdered.indexOf(b.tier)
-    );
+    const sortedLeagues = leagues
+      .filter(league => league.queueType !== 'RANKED_TFT')
+      .sort((a, b) => leaguesOrdered.indexOf(a.tier) - leaguesOrdered.indexOf(b.tier));
     const highestTier = (sortedLeagues && sortedLeagues[0]) || provisional;
     const soloDuo = leagues.find(league => league.queueType === 'RANKED_SOLO_5x5') || provisional;
     const flex5v5 = leagues.find(league => league.queueType === 'RANKED_FLEX_SR') || provisional;
