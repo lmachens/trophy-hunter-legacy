@@ -42,25 +42,25 @@ class Encyclopedia extends Component {
         title={
           <div style={{ clear: 'both' }}>
             <Button
-              color={tab === TABS.TREES ? 'secondary' : 'default'}
+              color={tab === TABS.TREES ? 'primary' : 'inherit'}
               onClick={this.handleChange(TABS.TREES)}
             >
               Trees
             </Button>
             <Button
-              color={tab === TABS.TROPHIES ? 'secondary' : 'default'}
+              color={tab === TABS.TROPHIES ? 'primary' : 'inherit'}
               onClick={this.handleChange(TABS.TROPHIES)}
             >
               Trophies
             </Button>
             <Button
-              color={tab === TABS.PLAYSTYLES ? 'secondary' : 'default'}
+              color={tab === TABS.PLAYSTYLES ? 'primary' : 'inherit'}
               onClick={this.handleChange(TABS.PLAYSTYLES)}
             >
               Playstyles
             </Button>
             <Button
-              color={tab === TABS.ATTRIBUTES ? 'secondary' : 'default'}
+              color={tab === TABS.ATTRIBUTES ? 'primary' : 'inherit'}
               onClick={this.handleChange(TABS.ATTRIBUTES)}
             >
               Attributes

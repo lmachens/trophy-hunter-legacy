@@ -4,6 +4,7 @@
 - Show "frequently obtained by summoner and champion" in trophy tooltips.
 ### Fixed
 - TFT has no effect on the highest league rank in the overlay anymore.
+- Tabs in encyclopedia where not visible.
 
 ## [4.3.0] - 2019-09-01
 ### Added

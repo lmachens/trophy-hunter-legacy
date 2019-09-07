@@ -80,6 +80,9 @@ export const theme = createMuiTheme({
     MuiButton: {
       root: {
         color: '#c4b998'
+      },
+      textPrimary: {
+        color: '#c4b998'
       }
     },
     MuiPaper: {
