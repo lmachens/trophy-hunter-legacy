@@ -54,7 +54,7 @@ import kayle1 from './definitions/kayle1';
 import kayn1 from './definitions/kayn1';
 import kennen1 from './definitions/kennen1';
 import khaZix1 from './definitions/khaZix1';
-// import kindred1 from './definitions/kindred1'; // jungle
+import kindred1 from './definitions/kindred1';
 import kled1 from './definitions/kled1';
 import kogMaw1 from './definitions/kogMaw1';
 import leBlanc1 from './definitions/leBlanc1';
@@ -99,7 +99,7 @@ import sejuani1 from './definitions/sejuani1';
 import shaco1 from './definitions/shaco1';
 import shen1 from './definitions/shen1';
 import shyvana1 from './definitions/shyvana1';
-// import signed1 from './definitions/singed1'; // top
+import singed1 from './definitions/singed1';
 import sion1 from './definitions/sion1';
 import sivir1 from './definitions/sivir1';
 import skarner1 from './definitions/skarner1';
@@ -110,13 +110,13 @@ import sylas1 from './definitions/sylas1';
 import syndra1 from './definitions/syndra1';
 import tahmKench1 from './definitions/tahmKench1';
 import taliyah1 from './definitions/taliyah1';
-// import talon1 from './definitions/talon1'; // middle
+import talon1 from './definitions/talon1';
 import taric1 from './definitions/taric1';
 import teemo1 from './definitions/teemo1';
 import thresh1 from './definitions/thresh1';
 import tristana1 from './definitions/tristana1';
 import trundle1 from './definitions/trundle1';
-// import tryndamere1 from './definitions/tryndamere1'; // top
+import tryndamere1 from './definitions/tryndamere1';
 import twistedFate1 from './definitions/twistedFate1';
 import twitch1 from './definitions/twitch1';
 import udyr1 from './definitions/udyr1';
@@ -125,7 +125,7 @@ import varus1 from './definitions/varus1';
 import vayne1 from './definitions/vayne1';
 import veigar1 from './definitions/veigar1';
 import velKoz1 from './definitions/velKoz1';
-// import vi1 from './definitions/vi1'; // jungle
+import vi1 from './definitions/vi1';
 import viktor1 from './definitions/viktor1';
 import vladimir1 from './definitions/vladimir1';
 import volibear1 from './definitions/volibear1';
@@ -145,14 +145,19 @@ import zoe1 from './definitions/zoe1';
 import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
+  kindred1,
+  singed1,
+  talon1,
+  vi1,
+  tryndamere1
+};
+
+export const expiredTrees = {
   hecarim1,
   jarvanIV1,
   poppy1,
   sylas1,
-  vladimir1
-};
-
-export const expiredTrees = {
+  vladimir1,
   fiddlesticks1,
   graves1,
   qiyana1,
