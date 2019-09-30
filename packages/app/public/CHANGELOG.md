@@ -1,5 +1,6 @@
 # Change Log
 
+## [4.5.0] - 2019-09-30
 ### Added
 - New trees for Kindred, Singed, Talon, Tryndamere and Vi
 ### Changed
