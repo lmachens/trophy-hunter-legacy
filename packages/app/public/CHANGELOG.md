@@ -1,5 +1,8 @@
 # Change Log
 
+### Changed
+- Updated to Riot API version 9.19.1
+
 ## [4.4.0] - 2019-09-07
 ### Added
 - Show "frequently obtained by summoner and champion" in trophy tooltips.
