@@ -176,7 +176,7 @@ const items: IItems = {
   },
   '1082': {
     id: 1082,
-    name: 'The Dark Seal',
+    name: 'Dark Seal',
     sanitizedDescription:
       'Provides Ability Power and Mana.  Increases in power as you kill enemies.',
     tags: ['HealthRegen', 'SpellDamage', 'Mana', 'Lane']
@@ -734,13 +734,13 @@ const items: IItems = {
   },
   '3071': {
     id: 3071,
-    name: 'The Black Cleaver',
+    name: 'Black Cleaver',
     sanitizedDescription: 'Dealing physical damage to enemy champions reduces their Armor',
     tags: ['ArmorPenetration', 'CooldownReduction', 'Damage', 'Health', 'NonbootsMovement', 'OnHit']
   },
   '3072': {
     id: 3072,
-    name: 'The Bloodthirster',
+    name: 'Bloodthirster',
     sanitizedDescription: 'Grants Attack Damage, Life Steal and Life Steal now overheals',
     tags: ['Damage', 'LifeSteal']
   },
@@ -1231,7 +1231,7 @@ const items: IItems = {
   },
   '3185': {
     id: 3185,
-    name: 'The Lightbringer',
+    name: 'Lightbringer',
     sanitizedDescription: 'Critical Strikes cause your target to bleed and be revealed',
     tags: ['Active', 'CriticalStrike', 'Damage', 'OnHit', 'Stealth', 'Vision']
   },
@@ -1267,13 +1267,13 @@ const items: IItems = {
   },
   '3196': {
     id: 3196,
-    name: 'The Hex Core mk-1',
+    name: 'Hex Core mk-1',
     sanitizedDescription: 'Allows Viktor to improve an ability of his choice',
     tags: ['Mana', 'SpellDamage']
   },
   '3197': {
     id: 3197,
-    name: 'The Hex Core mk-2',
+    name: 'Hex Core mk-2',
     sanitizedDescription: 'Allows Viktor to improve an ability of his choice',
     tags: ['Mana', 'SpellDamage']
   },
@@ -1479,7 +1479,7 @@ const items: IItems = {
   },
   '3380': {
     id: 3380,
-    name: 'The Obsidian Cleaver',
+    name: 'Obsidian Cleaver',
     sanitizedDescription: 'Dealing physical damage to enemy champions reduces their Armor',
     tags: ['ArmorPenetration', 'CooldownReduction', 'Damage', 'Health', 'NonbootsMovement', 'OnHit']
   },
@@ -1643,13 +1643,13 @@ const items: IItems = {
   },
   '3599': {
     id: 3599,
-    name: 'The Black Spear',
+    name: 'Black Spear',
     sanitizedDescription: "Kalista's spear that binds an Oathsworn Ally.",
     tags: ['Active']
   },
   '3600': {
     id: 3600,
-    name: 'The Black Spear',
+    name: 'Black Spear',
     sanitizedDescription: "Kalista's spear that binds an Oathsworn Ally.",
     tags: ['Active']
   },

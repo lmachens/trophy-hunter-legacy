@@ -59,11 +59,11 @@ const champions: IChampions = {
       {
         name: 'Molten Shield',
         sanitizedDescription:
-          'Grants Annie and Tibbers increased percentage Damage Resist and damages enemies who attack with basic attacks.',
+          'Grants Annie increased percentage Damage Reduction, a burst of movement speed, and damages enemies who attack her with basic attacks.',
         image: {
           full: 'AnnieE.png'
         },
-        cooldownBurn: '10'
+        cooldownBurn: '14/13/12/11/10'
       },
       {
         name: 'Summon: Tibbers',
@@ -635,7 +635,7 @@ const champions: IChampions = {
       image: {
         full: 'MasterYi_Passive1.png'
       },
-      name: '',
+      name: 'Double Strike',
       sanitizedDescription: 'Every few consecutive basic attack, Master Yi strikes twice.'
     },
     range: 'Melee'
@@ -804,7 +804,7 @@ const champions: IChampions = {
       },
       name: 'Glory in Death',
       sanitizedDescription:
-        "After being killed Sion will reanimate himself, but his Health rapidly decays while he is reanimated.He can move and attack during this time. He gains @Lifesteal*100@% Lifesteal, attacks extremely fast and will deal an additional @PercentMaxHP*100@% of his target's maximum Health as physical damage on hit. Max @NonChampCap@ bonus damage against non-champions.All of his abilities are replaced with Death Surge, which grants him a burst of Movement Speed."
+        "After being killed, Sion will temporarily reanimate with rapidly decaying Health. His attacks become very rapid, heal him, and deal bonus damage based on his target's maximum Health."
     },
     range: 'Melee'
   },
@@ -1808,8 +1808,9 @@ const champions: IChampions = {
       image: {
         full: 'Amumu_Passive.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'Cursed Touch',
+      sanitizedDescription:
+        "Amumu's basic attacks Curse his enemies, causing them to take bonus true damage from incoming magic damage."
     },
     range: 'Melee'
   },
@@ -1974,8 +1975,9 @@ const champions: IChampions = {
       image: {
         full: 'Jester_CarefulStrikes.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'Backstab',
+      sanitizedDescription:
+        "Shaco's basic attack critically strikes unit from behind. Enemies can't be Backstabbed more than once every few seconds. "
     },
     range: 'Melee'
   },
@@ -2513,7 +2515,7 @@ const champions: IChampions = {
         image: {
           full: 'VeigarEventHorizon.png'
         },
-        cooldownBurn: '18/17/16/15/14'
+        cooldownBurn: '18/16.5/15/13.5/12'
       },
       {
         name: 'Primordial Burst',
@@ -2668,7 +2670,7 @@ const champions: IChampions = {
       {
         name: 'Yordle Snap Trap',
         sanitizedDescription:
-          'Caitlyn sets a trap to find sneaky yordles. When sprung, the trap reveals and immobilizes the enemy champion for 1.5 seconds.',
+          'Caitlyn sets a trap to find sneaky yordles. When sprung, the trap reveals and immobilizes the enemy champion for 1.5 seconds, granting Caitlyn an empowered Headshot.',
         image: {
           full: 'CaitlynYordleTrap.png'
         },
@@ -2697,8 +2699,9 @@ const champions: IChampions = {
       image: {
         full: 'Caitlyn_Headshot.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'Headshot',
+      sanitizedDescription:
+        "Every few basic attacks, or against a target she has trapped or netted, Caitlyn will fire a headshot dealing bonus damage that scales with her critical strike chance. On trapped or netted targets, Caitlyn's Headshot attack range is doubled."
     },
     range: 'Ranged'
   },
@@ -2866,7 +2869,7 @@ const champions: IChampions = {
       },
       name: 'Voracity',
       sanitizedDescription:
-        'Whenever an enemy champion dies that Katarina has damaged in the last @ResetWindow@ seconds, her ability cooldowns are reduced by @ResetCDR@ seconds.If Katarina picks up a Dagger, she uses it to slash through all nearby enemies, dealing @TotalDamage@ magic damage.'
+        'Whenever an enemy champion dies that Katarina has damaged recently, her remaining ability cooldowns are dramatically reduced.If Katarina picks up a Dagger, she uses it to slash through all nearby enemies, dealing magic damage.'
     },
     range: 'Melee'
   },
@@ -3460,7 +3463,7 @@ const champions: IChampions = {
       {
         name: 'Electro Harpoon',
         sanitizedDescription:
-          'Rumble launches a taser, electrocuting his target with magic damage and slowing their Movement Speed. Rumble can carry 2 harpoons at a time. While in Danger Zone the damage and slow percentage is increased.',
+          'Rumble launches a harpoon, electrocuting his target with magic damage and slowing their Movement Speed. Rumble can carry 2 harpoons at a time. While in Danger Zone the damage and slow percentage is increased.',
         image: {
           full: 'RumbleGrenade.png'
         },
@@ -3898,7 +3901,7 @@ const champions: IChampions = {
         image: {
           full: 'GragasW.png'
         },
-        cooldownBurn: '5'
+        cooldownBurn: '6'
       },
       {
         name: 'Body Slam',
@@ -3979,8 +3982,7 @@ const champions: IChampions = {
         full: 'Pantheon_Passive.PantheonVGU.png'
       },
       name: 'Mortal Will',
-      sanitizedDescription:
-        "Mortal WillAfter @ActionsToEmpower@ spells or attacks, Pantheon's next basic spell is empowered."
+      sanitizedDescription: "Every few spells or attacks, Pantheon's next spell is empowered."
     },
     range: 'Melee'
   },
@@ -4089,8 +4091,9 @@ const champions: IChampions = {
       image: {
         full: 'MordekaiserPassive.MordeVGU.png'
       },
-      name: 'Iron Man',
-      sanitizedDescription: ''
+      name: 'Darkness Rise',
+      sanitizedDescription:
+        'Mordekaiser gains a powerful damage aura and movement speed after landing 3 attacks or spells against champions.'
     },
     range: 'Melee'
   },
@@ -4146,7 +4149,7 @@ const champions: IChampions = {
       },
       name: 'Shepherd of Souls',
       sanitizedDescription:
-        'Yorick can raise Mist Walkers with his abilities. Enemies that die near Yorick will sometimes leave a grave.'
+        'The Cursed Horde: Yorick can summon Mist Walkers to swarm and attack nearby enemies.'
     },
     range: 'Melee'
   },
@@ -4189,11 +4192,11 @@ const champions: IChampions = {
       {
         name: 'Perfect Execution',
         sanitizedDescription:
-          'Akali leaps in a direction, stunning and damaging enemies she strikes. Re-cast: Akali dashes in a direction, executing all enemies she strikes.',
+          'Akali leaps in a direction, damaging enemies she strikes. Re-cast: Akali dashes in a direction, executing all enemies she strikes.',
         image: {
           full: 'AkaliR.png'
         },
-        cooldownBurn: '120/110/100'
+        cooldownBurn: '160/130/100'
       }
     ],
     passive: {
@@ -4501,7 +4504,7 @@ const champions: IChampions = {
         image: {
           full: 'RivenTriCleave.png'
         },
-        cooldownBurn: '12'
+        cooldownBurn: '13'
       },
       {
         name: 'Ki Burst',
@@ -4517,7 +4520,7 @@ const champions: IChampions = {
         image: {
           full: 'RivenFeint.png'
         },
-        cooldownBurn: '14/13/12/11/10'
+        cooldownBurn: '12/11/10/9/8'
       },
       {
         name: 'Blade of the Exile',
@@ -4535,7 +4538,7 @@ const champions: IChampions = {
       },
       name: 'Runic Blade',
       sanitizedDescription:
-        "Riven's abilities charge her blade, causing her basic attacks to deal bonus physical damage. Riven's blade may be charged up to three times and expends one charge per attack."
+        "Riven's abilities charge her blade, and her basic attacks expend charges to deal an additional damage."
     },
     range: 'Melee'
   },
@@ -4700,7 +4703,7 @@ const champions: IChampions = {
       image: {
         full: 'LuxIlluminatingFraulein.png'
       },
-      name: '',
+      name: 'Illumination',
       sanitizedDescription:
         "Lux's damaging spells charge the target with energy for 6 seconds. Lux's next attack ignites the energy, dealing bonus magic damage (depending on Lux's level) to the target."
     },
@@ -4979,7 +4982,7 @@ const champions: IChampions = {
       },
       name: 'Nimble Fighter',
       sanitizedDescription:
-        "Fizz's dexterity allows him to move through units and take less physical damage from basic attacks."
+        'Fizz can move through units and takes a flat amount of reduced damage from all sources'
     },
     range: 'Melee'
   },
@@ -5536,8 +5539,9 @@ const champions: IChampions = {
       image: {
         full: 'Draven_passive.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'League of Draven',
+      sanitizedDescription:
+        "Draven gains his fans' Adoration when he catches a Spinning Axe or kills a minion, monster, or tower. Killing enemy champions grants Draven bonus gold based on how much Adoration he has."
     },
     range: 'Ranged'
   },
@@ -5872,7 +5876,7 @@ const champions: IChampions = {
       },
       name: 'Moonsilver Blade',
       sanitizedDescription:
-        'Every third strike restores mana and cleaves nearby enemies for additional magic damage. Every spell cast grants attack speed for the next 3 attacks.'
+        'Every third strike restores mana and cleaves nearby enemies for an additional magic damage. After casting a spell, Diana gains  attack speed for her next 3 attacks.'
     },
     range: 'Melee'
   },
@@ -6036,8 +6040,8 @@ const champions: IChampions = {
       image: {
         full: 'AurelionSol_Passive.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: 'Center of the Universe',
+      sanitizedDescription: 'Stars orbit Aurelion Sol, dealing magic damage when they hit an enemy.'
     },
     range: 'Ranged'
   },
@@ -6188,7 +6192,7 @@ const champions: IChampions = {
       {
         name: 'Stranglethorns',
         sanitizedDescription:
-          'Zyra summons a twisted thicket at her target location, dealing damage to enemies as it expands and knocking them airborne as it contracts.',
+          'Zyra summons a twisted thicket at her target location, dealing damage to enemies as it expands and knocking them airborne as it contracts. Plants within the thicket are enraged.',
         image: {
           full: 'ZyraR.png'
         },
@@ -7256,7 +7260,7 @@ const champions: IChampions = {
       },
       name: 'Deathbringer Stance',
       sanitizedDescription:
-        'Aatrox deals bonus damage on his next attack, healing for the damage dealt.'
+        "Periodically, Aatrox's next basic attack deals bonus physical damage and heals him, based on the target's max health. "
     },
     range: 'Melee'
   },
@@ -7366,8 +7370,9 @@ const champions: IChampions = {
       image: {
         full: 'Azir_Passive.png'
       },
-      name: '',
-      sanitizedDescription: ''
+      name: "Shurima's Legacy",
+      sanitizedDescription:
+        'Azir can summon the Disc of the Sun from the ruins of allied or enemy turrets.'
     },
     range: 'Ranged'
   },
@@ -7577,7 +7582,7 @@ const champions: IChampions = {
       {
         name: 'Void Rush',
         sanitizedDescription:
-          'Reksai passively marks targets by damaging them. She can activate this ability to become briefly untargetable and lunge at a marked target for heavy damage based on their missing health.',
+          "Rek'sai passively marks targets by damaging them. She can activate this ability to become briefly untargetable and lunge at a marked target for heavy damage based on their missing health.",
         image: {
           full: 'RekSaiRWrapper.png'
         },
@@ -7858,7 +7863,7 @@ const champions: IChampions = {
         image: {
           full: 'XayahR.png'
         },
-        cooldownBurn: '140/125/110'
+        cooldownBurn: '160/145/130'
       }
     ],
     passive: {
@@ -7923,7 +7928,7 @@ const champions: IChampions = {
       },
       name: 'Living Forge',
       sanitizedDescription:
-        'Ornn gains an additional 10% bonus Armor and Magic Resistance from all sources.Ornn can spend gold to forge non-consumable items anywhere.Additionally, when Ornn reaches level 13, he will upgrade any eligible items into masterwork items for himself, up to 2 max. For each level after 13, Ornn can upgrade an item for an ally by going near them and clicking on them, max 1 per ally.Ornn can smith items directly from his forge menu or the shop.'
+        'Ornn gains an additional 10% bonus Armor and Magic Resistance from all sources.Ornn can spend gold to forge non-consumable items anywhere.Additionally, when Ornn reaches level 12, he will upgrade any eligible items into masterwork items for himself, up to 2 max. For each level after 12, Ornn can upgrade an item for an ally by going near them and clicking on them, max 1 per ally.Ornn can smith items directly from his forge menu or the shop.'
     },
     range: 'Melee'
   },
@@ -7957,7 +7962,7 @@ const champions: IChampions = {
       {
         name: 'Abscond / Abduct',
         sanitizedDescription:
-          'Sylas dashes to a location. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits. If he hits an enemy champion or monster, he gains a shield against magic damage.',
+          'Sylas dashes to a location. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits and partially refunding this spells cooldown.',
         image: {
           full: 'SylasE.png'
         },
@@ -7978,7 +7983,7 @@ const champions: IChampions = {
       },
       name: 'Petricite Burst',
       sanitizedDescription:
-        "After casting a spell, Sylas's next basic attack whirls his energized chains around him dealing bonus magic damage to enemies hit."
+        "After casting a spell, Sylas stores a charge of Petricite Burst.  Sylas's basic attacks will expend a charge and whirl his energized chains around him dealing bonus magic damage to enemies hit."
     },
     range: 'Melee'
   },
