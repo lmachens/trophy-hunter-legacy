@@ -214,9 +214,7 @@ class LauncherListener {
       );
       return;
     }
-    if (/LOGIN_HIDE_EVENT/.test(data) || /riot__rclient__remove_unneeded_releases/.test(data)) {
-      this.getSummonerInfo();
-    }
+    this.getSummonerInfo();
   };
 
   getSummonerInfo = async () => {
@@ -235,11 +233,11 @@ class LauncherListener {
           }
         });
       } else {
-        console.log(`Can not fetch summoner ${JSON.stringify(summoner)}`);
-        setTimeout(this.getSummonerInfo, 2000);
+        console.log(`Can not fetch summoner -> Try again in five seconds`);
+        setTimeout(this.getSummonerInfo, 5000);
       }
     } else {
-      console.log(`Can not fetch region ${JSON.stringify(regionLocale)}`);
+      console.log(`Can not fetch region`);
     }
   };
 
