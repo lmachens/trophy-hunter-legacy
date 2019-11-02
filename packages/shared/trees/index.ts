@@ -89,7 +89,7 @@ import qiyana1 from './definitions/qiyana1';
 import quinn1 from './definitions/quinn1';
 import rakan1 from './definitions/rakan1';
 import rammus1 from './definitions/rammus1';
-// import rekSai1 from './definitions/rekSai1'; // jungle
+import rekSai1 from './definitions/rekSai1';
 import renekton1 from './definitions/renekton1';
 import rengar1 from './definitions/rengar1';
 import riven1 from './definitions/riven1';
@@ -145,14 +145,19 @@ import zoe1 from './definitions/zoe1';
 import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
+  rekSai1,
+  xinZhao1,
+  yasuo1,
+  neeko1,
+  twistedFate1
+};
+
+export const expiredTrees = {
   kindred1,
   singed1,
   talon1,
   vi1,
-  tryndamere1
-};
-
-export const expiredTrees = {
+  tryndamere1,
   hecarim1,
   jarvanIV1,
   poppy1,
@@ -286,11 +291,7 @@ export const expiredTrees = {
   velKoz1,
   vayne1,
   zilean1,
-  yorick1,
-  xinZhao1,
-  yasuo1,
-  neeko1,
-  twistedFate1
+  yorick1
 };
 
 export const treeBonus = {

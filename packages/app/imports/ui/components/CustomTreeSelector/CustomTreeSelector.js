@@ -64,7 +64,7 @@ class CustomTreeSelector extends PureComponent {
           onRequestClose={this.handleRequestClose}
           open={open}
           style={Object.assign(
-            { width: 540, padding: 10, textAlign: 'center' },
+            { width: 740, padding: 10, textAlign: 'center' },
             universeTheme.popover
           )}
           targetOrigin={{ horizontal: 'left', vertical: 'center' }}
