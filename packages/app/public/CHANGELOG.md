@@ -1,5 +1,6 @@
 # Change Log
 
+## [4.6.0] - 2019-11-02
 ### Added
 - New tree for RekSai (We have trees for every champion now!!)
 - Set monthly trees RekSai, XinZhao, Yasuo, Neeko, TwistedFate
