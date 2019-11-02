@@ -1937,11 +1937,11 @@ const champions: IChampions = {
       {
         name: 'Deceive',
         sanitizedDescription:
-          "Shaco becomes Invisible and teleports to target location.His first attack while Invisible is empowered, dealing bonus damage and reducing Deceive's cooldown",
+          'Shaco becomes Invisible and teleports to target location.His first attack while Invisible is empowered, dealing bonus damage and critically striking if he attacks from behind.',
         image: {
           full: 'Deceive.png'
         },
-        cooldownBurn: '16/15.5/15/14.5/14'
+        cooldownBurn: '12/11.5/11/10.5/10'
       },
       {
         name: 'Jack In The Box',
@@ -1955,7 +1955,7 @@ const champions: IChampions = {
       {
         name: 'Two-Shiv Poison',
         sanitizedDescription:
-          "Shaco's Shivs passively poison targets on hit, slowing their movement speed. He can throw his Shivs to deal damage and poison the target. The thrown Shiv deals bonus damage based on the target's missing Health.",
+          "Shaco's Shivs passively poison targets on hit, slowing their movement speed. He can throw his Shivs to deal damage and poison the target. The thrown Shiv deals bonus damage if the target is below 30% health.",
         image: {
           full: 'TwoShivPoison.png'
         },
@@ -1977,7 +1977,7 @@ const champions: IChampions = {
       },
       name: 'Backstab',
       sanitizedDescription:
-        "Shaco's basic attack critically strikes unit from behind. Enemies can't be Backstabbed more than once every few seconds. "
+        "Shaco's basic attacks and Two-Shiv Poison deal additional damage when striking from behind."
     },
     range: 'Melee'
   },
@@ -4286,7 +4286,7 @@ const champions: IChampions = {
       {
         name: 'Courage',
         sanitizedDescription:
-          'Garen passively increases his armor and magic resist by killing enemies. He may also activate this ability to give him a huge burst of Tenacity and damage reduction for a brief moment followed by a lesser amount of damage reduction for a longer duration.',
+          'Garen passively increases his armor and magic resist by killing enemies. He may also activate this ability to give him a shield and tenacity for a brief moment followed by a lesser amount of damage reduction for a longer duration.',
         image: {
           full: 'GarenW.png'
         },
@@ -4295,7 +4295,7 @@ const champions: IChampions = {
       {
         name: 'Judgment',
         sanitizedDescription:
-          'Garen performs a dance of death with his sword, dealing damage around him for the duration and shredding the armor of enemy champions hit.',
+          'Garen rapidly spins his sword around his body, dealing physical damage to nearby enemies.',
         image: {
           full: 'GarenE.png'
         },
@@ -4304,7 +4304,7 @@ const champions: IChampions = {
       {
         name: 'Demacian Justice',
         sanitizedDescription:
-          "The enemy champion with the most recent kills is the Villain. Garen's attacks deal additional true damage to that champion.Garen can call upon the might of Demacia to deal a finishing blow to an enemy champion that deals damage based upon how much health his target has missing. This damage is true damage against the Villain.",
+          'Garen calls upon the might of Demacia to attempt to execute an enemy champion.',
         image: {
           full: 'GarenR.png'
         },
@@ -4317,7 +4317,7 @@ const champions: IChampions = {
       },
       name: 'Perseverance',
       sanitizedDescription:
-        'If Garen has not recently been struck by damage or enemy abilities, he regenerates a percentage of his total health each second. Minion damage does not stop Perseverance.'
+        'If Garen has not recently been struck by damage or enemy abilities, he regenerates a percentage of his total health each second.'
     },
     range: 'Melee'
   },
@@ -5249,7 +5249,7 @@ const champions: IChampions = {
       {
         name: 'Chaos Storm',
         sanitizedDescription:
-          'Viktor conjures a singularity on the field which deals magic damage and interrupts enemy channels. The singularity then periodically does magic damage to all nearby enemies. Viktor can redirect the singularity.Augment: The Chaos Storm moves faster.',
+          'Viktor conjures a singularity on the field which deals magic damage and interrupts enemy channels. The singularity then periodically does magic damage to all nearby enemies. Viktor can redirect the singularity.Augment: The Chaos Storm moves 25% faster.',
         image: {
           full: 'ViktorChaosStorm.png'
         },
@@ -7620,7 +7620,7 @@ const champions: IChampions = {
       {
         name: 'Brushmaker',
         sanitizedDescription:
-          "In brush, Ivern's attacks are ranged and deal bonus magic damage. Ivern can activate this ability to create a patch of brush.",
+          "In brush, Ivern's attacks deal bonus magic damage. Ivern can activate this ability to create a patch of brush.",
         image: {
           full: 'IvernW.png'
         },
@@ -7653,7 +7653,7 @@ const champions: IChampions = {
       sanitizedDescription:
         'Ivern cannot attack or be attacked by non-epic monsters. Ivern can create magical groves on jungle camps which grow over time. When the grove is fully grown, Ivern may free the monsters to receive gold and experience. After level 5 Ivern can share jungle buffs with allies.'
     },
-    range: 'Melee'
+    range: 'Ranged'
   },
   '429': {
     id: 429,
@@ -7962,7 +7962,7 @@ const champions: IChampions = {
       {
         name: 'Abscond / Abduct',
         sanitizedDescription:
-          'Sylas dashes to a location. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits and partially refunding this spells cooldown.',
+          'Sylas dashes to a location, gaining a magic damage shield. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits.',
         image: {
           full: 'SylasE.png'
         },

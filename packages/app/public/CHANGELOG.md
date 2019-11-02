@@ -1,5 +1,8 @@
 # Change Log
 
+### Changed
+- Updated to Riot API version 9.21.1
+
 ## [4.5.0] - 2019-09-30
 ### Added
 - New trees for Kindred, Singed, Talon, Tryndamere and Vi
