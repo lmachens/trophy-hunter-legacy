@@ -1,5 +1,8 @@
 # Change Log
 
+### Added
+- New tree for RekSai (We have trees for every champion now!!)
+- Set monthly trees RekSai, XinZhao, Yasuo, Neeko, TwistedFate
 ### Changed
 - Updated to Riot API version 9.21.1
 
