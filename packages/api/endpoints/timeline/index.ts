@@ -20,9 +20,7 @@ const api = setup({
 export const getTimeline = ({ platformId, matchId }: GetTimelineProps) => {
   return api
     .get(
-      `https://${platformId}.api.riotgames.com/lol/match/v4/timelines/by-match/${matchId}?api_key=${
-        process.env.LEAGUE_API_KEY
-      }`
+      `https://${platformId}.api.riotgames.com/lol/match/v4/timelines/by-match/${matchId}?api_key=${process.env.LEAGUE_API_KEY}`
     )
     .then(response => response.data);
 };
@@ -45,7 +43,12 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     })
     .catch(error => {
       res.setHeader('Cache-Control', 's-maxage=60, max-age=60');
-      res.writeHead(error.response.status);
-      res.end(error.response.statusText);
+      if (error.response) {
+        res.writeHead(error.response.status);
+        res.end(error.response.statusText);
+      } else {
+        res.writeHead(400);
+        res.end(error.message);
+      }
     });
 };

@@ -97,15 +97,13 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         res.end(JSON.stringify(result));
       })
       .catch(error => {
-        if (!error.response) {
-          console.log(error.message);
-          error.response = {
-            status: 400,
-            statusText: 'Internal error'
-          };
+        if (error.response) {
+          res.writeHead(error.response.status);
+          res.end(error.response.statusText);
+        } else {
+          res.writeHead(400);
+          res.end(error.message);
         }
-        res.writeHead(error.response.status);
-        res.end(error.response.statusText);
       });
   } catch (error) {
     res.setHeader('Cache-Control', 's-maxage=60, max-age=60');

@@ -20,9 +20,7 @@ const api = setup({
 export const getActiveGame = ({ platformId, summonerId }: GetActiveGameProps) => {
   return api
     .get(
-      `https://${platformId}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${summonerId}?api_key=${
-        process.env.LEAGUE_API_KEY
-      }`
+      `https://${platformId}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${summonerId}?api_key=${process.env.LEAGUE_API_KEY}`
     )
     .then(response => response.data);
 };
@@ -44,7 +42,12 @@ export default (req: IncomingMessage, res: ServerResponse) => {
       res.end(JSON.stringify(result));
     })
     .catch(error => {
-      res.writeHead(error.response.status);
-      res.end(error.response.statusText);
+      if (error.response) {
+        res.writeHead(error.response.status);
+        res.end(error.response.statusText);
+      } else {
+        res.writeHead(400);
+        res.end(error.message);
+      }
     });
 };

@@ -29,9 +29,7 @@ export const getMatchList = ({
   endIndex,
   queueIds
 }: GetMatchListProps) => {
-  let url = `https://${platformId}.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?api_key=${
-    process.env.LEAGUE_API_KEY
-  }`;
+  let url = `https://${platformId}.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?api_key=${process.env.LEAGUE_API_KEY}`;
   if (championId) {
     url += `&champion=${championId}`;
   }
@@ -70,7 +68,12 @@ export default (req: IncomingMessage, res: ServerResponse) => {
     })
     .catch(error => {
       res.setHeader('Cache-Control', 's-maxage=60, maxage=60');
-      res.writeHead(error.response.status);
-      res.end(error.response.statusText);
+      if (error.response) {
+        res.writeHead(error.response.status);
+        res.end(error.response.statusText);
+      } else {
+        res.writeHead(400);
+        res.end(error.message);
+      }
     });
 };
