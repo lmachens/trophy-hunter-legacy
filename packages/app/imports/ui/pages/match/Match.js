@@ -9,7 +9,7 @@ import Role from '../../components/Role';
 import PropTypes from 'prop-types';
 import Timeline from '../../components/Timeline';
 import TrophiesObtained from '../../components/TrophiesObtained';
-import champions from '/imports/shared/riot-api/champions.ts';
+import champions, { unknownChamp } from '/imports/shared/riot-api/champions.ts';
 import extendMatchResult from '/imports/shared/matches/extendMatchResult/index.ts';
 import moment from 'moment';
 import universeTheme from '../../layouts/universeTheme';
@@ -92,7 +92,7 @@ class Match extends Component {
     }
 
     const championId = extendedMatchResult.participant.championId;
-    const champion = champions[championId];
+    const champion = champions[championId] || unknownChamp;
     const backgroundStyle = Object.assign(
       {
         backgroundImage: champion

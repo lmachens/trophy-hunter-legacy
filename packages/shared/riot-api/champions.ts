@@ -215,7 +215,7 @@ const champions: IChampions = {
         cooldownBurn: '6'
       },
       {
-        name: 'Pick A Card',
+        name: 'Pick a Card',
         sanitizedDescription:
           'Twisted Fate chooses a magic card from his deck, and uses that for his next attack, causing bonus effects.',
         image: {
@@ -5128,7 +5128,7 @@ const champions: IChampions = {
       {
         name: 'Hail of Arrows',
         sanitizedDescription:
-          "Varus fires a hail of arrows that deal physical damage and desecrate the ground. Desecrated ground slows enemies' Movement Speed and reduces their self healing and regeneration. ",
+          "Varus fires a hail of arrows that deal physical damage and desecrate the ground. Desecrated ground slows enemies' Movement Speed and reduces their self healing and regeneration.",
         image: {
           full: 'VarusE.png'
         },
@@ -5137,7 +5137,7 @@ const champions: IChampions = {
       {
         name: 'Chain of Corruption',
         sanitizedDescription:
-          'Varus flings out a damaging tendril of corruption that immobilizes the first enemy champion hit and then spreads towards nearby uninfected champions, immobilizing them too on contact. ',
+          'Varus flings out a damaging tendril of corruption that immobilizes the first enemy champion hit and then spreads towards nearby uninfected champions, immobilizing them too on contact.',
         image: {
           full: 'VarusR.png'
         },
@@ -5416,7 +5416,7 @@ const champions: IChampions = {
       {
         name: 'Mega Inferno Bomb',
         sanitizedDescription:
-          'Ziggs deploys his ultimate creation, the Mega Inferno Bomb, hurling it an enormous distance. Enemies in the primary blast zone take more damage than those farther away. ',
+          'Ziggs deploys his ultimate creation, the Mega Inferno Bomb, hurling it an enormous distance. Enemies in the primary blast zone take more damage than those farther away.',
         image: {
           full: 'ZiggsR.png'
         },
@@ -6876,6 +6876,62 @@ const champions: IChampions = {
     },
     range: 'Melee'
   },
+  '235': {
+    id: 235,
+    key: 'Senna',
+    name: 'Senna',
+    title: 'the Redeemer',
+    image: {
+      full: 'Senna.png'
+    },
+    spells: [
+      {
+        name: 'Piercing Darkness',
+        sanitizedDescription:
+          'From the twin barrels of her Relic Cannon, Senna fires a unified beam of light and shadow through a target, healing allies and damaging enemies.',
+        image: {
+          full: 'SennaQ.png'
+        },
+        cooldownBurn: '15'
+      },
+      {
+        name: 'Last Embrace',
+        sanitizedDescription:
+          'Senna sends forth a wave of Black Mist. If it hits an enemy it latches onto them hungrily, rooting them and everything nearby after a brief delay.',
+        image: {
+          full: 'SennaW.png'
+        },
+        cooldownBurn: '11'
+      },
+      {
+        name: 'Curse of the Black Mist',
+        sanitizedDescription:
+          'Senna draws the Mist she has stored in her weapon into a storm around her, embracing darkness and becoming a wraith within. Allies who enter the area are camouflaged and also appear as wraiths as the Mist shrouds them. Wraiths gain increased movement speed, are unselectable, and hide their identities.',
+        image: {
+          full: 'SennaE.png'
+        },
+        cooldownBurn: '26/24.5/23/21.5/20'
+      },
+      {
+        name: 'Dawning Shadow',
+        sanitizedDescription:
+          'Senna calls upon the relic stones of fallen Sentinels, splitting her relic cannon into a holy array of shadow and light. She then fires a global beam that shields allies from harm, while damaging enemies caught in the center.',
+        image: {
+          full: 'SennaR.png'
+        },
+        cooldownBurn: '160/140/120'
+      }
+    ],
+    passive: {
+      image: {
+        full: 'Senna_Passive.Senna.png'
+      },
+      name: 'Absolution',
+      sanitizedDescription:
+        "When units die near Senna, their souls are periodically trapped by the Black Mist. Senna can attack these souls to free them, absorbing the Mist that held them in death. Mist fuels her Relic Cannon's power with increased Attack Damage, Attack Range, and Critical Strike Chance. Attacks from Senna's Relic Cannon take longer to fire, deals bonus damage , and briefly grant her a portion of her target's Movement Speed."
+    },
+    range: 'Ranged'
+  },
   '236': {
     id: 236,
     key: 'Lucian',
@@ -8104,6 +8160,7 @@ const champions: IChampions = {
 export default champions;
 
 export const unknownChamp = {
+  id: 0,
   key: 'unknown',
   name: 'Unknown',
   title: '',

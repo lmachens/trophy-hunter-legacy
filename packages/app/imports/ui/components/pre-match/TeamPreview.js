@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import DamageComposition from '../DamageComposition';
 import PropTypes from 'prop-types';
 import SummonerDetails from './SummonerDetails';
-import champions from '/imports/shared/riot-api/champions.ts';
+import champions, { unknownChamp } from '/imports/shared/riot-api/champions.ts';
 import get from 'lodash.get';
 import { getRole } from './helpers';
 import isEqual from 'lodash.isequal';
@@ -43,7 +43,7 @@ class TeamPreview extends Component {
       .filter(participant => participant.championId || participant.championPickIntent)
       .map(participant => {
         const selectedChampionId = participant.championId || participant.championPickIntent;
-        const champion = champions[selectedChampionId];
+        const champion = champions[selectedChampionId] || unknownChamp;
         const championStats = get(championStatsByChampionId, `${selectedChampionId}.stats`) || {};
         const roleStats = championStats[getRole(championStats)];
         return {
