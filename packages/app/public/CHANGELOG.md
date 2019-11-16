@@ -1,5 +1,9 @@
 # Change Log
 
+## [4.7.0] - 2019-11-16
+### Changed
+- Updated to Riot API version 9.22.1
+
 ## [4.6.0] - 2019-11-02
 ### Added
 - New tree for RekSai (We have trees for every champion now!!)
