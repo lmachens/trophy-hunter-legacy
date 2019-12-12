@@ -1774,7 +1774,7 @@ const champions: IChampions = {
         image: {
           full: 'BandageToss.png'
         },
-        cooldownBurn: '12/11/10/9/8'
+        cooldownBurn: '10/9.5/9/8.5/8'
       },
       {
         name: 'Despair',
@@ -1848,7 +1848,7 @@ const champions: IChampions = {
         image: {
           full: 'PuncturingTaunt.png'
         },
-        cooldownBurn: '12'
+        cooldownBurn: '12/11.5/11/10.5/10'
       },
       {
         name: 'Tremors',
@@ -2066,7 +2066,7 @@ const champions: IChampions = {
       {
         name: 'Song of Celerity',
         sanitizedDescription:
-          'Sona plays the Song of Celerity, granting nearby allies bonus Movement Speed. Sona gains a temporary aura that grants allied champions tagged by the zone bonus Movement Speed on their next attack.',
+          'Sona plays the Song of Celerity, granting nearby allies bonus Movement Speed. Sona gains a temporary aura that grants allied champions tagged by the zone bonus Movement Speed.',
         image: {
           full: 'SonaE.png'
         },
@@ -2108,7 +2108,7 @@ const champions: IChampions = {
         image: {
           full: 'NullLance.png'
         },
-        cooldownBurn: '9'
+        cooldownBurn: '11/10.5/10/9.5/9'
       },
       {
         name: 'Nether Blade',
@@ -3979,7 +3979,7 @@ const champions: IChampions = {
     ],
     passive: {
       image: {
-        full: 'Pantheon_Passive.PantheonVGU.png'
+        full: 'Pantheon_Passive.png'
       },
       name: 'Mortal Will',
       sanitizedDescription: "Every few spells or attacks, Pantheon's next spell is empowered."
@@ -4089,7 +4089,7 @@ const champions: IChampions = {
     ],
     passive: {
       image: {
-        full: 'MordekaiserPassive.MordeVGU.png'
+        full: 'MordekaiserPassive.png'
       },
       name: 'Darkness Rise',
       sanitizedDescription:
@@ -5849,16 +5849,7 @@ const champions: IChampions = {
         image: {
           full: 'DianaOrbs.png'
         },
-        cooldownBurn: '10'
-      },
-      {
-        name: 'Moonfall',
-        sanitizedDescription:
-          'Passive: Increases the attack speed gained from Moonsilver BladeActive: Reveals and draws in all nearby enemies and then slows them for 2 seconds.',
-        image: {
-          full: 'DianaVortex.png'
-        },
-        cooldownBurn: '26/24/22/20/18'
+        cooldownBurn: '15/13.5/12/10.5/9'
       },
       {
         name: 'Lunar Rush',
@@ -5867,7 +5858,15 @@ const champions: IChampions = {
         image: {
           full: 'DianaTeleport.png'
         },
-        cooldownBurn: '25/20/15'
+        cooldownBurn: '22/20/18/16/14'
+      },
+      {
+        name: 'Moonfall',
+        sanitizedDescription: '',
+        image: {
+          full: 'DianaR.png'
+        },
+        cooldownBurn: '100/90/80'
       }
     ],
     passive: {
@@ -5876,7 +5875,7 @@ const champions: IChampions = {
       },
       name: 'Moonsilver Blade',
       sanitizedDescription:
-        'Every third strike restores mana and cleaves nearby enemies for an additional magic damage. After casting a spell, Diana gains  attack speed for her next 3 attacks.'
+        'Every third strike cleaves nearby enemies for an additional magic damage. After casting a spell, Diana gains  attack speed for her next 3 attacks.'
     },
     range: 'Melee'
   },
@@ -6622,7 +6621,7 @@ const champions: IChampions = {
         image: {
           full: 'BraumW.png'
         },
-        cooldownBurn: '14/13/12/11/10'
+        cooldownBurn: '12/11/10/9/8'
       },
       {
         name: 'Unbreakable',
@@ -6649,7 +6648,7 @@ const champions: IChampions = {
       },
       name: 'Concussive Blows',
       sanitizedDescription:
-        "Braum adds stacks of Concussive Blows to enemies with basic attacks or Winter's Bite. He and his allies continue to add stacks with basic attacks, at 4 stacks their target will be stunned."
+        "Braum's basic attacks apply Concussive Blows. Once the first stack is applied, ally basic attacks also stack Concussive Blows. Upon reaching 4 stacks, the target is stunned and takes magic damage. For the next few seconds they cannot receive new stacks, but take bonus magic damage from Braum's attacks."
     },
     range: 'Melee'
   },
@@ -7453,7 +7452,7 @@ const champions: IChampions = {
       {
         name: 'You and Me!',
         sanitizedDescription:
-          "Passively, Yuumi and her attached ally share some of each other's Adaptive Force. Actively, Yuumi dashes to a target ally, becoming untargetable from everything except turrets.",
+          "Passively, Yuumi increases her ally's Adaptive Force and her own. Actively, Yuumi dashes to a target ally, becoming untargetable from everything except turrets.",
         image: {
           full: 'YuumiW.png'
         },
@@ -7462,11 +7461,11 @@ const champions: IChampions = {
       {
         name: 'Zoomies',
         sanitizedDescription:
-          "Heals Yuumi and gives a Movement Speed boost. If she's attached, she passes it to her ally instead.",
+          "Heals Yuumi and boosts Movement Speed and Attack Speed. If she's attached, she passes it to her ally instead.",
         image: {
           full: 'YuumiE.png'
         },
-        cooldownBurn: '0.5'
+        cooldownBurn: '12/11/10/9/8'
       },
       {
         name: 'Final Chapter',
@@ -7484,7 +7483,7 @@ const champions: IChampions = {
       },
       name: "Bop 'n' Block",
       sanitizedDescription:
-        "Periodically, when Yuumi attacks a champion, she gains a shield that follows her, protecting her and the ally she's attached to."
+        "Periodically, when Yuumi attacks a champion, she restores mana and gains a shield that follows her, protecting her and the ally she's attached to."
     },
     range: 'Ranged'
   },
@@ -8096,6 +8095,62 @@ const champions: IChampions = {
       name: 'Inherent Glamour',
       sanitizedDescription:
         'Neeko can look like an ally champion. Taking damage from enemy Champions or casting damaging spells breaks the disguise.'
+    },
+    range: 'Ranged'
+  },
+  '523': {
+    id: 523,
+    key: 'Aphelios',
+    name: 'Aphelios',
+    title: 'the Weapon of the Faithful',
+    image: {
+      full: 'Aphelios.png'
+    },
+    spells: [
+      {
+        name: 'Weapon Abilites',
+        sanitizedDescription:
+          'Aphelios has 5 different activated abilities, based on his equipped weapon:Calibrum (Rifle): Long range shot that marks its target for a long-range follow-up attack.Severum (Pistol): Run fast while attacking nearby enemies with both weapons.Gravitum (Grav Cannon): Root all enemies slowed by this weapon.Infernum (Flamethrower): Blast enemies in a cone and attack them with your secondary weapon.Crescendum (Chakram): Deploy a sentry that shoots your secondary weapon.',
+        image: {
+          full: 'ApheliosQ_ClientTooltipWrapper.png'
+        },
+        cooldownBurn: '9'
+      },
+      {
+        name: 'Phase',
+        sanitizedDescription:
+          'Aphelios swaps his equipped gun with his secondary gun, replacing his basic attack and activated ability.',
+        image: {
+          full: 'ApheliosW.png'
+        },
+        cooldownBurn: '0.8'
+      },
+      {
+        name: 'Weapon Queue System',
+        sanitizedDescription:
+          'Aphelios has no third ability. This slot shows the next weapon Alune will give him. Weapon order begins fixed but may change over game time -- when a weapon is out of ammo it goes to the end of the order.',
+        image: {
+          full: 'ApheliosE_ClientTooltipWrapper.png'
+        },
+        cooldownBurn: '0'
+      },
+      {
+        name: 'Moonlight Vigil',
+        sanitizedDescription:
+          "Fire a concentrated blast of moonlight that explodes on enemy champions. Applies the unique effect of Aphelios' equipped gun.",
+        image: {
+          full: 'ApheliosR.png'
+        },
+        cooldownBurn: '120/110/100'
+      }
+    ],
+    passive: {
+      image: {
+        full: 'ApheliosP.png'
+      },
+      name: 'The Hitman and the Seer',
+      sanitizedDescription:
+        "Aphelios wields 5 Lunari Weapons made by his sister Alune. He has access to two at a time: one equipped and one secondary. Each weapon has a unique Basic Attack and Activated Ability. Attacks and abilities consume a weapon's ammo. When out of ammo, Aphelios discards the weapon and Alune summons the next of the 5. "
     },
     range: 'Ranged'
   },
