@@ -37,10 +37,9 @@ const perks: IPerks = {
     key: 'PresenceOfMind',
     icon: 'perk-images/Styles/Precision/PresenceOfMind/PresenceOfMind.png',
     name: 'Presence of Mind',
-    shortDesc:
-      "Takedowns restore 20% of your maximum mana and refund 10% of your ultimate's cooldown.",
+    shortDesc: 'Takedowns restore mana or energy and increase their maximum amounts. ',
     longDesc:
-      "Takedowns restore 20% of your maximum mana and refund 10% of your ultimate's cooldown."
+      'Takedowns restore 20% of your maximum mana or energy and increase your maximum mana by 100 (up to 500) or your maximum energy by 10 (up to 50). '
   },
   '8010': {
     id: 8010,
@@ -48,9 +47,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Precision/Conqueror/Conqueror.png',
     name: 'Conqueror',
     shortDesc:
-      'Gain stacks of adaptive force when attacking enemy champions. After reaching 5 stacks, convert a portion of your damage to true and heal for that amount.',
+      'Gain stacks of adaptive force when attacking enemy champions. After reaching 10 stacks, heal for a portion of damage you deal to champions.',
     longDesc:
-      'Attacks or spells that deal damage to an enemy champion grant 2-6 Adaptive Force (based on level) for 2s (8s for melee). Stacks up to 5 times.When fully stacked, 8% of your damage is converted to True Damage and you heal for that amount.'
+      'Basic attacks or spells that deal damage to an enemy champion grant 2 stacks of Conqueror for 6s, gaining 2-5 Adaptive Force per stack. Stacks up to 10 times. Ranged champions gain only 1 stack per basic attack.When fully stacked, heal for 15% of the damage you deal to champions (8% for ranged champions).'
   },
   '8014': {
     id: 8014,
@@ -182,7 +181,7 @@ const perks: IPerks = {
     shortDesc:
       'Collect eyeballs for champion takedowns. Gain permanent AD or AP, adaptive for each eyeball plus bonus upon collection completion.',
     longDesc:
-      'Collect eyeballs for champion takedowns. Gain an adaptive bonus of 1.2 Attack Damage or 2 Ability Power, per eyeball collected. Upon completing your collection at 10 eyeballs, additionally gain an adaptive bonus of 6 Attack Damage, or 10 Ability Power.Collect 1 eyeball per champion takedown.'
+      'Collect eyeballs for champion takedowns. Gain an adaptive bonus of 0.6 Attack Damage or 1 Ability Power, per eyeball collected. Upon completing your collection at 20 eyeballs, additionally gain an adaptive bonus of 6 Attack Damage, or 10 Ability Power.Collect 2 eyeball per champion takedown.'
   },
   '8139': {
     id: 8139,
@@ -321,9 +320,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Sorcery/NimbusCloak/6361.png',
     name: 'Nimbus Cloak',
     shortDesc:
-      'Shortly after casting your Ultimate, gain a decaying movement speed increase that lasts for 2.5s and allows you to pass through units.',
+      'After casting a Summoner Spell, gain a short movement speed increase that allows you to pass through units.',
     longDesc:
-      'Shortly after casting your Ultimate, gain a decaying movement speed increase that lasts for 2.5s and allows you to pass through units.Increase: 100 Movement SpeedCooldown: 60s, reduced by Cooldown Reduction'
+      "After casting a Summoner Spell, gain a movement speed increase that lasts for 2.5s and allows you to pass through units.Increase: 15% - 35% Movement Speed based on the Summoner Spell's cooldown. (Higher cooldown Summoner Spells grant more Movement Speed). "
   },
   '8299': {
     id: 8299,
@@ -420,15 +419,14 @@ const perks: IPerks = {
     longDesc:
       'Consuming a potion or biscuit grants 50% of its health or mana restoration immediately, but puts that consumable on a short cooldown. In addition, gain 5% Movement Speed while under their effects.Cooldown: equal to the duration of the consumable.'
   },
-  '8359': {
-    id: 8359,
-    key: 'Kleptomancy',
-    icon: 'perk-images/Styles/Inspiration/Kleptomancy/Kleptomancy.png',
-    name: 'Kleptomancy',
-    shortDesc:
-      'Loot gold and items from enemy champions by casting spells and auto attacking them.',
+  '8358': {
+    id: 8358,
+    key: 'MasterKey',
+    icon: 'perk-images/Styles/Inspiration/MasterKey/MasterKey.png',
+    name: 'Prototype: Omnistone',
+    shortDesc: 'Periodically grants a single use of another random keystone.',
     longDesc:
-      'After using an ability, each of your next 2 attacks can grant 5 gold... or something nicer.Only attacks against champions grant you a reward.'
+      'Periodically grants a single use of another random keystone.8-4  second cooldown between using a keystone and gaining the next. (12-8 seconds for ranged users)After 40 seconds of not using a given keystone, Omnistone will re-roll when you exit champion combat.Aftershock is only available to champions who have learned a basic spell that can trigger it.Predator is only available to champions who have already purchased boots.'
   },
   '8360': {
     id: 8360,
@@ -488,7 +486,7 @@ const perks: IPerks = {
     shortDesc:
       'After immobilizing an enemy champion gain defenses and later deal a burst of magic damage around you.',
     longDesc:
-      'After immobilizing an enemy champion, increase your Armor and Magic Resist by 70 + 50% of your Bonus Resists for 2.5s. Then explode, dealing magic damage to nearby enemies.Damage: 10 - 120 (+4% of your maximum health)Cooldown: 35sResistance bonus from Aftershock capped at: 80-150 (based on level)'
+      'After immobilizing an enemy champion, increase your Armor and Magic Resist by 35 + 80% of your Bonus Resists for 2.5s. Then explode, dealing magic damage to nearby enemies.Damage: 25 - 120 (+8% of your bonus health)Cooldown: 20sResistance bonus from Aftershock capped at: 80-150 (based on level)'
   },
   '8444': {
     id: 8444,

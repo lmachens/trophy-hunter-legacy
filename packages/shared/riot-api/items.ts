@@ -120,12 +120,6 @@ const items: IItems = {
     sanitizedDescription: 'Greatly increases Attack Speed',
     tags: ['AttackSpeed', 'OnHit']
   },
-  '1051': {
-    id: 1051,
-    name: "Brawler's Gloves",
-    sanitizedDescription: 'Slightly increases Critical Strike Chance',
-    tags: ['CriticalStrike']
-  },
   '1052': {
     id: 1052,
     name: 'Amplifying Tome',
@@ -167,12 +161,6 @@ const items: IItems = {
     name: 'Needlessly Large Rod',
     sanitizedDescription: 'Greatly increases Ability Power',
     tags: ['SpellDamage']
-  },
-  '1059': {
-    id: 1059,
-    name: 'Space Vampiric Scepter',
-    sanitizedDescription: 'Basic attacks restore Health',
-    tags: ['Damage', 'LifeSteal']
   },
   '1082': {
     id: 1082,
@@ -243,12 +231,12 @@ const items: IItems = {
     tags: ['Consumable', 'Jungle', 'Lane'],
     stacks: 5
   },
-  '2004': {
-    id: 2004,
-    name: 'Mana Potion',
-    sanitizedDescription: 'Consume to restore Mana over time',
-    tags: ['Consumable', 'Lane'],
-    stacks: 5
+  '2006': {
+    id: 2006,
+    name: 'Showdown Health Potion',
+    sanitizedDescription: 'Consume to restore Health over time',
+    tags: ['Consumable', 'Jungle', 'Lane'],
+    stacks: 2
   },
   '2009': {
     id: 2009,
@@ -262,26 +250,6 @@ const items: IItems = {
     sanitizedDescription: '',
     tags: [],
     stacks: 10
-  },
-  '2011': {
-    id: 2011,
-    name: 'Elixir Of Skill',
-    sanitizedDescription: '',
-    tags: ['Consumable', 'Lane', 'Jungle'],
-    stacks: 5
-  },
-  '2012': {
-    id: 2012,
-    name: 'Looted Biscuit of Rejuvenation',
-    sanitizedDescription: '',
-    tags: [],
-    stacks: 10
-  },
-  '2013': {
-    id: 2013,
-    name: "Looted Oracle's Extract",
-    sanitizedDescription: 'Allows champion to see invisible or unseen enemy units',
-    tags: ['Consumable', 'Stealth', 'Vision']
   },
   '2015': {
     id: 2015,
@@ -308,12 +276,6 @@ const items: IItems = {
     sanitizedDescription: 'Allows champion to see invisible or unseen enemy units',
     tags: ['Consumable', 'Stealth', 'Vision']
   },
-  '2050': {
-    id: 2050,
-    name: "Explorer's Ward",
-    sanitizedDescription: '',
-    tags: ['Consumable']
-  },
   '2051': {
     id: 2051,
     name: "Guardian's Horn",
@@ -326,12 +288,6 @@ const items: IItems = {
     sanitizedDescription: '',
     tags: [],
     stacks: 2
-  },
-  '2053': {
-    id: 2053,
-    name: 'Raptor Cloak',
-    sanitizedDescription: 'Enhances Movement Speed near turrets',
-    tags: ['Armor', 'HealthRegen', 'NonbootsMovement']
   },
   '2054': {
     id: 2054,
@@ -346,59 +302,11 @@ const items: IItems = {
     tags: ['Consumable', 'Lane', 'Stealth', 'Vision'],
     stacks: 2
   },
-  '2056': {
-    id: 2056,
-    name: 'Pilfered Stealth Ward',
-    sanitizedDescription: 'Use to temporarily provide vision in an area',
-    tags: ['Consumable', 'Lane', 'Vision'],
-    stacks: 3
-  },
-  '2057': {
-    id: 2057,
-    name: 'Peering Farsight Ward',
-    sanitizedDescription: 'Grants increased range and reveals the targetted area',
-    tags: ['Vision', 'Active']
-  },
-  '2058': {
-    id: 2058,
-    name: 'Travel Size Elixir of Iron',
-    sanitizedDescription: 'Temporarily increases defenses. Leaves a trail for allies to follow.',
-    tags: ['Health', 'Consumable', 'NonbootsMovement', 'Tenacity']
-  },
-  '2059': {
-    id: 2059,
-    name: 'Travel Size Elixir of Sorcery',
-    sanitizedDescription:
-      'Temporarily grants Ability Power and Bonus Damage to champions and turrets.',
-    tags: ['Consumable', 'ManaRegen', 'SpellDamage']
-  },
-  '2060': {
-    id: 2060,
-    name: 'Travel Size Elixir of Wrath',
-    sanitizedDescription:
-      'Temporarily grants Attack Damage and heals you when dealing physical damage to champions.',
-    tags: ['Consumable', 'Damage', 'LifeSteal', 'SpellVamp']
-  },
-  '2061': {
-    id: 2061,
-    name: 'Pilfered Health Potion',
-    sanitizedDescription: 'Consume to restore Health over time',
-    tags: ['Consumable', 'Jungle', 'Lane'],
-    stacks: 5
-  },
-  '2062': {
-    id: 2062,
-    name: 'Pilfered Potion of Rouge',
-    sanitizedDescription: 'Consume to gain a short window of power.',
-    tags: ['Consumable', 'Jungle', 'Lane'],
-    stacks: 5
-  },
   '2065': {
     id: 2065,
     name: "Shurelya's Reverie",
-    sanitizedDescription:
-      'Grants Health, Ability Power, Mana Regeneration, Cooldown Reduction, and Movement Speed. Activate to speed up nearby allies.',
-    tags: ['Health', 'SpellDamage', 'ManaRegen', 'Active', 'CooldownReduction', 'NonbootsMovement']
+    sanitizedDescription: 'Activate to speed up nearby allies.',
+    tags: ['Health', 'HealthRegen', 'ManaRegen', 'Active', 'CooldownReduction', 'NonbootsMovement']
   },
   '2138': {
     id: 2138,
@@ -419,13 +327,6 @@ const items: IItems = {
     sanitizedDescription:
       'Temporarily grants Attack Damage and heals you when dealing physical damage to champions.',
     tags: ['Consumable', 'Damage', 'LifeSteal', 'SpellVamp']
-  },
-  '2319': {
-    id: 2319,
-    name: 'Sly Sack of Gold',
-    sanitizedDescription: 'Filled with gold',
-    tags: ['Consumable', 'GoldPer'],
-    stacks: 50
   },
   '2403': {
     id: 2403,
@@ -496,12 +397,6 @@ const items: IItems = {
     name: 'Manamune',
     sanitizedDescription: 'Increases Attack Damage based on maximum Mana',
     tags: ['Damage', 'Mana', 'ManaRegen', 'OnHit']
-  },
-  '3005': {
-    id: 3005,
-    name: "Atma's Reckoning",
-    sanitizedDescription: 'Increases Attack Damage based on maximum Health',
-    tags: ['SpellBlock', 'Armor', 'Damage']
   },
   '3006': {
     id: 3006,
@@ -682,12 +577,6 @@ const items: IItems = {
     sanitizedDescription: 'Shields against large bursts of damage',
     tags: ['Health', 'Damage']
   },
-  '3056': {
-    id: 3056,
-    name: 'Ohmwrecker',
-    sanitizedDescription: 'Temporarily disables enemy turrets',
-    tags: ['Active', 'Armor', 'CooldownReduction', 'Health', 'HealthRegen', 'NonbootsMovement']
-  },
   '3057': {
     id: 3057,
     name: 'Sheen',
@@ -711,20 +600,6 @@ const items: IItems = {
     name: 'Sunfire Cape',
     sanitizedDescription: 'Constantly deals damage to nearby enemies',
     tags: ['Armor', 'Health']
-  },
-  '3069': {
-    id: 3069,
-    name: 'Remnant of the Ascended',
-    sanitizedDescription: 'Provides Gold, Mana, and Stealth Wards over time',
-    tags: [
-      'Health',
-      'HealthRegen',
-      'ManaRegen',
-      'Active',
-      'GoldPer',
-      'CooldownReduction',
-      'NonbootsMovement'
-    ]
   },
   '3070': {
     id: 3070,
@@ -788,12 +663,6 @@ const items: IItems = {
       'NonbootsMovement'
     ]
   },
-  '3080': {
-    id: 3080,
-    name: 'Space Bloodthirster',
-    sanitizedDescription: 'Grants Attack Damage, Life Steal and Life Steal now overheals',
-    tags: ['Damage', 'LifeSteal']
-  },
   '3082': {
     id: 3082,
     name: "Warden's Mail",
@@ -837,23 +706,11 @@ const items: IItems = {
     sanitizedDescription: 'Massively increases Ability Power',
     tags: ['SpellDamage']
   },
-  '3090': {
-    id: 3090,
-    name: "Wooglet's Witchcap",
-    sanitizedDescription: 'Massively increases Ability Power and can be activated to enter stasis',
-    tags: ['Active', 'Armor', 'SpellDamage']
-  },
   '3091': {
     id: 3091,
     name: "Wit's End",
     sanitizedDescription: 'Resist magic damage and claw your way back to life.',
     tags: ['SpellBlock', 'AttackSpeed', 'LifeSteal', 'NonbootsMovement']
-  },
-  '3092': {
-    id: 3092,
-    name: 'Remnant of the Watchers',
-    sanitizedDescription: 'Provides Ability Power and Stealth Wards over time',
-    tags: ['Health', 'SpellDamage', 'ManaRegen', 'Active', 'GoldPer', 'CooldownReduction']
   },
   '3094': {
     id: 3094,
@@ -865,25 +722,7 @@ const items: IItems = {
     id: 3095,
     name: 'Stormrazor',
     sanitizedDescription: 'Tremendously empower other Energized effects.',
-    tags: ['Damage', 'AttackSpeed', 'OnHit']
-  },
-  '3096': {
-    id: 3096,
-    name: "Nomad's Medallion",
-    sanitizedDescription: "Grants gold and mana when nearby minions die that you didn't kill",
-    tags: ['HealthRegen', 'ManaRegen', 'Active', 'GoldPer', 'CooldownReduction', 'NonbootsMovement']
-  },
-  '3097': {
-    id: 3097,
-    name: "Targon's Brace",
-    sanitizedDescription: 'Periodically kill enemy minions to heal and grant gold to a nearby ally',
-    tags: ['Aura', 'GoldPer', 'Health', 'HealthRegen']
-  },
-  '3098': {
-    id: 3098,
-    name: 'Frostfang',
-    sanitizedDescription: 'Grants gold when you damage an enemy',
-    tags: ['SpellDamage', 'ManaRegen', 'Active', 'GoldPer', 'CooldownReduction']
+    tags: ['Damage', 'CriticalStrike', 'AttackSpeed', 'OnHit']
   },
   '3100': {
     id: 3100,
@@ -902,12 +741,6 @@ const items: IItems = {
     name: "Banshee's Veil",
     sanitizedDescription: 'Periodically blocks enemy abilities',
     tags: ['SpellBlock', 'SpellDamage', 'CooldownReduction']
-  },
-  '3104': {
-    id: 3104,
-    name: "Lord Van Damm's Pillager",
-    sanitizedDescription: 'Reduces Armor of nearby enemies',
-    tags: ['Health', 'Damage', 'Aura', 'CooldownReduction', 'OnHit', 'ArmorPenetration']
   },
   '3105': {
     id: 3105,
@@ -982,18 +815,6 @@ const items: IItems = {
     sanitizedDescription: 'Greatly enhances Movement Speed when out of combat',
     tags: ['Boots']
   },
-  '3118': {
-    id: 3118,
-    name: "Space Knight's Vow",
-    sanitizedDescription: 'Partner with an ally to protect each other',
-    tags: ['Health', 'Armor', 'Aura', 'CooldownReduction', 'NonbootsMovement']
-  },
-  '3122': {
-    id: 3122,
-    name: 'Wicked Hatchet',
-    sanitizedDescription: 'Critical Strikes cause your target to bleed',
-    tags: ['CriticalStrike', 'Damage', 'OnHit']
-  },
   '3123': {
     id: 3123,
     name: "Executioner's Calling",
@@ -1005,18 +826,6 @@ const items: IItems = {
     name: "Guinsoo's Rageblade",
     sanitizedDescription: 'Increases Attack Speed, Armor Penetration, and Magic Penetration',
     tags: ['Damage', 'AttackSpeed', 'SpellDamage', 'OnHit', 'MagicPenetration', 'ArmorPenetration']
-  },
-  '3128': {
-    id: 3128,
-    name: 'Deathfire Grasp',
-    sanitizedDescription: 'Activate to increase all magic damage dealt to an enemy champion',
-    tags: ['Active', 'CooldownReduction', 'SpellDamage']
-  },
-  '3131': {
-    id: 3131,
-    name: 'Sword of the Divine',
-    sanitizedDescription: 'Activate to gain 100% Critical Strike Chance for a short duration',
-    tags: ['Damage', 'CriticalStrike', 'AttackSpeed', 'Active', 'ArmorPenetration']
   },
   '3133': {
     id: 3133,
@@ -1098,21 +907,8 @@ const items: IItems = {
   '3147': {
     id: 3147,
     name: 'Duskblade of Draktharr',
-    sanitizedDescription:
-      'Deals additional physical damage when ambushing enemies and provides trap and ward detection periodically',
-    tags: ['Damage', 'Vision', 'CooldownReduction', 'OnHit', 'ArmorPenetration']
-  },
-  '3148': {
-    id: 3148,
-    name: 'Space Hextech Gunblade',
-    sanitizedDescription: 'Increases Attack Damage and Ability Power, activate to slow a target',
-    tags: ['Active', 'Damage', 'LifeSteal', 'Slow', 'SpellDamage', 'SpellVamp']
-  },
-  '3149': {
-    id: 3149,
-    name: 'Space Blade of the Ruined King',
-    sanitizedDescription: "Deals damage based on target's Health, can steal Movement Speed",
-    tags: ['Damage', 'AttackSpeed', 'LifeSteal', 'Active', 'Slow', 'OnHit', 'NonbootsMovement']
+    sanitizedDescription: 'Deals additional physical damage when ambushing enemies',
+    tags: ['Damage', 'CooldownReduction', 'OnHit', 'ArmorPenetration']
   },
   '3151': {
     id: 3151,
@@ -1167,42 +963,11 @@ const items: IItems = {
     tags: ['Health', 'Damage', 'CooldownReduction'],
     stacks: 0
   },
-  '3162': {
-    id: 3162,
-    name: 'Space Bilgewater Cutlass',
-    sanitizedDescription: 'Activate to deal magic damage and slow target champion',
-    tags: ['Active', 'Damage', 'LifeSteal', 'Slow']
-  },
-  '3163': {
-    id: 3163,
-    name: 'Space Maw of Malmortius',
-    sanitizedDescription: 'Grants bonus Attack Damage when Health is low',
-    tags: ['SpellBlock', 'Damage', 'LifeSteal', 'CooldownReduction', 'SpellVamp'],
-    stacks: 0
-  },
   '3165': {
     id: 3165,
     name: 'Morellonomicon',
     sanitizedDescription: 'Increases magic damage',
     tags: ['Health', 'SpellDamage', 'MagicPenetration']
-  },
-  '3170': {
-    id: 3170,
-    name: 'Moonflair Spellblade',
-    sanitizedDescription: 'Improves defense and reduces duration of disabling effects',
-    tags: ['Armor', 'SpellBlock', 'SpellDamage', 'Tenacity']
-  },
-  '3172': {
-    id: 3172,
-    name: 'Zephyr',
-    sanitizedDescription: 'Mobility and Tenacity',
-    tags: ['Damage', 'AttackSpeed', 'NonbootsMovement', 'Tenacity']
-  },
-  '3173': {
-    id: 3173,
-    name: 'Space Boots of Lucidity',
-    sanitizedDescription: 'Increases Movement Speed and Cooldown Reduction',
-    tags: ['Boots', 'CooldownReduction']
   },
   '3174': {
     id: 3174,
@@ -1217,29 +982,23 @@ const items: IItems = {
     tags: ['Active', 'Trinket', 'Vision'],
     specialRecipe: 3169
   },
+  '3179': {
+    id: 3179,
+    name: 'Umbral Glaive',
+    sanitizedDescription: 'Provides trap and ward detection periodically',
+    tags: ['Damage', 'Vision', 'CooldownReduction', 'OnHit', 'ArmorPenetration']
+  },
   '3181': {
     id: 3181,
     name: 'Sanguine Blade',
-    sanitizedDescription: 'Greatly increases Attack Damage and Life Steal',
-    tags: ['Damage', 'LifeSteal']
+    sanitizedDescription: 'When hunting lone enemy champions gain Attack Speed and Lethality',
+    tags: ['Damage', 'AttackSpeed', 'LifeSteal', 'ArmorPenetration']
   },
   '3184': {
     id: 3184,
     name: "Guardian's Hammer",
     sanitizedDescription: 'Good starting item for attackers',
     tags: ['Health', 'Damage', 'LifeSteal', 'Lane']
-  },
-  '3185': {
-    id: 3185,
-    name: 'Lightbringer',
-    sanitizedDescription: 'Critical Strikes cause your target to bleed and be revealed',
-    tags: ['Active', 'CriticalStrike', 'Damage', 'OnHit', 'Stealth', 'Vision']
-  },
-  '3187': {
-    id: 3187,
-    name: 'Arcane Sweeper',
-    sanitizedDescription: 'Activate to reveal a nearby area of the map',
-    tags: ['Active', 'Armor', 'CooldownReduction', 'Health', 'Mana', 'Stealth', 'Vision']
   },
   '3190': {
     id: 3190,
@@ -1302,117 +1061,17 @@ const items: IItems = {
     sanitizedDescription: 'Activate to remove all disabling effects from an allied champion',
     tags: ['SpellBlock', 'HealthRegen', 'ManaRegen', 'Active', 'CooldownReduction']
   },
-  '3230': {
-    id: 3230,
-    name: 'Space Ravenous Hydra',
-    sanitizedDescription: 'Melee attacks hit nearby enemies, dealing damage and restoring Health',
-    tags: ['Active', 'Damage', 'HealthRegen', 'LifeSteal', 'OnHit']
-  },
-  '3231': {
-    id: 3231,
-    name: 'Space Mercurial Scimitar',
-    sanitizedDescription:
-      'Activate to remove all crowd control debuffs and grant massive Movement Speed',
-    tags: ['SpellBlock', 'Damage', 'LifeSteal', 'Active', 'NonbootsMovement']
-  },
   '3285': {
     id: 3285,
     name: "Luden's Echo",
     sanitizedDescription: 'Increases Ability Power, Mana, and Cooldown Reduction',
     tags: ['SpellDamage', 'Mana', 'CooldownReduction', 'OnHit']
   },
-  '3301': {
-    id: 3301,
-    name: 'Ancient Coin',
-    sanitizedDescription: "Grants gold and mana when nearby minions die that you didn't kill",
-    tags: ['ManaRegen', 'GoldPer', 'CooldownReduction', 'NonbootsMovement', 'Lane']
-  },
-  '3302': {
-    id: 3302,
-    name: 'Relic Shield',
-    sanitizedDescription: 'Kill minions periodically to heal and grant gold to a nearby ally',
-    tags: ['Aura', 'GoldPer', 'Health', 'Lane']
-  },
-  '3303': {
-    id: 3303,
-    name: "Spellthief's Edge",
-    sanitizedDescription: 'Grants gold when you damage enemies',
-    tags: ['GoldPer', 'Lane', 'ManaRegen', 'SpellDamage']
-  },
-  '3304': {
-    id: 3304,
-    name: 'Timeworn Ancient Coin',
-    sanitizedDescription: "Grants gold and mana when nearby minions die that you didn't kill",
-    tags: ['ManaRegen', 'GoldPer', 'CooldownReduction', 'Lane']
-  },
-  '3305': {
-    id: 3305,
-    name: "Timeworn Nomad's Medallion",
-    sanitizedDescription: "Grants gold and mana when nearby minions die that you didn't kill",
-    tags: ['HealthRegen', 'ManaRegen', 'Active', 'GoldPer', 'CooldownReduction']
-  },
-  '3306': {
-    id: 3306,
-    name: 'Timeworn Talisman of Ascension',
-    sanitizedDescription:
-      'Increases Health / Mana Regeneration and Cooldown Reduction. Activate to speed up nearby allies.',
-    tags: [
-      'HealthRegen',
-      'Armor',
-      'ManaRegen',
-      'Active',
-      'GoldPer',
-      'CooldownReduction',
-      'NonbootsMovement'
-    ]
-  },
-  '3307': {
-    id: 3307,
-    name: 'Timeworn Relic Shield',
-    sanitizedDescription: 'Kill minions periodically to heal and grant gold to a nearby ally',
-    tags: ['Aura', 'GoldPer', 'Health', 'Lane']
-  },
-  '3308': {
-    id: 3308,
-    name: "Timeworn Targon's Brace",
-    sanitizedDescription: 'Periodically kill enemy minions to heal and grant gold to a nearby ally',
-    tags: ['Aura', 'GoldPer', 'Health', 'HealthRegen']
-  },
-  '3309': {
-    id: 3309,
-    name: 'Timeworn Face of the Mountain',
-    sanitizedDescription: 'Shield an ally from damage based on your Health',
-    tags: ['Health', 'HealthRegen', 'Active', 'GoldPer', 'CooldownReduction', 'Slow']
-  },
-  '3310': {
-    id: 3310,
-    name: "Timeworn Spellthief's Edge",
-    sanitizedDescription: 'Grants gold when you damage enemies',
-    tags: ['GoldPer', 'Lane', 'ManaRegen', 'SpellDamage']
-  },
-  '3311': {
-    id: 3311,
-    name: 'Timeworn Frostfang',
-    sanitizedDescription: 'Grants gold when you damage an enemy',
-    tags: ['SpellDamage', 'ManaRegen', 'Active', 'GoldPer', 'CooldownReduction']
-  },
-  '3312': {
-    id: 3312,
-    name: "Timeworn Frost Queen's Claim",
-    sanitizedDescription: 'Sends out seeking wraiths that track hidden enemies and slow them',
-    tags: ['Active', 'CooldownReduction', 'GoldPer', 'ManaRegen', 'Slow', 'SpellDamage']
-  },
   '3340': {
     id: 3340,
     name: 'Warding Totem (Trinket)',
     sanitizedDescription: 'Periodically place a Stealth Ward',
     tags: ['Active', 'Jungle', 'Lane', 'Trinket', 'Vision']
-  },
-  '3345': {
-    id: 3345,
-    name: 'Soul Anchor (Trinket)',
-    sanitizedDescription: 'Consumes charge to revive champion.',
-    tags: ['Active', 'Trinket', 'Vision']
   },
   '3348': {
     id: 3348,
@@ -1509,12 +1168,6 @@ const items: IItems = {
       'NonbootsMovement'
     ]
   },
-  '3385': {
-    id: 3385,
-    name: "Wooglet's Witchcrown",
-    sanitizedDescription: 'Massively increases Ability Power and can be activated to enter stasis',
-    tags: ['Active', 'Armor', 'SpellDamage']
-  },
   '3386': {
     id: 3386,
     name: "Zhonya's Paradox",
@@ -1551,12 +1204,6 @@ const items: IItems = {
     sanitizedDescription: '',
     tags: ['Consumable', 'GoldPer']
   },
-  '3401': {
-    id: 3401,
-    name: 'Remnant of the Aspect',
-    sanitizedDescription: 'Provides Health and Stealth Wards over time',
-    tags: ['Health', 'HealthRegen', 'Active', 'GoldPer', 'CooldownReduction']
-  },
   '3410': {
     id: 3410,
     name: "Head of Kha'Zix",
@@ -1585,24 +1232,6 @@ const items: IItems = {
     tags: ['Active', 'Trinket', 'Vision'],
     specialRecipe: 3169
   },
-  '3460': {
-    id: 3460,
-    name: 'Golden Transcendence',
-    sanitizedDescription: '',
-    tags: ['Active', 'Trinket']
-  },
-  '3461': {
-    id: 3461,
-    name: 'Golden Transcendence (Disabled)',
-    sanitizedDescription: '',
-    tags: ['Active', 'Trinket']
-  },
-  '3462': {
-    id: 3462,
-    name: 'Seer Stone (Trinket)',
-    sanitizedDescription: 'Briefly reveals a nearby targeted area',
-    tags: ['Active', 'Trinket', 'Vision']
-  },
   '3504': {
     id: 3504,
     name: 'Ardent Censer',
@@ -1616,12 +1245,6 @@ const items: IItems = {
     sanitizedDescription:
       'Grants Critical Strike Chance, Cooldown Reduction, Attack Damage and restores mana on hit.',
     tags: ['Damage', 'CriticalStrike', 'Mana', 'ManaRegen', 'CooldownReduction']
-  },
-  '3512': {
-    id: 3512,
-    name: "Zz'Rot Portal",
-    sanitizedDescription: 'Makes a Voidspawn generating Void Gate to push a lane with.',
-    tags: ['SpellBlock', 'HealthRegen', 'Armor', 'Active', 'NonbootsMovement']
   },
   '3513': {
     id: 3513,
@@ -1652,97 +1275,6 @@ const items: IItems = {
     name: 'Black Spear',
     sanitizedDescription: "Kalista's spear that binds an Oathsworn Ally.",
     tags: ['Active']
-  },
-  '3630': {
-    id: 3630,
-    name: 'Siege Teleport',
-    sanitizedDescription: '',
-    tags: []
-  },
-  '3631': {
-    id: 3631,
-    name: 'Siege Ballista',
-    sanitizedDescription: 'Place a long range anti-turret ballista',
-    tags: []
-  },
-  '3633': {
-    id: 3633,
-    name: 'Siege Teleport',
-    sanitizedDescription: '',
-    tags: []
-  },
-  '3634': {
-    id: 3634,
-    name: 'Tower: Beam of Ruination',
-    sanitizedDescription:
-      'Attaches a three shot beam to a turret which can then be aimed and fired',
-    tags: []
-  },
-  '3635': {
-    id: 3635,
-    name: 'Port Pad',
-    sanitizedDescription: 'Creates another point for your team to Teleport to',
-    tags: []
-  },
-  '3636': {
-    id: 3636,
-    name: 'Tower: Storm Bulwark',
-    sanitizedDescription: 'Make a turret go invulnerable while charging a powerful barrage',
-    tags: []
-  },
-  '3637': {
-    id: 3637,
-    name: 'Nexus Siege: Siege Weapon Slot',
-    sanitizedDescription: '',
-    tags: []
-  },
-  '3640': {
-    id: 3640,
-    name: 'Flash Zone',
-    sanitizedDescription: 'Allows you and allies to repeatedly flash while in a zone',
-    tags: []
-  },
-  '3641': {
-    id: 3641,
-    name: 'Vanguard Banner',
-    sanitizedDescription: 'Strengthens nearby minions',
-    tags: []
-  },
-  '3642': {
-    id: 3642,
-    name: 'Siege Refund',
-    sanitizedDescription: 'Refunds all current Siege Weapons',
-    tags: []
-  },
-  '3643': {
-    id: 3643,
-    name: 'Entropy Field',
-    sanitizedDescription: 'Places a field that stuns enemy minions and slows champions',
-    tags: []
-  },
-  '3645': {
-    id: 3645,
-    name: 'Seer Stone (Trinket)',
-    sanitizedDescription: 'Briefly reveals a nearby targeted area',
-    tags: ['Active', 'Trinket', 'Vision']
-  },
-  '3647': {
-    id: 3647,
-    name: 'Shield Totem',
-    sanitizedDescription: 'Grants bonus health to nearby Siege Weapons',
-    tags: []
-  },
-  '3648': {
-    id: 3648,
-    name: 'Siege Teleport (Inactive)',
-    sanitizedDescription: '',
-    tags: []
-  },
-  '3649': {
-    id: 3649,
-    name: 'Siege Sight Warder',
-    sanitizedDescription: '',
-    tags: []
   },
   '3671': {
     id: 3671,
@@ -1790,6 +1322,18 @@ const items: IItems = {
     id: 3683,
     name: 'Rainbow Snax Party Pack!',
     sanitizedDescription: 'King: Poros knock enemies towards him',
+    tags: ['Trinket', 'Lane']
+  },
+  '3684': {
+    id: 3684,
+    name: 'Dawnbringer Snax',
+    sanitizedDescription: 'King: Fires you at your target',
+    tags: ['Trinket', 'Lane']
+  },
+  '3685': {
+    id: 3685,
+    name: 'Nightbringer Snax',
+    sanitizedDescription: 'King: Summons tornadoes from behind, then fires them forward.',
     tags: ['Trinket', 'Lane']
   },
   '3690': {
@@ -1893,19 +1437,92 @@ const items: IItems = {
     tags: ['Damage', 'LifeSteal', 'CooldownReduction'],
     stacks: 0
   },
-  '3813': {
-    id: 3813,
-    name: "Space Death's Dance",
-    sanitizedDescription: 'Trades incoming damage now for incoming damage later',
-    tags: ['Damage', 'LifeSteal', 'CooldownReduction'],
-    stacks: 0
-  },
   '3814': {
     id: 3814,
     name: 'Edge of Night',
-    sanitizedDescription: 'Blocks an incoming enemy spell.',
-    tags: ['Health', 'Damage', 'Active', 'ArmorPenetration'],
+    sanitizedDescription: 'Periodically blocks enemy abilities',
+    tags: ['Health', 'Damage', 'ArmorPenetration'],
     stacks: 0
+  },
+  '3850': {
+    id: 3850,
+    name: "Spellthief's Edge",
+    sanitizedDescription: 'Gain gold and upgrade by damaging enemy champions',
+    tags: ['Health', 'SpellDamage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+  },
+  '3851': {
+    id: 3851,
+    name: 'Frostfang',
+    sanitizedDescription: '',
+    tags: ['GoldPer', 'Lane', 'ManaRegen', 'SpellDamage'],
+    specialRecipe: 3850
+  },
+  '3853': {
+    id: 3853,
+    name: 'Shard of True Ice',
+    sanitizedDescription: '',
+    tags: ['GoldPer', 'Lane', 'ManaRegen', 'SpellDamage'],
+    specialRecipe: 3851
+  },
+  '3854': {
+    id: 3854,
+    name: 'Steel Shoulderguards',
+    sanitizedDescription: 'Gain gold and upgrade by executing minions alongside allies',
+    tags: ['Health', 'Damage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+  },
+  '3855': {
+    id: 3855,
+    name: 'Runesteel Spaulders',
+    sanitizedDescription: '',
+    tags: ['Health', 'GoldPer', 'Lane'],
+    specialRecipe: 3854
+  },
+  '3857': {
+    id: 3857,
+    name: 'Pauldrons of Whiterock',
+    sanitizedDescription: '',
+    tags: ['Health', 'GoldPer', 'Lane'],
+    specialRecipe: 3855
+  },
+  '3858': {
+    id: 3858,
+    name: 'Relic Shield',
+    sanitizedDescription: 'Gain gold and upgrade by executing minions alongside allies',
+    tags: ['Health', 'SpellDamage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+  },
+  '3859': {
+    id: 3859,
+    name: "Targon's Buckler",
+    sanitizedDescription: '',
+    tags: ['Health', 'GoldPer', 'Lane'],
+    specialRecipe: 3858
+  },
+  '3860': {
+    id: 3860,
+    name: 'Bulwark of the Mountain',
+    sanitizedDescription: '',
+    tags: ['Health', 'GoldPer', 'Lane'],
+    specialRecipe: 3859
+  },
+  '3862': {
+    id: 3862,
+    name: 'Spectral Sickle',
+    sanitizedDescription: 'Gain gold and upgrade by damaging enemy champions',
+    tags: ['Health', 'Damage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+  },
+  '3863': {
+    id: 3863,
+    name: 'Harrowing Crescent',
+    sanitizedDescription: '',
+    tags: ['Health', 'GoldPer', 'Lane'],
+    specialRecipe: 3862
+  },
+  '3864': {
+    id: 3864,
+    name: 'Black Mist Scythe',
+    sanitizedDescription: '',
+    tags: ['Health', 'GoldPer', 'Lane'],
+    specialRecipe: 3863
   },
   '3901': {
     id: 3901,
@@ -1944,116 +1561,6 @@ const items: IItems = {
     sanitizedDescription: 'Increases magic damage',
     tags: ['Health', 'MagicPenetration', 'SpellDamage'],
     stacks: 0
-  },
-  '4003': {
-    id: 4003,
-    name: 'Lifeline',
-    sanitizedDescription: 'Marks the ground, and returns you there after a few moments',
-    tags: ['Damage', 'NonbootsMovement', 'ArmorPenetration']
-  },
-  '4004': {
-    id: 4004,
-    name: 'Spectral Cutlass',
-    sanitizedDescription: 'Marks the ground, and returns you there after a few moments',
-    tags: ['Armor', 'Damage', 'NonbootsMovement', 'ArmorPenetration']
-  },
-  '4101': {
-    id: 4101,
-    name: "Pridestalker's Blade",
-    sanitizedDescription: 'Kill monsters faster',
-    tags: ['LifeSteal', 'ManaRegen', 'Slow', 'OnHit', 'NonbootsMovement', 'Jungle']
-  },
-  '4102': {
-    id: 4102,
-    name: 'Enchantment: Warrior',
-    sanitizedDescription: 'Tons of Damage',
-    tags: []
-  },
-  '4103': {
-    id: 4103,
-    name: 'Enchantment: Cinderhulk',
-    sanitizedDescription: 'Increases bonus Health and burns nearby enemies',
-    tags: []
-  },
-  '4104': {
-    id: 4104,
-    name: 'Enchantment: Runic Echoes',
-    sanitizedDescription: 'Spells explode for bonus damage',
-    tags: []
-  },
-  '4105': {
-    id: 4105,
-    name: 'Enchantment: Bloodrazor',
-    sanitizedDescription: "Attacks deal bonus damage based on the target's maximum Health",
-    tags: []
-  },
-  '4201': {
-    id: 4201,
-    name: "Doran's Lost Shield",
-    sanitizedDescription: 'Good defensive starting item',
-    tags: ['Health', 'HealthRegen', 'Lane']
-  },
-  '4202': {
-    id: 4202,
-    name: "Doran's Lost Blade",
-    sanitizedDescription: 'Good starting item for attackers',
-    tags: ['Damage', 'Health', 'Lane', 'LifeSteal']
-  },
-  '4203': {
-    id: 4203,
-    name: "Doran's Lost Ring",
-    sanitizedDescription: 'Good starting item for casters',
-    tags: ['Health', 'Lane', 'ManaRegen', 'SpellDamage']
-  },
-  '4204': {
-    id: 4204,
-    name: "Doran's Lost Idol",
-    sanitizedDescription: 'Good starting item for Enchanters',
-    tags: ['SpellDamage', 'ManaRegen', 'Lane']
-  },
-  '4301': {
-    id: 4301,
-    name: "Philosopher's Medallion",
-    sanitizedDescription: "Grants gold and mana when nearby minions die that you didn't kill",
-    tags: ['HealthRegen', 'ManaRegen', 'GoldPer', 'CooldownReduction', 'Lane']
-  },
-  '4302': {
-    id: 4302,
-    name: 'Heart of Targon',
-    sanitizedDescription: 'Kill minions periodically to heal and grant gold to a nearby ally',
-    tags: ['Health', 'HealthRegen', 'Aura', 'GoldPer', 'Lane']
-  },
-  '4401': {
-    id: 4401,
-    name: 'Force of Nature',
-    sanitizedDescription: 'Movement Speed, Magic Resist, and max Health Regeneration',
-    tags: ['SpellBlock', 'HealthRegen', 'NonbootsMovement']
-  },
-  '4402': {
-    id: 4402,
-    name: 'Innervating Locket',
-    sanitizedDescription: 'Cast spells to heal',
-    tags: ['Health', 'HealthRegen', 'Damage', 'Mana', 'ManaRegen', 'CooldownReduction']
-  },
-  '4403': {
-    id: 4403,
-    name: 'Stat-Stick of Stoicism',
-    sanitizedDescription: 'Has ALL the stats',
-    tags: [
-      'Health',
-      'SpellBlock',
-      'HealthRegen',
-      'Armor',
-      'Damage',
-      'CriticalStrike',
-      'AttackSpeed',
-      'LifeSteal',
-      'SpellDamage',
-      'Mana',
-      'ManaRegen',
-      'CooldownReduction',
-      'NonbootsMovement'
-    ]
   }
 };
 

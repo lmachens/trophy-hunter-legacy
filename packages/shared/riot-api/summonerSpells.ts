@@ -107,7 +107,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSmite.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 96,
+      x: 0,
       y: 48,
       w: 48,
       h: 48
@@ -123,7 +123,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerTeleport.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 240,
+      x: 144,
       y: 48,
       w: 48,
       h: 48
@@ -186,8 +186,8 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerPoroRecall.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 0,
-      y: 48,
+      x: 384,
+      y: 0,
       w: 48,
       h: 48
     },
@@ -202,8 +202,8 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerPoroThrow.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 48,
-      y: 48,
+      x: 432,
+      y: 0,
       w: 48,
       h: 48
     },
@@ -218,7 +218,7 @@ const summonerSpells: ISummonerSpells = {
       full: 'SummonerSnowball.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 192,
+      x: 96,
       y: 48,
       w: 48,
       h: 48
@@ -227,50 +227,19 @@ const summonerSpells: ISummonerSpells = {
   },
   '39': {
     id: 39,
-    name: 'Ultra (Rapidly Flung) Mark',
-    description: "It's a snowball! It's a Poro! It's...uh...one of those.",
+    name: 'Mark',
+    description:
+      'Throw a snowball in a straight line at your enemies. If it hits an enemy, they become marked, granting True Sight, and your champion can quickly travel to the marked target as a follow up.',
     image: {
       full: 'SummonerSnowURFSnowball_Mark.png',
       sprite: 'spell0.png',
       group: 'spell',
-      x: 144,
+      x: 48,
       y: 48,
       w: 48,
       h: 48
     },
     key: 'SummonerSnowURFSnowball_Mark'
-  },
-  '50': {
-    id: 50,
-    name: 'Resuscitate',
-    description:
-      'Revive a fallen friend by remaining next to them for 2 seconds. Exiting the area early does not consume your cooldown. ',
-    image: {
-      full: 'SummonerOdysseyRevive.png',
-      sprite: 'spell0.png',
-      group: 'spell',
-      x: 432,
-      y: 0,
-      w: 48,
-      h: 48
-    },
-    key: 'SummonerOdysseyRevive'
-  },
-  '52': {
-    id: 52,
-    name: 'Warp',
-    description:
-      'Dash through spacetime, becoming briefly untargetable and invulnerable as you rapidly move towards a location.',
-    image: {
-      full: 'SummonerOdysseyFlash.png',
-      sprite: 'spell0.png',
-      group: 'spell',
-      x: 384,
-      y: 0,
-      w: 48,
-      h: 48
-    },
-    key: 'SummonerOdysseyFlash'
   }
 };
 
