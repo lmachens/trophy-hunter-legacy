@@ -1,5 +1,9 @@
 # Change Log
 
+## [4.9.0] - 2020-01-03
+### Changed
+- Rotated monthly trees
+
 ## [4.8.0] - 2019-12-12
 ### Changed
 - Updated to Riot API version 9.24.1
