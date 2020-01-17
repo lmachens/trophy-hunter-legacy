@@ -181,7 +181,7 @@ const perks: IPerks = {
     shortDesc:
       'Collect eyeballs for champion takedowns. Gain permanent AD or AP, adaptive for each eyeball plus bonus upon collection completion.',
     longDesc:
-      'Collect eyeballs for champion takedowns. Gain an adaptive bonus of 0.6 Attack Damage or 1 Ability Power, per eyeball collected. Upon completing your collection at 20 eyeballs, additionally gain an adaptive bonus of 6 Attack Damage, or 10 Ability Power.Collect 2 eyeball per champion takedown.'
+      'Collect eyeballs for champion takedowns. Gain an adaptive bonus of 1.2 Attack Damage or 2 Ability Power, per eyeball collected. Upon completing your collection at 10 eyeballs, additionally gain an adaptive bonus of 6 Attack Damage, or 10 Ability Power.Collect 1 eyeball per champion takedown.'
   },
   '8139': {
     id: 8139,
@@ -426,7 +426,7 @@ const perks: IPerks = {
     name: 'Prototype: Omnistone',
     shortDesc: 'Periodically grants a single use of another random keystone.',
     longDesc:
-      'Periodically grants a single use of another random keystone.8-4  second cooldown between using a keystone and gaining the next. (12-8 seconds for ranged users)After 40 seconds of not using a given keystone, Omnistone will re-roll when you exit champion combat.Aftershock is only available to champions who have learned a basic spell that can trigger it.Predator is only available to champions who have already purchased boots.'
+      'Periodically grants a single use of another random keystone.5-3  second cooldown between using a keystone and gaining the next. (9-7 seconds for ranged users)After 40 seconds of not using a given keystone, Omnistone will re-roll when you exit champion combat.Aftershock is only available to champions who have learned a basic spell that can trigger it.Predator is only available to champions who have already purchased boots.'
   },
   '8360': {
     id: 8360,

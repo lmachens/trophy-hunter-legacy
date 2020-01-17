@@ -953,7 +953,7 @@ const champions: IChampions = {
         image: {
           full: 'ToxicShot.png'
         },
-        cooldownBurn: '8'
+        cooldownBurn: '0'
       },
       {
         name: 'Noxious Trap',
@@ -4908,7 +4908,7 @@ const champions: IChampions = {
         image: {
           full: 'GravesMove.png'
         },
-        cooldownBurn: '18/17/16/15/14'
+        cooldownBurn: '16/15/14/13/12'
       },
       {
         name: 'Collateral Damage',
@@ -5114,7 +5114,7 @@ const champions: IChampions = {
         image: {
           full: 'VarusQ.png'
         },
-        cooldownBurn: '20/18/16/14/12'
+        cooldownBurn: '18/16/14/12/10'
       },
       {
         name: 'Blighted Quiver',
@@ -7349,7 +7349,7 @@ const champions: IChampions = {
       {
         name: "Tidecaller's Blessing",
         sanitizedDescription:
-          "Empowers an allied champion for a short duration. The ally's basic attacks deal bonus magic damage and slow the target.",
+          "Empowers an allied champion for a short duration. The ally's basic attacks and spells deal bonus magic damage and slow the target.",
         image: {
           full: 'NamiE.png'
         },
@@ -7999,11 +7999,11 @@ const champions: IChampions = {
       {
         name: 'Chain Lash',
         sanitizedDescription:
-          'Sylas lashes his chains out, intersecting at his targeted location dealing damage to and slowing enemies. After a delay, magical energy explodes from the intersection point dealing damage and increasing the slow.',
+          'Sylas lashes his chains out, intersecting at his targeted location dealing damage to and slowing enemies. After a delay, magical energy explodes from the intersection point dealing damage.',
         image: {
           full: 'SylasQ.png'
         },
-        cooldownBurn: '9/8/7/6/5'
+        cooldownBurn: '10/9/8/7/6'
       },
       {
         name: 'Kingslayer',
@@ -8012,16 +8012,16 @@ const champions: IChampions = {
         image: {
           full: 'SylasW.png'
         },
-        cooldownBurn: '14/13.5/13/12.5/12'
+        cooldownBurn: '14/12.5/11/9.5/8'
       },
       {
         name: 'Abscond / Abduct',
         sanitizedDescription:
-          'Sylas dashes to a location, gaining a magic damage shield. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits.',
+          'Sylas dashes to a location. Sylas can recast the ability to throw his chains out, pulling himself to an enemy he hits.',
         image: {
           full: 'SylasE.png'
         },
-        cooldownBurn: '14'
+        cooldownBurn: '14/13/12/11/10'
       },
       {
         name: 'Hijack',
@@ -8038,7 +8038,7 @@ const champions: IChampions = {
       },
       name: 'Petricite Burst',
       sanitizedDescription:
-        "After casting a spell, Sylas stores a charge of Petricite Burst.  Sylas's basic attacks will expend a charge and whirl his energized chains around him dealing bonus magic damage to enemies hit."
+        "After casting a spell, Sylas stores a charge of Petricite Burst.  Sylas's basic attacks will expend a charge and whirl his energized chains around him dealing bonus magic damage to enemies hit. While Sylas has a charge of Petricite Burst, he gains attack speed. "
     },
     range: 'Melee'
   },
@@ -8110,7 +8110,7 @@ const champions: IChampions = {
       {
         name: 'Weapon Abilites',
         sanitizedDescription:
-          'Aphelios has 5 different activated abilities, based on his equipped weapon:Calibrum (Rifle): Long range shot that marks its target for a long-range follow-up attack.Severum (Pistol): Run fast while attacking nearby enemies with both weapons.Gravitum (Grav Cannon): Root all enemies slowed by this weapon.Infernum (Flamethrower): Blast enemies in a cone and attack them with your secondary weapon.Crescendum (Chakram): Deploy a sentry that shoots your secondary weapon.',
+          'Aphelios has 5 different activated abilities, based on his main-hand weapon:Calibrum (Rifle): Long range shot that marks its target for a long-range follow-up attack.Severum (Scythe Pistol): Run fast while attacking nearby enemies with both weapons.Gravitum (Cannon): Root all enemies slowed by this weapon.Infernum (Flamethrower): Blast enemies in a cone and attack them with your off-hand weapon.Crescendum (Chakram): Deploy a sentry that shoots your off-hand weapon.',
         image: {
           full: 'ApheliosQ_ClientTooltipWrapper.png'
         },
@@ -8119,7 +8119,7 @@ const champions: IChampions = {
       {
         name: 'Phase',
         sanitizedDescription:
-          'Aphelios swaps his equipped gun with his secondary gun, replacing his basic attack and activated ability.',
+          'Aphelios swaps his main-hand gun with his off-hand gun, replacing his basic attack and activated ability.',
         image: {
           full: 'ApheliosW.png'
         },
@@ -8137,7 +8137,7 @@ const champions: IChampions = {
       {
         name: 'Moonlight Vigil',
         sanitizedDescription:
-          "Fire a concentrated blast of moonlight that explodes on enemy champions. Applies the unique effect of Aphelios' equipped gun.",
+          "Fire a concentrated blast of moonlight that explodes on enemy champions. Applies the unique effect of Aphelios' main-hand gun.",
         image: {
           full: 'ApheliosR.png'
         },
@@ -8150,7 +8150,7 @@ const champions: IChampions = {
       },
       name: 'The Hitman and the Seer',
       sanitizedDescription:
-        "Aphelios wields 5 Lunari Weapons made by his sister Alune. He has access to two at a time: one equipped and one secondary. Each weapon has a unique Basic Attack and Activated Ability. Attacks and abilities consume a weapon's ammo. When out of ammo, Aphelios discards the weapon and Alune summons the next of the 5. "
+        "Aphelios wields 5 Lunari Weapons made by his sister Alune. He has access to two at a time: one main-hand and one off-hand. Each weapon has a unique Basic Attack and Activated Ability. Attacks and abilities consume a weapon's ammo. When out of ammo, Aphelios discards the weapon and Alune summons the next of the 5. "
     },
     range: 'Ranged'
   },
@@ -8207,6 +8207,62 @@ const champions: IChampions = {
       name: 'Gift of the Drowned Ones',
       sanitizedDescription:
         'When Pyke is hidden from enemies, he regenerates damage that he has recently taken from champions. Pyke also cannot gain extra Maximum Health from any source, and instead gains Bonus AD.'
+    },
+    range: 'Melee'
+  },
+  '875': {
+    id: 875,
+    key: 'Sett',
+    name: 'Sett',
+    title: 'the Boss',
+    image: {
+      full: 'Sett.png'
+    },
+    spells: [
+      {
+        name: 'Knuckle Down',
+        sanitizedDescription:
+          "Sett's next two attacks deal additional damage based off of the target's max health. Sett also gains movement speed while moving towards enemy champions.",
+        image: {
+          full: 'SettQ.png'
+        },
+        cooldownBurn: '9/8/7/6/5'
+      },
+      {
+        name: 'Haymaker',
+        sanitizedDescription:
+          'Sett passively stores damage he takes as Grit. On cast, Sett expends all stored Grit to gain a shield and punch an area, dealing true damage in the center and physical damage on the sides.',
+        image: {
+          full: 'SettW.png'
+        },
+        cooldownBurn: '16/14/12/10/8'
+      },
+      {
+        name: 'Facebreaker',
+        sanitizedDescription:
+          'Sett pulls in all enemies on opposite sides of him, dealing damage and stunning them. If enemies were only on one side, they are slowed instead of stunned.',
+        image: {
+          full: 'SettE.png'
+        },
+        cooldownBurn: '16/14.5/13/11.5/10'
+      },
+      {
+        name: 'The Show Stopper',
+        sanitizedDescription:
+          'Sett carries an enemy champion through the air and slams them into the ground, dealing damage and slowing all enemies near where they land.',
+        image: {
+          full: 'SettR.png'
+        },
+        cooldownBurn: '120/100/80'
+      }
+    ],
+    passive: {
+      image: {
+        full: 'Sett_P.png'
+      },
+      name: 'Pit Grit',
+      sanitizedDescription:
+        "Sett's basic attacks alternate between left and right punch. Right punch is slightly stronger and faster. Sett also hates losing, gaining additional health regeneration based off of his missing health."
     },
     range: 'Melee'
   }

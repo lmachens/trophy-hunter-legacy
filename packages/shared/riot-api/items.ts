@@ -1448,7 +1448,7 @@ const items: IItems = {
     id: 3850,
     name: "Spellthief's Edge",
     sanitizedDescription: 'Gain gold and upgrade by damaging enemy champions',
-    tags: ['Health', 'SpellDamage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+    tags: ['Health', 'SpellDamage', 'ManaRegen', 'Vision', 'Trinket', 'GoldPer', 'Lane']
   },
   '3851': {
     id: 3851,
@@ -1468,60 +1468,60 @@ const items: IItems = {
     id: 3854,
     name: 'Steel Shoulderguards',
     sanitizedDescription: 'Gain gold and upgrade by executing minions alongside allies',
-    tags: ['Health', 'Damage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+    tags: ['Health', 'HealthRegen', 'Damage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
   },
   '3855': {
     id: 3855,
     name: 'Runesteel Spaulders',
     sanitizedDescription: '',
-    tags: ['Health', 'GoldPer', 'Lane'],
+    tags: ['Health', 'HealthRegen', 'GoldPer', 'Lane'],
     specialRecipe: 3854
   },
   '3857': {
     id: 3857,
     name: 'Pauldrons of Whiterock',
     sanitizedDescription: '',
-    tags: ['Health', 'GoldPer', 'Lane'],
+    tags: ['Health', 'HealthRegen', 'GoldPer', 'Lane'],
     specialRecipe: 3855
   },
   '3858': {
     id: 3858,
     name: 'Relic Shield',
     sanitizedDescription: 'Gain gold and upgrade by executing minions alongside allies',
-    tags: ['Health', 'SpellDamage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+    tags: ['Health', 'HealthRegen', 'SpellDamage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
   },
   '3859': {
     id: 3859,
     name: "Targon's Buckler",
     sanitizedDescription: '',
-    tags: ['Health', 'GoldPer', 'Lane'],
+    tags: ['Health', 'HealthRegen', 'GoldPer', 'Lane'],
     specialRecipe: 3858
   },
   '3860': {
     id: 3860,
     name: 'Bulwark of the Mountain',
     sanitizedDescription: '',
-    tags: ['Health', 'GoldPer', 'Lane'],
+    tags: ['Health', 'HealthRegen', 'GoldPer', 'Lane'],
     specialRecipe: 3859
   },
   '3862': {
     id: 3862,
     name: 'Spectral Sickle',
     sanitizedDescription: 'Gain gold and upgrade by damaging enemy champions',
-    tags: ['Health', 'Damage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+    tags: ['Health', 'Damage', 'ManaRegen', 'Vision', 'Trinket', 'GoldPer', 'Lane']
   },
   '3863': {
     id: 3863,
     name: 'Harrowing Crescent',
     sanitizedDescription: '',
-    tags: ['Health', 'GoldPer', 'Lane'],
+    tags: ['Health', 'ManaRegen', 'GoldPer', 'Lane'],
     specialRecipe: 3862
   },
   '3864': {
     id: 3864,
     name: 'Black Mist Scythe',
     sanitizedDescription: '',
-    tags: ['Health', 'GoldPer', 'Lane'],
+    tags: ['Health', 'ManaRegen', 'GoldPer', 'Lane'],
     specialRecipe: 3863
   },
   '3901': {

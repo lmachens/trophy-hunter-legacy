@@ -1,5 +1,9 @@
 # Change Log
 
+## [4.10.0] - 2020-01-17
+### Changed
+- Updated to Riot API version 10.1.1
+
 ## [4.9.0] - 2020-01-03
 ### Changed
 - Rotated monthly trees
