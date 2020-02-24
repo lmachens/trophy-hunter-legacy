@@ -2,5 +2,5 @@ dist/
 **.md
 package-lock.json
 node_modules/
-.meteor
+.meteor/local
 .next
