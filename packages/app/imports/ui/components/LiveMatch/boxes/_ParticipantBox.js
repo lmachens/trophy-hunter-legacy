@@ -19,9 +19,7 @@ class ParticipantBox extends PureComponent {
       <Box className={className}>
         {participant && (
           <BoxBackground
-            imageUrl={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${
-              champions[participant.championId.toString()].key
-            }_0.jpg`}
+            imageUrl={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champions[participant.championId.toString()].key}_0.jpg`}
           />
         )}
         <BoxContent>

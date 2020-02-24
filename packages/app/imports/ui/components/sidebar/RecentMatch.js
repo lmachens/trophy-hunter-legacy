@@ -38,15 +38,11 @@ class RecentMatch extends Component {
         console.log('open analysed match');
         if (recentMatch.summonerName) {
           history.push(
-            `/game/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${
-              recentMatch.summonerName
-            }`
+            `/game/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${recentMatch.summonerName}`
           );
         } else {
           history.push(
-            `/match/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${
-              recentMatch.summonerId
-            }`
+            `/match/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${recentMatch.summonerId}`
           );
         }
       } else {
@@ -87,13 +83,9 @@ class RecentMatch extends Component {
     let link;
     if (recentMatch) {
       if (recentMatch.summonerName) {
-        link = `/game/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${
-          recentMatch.summonerName
-        }`;
+        link = `/game/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${recentMatch.summonerName}`;
       } else {
-        link = `/match/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${
-          recentMatch.summonerId
-        }`;
+        link = `/match/${recentMatch.game.platformId}/${recentMatch.game.gameId}/${recentMatch.summonerId}`;
       }
     } else {
       link = location.pathname;

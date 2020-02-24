@@ -21,9 +21,7 @@ const api = setup({
 export const getSummoner = ({ platformId, summonerId, summonerName }: GetSummonerProps) => {
   let url;
   if (summonerId) {
-    url = `https://${platformId}.api.riotgames.com/lol/summoner/v4/summoners/${summonerId}?api_key=${
-      process.env.LEAGUE_API_KEY
-    }`;
+    url = `https://${platformId}.api.riotgames.com/lol/summoner/v4/summoners/${summonerId}?api_key=${process.env.LEAGUE_API_KEY}`;
   } else {
     url = `https://${platformId}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURI(
       summonerName

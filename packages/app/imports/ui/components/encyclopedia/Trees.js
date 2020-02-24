@@ -99,9 +99,7 @@ export class Trees extends Component {
     const champion = champions[tree.championId.toString()];
     const backgroundStyle = Object.assign(
       {
-        backgroundImage: `url(//ddragon.leagueoflegends.com/cdn/img/champion/splash/${
-          champion.key
-        }_0.jpg)`,
+        backgroundImage: `url(//ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.key}_0.jpg)`,
         filter: universeTheme.boxBackground.filter,
         opacity: universeTheme.boxBackground.opacity
       },

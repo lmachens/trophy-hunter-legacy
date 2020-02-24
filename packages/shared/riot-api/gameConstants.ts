@@ -122,10 +122,6 @@ export const gameQueueConfigIdLabels = {
   [MATCHMAKING.BOT_SR_5x5_INTRO]: 'Coop vs AI Intro Bot',
   [MATCHMAKING.BOT_SR_5x5_BEGINNER]: 'Coop vs AI Beginner Bot',
   [MATCHMAKING.BOT_SR_5x5_INTERMEDIATE]: 'Coop vs AI Intermediate Bot',
-  [MATCHMAKING.BOT_TT_3x3]: 'Twisted Treeline Coop vs AI',
-  [MATCHMAKING.BOT_TT_3x3_INTERMEDIATE]: 'Twisted Treeline Coop vs AI',
-  [MATCHMAKING.BOT_TT_3x3_INTRO]: 'Twisted Treeline Coop vs AI',
-  [MATCHMAKING.BOT_TT_3x3_BEGINNER]: 'Twisted Treeline Coop vs AI',
   [MATCHMAKING.GROUP_FINDER_5x5]: 'Team Builder',
   [MATCHMAKING.ARAM_5x5]: 'ARAM',
   [MATCHMAKING.ONEFORALL_5x5]: 'One for All',
@@ -139,7 +135,6 @@ export const gameQueueConfigIdLabels = {
   [MATCHMAKING.NIGHTMARE_BOT_5x5_RANK2]: 'Doom Bots Rank 2',
   [MATCHMAKING.NIGHTMARE_BOT_5x5_RANK5]: 'Doom Bots Rank 5',
   [MATCHMAKING.ASCENSION_5x5]: 'Ascension',
-  [MATCHMAKING.HEXAKILL]: 'Twisted Treeline 6x6 Hexakill',
   [MATCHMAKING.BILGEWATER_ARAM_5x5]: "Butcher's Bridge",
   [MATCHMAKING.KING_PORO_5x5]: 'King Poro',
   [MATCHMAKING.COUNTER_PICK]: 'Nemesis',
@@ -175,9 +170,7 @@ export const MAP_NAMES = {
   SUMMONERS_RIFT_SUMMER: 1, // Original Summer Variant
   SUMMONERS_RIFT_AUTUMN: 2, // Original Autumn Variant
   THE_PROVING_GROUNDS: 3, // Tutorial Map
-  TWISTED_TREELINE_ORIGINAL: 4, // Original Version
   THE_CRYSTAL_SCAR: 8, // Dominion Map
-  TWISTED_TREELINE: 10, // Current Version
   SUMMONERS_RIFT: 11, // Current Version
   HOWLING_ABYSS: 12, // ARAM Map
   BUTCHERS_BRIDGE: 14, // ARAM Map
@@ -190,9 +183,7 @@ export const mapIdNames = {
   [MAP_NAMES.SUMMONERS_RIFT_SUMMER]: 'SUMMONERS_RIFT_SUMMER',
   [MAP_NAMES.SUMMONERS_RIFT_AUTUMN]: 'SUMMONERS_RIFT_AUTUMN',
   [MAP_NAMES.THE_PROVING_GROUNDS]: 'THE_PROVING_GROUNDS',
-  [MAP_NAMES.TWISTED_TREELINE_ORIGINAL]: 'TWISTED_TREELINE_ORIGINAL',
   [MAP_NAMES.THE_CRYSTAL_SCAR]: 'THE_CRYSTAL_SCAR',
-  [MAP_NAMES.TWISTED_TREELINE]: 'TWISTED_TREELINE',
   [MAP_NAMES.SUMMONERS_RIFT]: 'SUMMONERS_RIFT',
   [MAP_NAMES.HOWLING_ABYSS]: 'HOWLING_ABYSS',
   [MAP_NAMES.BUTCHERS_BRIDGE]: 'BUTCHERS_BRIDGE',
@@ -205,9 +196,7 @@ export const mapIdLabels = {
   [MAP_NAMES.SUMMONERS_RIFT_SUMMER]: "Summoner's Rift",
   [MAP_NAMES.SUMMONERS_RIFT_AUTUMN]: "Summoner's Rift",
   [MAP_NAMES.THE_PROVING_GROUNDS]: 'The Proving Grounds',
-  [MAP_NAMES.TWISTED_TREELINE_ORIGINAL]: 'Twisted Treeline',
   [MAP_NAMES.THE_CRYSTAL_SCAR]: 'The Crystal Scar',
-  [MAP_NAMES.TWISTED_TREELINE]: 'Twisted Treeline',
   [MAP_NAMES.SUMMONERS_RIFT]: "Summoner's Rift",
   [MAP_NAMES.HOWLING_ABYSS]: 'Howling Abyss',
   [MAP_NAMES.BUTCHERS_BRIDGE]: "Butcher's Bridge",
@@ -222,8 +211,7 @@ export const queuesByMatchId = {
     MATCHMAKING.RANKED_FLEX_SR,
     MATCHMAKING.NORMAL_DRAFT_PICK_5x5,
     MATCHMAKING.TB_BLIND_SUMMONERS_RIFT_5x5
-  ],
-  [MAP_NAMES.TWISTED_TREELINE]: [MATCHMAKING.BLIND_PICK_3v3, MATCHMAKING.RANKED_3v3]
+  ]
 };
 
 export const domains = {
@@ -234,10 +222,6 @@ export const domains = {
   [MAP_NAMES.THE_CRYSTAL_SCAR]: {
     min: { x: 0, y: 0 },
     max: { x: 13987, y: 13987 }
-  },
-  [MAP_NAMES.TWISTED_TREELINE]: {
-    min: { x: 0, y: 0 },
-    max: { x: 15398, y: 15398 }
   },
   [MAP_NAMES.SUMMONERS_RIFT]: {
     min: { x: -120, y: -120 },

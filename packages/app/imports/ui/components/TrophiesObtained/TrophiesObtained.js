@@ -106,9 +106,7 @@ class TrophiesObtained extends React.Component {
     });
     let obtainedMessage;
     if (allTrophiesObtainedIcons.length) {
-      obtainedMessage = `Congratulations! You obtained ${
-        allTrophiesObtainedIcons.length
-      } trophies and earned ${earnedTrophyPoints} Points!`;
+      obtainedMessage = `Congratulations! You obtained ${allTrophiesObtainedIcons.length} trophies and earned ${earnedTrophyPoints} Points!`;
     } else {
       obtainedMessage = "Sadly you didn't obtain a trophy.";
     }

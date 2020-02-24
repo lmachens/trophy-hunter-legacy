@@ -1,5 +1,8 @@
 # Change Log
 
+### Removed
+- Remove support for Twisted Treeline (3v3 - Deprecated).
+
 ## [4.10.0] - 2020-01-17
 ### Changed
 - Updated to Riot API version 10.1.1
