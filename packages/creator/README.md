@@ -1,3 +1,1 @@
 # Trophy Hunter Creator
-
-

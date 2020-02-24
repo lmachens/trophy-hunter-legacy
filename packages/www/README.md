@@ -2,14 +2,15 @@
 
 # Trophy Hunter Web
 
-This package hosts the web version of Trophy Hunter which is deployed on [th.gl](https://th.gl). 
+This package hosts the web version of Trophy Hunter which is deployed on [th.gl](https://th.gl).
 
 ## Technical background
 
 It is based on:
+
 - [Next.js](https://nextjs.org/) a [React](https://reactjs.org/) Framework
 - [Material-UI](https://material-ui.com/) that implements Google's Material Design
-- [Zeit Now](https://zeit.co/now) for serverless deployments. 
+- [Zeit Now](https://zeit.co/now) for serverless deployments.
 
 ## Development
 

@@ -16,10 +16,7 @@ Make sure your .babelrc has the `@babel/preset-typescript` preset:
 
 ```json
 {
-    "presets": [
-        "@babel/env",
-        "@babel/preset-typescript"
-    ]
+  "presets": ["@babel/env", "@babel/preset-typescript"]
 }
 ```
 
@@ -53,5 +50,5 @@ meteor npm install --save-dev @types/meteor
 
 ## How does it work?
 
-There is a [good article](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/) which describes how Babel and TypeScript works together. 
+There is a [good article](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/) which describes how Babel and TypeScript works together.
 And there is a discussion in the [meteor-feature-requests](https://github.com/meteor/meteor-feature-requests/issues/285).
