@@ -448,5 +448,5 @@ const trophies: Trophies = {
   zenithBlade,
   referrer
 };
-debugger;
+
 export default trophies;
