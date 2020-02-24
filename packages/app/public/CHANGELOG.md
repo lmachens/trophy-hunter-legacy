@@ -1,7 +1,8 @@
 # Change Log
 
 ### Removed
-- Remove support for Twisted Treeline (3v3 - Deprecated).
+- Removed support for Twisted Treeline (3v3 - Deprecated).
+- Removed Kleptomaniac trophy (Rune doesn't exist anymore).
 
 ## [4.10.0] - 2020-01-17
 ### Changed
