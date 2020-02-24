@@ -1448,7 +1448,7 @@ const items: IItems = {
     id: 3850,
     name: "Spellthief's Edge",
     sanitizedDescription: 'Gain gold and upgrade by damaging enemy champions',
-    tags: ['Health', 'SpellDamage', 'ManaRegen', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+    tags: ['Health', 'SpellDamage', 'ManaRegen', 'Vision', 'GoldPer', 'Lane']
   },
   '3851': {
     id: 3851,
@@ -1468,7 +1468,7 @@ const items: IItems = {
     id: 3854,
     name: 'Steel Shoulderguards',
     sanitizedDescription: 'Gain gold and upgrade by executing minions alongside allies',
-    tags: ['Health', 'HealthRegen', 'Damage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+    tags: ['Health', 'HealthRegen', 'Damage', 'Vision', 'GoldPer', 'Lane']
   },
   '3855': {
     id: 3855,
@@ -1488,7 +1488,7 @@ const items: IItems = {
     id: 3858,
     name: 'Relic Shield',
     sanitizedDescription: 'Gain gold and upgrade by executing minions alongside allies',
-    tags: ['Health', 'HealthRegen', 'SpellDamage', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+    tags: ['Health', 'HealthRegen', 'SpellDamage', 'Vision', 'GoldPer', 'Lane']
   },
   '3859': {
     id: 3859,
@@ -1508,7 +1508,7 @@ const items: IItems = {
     id: 3862,
     name: 'Spectral Sickle',
     sanitizedDescription: 'Gain gold and upgrade by damaging enemy champions',
-    tags: ['Health', 'Damage', 'ManaRegen', 'Vision', 'Trinket', 'GoldPer', 'Lane']
+    tags: ['Health', 'Damage', 'ManaRegen', 'Vision', 'GoldPer', 'Lane']
   },
   '3863': {
     id: 3863,

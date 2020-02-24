@@ -257,7 +257,7 @@ const perks: IPerks = {
     shortDesc:
       'Hitting an enemy champion with 3 separate attacks or abilities grants a burst of MS. ',
     longDesc:
-      'Hitting an enemy champion with 3 attacks or separate abilities within 3s grants 25 - 40% Movement Speed based on level and 75% Slow Resistance.Duration: 3sCooldown: 15s'
+      'Hitting an enemy champion with 3 attacks or separate abilities within 4s grants 25 - 40% Movement Speed based on level and 75% Slow Resistance. Movement speed is increased to 30 - 50% for Melee champions.Duration: 3sCooldown: 15s'
   },
   '8232': {
     id: 8232,
@@ -358,9 +358,10 @@ const perks: IPerks = {
     key: 'PerfectTiming',
     icon: 'perk-images/Styles/Inspiration/PerfectTiming/PerfectTiming.png',
     name: 'Perfect Timing',
-    shortDesc: 'Gain a free Stopwatch. Stopwatch has a one time use Stasis effect.',
+    shortDesc:
+      'Gain a free Stopwatch. Stopwatch can be used for a one time Stasis effect within 120 seconds of scoring a Takedown.',
     longDesc:
-      "Start the game with a Commencing Stopwatch that transforms into a Stopwatch after 10 min. Stopwatch has a one time use Stasis effect.Reduces the cooldown of Zhonya's Hourglass, Guardian Angel, and Gargoyle Stoneplate by 15%."
+      'Begin the game with a Commencing Stopwatch that transforms into a Stopwatch after 14 minutes. Each takedown you acquire reduces this timer by 120 seconds.Stopwatch that can be used for a one time 2.5 second Stasis effect and replaces Stopwatch in the item shop.'
   },
   '8316': {
     id: 8316,
@@ -610,7 +611,7 @@ const perks: IPerks = {
     shortDesc:
       'Gain a large amount of Attack Speed for the first 3 attacks made against enemy champions.',
     longDesc:
-      'Gain 110% Attack Speed when you attack an enemy champion for up to 3 attacks.No more than 2s can elapse between attacks or this effect will end.Cooldown: 4s out of combat.Attack resets increase the attack limit by 1.Allows you to temporarily exceed the attack speed limit.'
+      'Gain 110% Attack Speed when you attack an enemy champion for up to 3 attacks.No more than 3s can elapse between attacks or this effect will end.Cooldown: 8s out of combat with champions.Attack resets increase the attack limit by 1.Allows you to temporarily exceed the attack speed limit.'
   }
 };
 
