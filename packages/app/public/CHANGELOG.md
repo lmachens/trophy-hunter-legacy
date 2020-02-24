@@ -1,5 +1,7 @@
 # Change Log
 
+### Changed
+- Updated to Riot API version 10.4.1
 ### Removed
 - Removed support for Twisted Treeline (3v3 - Deprecated).
 - Removed Kleptomaniac trophy (Rune doesn't exist anymore).

@@ -1801,7 +1801,7 @@ const champions: IChampions = {
         image: {
           full: 'CurseoftheSadMummy.png'
         },
-        cooldownBurn: '150/130/110'
+        cooldownBurn: '130/115/100'
       }
     ],
     passive: {
@@ -4174,7 +4174,7 @@ const champions: IChampions = {
       {
         name: 'Twilight Shroud',
         sanitizedDescription:
-          'Akali drops a cover of smoke. While inside the shroud, Akali becomes invisible and unable to be selected by enemy spells and attacks and gains Movement Speed. Attacking or using abilities will briefly reveal her.',
+          'Akali drops a cover of smoke and briefly gains Movement Speed. While inside the shroud, Akali becomes invisible and unable to be selected by enemy spells and attacks. Attacking or using abilities will briefly reveal her.  ',
         image: {
           full: 'AkaliW.png'
         },
@@ -4196,7 +4196,7 @@ const champions: IChampions = {
         image: {
           full: 'AkaliR.png'
         },
-        cooldownBurn: '160/130/100'
+        cooldownBurn: '120/90/60'
       }
     ],
     passive: {
@@ -4484,7 +4484,7 @@ const champions: IChampions = {
       },
       name: "Blade's End",
       sanitizedDescription:
-        "Talon's spells Wound champions and epic monsters, stacking up to 3 times. When Talon attacks a champion with 3 stacks of Wound, they bleed for heavy damage over time."
+        "Talon's spells Wound champions and large monsters, stacking up to 3 times. When Talon attacks a champion with 3 stacks of Wound, they bleed for heavy damage over time."
     },
     range: 'Melee'
   },
@@ -4669,7 +4669,7 @@ const champions: IChampions = {
         image: {
           full: 'LuxLightBinding.png'
         },
-        cooldownBurn: '13/12/11/10/9'
+        cooldownBurn: '11/10.5/10/9.5/9'
       },
       {
         name: 'Prismatic Barrier',
@@ -5467,7 +5467,7 @@ const champions: IChampions = {
         image: {
           full: 'LuluE.png'
         },
-        cooldownBurn: '10'
+        cooldownBurn: '8'
       },
       {
         name: 'Wild Growth',
@@ -5668,7 +5668,7 @@ const champions: IChampions = {
       {
         name: 'Decimate',
         sanitizedDescription:
-          'Darius winds up and swings his axe in a wide circle. Enemies struck by the blade take more damage than those struck by the handle. Darius heals based on enemy champions hit by the blade.',
+          'Darius winds up and swings his axe in a wide circle. Enemies struck by the blade take more damage than those struck by the handle. Darius heals based on enemy champions and large monsters hit by the blade.',
         image: {
           full: 'DariusCleave.png'
         },
@@ -5862,7 +5862,8 @@ const champions: IChampions = {
       },
       {
         name: 'Moonfall',
-        sanitizedDescription: '',
+        sanitizedDescription:
+          'Diana reveals and draws in all nearby enemies and slows them.If Diana pulls in one or more enemy champions, the moonlight crashes down onto her after a short delay, dealing magic damage in an area around her, increased for each target beyond the first pulled.',
         image: {
           full: 'DianaR.png'
         },
@@ -5875,7 +5876,7 @@ const champions: IChampions = {
       },
       name: 'Moonsilver Blade',
       sanitizedDescription:
-        'Every third strike cleaves nearby enemies for an additional magic damage. After casting a spell, Diana gains  attack speed for her next 3 attacks.'
+        'Every third strike cleaves nearby enemies for an additional magic damage. After casting a spell, Diana gains attack speed for her next 3 attacks.'
     },
     range: 'Melee'
   },
@@ -6361,7 +6362,7 @@ const champions: IChampions = {
         image: {
           full: 'ZacR.png'
         },
-        cooldownBurn: '120/115/100'
+        cooldownBurn: '130/115/100'
       }
     ],
     passive: {
@@ -6815,7 +6816,7 @@ const champions: IChampions = {
       },
       name: 'Get Excited!',
       sanitizedDescription:
-        'Jinx receives massively increased Movement Speed and stacking Attack Speed whenever she damages an enemy champion, tower, or inhibitor that is then killed or destroyed within 3 seconds.'
+        'Jinx receives massively increased Movement Speed and Attack Speed whenever she damages an enemy champion, epic monster, or structure that is then killed or destroyed within 3 seconds.'
     },
     range: 'Ranged'
   },
@@ -8012,7 +8013,7 @@ const champions: IChampions = {
         image: {
           full: 'SylasW.png'
         },
-        cooldownBurn: '14/12.5/11/9.5/8'
+        cooldownBurn: '13/11.5/10/8.5/7'
       },
       {
         name: 'Abscond / Abduct',
@@ -8235,7 +8236,7 @@ const champions: IChampions = {
         image: {
           full: 'SettW.png'
         },
-        cooldownBurn: '16/14/12/10/8'
+        cooldownBurn: '18/16.5/15/13.5/12'
       },
       {
         name: 'Facebreaker',

@@ -39,7 +39,7 @@ const summonerSpells: ISummonerSpells = {
     id: 3,
     name: 'Exhaust',
     description:
-      'Exhausts target enemy champion, reducing their Movement Speed by 30%, and their damage dealt by 40% for 2.5 seconds.',
+      'Exhausts target enemy champion, reducing their Movement Speed by 30%, and their damage dealt by 40% for 3 seconds.',
     image: {
       full: 'SummonerExhaust.png',
       sprite: 'spell0.png',
