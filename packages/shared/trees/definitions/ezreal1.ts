@@ -40,7 +40,7 @@ const ezreal1 = {
       parents: ['trinityForce', 'deathMarks']
     },
     {
-      trophyName: 'kleptomaniac',
+      trophyName: 'legendary',
       x: 3,
       y: 2,
       parents: ['livingArtillery', 'billGates']

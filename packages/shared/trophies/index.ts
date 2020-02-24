@@ -80,7 +80,6 @@ import jungleOfTraps from './definitions/jungleOfTraps';
 import keyTargets from './definitions/keyTargets';
 import killerInstinct from './definitions/killerInstinct';
 import kitchenKnife from './definitions/kitchenKnife';
-import kleptomaniac from './definitions/kleptomaniac';
 import landlord from './definitions/landlord';
 import lastResort from './definitions/lastResort';
 import leagueOfDraven from './definitions/leagueOfDraven';
@@ -311,7 +310,6 @@ const trophies: Trophies = {
   keyTargets,
   killerInstinct,
   kitchenKnife,
-  kleptomaniac,
   landlord,
   lastResort,
   leagueOfDraven,
