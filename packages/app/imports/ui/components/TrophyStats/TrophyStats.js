@@ -59,12 +59,14 @@ class TrophyStats extends Component {
           {!stats && isFetching && <div>Loading...</div>}
           {stats &&
             stats.frequencyByMapId &&
-            Object.entries(stats.frequencyByMapId).map(([mapId, frequency]) => (
-              <div key={mapId}>
-                {mapIdLabels[mapId]}:{' '}
-                {(((frequency.count || 0) / frequency.checks) * 100).toFixed(2)} %
-              </div>
-            ))}
+            Object.entries(stats.frequencyByMapId)
+              .filter(([mapId]) => !!mapIdLabels[mapId])
+              .map(([mapId, frequency]) => (
+                <div key={mapId}>
+                  {mapIdLabels[mapId]}:{' '}
+                  {(((frequency.count || 0) / frequency.checks) * 100).toFixed(2)} %
+                </div>
+              ))}
           {stats && stats.lastMatch && (
             <p>
               Recently obtained by {stats.lastMatch.summonerName} with{' '}

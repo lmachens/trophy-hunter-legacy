@@ -195,7 +195,11 @@ export default function extendParticipantTimelineStats(extendedMatchResult, part
   }
 
   // test for rock-surfing kills
-  if (extendedMatchResult.isSummonersRift && participant.timeline.lane === 'MIDDLE') {
+  if (
+    extendedMatchResult.isSummonersRift &&
+    participant.timeline.lane === 'MIDDLE' &&
+    participant.timeline.role === 'SOLO'
+  ) {
     let rockSurfingKills = 0;
     participant.events.killParticipations.forEach(kill => {
       const isOnBotlane =
