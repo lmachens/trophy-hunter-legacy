@@ -1,5 +1,8 @@
 # Change Log
 
+## [4.12.0] - 2020-03-03
+### Changed
+- Rotated monthly trees
 ### Fixed
 - Fixed [trophy:rockSurfing] when there is not a single mid laner.
 
