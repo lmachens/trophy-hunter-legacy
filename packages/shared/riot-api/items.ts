@@ -361,8 +361,8 @@ const items: IItems = {
   },
   '2423': {
     id: 2423,
-    name: 'Stopwatch',
-    sanitizedDescription: '',
+    name: 'Perfectly Timed Stopwatch',
+    sanitizedDescription: 'Activate to become invincible but unable to take actions',
     tags: ['Active']
   },
   '2424': {
@@ -1434,7 +1434,7 @@ const items: IItems = {
     id: 3812,
     name: "Death's Dance",
     sanitizedDescription: 'Trades incoming damage now for incoming damage later',
-    tags: ['Damage', 'LifeSteal', 'CooldownReduction'],
+    tags: ['SpellBlock', 'Armor', 'Damage', 'LifeSteal', 'CooldownReduction'],
     stacks: 0
   },
   '3814': {

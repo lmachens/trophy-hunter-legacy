@@ -219,7 +219,7 @@ const perks: IPerks = {
     shortDesc:
       'Your attacks and abilities send Aery to a target, damaging enemies or shielding allies.',
     longDesc:
-      'Your attacks and abilities send Aery to a target, damaging enemy champions or shielding allies.Damage: 10 - 40 based on level (+0.1 AP and +0.15 bonus AD)Shield: 35 - 80 based on level (+0.25 AP and +0.4 bonus AD) Aery cannot be sent out again until she returns to you.'
+      'Damaging enemy champions with basic attacks or abilities sends Aery to them, dealing 10 - 40 based on level (+0.1 AP) (+0.15 bonus AD).Empower or protecting allies with abilities sends Aery to them, shielding them for 35 - 80 based on level (+0.25 AP) (+0.4 bonus AD).Aery cannot be sent out again until she returns to you.'
   },
   '8224': {
     id: 8224,
@@ -359,9 +359,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Inspiration/PerfectTiming/PerfectTiming.png',
     name: 'Perfect Timing',
     shortDesc:
-      'Gain a free Stopwatch. Stopwatch can be used for a one time Stasis effect within 120 seconds of scoring a Takedown.',
+      'Gain a free Commencing Stopwatch. After 14 minutes, it can be used for a one time Stasis effect. Each takedown you get shortens this timer by 120 seconds.',
     longDesc:
-      'Begin the game with a Commencing Stopwatch that transforms into a Stopwatch after 14 minutes. Each takedown you acquire reduces this timer by 120 seconds.Stopwatch that can be used for a one time 2.5 second Stasis effect and replaces Stopwatch in the item shop.'
+      'Begin the game with a Commencing Stopwatch that transforms into a Perfectly Timed Stopwatch after 14 minutes. Each takedown you acquire reduces this timer by 120 seconds.Perfectly Timed Stopwatch can be used for a one time 2.5 second Stasis effect.'
   },
   '8316': {
     id: 8316,

@@ -889,7 +889,7 @@ const champions: IChampions = {
         image: {
           full: 'SorakaW.png'
         },
-        cooldownBurn: '8/6.5/5/3.5/2'
+        cooldownBurn: '6/5/4/3/2'
       },
       {
         name: 'Equinox',
@@ -1801,7 +1801,7 @@ const champions: IChampions = {
         image: {
           full: 'CurseoftheSadMummy.png'
         },
-        cooldownBurn: '130/115/100'
+        cooldownBurn: '150/125/100'
       }
     ],
     passive: {
@@ -2088,7 +2088,7 @@ const champions: IChampions = {
       },
       name: 'Power Chord',
       sanitizedDescription:
-        "After casting 3 spells, Sona's next attack deals bonus magic damage in addition to a bonus effect depending on what song Sona last activated."
+        "After 3 spell casts, Sona's next attack will deal bonus magic damage in addition to an additional effect based on what song Sona last activated."
     },
     range: 'Ranged'
   },
@@ -3221,34 +3221,34 @@ const champions: IChampions = {
       {
         name: 'Crushing Blow',
         sanitizedDescription:
-          "Wukong's next attack deals additional physical damage, gains range, and reduces the enemy's Armor for a short duration.",
+          "Wukong's next attack gains attack range, deals bonus damage, and reduces the target's armor for a few seconds.",
         image: {
           full: 'MonkeyKingDoubleAttack.png'
         },
-        cooldownBurn: '9/8/7/6/5'
+        cooldownBurn: '9/8.5/8/7.5/7'
       },
       {
-        name: 'Decoy',
+        name: 'Warrior Trickster',
         sanitizedDescription:
-          "Wukong becomes Invisible for a short duration, leaving behind a decoy that will deal Magic Damage to enemies near it when Wukong's stealth expires.",
+          'Wukong becomes Invisible and dashes in a direction, leaving behind a clone that will attack nearby enemies.',
         image: {
           full: 'MonkeyKingDecoy.png'
         },
-        cooldownBurn: '18/16/14/12/10'
+        cooldownBurn: '20/19/18/17/16'
       },
       {
         name: 'Nimbus Strike',
         sanitizedDescription:
-          'Wukong dashes to target enemy and sends out images to attack up to 2 additional enemies near his target, dealing physical damage to each enemy struck.',
+          'Wukong dashes to a targeted enemy and sends out images to attack enemies near his target, dealing damage to each enemy struck.',
         image: {
           full: 'MonkeyKingNimbus.png'
         },
-        cooldownBurn: '8'
+        cooldownBurn: '10/9.5/9/8.5/8'
       },
       {
         name: 'Cyclone',
         sanitizedDescription:
-          "Wukong's staff grows outward and he spins it around, dealing damage and knocking up enemies. Wukong gains Movement Speed over the duration of the spell.",
+          "Wukong's extends his staff and spins it around repeatedly, gaining Movement Speed.Enemies struck take damage and are knocked up.",
         image: {
           full: 'MonkeyKingSpinToWin.png'
         },
@@ -3261,7 +3261,7 @@ const champions: IChampions = {
       },
       name: 'Stone Skin',
       sanitizedDescription:
-        "Increases Wukong's Armor and Magic Resist for each nearby enemy champion."
+        'Wukong gains stacking armor and max health regeneration while fighting champions and monsters.'
     },
     range: 'Melee'
   },
@@ -3638,7 +3638,8 @@ const champions: IChampions = {
       },
       {
         name: 'UPGRADE!!!',
-        sanitizedDescription: '',
+        sanitizedDescription:
+          'Heimerdinger invents an upgrade, causing his next spell to have increased effects. ',
         image: {
           full: 'HeimerdingerR.png'
         },
@@ -4890,7 +4891,7 @@ const champions: IChampions = {
         image: {
           full: 'GravesQLineSpell.png'
         },
-        cooldownBurn: '13/12/11/10/9'
+        cooldownBurn: '12/11/10/9/8'
       },
       {
         name: 'Smoke Screen',
@@ -6205,7 +6206,7 @@ const champions: IChampions = {
       },
       name: 'Garden of Thorns',
       sanitizedDescription:
-        'Seeds spawn around Zyra periodically, becoming faster with level and lasting 30 seconds. If an enemy Champion steps on a seed, it dies. Zyra can cast spells near seeds to grow plants. Extra plants striking the same target deal reduced damage.'
+        'Seeds spawn around Zyra periodically, becoming faster with level. Zyra can cast Deadly Spines or Grasping Roots near seeds to grow plants, who fight for Zyra.'
     },
     range: 'Ranged'
   },
@@ -7984,7 +7985,7 @@ const champions: IChampions = {
       },
       name: 'Living Forge',
       sanitizedDescription:
-        'Ornn gains an additional 10% bonus Armor and Magic Resistance from all sources.Ornn can spend gold to forge non-consumable items anywhere.Additionally, when Ornn reaches level 12, he will upgrade any eligible items into masterwork items for himself, up to 2 max. For each level after 12, Ornn can upgrade an item for an ally by going near them and clicking on them, max 1 per ally.Ornn can smith items directly from his forge menu or the shop.'
+        'Ornn gains an additional bonus Armor and Magic Resistance from all sources.Ornn can spend gold to forge non-consumable items anywhere.Additionally, he can create masterwork items for himself and for his allies.'
     },
     range: 'Melee'
   },
