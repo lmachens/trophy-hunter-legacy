@@ -1,5 +1,6 @@
 # Change Log
 
+## [4.13.0] - 2020-03-19
 ### Changed
 - Updated to Riot API version 10.6.1
 
