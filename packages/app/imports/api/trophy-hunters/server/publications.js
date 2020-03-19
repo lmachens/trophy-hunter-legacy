@@ -37,7 +37,7 @@ Meteor.publish('trophyHunters.online', function() {
   JoinServer.publish({
     context: this,
     name: 'numOnlineTrophyHunters',
-    interval: 60000,
+    interval: 120000,
     doJoin() {
       const cachedConnections = ServerStats.find()
         .fetch()
@@ -116,37 +116,9 @@ Meteor.publish('trophyHunters.public', function(userIds) {
   JoinServer.publish({
     context: this,
     name: `trophyHunters${JSON.stringify(userIds)}`,
-    interval: 60000,
+    interval: 120000,
     doJoin() {
       return TrophyHunters.find(query, options).fetch();
-    }
-  });
-});
-
-Meteor.publish('trophyHunters.public.rank', function(userId) {
-  check(userId, String);
-  JoinServer.publish({
-    context: this,
-    name: `trophyHunterRank${userId}`,
-    interval: 60000,
-    doJoin() {
-      return TrophyHunters.findOne(
-        {
-          userId
-        },
-        {
-          fields: {
-            rank: 1,
-            score: 1,
-            s9Rank: 1,
-            seasonRank: 1,
-            s9Score: 1,
-            seasonScore: 1,
-            tournamentRank: 1,
-            tournamentScore: 1
-          }
-        }
-      );
     }
   });
 });
@@ -159,7 +131,7 @@ Meteor.publish('trophyHunters.private.ranking', function(season) {
   JoinServer.publish({
     context: this,
     name: `trophyHuntersRanking${season}`,
-    interval: 60000,
+    interval: 180000,
     doJoin() {
       const userId = Meteor.userId();
       let ranks;
