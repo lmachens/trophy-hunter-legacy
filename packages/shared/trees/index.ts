@@ -145,14 +145,19 @@ import zoe1 from './definitions/zoe1';
 import zyra1 from './definitions/zyra1';
 
 export const activeTrees = {
+  nocturne1,
+  kassadin1,
+  ezreal1,
+  taric1,
+  kayle1
+};
+
+export const expiredTrees = {
   khaZix1,
   brand1,
   varus1,
   shen1,
-  irelia1
-};
-
-export const expiredTrees = {
+  irelia1,
   olaf1,
   velKoz1,
   vayne1,
@@ -286,12 +291,7 @@ export const expiredTrees = {
   heimerdinger1,
   lucian1,
   xerath1,
-  drMundo1,
-  nocturne1,
-  kassadin1,
-  ezreal1,
-  taric1,
-  kayle1
+  drMundo1
 };
 
 export const treeBonus = {
