@@ -97,7 +97,7 @@ Meteor.publish('gameSessions.count.public', function(userId) {
   JoinServer.publish({
     context: this,
     name: `numGameSessions${userId}`,
-    interval: 90000,
+    interval: 180000,
     doJoin() {
       return GameSessions.find(query, { disableOplog: true }).count();
     },

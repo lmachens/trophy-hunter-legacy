@@ -37,7 +37,7 @@ Meteor.publish('trophyHunters.online', function() {
   JoinServer.publish({
     context: this,
     name: 'numOnlineTrophyHunters',
-    interval: 120000,
+    interval: 180000,
     doJoin() {
       const cachedConnections = ServerStats.find()
         .fetch()
@@ -116,7 +116,7 @@ Meteor.publish('trophyHunters.public', function(userIds) {
   JoinServer.publish({
     context: this,
     name: `trophyHunters${JSON.stringify(userIds)}`,
-    interval: 120000,
+    interval: 180000,
     doJoin() {
       return TrophyHunters.find(query, options).fetch();
     }
