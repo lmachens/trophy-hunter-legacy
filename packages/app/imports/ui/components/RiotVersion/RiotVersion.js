@@ -13,7 +13,7 @@ class RiotVersion extends PureComponent {
         <span style={{ color: universeTheme.palette.secondaryTextColor, marginRight: '4px' }}>
           Riot API:
         </span>
-        {version}
+        {version.substr(0, 7)}
       </span>
     );
   }

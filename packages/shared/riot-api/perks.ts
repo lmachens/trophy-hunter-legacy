@@ -257,7 +257,7 @@ const perks: IPerks = {
     shortDesc:
       'Hitting an enemy champion with 3 separate attacks or abilities grants a burst of MS. ',
     longDesc:
-      'Hitting an enemy champion with 3 attacks or separate abilities within 4s grants 25 - 40% Movement Speed based on level and 75% Slow Resistance. Movement speed is increased to 30 - 50% for Melee champions.Duration: 3sCooldown: 15s'
+      'Hitting an enemy champion with 3 attacks or separate abilities within 4s grants 25 - 40% Movement Speed based on level and 75% Slow Resistance. Movement speed is increased to 40 - 60% for Melee champions.Duration: 3sCooldown: 15s'
   },
   '8232': {
     id: 8232,
@@ -361,7 +361,7 @@ const perks: IPerks = {
     shortDesc:
       'Gain a free Commencing Stopwatch. After 14 minutes, it can be used for a one time Stasis effect. Each takedown you get shortens this timer by 120 seconds.',
     longDesc:
-      'Begin the game with a Commencing Stopwatch that transforms into a Perfectly Timed Stopwatch after 14 minutes. Each takedown you acquire reduces this timer by 120 seconds.Perfectly Timed Stopwatch can be used for a one time 2.5 second Stasis effect.'
+      'Begin the game with a Commencing Stopwatch that transforms into a Stopwatch after 14 minutes. Each takedown you acquire reduces this timer by 120 seconds.Stopwatch can be used for a one time 2.5 second Stasis effect.'
   },
   '8316': {
     id: 8316,
@@ -465,9 +465,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Resolve/Conditioning/Conditioning.png',
     name: 'Conditioning',
     shortDesc:
-      'After 10 min gain +9 Armor and +9 Magic Resist and increase your Armor and Magic Resist by 5%.',
+      'After 12 min gain +9 Armor and +9 Magic Resist and increase your Armor and Magic Resist by 5%.',
     longDesc:
-      'After 10 min gain +9 Armor and +9 Magic Resist and increase your Armor and Magic Resist by 5%.'
+      'After 12 min gain +9 Armor and +9 Magic Resist and increase your Armor and Magic Resist by 5%.'
   },
   '8437': {
     id: 8437,

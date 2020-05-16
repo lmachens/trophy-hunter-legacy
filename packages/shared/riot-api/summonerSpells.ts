@@ -118,7 +118,7 @@ const summonerSpells: ISummonerSpells = {
     id: 12,
     name: 'Teleport',
     description:
-      'After channeling for 4 seconds, teleports your champion to target allied structure, minion, or ward and grants a Movement Speed boost.',
+      'After channeling for 4 seconds, teleports your champion to target allied structure, minion, or ward and grants a Movement Speed boost. The cooldown of Teleport scales from 420-240 seconds depending on champion level.',
     image: {
       full: 'SummonerTeleport.png',
       sprite: 'spell0.png',

@@ -1067,6 +1067,12 @@ const items: IItems = {
     sanitizedDescription: 'Increases Ability Power, Mana, and Cooldown Reduction',
     tags: ['SpellDamage', 'Mana', 'CooldownReduction', 'OnHit']
   },
+  '3330': {
+    id: 3330,
+    name: 'Scarecrow Effigy (Trinket)',
+    sanitizedDescription: 'Periodically place a Stealth Ward',
+    tags: ['Active', 'Jungle', 'Lane', 'Trinket', 'Vision']
+  },
   '3340': {
     id: 3340,
     name: 'Warding Totem (Trinket)',

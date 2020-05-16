@@ -179,7 +179,7 @@ const champions: IChampions = {
       {
         name: "Hero's Entrance",
         sanitizedDescription:
-          "Galio designates an ally's position as his landing spot. After a delay Galio smashes down location, knocking up nearby enemies.",
+          "Galio designates an ally's position as his landing spot, granting all allies in the area a magic shield. After a delay Galio smashes down location, knocking up nearby enemies.",
         image: {
           full: 'GalioR.png'
         },
@@ -350,7 +350,7 @@ const champions: IChampions = {
         image: {
           full: 'UrgotR.png'
         },
-        cooldownBurn: '120/95/70'
+        cooldownBurn: '100/85/70'
       }
     ],
     passive: {
@@ -478,7 +478,7 @@ const champions: IChampions = {
     id: 9,
     key: 'Fiddlesticks',
     name: 'Fiddlesticks',
-    title: 'the Harbinger of Doom',
+    title: 'the Ancient Fear',
     image: {
       full: 'Fiddlesticks.png'
     },
@@ -486,36 +486,36 @@ const champions: IChampions = {
       {
         name: 'Terrify',
         sanitizedDescription:
-          'Strikes a target unit with fear, causing it to flee in terror for a duration.',
+          "Fiddlesticks damaging enemies with spells while unseen or targeting an enemy with Terrify's activation strikes a target unit with fear, causing it to flee in terror for a duration.",
         image: {
-          full: 'Terrify.png'
+          full: 'FiddleSticksQ.png'
         },
-        cooldownBurn: '15/14/13/12/11'
+        cooldownBurn: '15/14.5/14/13.5/13'
       },
       {
-        name: 'Drain',
+        name: 'Bountiful Harvest',
         sanitizedDescription:
-          'Fiddlesticks saps the life force of an enemy, dealing damage to a target over time and healing himself.',
+          'Fiddlesticks drains health from nearby enemies, dealing bonus execute damage at the end of the duration.',
         image: {
-          full: 'Drain.png'
+          full: 'FiddleSticksW.png'
         },
-        cooldownBurn: '4/3.75/3.5/3.25/3'
+        cooldownBurn: '9/8.5/8/7.5/7'
       },
       {
-        name: 'Dark Wind',
+        name: 'Reap',
         sanitizedDescription:
-          'A wisp of wind strikes an enemy unit and then bounces to nearby enemy units, dealing damage and silencing the victims.',
+          'Fiddlesticks slashes an area with its scythe, slowing all enemies hit and silencing enemies hit in the center of the slash.',
         image: {
-          full: 'FiddlesticksDarkWind.png'
+          full: 'FiddleSticksE.png'
         },
-        cooldownBurn: '10'
+        cooldownBurn: '10/9/8/7/6'
       },
       {
         name: 'Crowstorm',
         sanitizedDescription:
           'A murder of crows flock wildly around Fiddlesticks, dealing damage per second to all enemy units in the area.',
         image: {
-          full: 'Crowstorm.png'
+          full: 'FiddleSticksR.png'
         },
         cooldownBurn: '140/110/80'
       }
@@ -524,9 +524,8 @@ const champions: IChampions = {
       image: {
         full: 'FiddleSticks_Passive.png'
       },
-      name: 'Dread',
-      sanitizedDescription:
-        'Standing still or channeling abilities for 1.5 seconds empowers Fiddlesticks with Dread. Immobilizing crowd control resets this timer.Dread grants Movement Speed, but only lasts for 1.5s after Fiddlesticks starts moving.'
+      name: 'A Harmless Scarecrow',
+      sanitizedDescription: "Fiddlesticks' trinket is replaced by scarecrow effigies."
     },
     range: 'Ranged'
   },
@@ -876,7 +875,7 @@ const champions: IChampions = {
       {
         name: 'Starcall',
         sanitizedDescription:
-          'A star falls from the sky at the target location dealing magic damage and slowing enemies. If an enemy champion is hit by Starcall, Soraka recovers health.',
+          'A star falls from the sky at the target location dealing magic damage and slowing enemies. If an enemy champion is hit by Starcall, Soraka recovers Health.',
         image: {
           full: 'SorakaQ.png'
         },
@@ -1921,7 +1920,7 @@ const champions: IChampions = {
       },
       name: 'Rebirth',
       sanitizedDescription:
-        'Upon dying, Anivia will revert into an egg. If the egg can survive for six seconds, she is gloriously reborn.'
+        'Upon taking fatal damage, Anivia reverts to an egg and is reborn with full health.'
     },
     range: 'Ranged'
   },
@@ -2580,7 +2579,7 @@ const champions: IChampions = {
         image: {
           full: 'TrundlePain.png'
         },
-        cooldownBurn: '100/80/60'
+        cooldownBurn: '120/100/80'
       }
     ],
     passive: {
@@ -4197,7 +4196,7 @@ const champions: IChampions = {
         image: {
           full: 'AkaliR.png'
         },
-        cooldownBurn: '120/90/60'
+        cooldownBurn: '100/80/60'
       }
     ],
     passive: {
@@ -4735,7 +4734,7 @@ const champions: IChampions = {
         image: {
           full: 'XerathArcaneBarrage2.png'
         },
-        cooldownBurn: '1'
+        cooldownBurn: '14/13/12/11/10'
       },
       {
         name: 'Shocking Orb',
@@ -5142,7 +5141,7 @@ const champions: IChampions = {
         image: {
           full: 'VarusR.png'
         },
-        cooldownBurn: '110/90/70'
+        cooldownBurn: '130/100/70'
       }
     ],
     passive: {
@@ -5785,7 +5784,7 @@ const champions: IChampions = {
         image: {
           full: 'LissandraQ.png'
         },
-        cooldownBurn: '10/8.5/7/5.5/4'
+        cooldownBurn: '8/7/6/5/4'
       },
       {
         name: 'Ring of Frost',
@@ -6061,7 +6060,7 @@ const champions: IChampions = {
         image: {
           full: 'KaynQ.png'
         },
-        cooldownBurn: '7/6.5/6/5.5/5'
+        cooldownBurn: '6/5.5/5/4.5/4'
       },
       {
         name: "Blade's Reach",
@@ -6244,7 +6243,7 @@ const champions: IChampions = {
         image: {
           full: 'KaisaE.png'
         },
-        cooldownBurn: '16/15.5/15/14.5/14'
+        cooldownBurn: '16/15/14/13/12'
       },
       {
         name: 'Killer Instinct',
@@ -7058,7 +7057,7 @@ const champions: IChampions = {
         image: {
           full: 'KledQ.png'
         },
-        cooldownBurn: '9/8.5/8/7.5/7'
+        cooldownBurn: '11/10/9/8/7'
       },
       {
         name: 'Violent Tendencies',
@@ -7699,7 +7698,7 @@ const champions: IChampions = {
         image: {
           full: 'IvernR.png'
         },
-        cooldownBurn: '160/140/120'
+        cooldownBurn: '140/130/120'
       }
     ],
     passive: {
@@ -7792,7 +7791,7 @@ const champions: IChampions = {
         image: {
           full: 'BardW.png'
         },
-        cooldownBurn: '12'
+        cooldownBurn: '14'
       },
       {
         name: 'Magical Journey',
@@ -7801,7 +7800,7 @@ const champions: IChampions = {
         image: {
           full: 'BardE.png'
         },
-        cooldownBurn: '18/17/16/15/14'
+        cooldownBurn: '22/20.5/19/17.5/16'
       },
       {
         name: 'Tempered Fate',
@@ -7929,7 +7928,7 @@ const champions: IChampions = {
       },
       name: 'Clean Cuts',
       sanitizedDescription:
-        "After using an ability, Xayah's next few basic attacks will hit all enemies along their path and dropping Feathers she can recall."
+        "After using an ability, Xayah's next basic attacks will hit all targets along their path and leave a Feather."
     },
     range: 'Ranged'
   },
