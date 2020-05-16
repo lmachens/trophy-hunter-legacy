@@ -2,6 +2,7 @@
 
 ### Changed
 - Updated to Riot API version 10.10.3208608
+- Rotated trees
 
 ## [4.14.0] - 2020-04-01
 ### Changed
