@@ -191,13 +191,13 @@ const LotteryItem = ({ lotteries }) => {
   return (
     <div style={{ height: 418 }}>
       <p>
-        Join our lottery and win Riot Points.
+        We already gave away $2950 in the last years!!!
         <br />
-        Please note that RP codes are not valid for Asia servers and you can only win one price per
-        drawing.
+        But there won't be any more lotteries. I spend nearly the same money on hosting and the RP
+        lottery as I earn with the ads revenue in the last few months.
         <br />
-        When the winners are drawn, a popup opens where you redeem the prices. You have one month to
-        redeem it.
+        In addition, a new version of Trophy Hunter is in development and will hopefully released
+        end of this summer.
       </p>
       {activeLottery && <LotteryContainerWithRedux lottery={activeLottery} />}
       {lastLotteries && (

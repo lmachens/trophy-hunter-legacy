@@ -3,6 +3,7 @@
 ### Changed
 - Updated to Riot API version 10.10.3208608
 - Rotated trees
+- Add note that there won't be any more lotteries
 
 ## [4.14.0] - 2020-04-01
 ### Changed
