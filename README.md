@@ -1,3 +1,5 @@
+__This version of Trophy Hunter is not supported anymore. Go to [Trophy Hunter](https://github.com/lmachens/trophy-hunter) for the new version.__
+
 <a href='https://th.gl/'><img src="./.github/logo.png" alt="Trophy Hunter" align="right" height="211" /></a>
 
 # Trophy Hunter
