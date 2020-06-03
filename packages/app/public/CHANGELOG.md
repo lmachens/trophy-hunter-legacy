@@ -1,5 +1,9 @@
 # Change Log
 
+## [4.16.0] - 2020-04-01
+- Updated to Riot API version 10.11.1
+- Rotated trees
+
 ## [4.15.0] - 2020-04-01
 ### Changed
 - Updated to Riot API version 10.10.3208608

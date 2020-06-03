@@ -81,7 +81,7 @@ const champions: IChampions = {
       },
       name: 'Pyromania',
       sanitizedDescription:
-        "After casting 4 spells, Annie's next offensive spell will stun the target for a short duration."
+        "After casting 4 spells, Annie's next offensive spell will stun the target."
     },
     range: 'Ranged'
   },
@@ -4990,55 +4990,55 @@ const champions: IChampions = {
     id: 106,
     key: 'Volibear',
     name: 'Volibear',
-    title: "the Thunder's Roar",
+    title: 'the Relentless Storm',
     image: {
       full: 'Volibear.png'
     },
     spells: [
       {
-        name: 'Rolling Thunder',
+        name: 'Thundering Smash',
         sanitizedDescription:
-          'Volibear drops to all fours and runs faster. This bonus speed increases when chasing enemy champions. The first enemy he attacks is thrown backwards over Volibear.',
+          'Volibear gains speed towards enemies, stunning and damaging the first one he attacks.',
         image: {
           full: 'VolibearQ.png'
         },
-        cooldownBurn: '12/11/10/9/8'
+        cooldownBurn: '14/13/12/11/10'
       },
       {
-        name: 'Frenzy',
+        name: 'Frenzied Maul',
         sanitizedDescription:
-          "Volibear's repeated attacks grant him additional Attack Speed. Once Volibear has repeatedly attacked three times, he can perform a vicious bite on his target which deals increased damage based on the target's missing Health.",
+          'Volibear damages an enemy, applying on-hit effects and marking them.  Casting this spell again on the same target deals bonus damage and heals Volibear.',
         image: {
           full: 'VolibearW.png'
         },
-        cooldownBurn: '18'
+        cooldownBurn: '5'
       },
       {
-        name: 'Majestic Roar',
+        name: 'Sky Splitter',
         sanitizedDescription:
-          'Volibear lets out a powerful roar that damages, slows, and slightly knocks back enemies. Enemies who are airborne or dashing are dealt additional damage. Minions and monsters are feared as well.',
+          "Volibear summons a lightning bolt at a location, dealing damage and slowing enemies while granting Volibear a shield if he's inside the blast radius.",
         image: {
           full: 'VolibearE.png'
         },
-        cooldownBurn: '11'
+        cooldownBurn: '15'
       },
       {
-        name: 'Thunder Claws',
+        name: 'Stormbringer',
         sanitizedDescription:
-          "Volibear erupts with chain lightning, damaging a number of nearby enemies. The power of the storm causes Volibear's attacks to blast his targets with lightning that bounces to other nearby enemies.",
+          'Volibear leaps to a target location, slowing and damaging enemies beneath him while gaining bonus health.  Enemy towers near his landing location become temporarily disabled.',
         image: {
           full: 'VolibearR.png'
         },
-        cooldownBurn: '100/90/80'
+        cooldownBurn: '160/140/120'
       }
     ],
     passive: {
       image: {
-        full: 'VolibearPassive.png'
+        full: 'Volibear_Icon_P.png'
       },
-      name: 'Chosen of the Storm',
+      name: 'The Relentless Storm',
       sanitizedDescription:
-        'Volibear heals rapidly for a few seconds when his Health drops to a critical level.'
+        "Volibear's attacks and abilities grant attack speed, and eventually cause his basic attacks to deal bonus magic damage to nearby enemies."
     },
     range: 'Melee'
   },
@@ -5970,7 +5970,7 @@ const champions: IChampions = {
         image: {
           full: 'SyndraE.png'
         },
-        cooldownBurn: '16/15/14/13/12'
+        cooldownBurn: '18/17/16/15/14'
       },
       {
         name: 'Unleashed Power',
@@ -8073,7 +8073,7 @@ const champions: IChampions = {
       {
         name: 'Tangle-Barbs',
         sanitizedDescription:
-          'Neeko slings a tangle that damage and root everything it passes through. If the tangle hits an enemy, it becomes larger, faster, and roots for longer.',
+          'Neeko slings a tangle that damage and root everything it passes through. If the tangle kills an enemy or passes through a champion, it becomes larger, faster, and roots for longer.',
         image: {
           full: 'NeekoE.png'
         },

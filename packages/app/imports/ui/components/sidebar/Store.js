@@ -21,7 +21,7 @@ class Store extends Component {
               {trophyPoints} TP
               <br />
             </span>
-            Win <b>Riot Points</b> or unlock exclusive content!
+            Unlock exclusive content!
           </div>
         </HoverableBorder>
       </Link>
