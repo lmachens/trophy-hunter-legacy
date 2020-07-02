@@ -59,7 +59,7 @@ const champions: IChampions = {
       {
         name: 'Molten Shield',
         sanitizedDescription:
-          'Grants Annie increased percentage Damage Reduction, a burst of movement speed, and damages enemies who attack her with basic attacks.',
+          'Grants Annie increased percentage Damage Reduction, a burst of Movement Speed, and damages enemies who attack her with basic attacks.',
         image: {
           full: 'AnnieE.png'
         },
@@ -691,7 +691,7 @@ const champions: IChampions = {
       },
       name: 'Triumphant Roar',
       sanitizedDescription:
-        'Alistar charges his roar by stunning or displacing enemy champions or when nearby enemies die. When fully charged he heals himself and all nearby allied champions.'
+        'Alistar charges his roar by stunning or displacing enemy champions or when nearby enemies die. When fully charged he heals himself all nearby allied champions.'
     },
     range: 'Melee'
   },
@@ -2254,7 +2254,7 @@ const champions: IChampions = {
       },
       name: 'Tailwind',
       sanitizedDescription:
-        "Janna passively gains 8% Movement Speed, and nearby allied champions gain this bonus when moving toward her.Additionally, Janna's basic attacks cause additional magic damage based on her bonus Movement Speed."
+        "Janna passively gains bonus Movement Speed, and nearby allied champions gain this bonus when moving toward her.Additionally, Janna's basic attacks cause additional magic damage based on her bonus Movement Speed."
     },
     range: 'Ranged'
   },
@@ -2631,7 +2631,7 @@ const champions: IChampions = {
       {
         name: 'Demonic Ascension',
         sanitizedDescription:
-          'Swain transforms into a demon and drains health from nearby enemy champions, minions, and neutral monsters. Swain can cast Demonflare to deal damage equal to the amount of health he drained, ending his transformation to decimate nearby enemies with a nova of soulfire.',
+          'Swain transforms into a demon and drains health from nearby enemy champions, minions, and neutral monsters. Swain can cast Demonflare to decimate nearby enemies with a nova of soulfire, dealing damage equal to a portion of the health he drained and ending his transformation.',
         image: {
           full: 'SwainR.png'
         },
@@ -2754,9 +2754,9 @@ const champions: IChampions = {
       image: {
         full: 'Blitzcrank_ManaBarrier.png'
       },
-      name: '',
+      name: 'Mana Barrier',
       sanitizedDescription:
-        "When Blitzcrank's life is brought below 20% health, he activates Mana Barrier. This creates a mana shield equal to 30% of his mana for 10 seconds. Mana Barrier can only occur once every 90 seconds."
+        'Blitzcrank gains a shield based on his mana when dropping to low health.'
     },
     range: 'Melee'
   },
@@ -4428,7 +4428,7 @@ const champions: IChampions = {
       },
       name: 'Void Shift',
       sanitizedDescription:
-        "When he hasn't recently taken damage or been crowd controlled, Malzahar gains massive damage reduction and crowd control immunity, lingering for a short period after taking damage.Damage from lane minions is unaffected."
+        "When he hasn't recently taken damage or been crowd controlled, Malzahar gains massive damage reduction and crowd control immunity, lingering for a short period after taking damage."
     },
     range: 'Ranged'
   },
@@ -5094,7 +5094,7 @@ const champions: IChampions = {
       },
       name: 'Unseen Predator',
       sanitizedDescription:
-        "While in brush, Rengar leaps at his target with his basic attack.Rengar's abilities build Ferocity. Upon reaching full Ferocity, his next ability becomes empowered and grants him Movement Speed on cast, but he instantly loses all Ferocity if he leaves combat.Killing enemy champions awards trophies on Rengar's Bonetooth Necklace, permanently increasing his Attack Damage."
+        "While in brush, Rengar leaps at his target with his basic attack. Leaping while at no Ferocity generates Ferocity.At Max Ferocity, his next ability is empowered. Casting an empowered ability increases Rengar's Movement Speed for a few seconds.Killing enemy champions awards trophies on Rengar's Bonetooth Necklace, granting bonus attack damage."
     },
     range: 'Melee'
   },
@@ -5556,7 +5556,8 @@ const champions: IChampions = {
     spells: [
       {
         name: 'Rampage',
-        sanitizedDescription: 'Hecarim cleaves nearby enemies dealing physical damage.',
+        sanitizedDescription:
+          'Hecarim cleaves nearby enemies dealing physical damage. If Hecarim damages at least one enemy, he increases the damage and lowers the cooldown of subsequent Rampages.',
         image: {
           full: 'HecarimRapidSlash.png'
         },
@@ -6400,7 +6401,7 @@ const champions: IChampions = {
         image: {
           full: 'YasuoW.png'
         },
-        cooldownBurn: '26/24/22/20/18'
+        cooldownBurn: '30/27/24/21/18'
       },
       {
         name: 'Sweeping Blade',
@@ -7224,7 +7225,7 @@ const champions: IChampions = {
         image: {
           full: 'ViQ.png'
         },
-        cooldownBurn: '12/11/10/9/8'
+        cooldownBurn: '12/10.5/9/7.5/6'
       },
       {
         name: 'Denting Blows',
@@ -7818,7 +7819,7 @@ const champions: IChampions = {
       },
       name: "Traveler's Call",
       sanitizedDescription:
-        "Bard's presence causes magical chimes to appear, which grant Bard experience, mana, and a burst of speed. Additionally, lesser spirits follow Bard and aid in his attacks - collecting chimes causes these meeps to gain power over the course of the game."
+        'Meeps: Bard attracts lesser spirits that assist with his basic attacks to deal extra magic damage. When Bard has collected enough  Chimes, his meeps will also deal damage in an area and slow enemies hit.Chimes: Ancient chimes randomly appear for Bard to collect. These grant experience, maximum mana, and out-of-combat movement speed stacks.'
     },
     range: 'Ranged'
   },

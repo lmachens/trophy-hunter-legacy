@@ -1567,6 +1567,18 @@ const items: IItems = {
     sanitizedDescription: 'Increases magic damage',
     tags: ['Health', 'MagicPenetration', 'SpellDamage'],
     stacks: 0
+  },
+  '4003': {
+    id: 4003,
+    name: 'Lifeline',
+    sanitizedDescription: 'Marks the ground, and returns you there after a few moments',
+    tags: ['Damage', 'NonbootsMovement', 'ArmorPenetration']
+  },
+  '4004': {
+    id: 4004,
+    name: 'Spectral Cutlass',
+    sanitizedDescription: 'Marks the ground, and returns you there after a few moments',
+    tags: ['Armor', 'Damage', 'NonbootsMovement', 'ArmorPenetration']
   }
 };
 

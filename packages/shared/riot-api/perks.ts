@@ -47,9 +47,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Precision/Conqueror/Conqueror.png',
     name: 'Conqueror',
     shortDesc:
-      'Gain stacks of adaptive force when attacking enemy champions. After reaching 10 stacks, heal for a portion of damage you deal to champions.',
+      'Gain stacks of adaptive force when attacking enemy champions. After reaching 12 stacks, heal for a portion of damage you deal to champions.',
     longDesc:
-      'Basic attacks or spells that deal damage to an enemy champion grant 2 stacks of Conqueror for 6s, gaining 2-5 Adaptive Force per stack. Stacks up to 10 times. Ranged champions gain only 1 stack per basic attack.When fully stacked, heal for 15% of the damage you deal to champions (8% for ranged champions).'
+      'Basic attacks or spells that deal damage to an enemy champion grant 2 stacks of Conqueror for 6s, gaining 1.7-4.2 Adaptive Force per stack. Stacks up to 12 times. Ranged champions gain only 1 stack per basic attack.When fully stacked, heal for 15% of the damage you deal to champions (8% for ranged champions).'
   },
   '8014': {
     id: 8014,
@@ -124,7 +124,7 @@ const perks: IPerks = {
     shortDesc:
       'Add an active effect to your boots that grants a large boost of MS and causes your next attack or ability to deal bonus adaptive damage.',
     longDesc:
-      "Enchants your boots with the active effect 'Predator.'Channel for 1.5s out of combat to gain 45% movement speed for 15s. Damaging attacks or abilities end this effect, dealing 60 - 180 (+0.4 bonus AD)(+0.25 AP) bonus adaptive damage.Cooldown: 150s - 100s. Starts the game on cooldown. 50% cooldown if interrupted while channeling."
+      "Enchants your boots with the active effect 'Predator.'Gain increased Movement Speed, ramping up to 45% Movement Speed over 1.5 seconds, while chasing enemy champions. After ramping up, damaging attacks or abilities to champions end this effect, dealing 30-90 (+0.2 bonus AD)(+0.1 AP) bonus adaptive damage.Cooldown: 100s-70s."
   },
   '8126': {
     id: 8126,
@@ -309,10 +309,9 @@ const perks: IPerks = {
     key: 'Unflinching',
     icon: 'perk-images/Styles/Sorcery/Unflinching/Unflinching.png',
     name: 'Unflinching',
-    shortDesc:
-      'After casting a Summoner Spell, gain Tenacity and Slow Resistance for a short duration. Additionally, gain Tenacity and Slow Resistance for each Summoner Spell on cooldown. ',
+    shortDesc: 'Gain a small amount of tenacity that increases with missing health. ',
     longDesc:
-      'After casting a Summoner Spell, gain 15% Tenacity and Slow Resistance for 10s. Additionally, gain 10% Tenacity and Slow Resistance for each Summoner Spell on cooldown. '
+      'Gain 10% Tenacity and 10% Slow Resist. These values increase by up to an additional 20% Tenacity and 20% Slow Resist based on missing health. Maximum value achieved at 30% health. '
   },
   '8275': {
     id: 8275,
@@ -455,9 +454,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Resolve/ApproachVelocity/ApproachVelocity.png',
     name: 'Approach Velocity',
     shortDesc:
-      'Bonus MS towards nearby ally champions that are movement impaired or enemy champions that you impair.',
+      'Bonus MS towards nearby enemy champions that are movement impaired, increased for enemy champions that you impair.',
     longDesc:
-      'Gain 15% Movement Speed towards nearby ally champions that are movement impaired or enemy champions that you impair. Range: 1000'
+      'Gain 7.5% Movement Speed towards nearby enemy champions that are movement impaired. This bonus is increased to 15% Movement Speed for any enemy champion that you impair. Activation Range for CC from allies: 1000'
   },
   '8429': {
     id: 8429,
@@ -543,9 +542,9 @@ const perks: IPerks = {
     icon: 'perk-images/Styles/Resolve/Guardian/Guardian.png',
     name: 'Guardian',
     shortDesc:
-      "Guard allies you cast spells on and those that are very nearby. If you or a guarded ally would take damage, you're both hasted and granted a shield.",
+      "Guard allies you cast spells on and those that are very nearby. If you or a guarded ally would take damage based on level, you're both granted a shield.",
     longDesc:
-      'Guard allies within 175 units of you, and allies you target with spells for 2.5s. While Guarding, if you or the ally take damage, both of you gain a shield and are hasted for 1.5s.Cooldown: 70 - 40 secondsShield: 70 - 150 + 25% of your ability power + 12% of your bonus health.Haste: +20% Movement Speed.'
+      'Guard allies within 350 units of you, and allies you target with spells for 2.5s. While Guarding, if you or the ally take more than a small amount of damage over the duration of the Guard, both of you gain a shield for 1.5s.Cooldown: 70 - 40 secondsShield: 70 - 150 + 25% of your ability power + 12% of your bonus healthProc Threshold: 90 - 250 postmitigation damage'
   },
   '8473': {
     id: 8473,
