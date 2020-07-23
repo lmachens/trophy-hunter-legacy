@@ -70,7 +70,7 @@ class TrophyStats extends Component {
           {stats && stats.lastMatch && (
             <p>
               Recently obtained by {stats.lastMatch.summonerName} with{' '}
-              {champions[stats.lastMatch.championId]?.name}.
+              {champions[stats.lastMatch.championId] && champions[stats.lastMatch.championId].name}.
             </p>
           )}
         </div>
