@@ -398,6 +398,12 @@ const items: IItems = {
     sanitizedDescription: 'Increases Attack Damage based on maximum Mana',
     tags: ['Damage', 'Mana', 'ManaRegen', 'OnHit']
   },
+  '3005': {
+    id: 3005,
+    name: "Atma's Reckoning",
+    sanitizedDescription: 'Increases Attack Damage based on maximum Health',
+    tags: ['SpellBlock', 'Armor', 'Damage']
+  },
   '3006': {
     id: 3006,
     name: "Berserker's Greaves",
@@ -827,6 +833,18 @@ const items: IItems = {
     sanitizedDescription: 'Increases Attack Speed, Armor Penetration, and Magic Penetration',
     tags: ['Damage', 'AttackSpeed', 'SpellDamage', 'OnHit', 'MagicPenetration', 'ArmorPenetration']
   },
+  '3128': {
+    id: 3128,
+    name: 'Deathfire Grasp',
+    sanitizedDescription: 'Activate to increase all magic damage dealt to an enemy champion',
+    tags: ['Active', 'CooldownReduction', 'SpellDamage']
+  },
+  '3131': {
+    id: 3131,
+    name: 'Sword of the Divine',
+    sanitizedDescription: 'Activate to gain 100% Critical Strike Chance for a short duration',
+    tags: ['Damage', 'CriticalStrike', 'AttackSpeed', 'Active', 'ArmorPenetration']
+  },
   '3133': {
     id: 3133,
     name: "Caulfield's Warhammer",
@@ -968,6 +986,18 @@ const items: IItems = {
     name: 'Morellonomicon',
     sanitizedDescription: 'Increases magic damage',
     tags: ['Health', 'SpellDamage', 'MagicPenetration']
+  },
+  '3170': {
+    id: 3170,
+    name: 'Moonflair Spellblade',
+    sanitizedDescription: 'Improves defense and reduces duration of disabling effects',
+    tags: ['Armor', 'SpellBlock', 'SpellDamage', 'Tenacity']
+  },
+  '3172': {
+    id: 3172,
+    name: 'Zephyr',
+    sanitizedDescription: 'Mobility and Tenacity',
+    tags: ['Damage', 'AttackSpeed', 'NonbootsMovement', 'Tenacity']
   },
   '3174': {
     id: 3174,
@@ -1568,6 +1598,12 @@ const items: IItems = {
     tags: ['Health', 'MagicPenetration', 'SpellDamage'],
     stacks: 0
   },
+  '4001': {
+    id: 4001,
+    name: 'Ghostwalkers (Melee Only)',
+    sanitizedDescription: 'Enhances Movement Speed and grants temporary wall walking.',
+    tags: ['Boots']
+  },
   '4003': {
     id: 4003,
     name: 'Lifeline',
@@ -1579,6 +1615,92 @@ const items: IItems = {
     name: 'Spectral Cutlass',
     sanitizedDescription: 'Marks the ground, and returns you there after a few moments',
     tags: ['Armor', 'Damage', 'NonbootsMovement', 'ArmorPenetration']
+  },
+  '4101': {
+    id: 4101,
+    name: "Pridestalker's Blade",
+    sanitizedDescription: 'Kill monsters faster',
+    tags: ['LifeSteal', 'ManaRegen', 'Slow', 'OnHit', 'NonbootsMovement', 'Jungle']
+  },
+  '4102': {
+    id: 4102,
+    name: 'Enchantment: Warrior',
+    sanitizedDescription: 'Tons of Damage',
+    tags: []
+  },
+  '4103': {
+    id: 4103,
+    name: 'Enchantment: Cinderhulk',
+    sanitizedDescription: 'Increases bonus Health and burns nearby enemies',
+    tags: []
+  },
+  '4104': {
+    id: 4104,
+    name: 'Enchantment: Runic Echoes',
+    sanitizedDescription: 'Spells explode for bonus damage',
+    tags: []
+  },
+  '4105': {
+    id: 4105,
+    name: 'Enchantment: Bloodrazor',
+    sanitizedDescription: "Attacks deal bonus damage based on the target's maximum Health",
+    tags: []
+  },
+  '4201': {
+    id: 4201,
+    name: "Doran's Lost Shield",
+    sanitizedDescription: 'Good defensive starting item',
+    tags: ['Health', 'HealthRegen', 'Lane']
+  },
+  '4202': {
+    id: 4202,
+    name: "Doran's Lost Blade",
+    sanitizedDescription: 'Good starting item for attackers',
+    tags: ['Damage', 'Health', 'Lane', 'LifeSteal']
+  },
+  '4203': {
+    id: 4203,
+    name: "Doran's Lost Ring",
+    sanitizedDescription: 'Good starting item for casters',
+    tags: ['Health', 'Lane', 'ManaRegen', 'SpellDamage']
+  },
+  '4204': {
+    id: 4204,
+    name: "Doran's Lost Idol",
+    sanitizedDescription: 'Good starting item for Enchanters',
+    tags: ['SpellDamage', 'ManaRegen', 'Lane']
+  },
+  '4401': {
+    id: 4401,
+    name: 'Force of Nature',
+    sanitizedDescription: 'Movement Speed, Magic Resist, and max Health Regeneration',
+    tags: ['SpellBlock', 'HealthRegen', 'NonbootsMovement']
+  },
+  '4402': {
+    id: 4402,
+    name: 'Innervating Locket',
+    sanitizedDescription: 'Cast spells to heal',
+    tags: ['Health', 'HealthRegen', 'Damage', 'Mana', 'ManaRegen', 'CooldownReduction']
+  },
+  '4403': {
+    id: 4403,
+    name: 'The Golden Spatula',
+    sanitizedDescription: 'It does EVERYTHING!',
+    tags: [
+      'Health',
+      'SpellBlock',
+      'HealthRegen',
+      'Armor',
+      'Damage',
+      'CriticalStrike',
+      'AttackSpeed',
+      'LifeSteal',
+      'SpellDamage',
+      'Mana',
+      'ManaRegen',
+      'CooldownReduction',
+      'NonbootsMovement'
+    ]
   }
 };
 

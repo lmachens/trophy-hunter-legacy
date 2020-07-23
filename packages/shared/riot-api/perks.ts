@@ -124,7 +124,7 @@ const perks: IPerks = {
     shortDesc:
       'Add an active effect to your boots that grants a large boost of MS and causes your next attack or ability to deal bonus adaptive damage.',
     longDesc:
-      "Enchants your boots with the active effect 'Predator.'Gain increased Movement Speed, ramping up to 45% Movement Speed over 1.5 seconds, while chasing enemy champions. After ramping up, damaging attacks or abilities to champions end this effect, dealing 30-90 (+0.2 bonus AD)(+0.1 AP) bonus adaptive damage.Cooldown: 100s-70s."
+      "Enchants your boots with the active effect 'Predator.'Gain increased Movement Speed, ramping up to 45% Movement Speed over 1.5 seconds, while chasing enemy champions. After ramping up, damaging attacks or abilities to champions end this effect, dealing 40-120 (+0.2 bonus AD)(+0.1 AP) bonus adaptive damage.Cooldown: 90s-60s."
   },
   '8126': {
     id: 8126,

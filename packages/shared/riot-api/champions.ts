@@ -655,7 +655,7 @@ const champions: IChampions = {
         image: {
           full: 'Pulverize.png'
         },
-        cooldownBurn: '17/16/15/14/13'
+        cooldownBurn: '15/14/13/12/11'
       },
       {
         name: 'Headbutt',
@@ -1657,7 +1657,7 @@ const champions: IChampions = {
       {
         name: 'Lay Waste',
         sanitizedDescription:
-          'Karthus unleashes a delayed blast at a location, dealing damage to nearby enemies.',
+          'Karthus unleashes a delayed blast at a location, dealing damage to nearby enemies. Deals increased damage to isolated enemies. ',
         image: {
           full: 'KarthusLayWasteA1.png'
         },
@@ -4020,7 +4020,7 @@ const champions: IChampions = {
         image: {
           full: 'EzrealE.png'
         },
-        cooldownBurn: '25/22/19/16/13'
+        cooldownBurn: '28/25/22/19/16'
       },
       {
         name: 'Trueshot Barrage',
@@ -4260,8 +4260,7 @@ const champions: IChampions = {
         full: 'Kennen_Passive.png'
       },
       name: 'Mark of the Storm',
-      sanitizedDescription:
-        "Kennen's abilities add one stack of Mark of the Storm to their target for 6 seconds. If the target reaches 3 stacks, it is stunned for 1.25 seconds and Kennen gains 25 Energy. The stun will be a diminished duration of 0.5 seconds if it occurs again within 6 seconds."
+      sanitizedDescription: 'Kennen stuns enemies he hits 3 times with his abilities.'
     },
     range: 'Ranged'
   },
@@ -7012,7 +7011,7 @@ const champions: IChampions = {
         image: {
           full: 'ZedW.png'
         },
-        cooldownBurn: '22/20/18/16/14'
+        cooldownBurn: '20/18.5/17/15.5/14'
       },
       {
         name: 'Shadow Slash',
@@ -8172,7 +8171,7 @@ const champions: IChampions = {
         image: {
           full: 'PykeQ.png'
         },
-        cooldownBurn: '12/11/10/9/8'
+        cooldownBurn: '10/9.5/9/8.5/8'
       },
       {
         name: 'Ghostwater Dive',

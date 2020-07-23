@@ -70,7 +70,7 @@ const summonerSpells: ISummonerSpells = {
     id: 6,
     name: 'Ghost',
     description:
-      'Your champion gains 20 - 40% Movement Speed (depending on champion level) and can move through units for 10 seconds. Ghost extends its duration on takedown.',
+      'For 10 seconds, your champion can move through units and gains 24 - 48% Movement Speed (depending on champion level). Ghost extends its duration on takedown.',
     image: {
       full: 'SummonerHaste.png',
       sprite: 'spell0.png',
