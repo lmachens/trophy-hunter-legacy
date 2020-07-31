@@ -436,7 +436,7 @@ const perks: IPerks = {
     shortDesc:
       'Swap Summoner Spells while out of combat. Swapping to unique Summoner Spells will increase the rate at which you can make future swaps.',
     longDesc:
-      'Swap one of your equipped Summoner Spells to a new, single use Summoner Spell. Each unique Summoner Spell you swap to permanently decreases your swap cooldown by 20s (initial swap cooldown is at 4 mins). Your first swap becomes available at 6 mins. Summoner Spells can only be swapped while out of combat. After using a swapped Summoner Spell you must swap 3 more times before the first can be selected again. '
+      'Swap one of your equipped Summoner Spells to a new, single use Summoner Spell. Each unique Summoner Spell you swap to permanently decreases your swap cooldown by 25s (initial swap cooldown is at 5 mins). Your first swap becomes available at 6 mins. Summoner Spells can only be swapped while out of combat. After using a swapped Summoner Spell you must swap 3 more times before the first can be selected again. '
   },
   '8401': {
     id: 8401,

@@ -977,7 +977,7 @@ const items: IItems = {
     id: 3161,
     name: 'Spear of Shojin',
     sanitizedDescription:
-      'After casting your ultimate, your basic attacks reduces your remaining non-ultimate cooldowns.',
+      'Reduce damage taken from champions by a flat amount. Attack while near multiple enemy champions to increase this amount for a short time.',
     tags: ['Health', 'Damage', 'CooldownReduction'],
     stacks: 0
   },

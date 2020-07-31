@@ -221,7 +221,7 @@ const champions: IChampions = {
         image: {
           full: 'PickACard.png'
         },
-        cooldownBurn: '6'
+        cooldownBurn: '8/7.5/7/6.5/6'
       },
       {
         name: 'Stacked Deck',
@@ -1471,7 +1471,7 @@ const champions: IChampions = {
       image: {
         full: 'Zilean_Passive.png'
       },
-      name: 'Time in a Bottle',
+      name: 'Time In A Bottle',
       sanitizedDescription:
         "Zilean stores time as Experience. When he has enough Experience to finish an ally's level, he can right-click them to impart it. Zilean receives as much Experience as he gives. Cannot be used in combat."
     },
@@ -2528,7 +2528,7 @@ const champions: IChampions = {
     ],
     passive: {
       image: {
-        full: 'Veigar_Entropy.png'
+        full: 'VeigarEntropy.png'
       },
       name: 'Phenomenal Evil Power',
       sanitizedDescription:
@@ -2604,11 +2604,11 @@ const champions: IChampions = {
       {
         name: "Death's Hand",
         sanitizedDescription:
-          'Swain unleashes several bolts of eldritch power that pierce through enemies hit and stop on impact with enemy champions. Enemies hit take more damage for each bolt they are struck by.',
+          'Swain unleashes several bolts of eldritch power that pierce through enemies. Enemies hit take more damage for each bolt they are struck by.',
         image: {
           full: 'SwainQ.png'
         },
-        cooldownBurn: '10/8.5/7/5.5/4'
+        cooldownBurn: '9/7.5/6/4.5/3'
       },
       {
         name: 'Vision of Empire',
@@ -2626,7 +2626,7 @@ const champions: IChampions = {
         image: {
           full: 'SwainE.png'
         },
-        cooldownBurn: '13/12/11/10/9'
+        cooldownBurn: '10'
       },
       {
         name: 'Demonic Ascension',
@@ -2644,7 +2644,7 @@ const champions: IChampions = {
       },
       name: 'Ravenous Flock',
       sanitizedDescription:
-        "Swain's ravens collect Soul Fragments that heal him and restore his mana. Swain can right-click an immobilized enemy champions to pull them closer to him, dealing damage and ripping out a Soul Fragment."
+        "Swain's ravens collect Soul Fragments that heal him and permanently increase his maximum health. Swain can right-click an immobilized enemy champions to pull them closer to him, dealing damage and ripping out a Soul Fragment."
     },
     range: 'Ranged'
   },
@@ -3036,7 +3036,7 @@ const champions: IChampions = {
       },
       name: 'Reign of Anger',
       sanitizedDescription:
-        'Renekton gains Fury for every autoattack he makes. This Fury can empower his abilities with bonus effects. Additionally, Renekton gains bonus Fury when he is low on life.'
+        "Renekton's attacks generate Fury, increased when he is low on life. This Fury can empower his abilities with bonus effects."
     },
     range: 'Melee'
   },
@@ -3345,7 +3345,7 @@ const champions: IChampions = {
         image: {
           full: 'BlindMonkWOne.png'
         },
-        cooldownBurn: '12'
+        cooldownBurn: '14'
       },
       {
         name: 'Tempest / Cripple',
@@ -7513,7 +7513,7 @@ const champions: IChampions = {
         image: {
           full: 'ThreshW.png'
         },
-        cooldownBurn: '22/19.5/17/14.5/12'
+        cooldownBurn: '22/20.5/19/17.5/16'
       },
       {
         name: 'Flay',
@@ -8266,6 +8266,62 @@ const champions: IChampions = {
         "Sett's basic attacks alternate between left and right punch. Right punch is slightly stronger and faster. Sett also hates losing, gaining additional health regeneration based off of his missing health."
     },
     range: 'Melee'
+  },
+  '876': {
+    id: 876,
+    key: 'Lillia',
+    name: 'Lillia',
+    title: 'the Bashful Bloom',
+    image: {
+      full: 'Lillia.png'
+    },
+    spells: [
+      {
+        name: 'Blooming Blows',
+        sanitizedDescription:
+          'Passively, Lillia gains stacking Move Speed when hitting enemies with spells. She can activate this to deal magic damage to nearby enemies, dealing extra true damage on the edge.',
+        image: {
+          full: 'LilliaQ.png'
+        },
+        cooldownBurn: '4'
+      },
+      {
+        name: 'Watch Out! Eep!',
+        sanitizedDescription:
+          'Lillia deals damage in a nearby area, dealing heavy damage in the center.',
+        image: {
+          full: 'LilliaW.png'
+        },
+        cooldownBurn: '14/13/12/11/10'
+      },
+      {
+        name: 'Swirlseed',
+        sanitizedDescription:
+          "Lillia hurls a seed that damages and slows those it lands on. If it doesn't hit anything, it will continue rolling until it hits a wall or target.",
+        image: {
+          full: 'LilliaE.png'
+        },
+        cooldownBurn: '12'
+      },
+      {
+        name: 'Lilting Lullaby',
+        sanitizedDescription:
+          'Lillia causes all enemies with Dream Dust on them to become Drowsy before falling asleep. Those enemies will take extra damage on being forcibly woken up.',
+        image: {
+          full: 'LilliaR.png'
+        },
+        cooldownBurn: '130/110/90'
+      }
+    ],
+    passive: {
+      image: {
+        full: 'Lillia_Icon_Passive.Lillia.png'
+      },
+      name: 'Dream-Laden Bough',
+      sanitizedDescription:
+        'Hitting a champion or monster with a skill will deal additional max Health damage over time.'
+    },
+    range: 'Ranged'
   }
 };
 
