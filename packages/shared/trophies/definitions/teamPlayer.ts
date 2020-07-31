@@ -16,7 +16,7 @@ const teamPlayer = {
     }
 
     {
-      const hasMinAssists = match.participant.stats.assists >= 12;
+      const hasMinAssists = match.participant.stats.assists >= 10;
       const hasMaxAssists = match.participant.stats.assists < 20;
       return hasMinAssists && hasMaxAssists;
     }
