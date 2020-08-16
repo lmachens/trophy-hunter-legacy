@@ -31,6 +31,7 @@ import universeTheme from './universeTheme';
 import { Tooltip } from '../components/generic/Tooltip';
 import ErrorBoundary from '../components/ErrorBoundary';
 import TABS from '../../api/settings/tabs';
+import ReforgedModal from '../components/ReforgedModal';
 
 const styles = {
   app: {
@@ -370,6 +371,7 @@ class AppLayout extends Component {
             )}
           </main>
         )}
+        <ReforgedModal />
       </div>
     );
   }
