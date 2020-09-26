@@ -10,7 +10,8 @@ const styles = {
     backgroundImage: 'url(/images/reforged.png)',
     backgroundSize: 'cover',
     zIndex: 1,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#cacacb'
   },
   close: {
     position: 'absolute',
@@ -25,14 +26,14 @@ const styles = {
     color: '#EAEAEA',
     fontSize: 16,
     padding: '4px 8px',
-    marginTop: 255,
+    marginTop: 232,
     fontFamily: 'Roboto Mono, Roboto',
     cursor: 'pointer'
   }
 };
 
 function ReforgedModal() {
-  const [closed, setClosed] = useState(Boolean(localStorage.getItem('sawReforgedAd')));
+  const [closed, setClosed] = useState(false);
 
   if (closed) {
     return null;
@@ -47,7 +48,6 @@ function ReforgedModal() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         onClick={() => {
-          localStorage.setItem('sawReforgedAd', 'true');
           setClosed(true);
         }}
         style={styles.close}
@@ -67,6 +67,10 @@ function ReforgedModal() {
       >
         Get it now!
       </button>
+      <p>
+        Trophy Hunter is deprecated and will be shutdown soon. Install Trophy Hunter Reforged (which
+        is under development) and keep hunting for trophies.
+      </p>
     </div>
   );
 }
